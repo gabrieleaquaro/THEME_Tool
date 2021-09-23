@@ -156,10 +156,15 @@
                   <small>Selezioni il tipo di compito dal menù a tendina.</small><br>
                   <div >
                     <select style="width:100%;">
-                      <option selected>Seleziona una opzione</option>
-                      <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                      <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                      <option value="3">Three</option>
+                      <option selected>Tipo di Compito</option>
+                      <option value="0.55">A: Completamente sconosciuto, eseguito a ritmo sostenuto. </option>
+                      <option value="0.26">B: Ripristino dello stato di un sistema, in un singolo tentativo, senza supervisione.</option>
+                      <option value="0.16">C: Elaborato e richiedente un alto livello di comprensione e di abilità.</option>
+                      <option value="0.02">D: Compito di routine richiedente un livello di abilità relativamente basso.</option>
+                      <option value="0.003">E: Ripristino dello stato di un sistema seguendo un procedimento ed eseguendo controlli. </option>
+                      <option value="0.00002">F: Risposta ad un comando in presenza di un sistema di assistenza o di supervisione automatica.</option>
+                      <option value="0.01">H1: Diagnostico (richiede di comprendere le condizioni esistenti, pianificare e dare priorità alle attività e determinare le linee d'azione appropriate).</option>
+                      <option value="0.001">H2: Compito operativo (ad es. l'utilizzo di apparecchiature, l'esecuzione di allestimenti, l'avvio di pompe, l'esecuzione di calibrazioni o test, etc.).</option>
                     </select>
                   </div>
       
@@ -179,14 +184,17 @@
           
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+              <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="100">Tempo insufficente </option>
+                <option value="50">Tempo minimo necessario </option>
+                <option value="10">Tempo Limitato </option>
+                <option value="1.0">Tempo preventivato </option>
+                <option value="0.1">Tempo Extra </option>  
+                <option value="1">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -195,17 +203,19 @@
               <textarea class="form-control" rows="1" ></textarea>
             </div>
           </div>
+          
           <br>
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
+              <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="5.0">Molto Pericoloso </option>
+                <option value="2.0">Moderatamente Pericoloso </option>
+                <option value="1.0">Non Pericoloso</option>
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -218,14 +228,16 @@
           <br>
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
+              <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="50.0">Molto Complesso </option>
+                <option value="10.0">Moderatamente Complesso </option>
+                <option value="1.0">Non Complesso</option>
+                <option value="0.1">Semplificato</option>
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -238,14 +250,17 @@
           <br>
           <div class="row justify-content-center align-self-center">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
+              <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="100.0">Conoscenze o abilità in contrasto con il comportamento corretto</option>
+                <option value="50.0">Nessuna esperienza o formazione specifica</option>
+                <option value="15.0">Poca esperienza o formazione specifica</option>
+                <option value="1.0">Esperienza e formazione come previsto</option>
+                <option value="0.1">Ampia esperienza e formazione </option>  
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -258,14 +273,17 @@
           <br>
           <div class="row justify-content-center align-self-center">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Procedure: </label>
+              <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="50.0">Procedure non disponibili o non utilizzate</option>
+                <option value="20.0">Procedure altamente insufficienti</option>
+                <option value="5.0">Procedure insufficienti</option>
+                <option value="1.0">Procedure adeguate seguite</option>
+                <option value="0.1">Procedure chiare e dettagliate che vengono seguite</option>  
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -278,14 +296,17 @@
           <br>
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
+              <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="100.0">Totalmente inadeguata</option>
+                <option value="50.0">Inadeguata</option>
+                <option value="10.0">Appena Inadeguata</option>
+                <option value="1.0">Adeguata</option>
+                <option value="0.1">Specificamente progettata per favorire la prestazione</option>  
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -298,14 +319,15 @@
           <br>
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
+              <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="100.0">Condizioni impossibilitanti</option>
+                <option value="10.0">Condizioni avverse</option>
+                <option value="1.0">Condizioni ambientali normali</option>
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -318,14 +340,15 @@
           <br>
           <div class="row">
             <div class="col-4">
-              <label for="DescrizioneTask" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
+              <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
             </div>
             <div class="col-8">
               <select style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
-                <option value="0.55"> A: Compito del tutto sconosciuto, eseguito a ritmo sostenuto. </option>
-                <option value="0.26">B: Compito in cui si vuole ripristinare lo stato  di un sistema, in un singolo tentativo, senza supervisione.</option>
-                <option value="3">Three</option>
+                <option value="100.0">Affaticamento elevato</option>
+                <option value="10.0">Affaticamento moderato</option>
+                <option value="1.0">Affaticamento normale</option>
+                <option value="1.0">Info non disponibili</option>
               </select>
             </div>
             <br>
@@ -337,14 +360,14 @@
 
           <!-- ###################################################################-->
           <br><br><br>
-          <div class="row" style="margin-bottom: 20px;"> 
-            <h4>La Probabilità di Errore Umano nel compito specificato è…</h4>
+          <div class="row border-bottom" style="margin-bottom: 20px;"> 
+            <h4>Report Probabilità Errore</h4>
           </div>
 
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
-                <h6 class="lead"> Performance Shaping Factor (PSF) </h6>
+                <h6 class="lead"> Probabilità di Errore Umano nel compito specificato</h6>
               </thead>
               <thead>
                 <tr>
