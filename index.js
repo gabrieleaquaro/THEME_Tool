@@ -9,6 +9,7 @@ function newApp() {
       slashes: true
     })
   );
+
 }
 
 app.on("ready", newApp);
