@@ -33,7 +33,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="../dashboard.css" rel="stylesheet">
+    <link href="../style/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -104,7 +104,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" onclick="save()">
                   <span data-feather="download"></span>
                   Salva 
                 </a>
@@ -141,7 +141,7 @@
                 
                   <div class="form-group">
                     <label for="DescrizioneTask" class = "lead">Descriva il compito rilevante per la sicurezza nel sito di osservazione:</label>
-                    <textarea class="form-control" id="DescrizioneTask" rows="3" ></textarea>
+                    <textarea class="form-control" id="DescrizioneTask" rows="3" onchange="updateJSON(event)" ></textarea>
                   </div>
                 
               </div>
@@ -155,7 +155,7 @@
                   <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
                   <small>Selezioni il tipo di compito dal menù a tendina.</small><br>
                   <div >
-                    <select id="TipoTask" onchange = "update_stats('TipoTask')" style="width:100%;">
+                    <select id="TipoTask" onchange="updateJSON(event)" style="width:100%;">
                       <option selected>Tipo di Compito</option>
                       <option value="0.55">A: Completamente sconosciuto, eseguito a ritmo sostenuto. </option>
                       <option value="0.26">B: Ripristino dello stato di un sistema, in un singolo tentativo, senza supervisione.</option>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="form-group">
                   <label>Note:</label>
-                  <textarea class="form-control" rows="1" ></textarea>
+                  <textarea id="TipoTask_note" class="form-control" rows="1" onchange="updateJSON(event)"></textarea>
                 </div>
               
             </div>
@@ -187,7 +187,7 @@
               <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSON(event)">
                 <option selected>Livello di Valutazione</option>
                 <option value="100">Tempo insufficente </option>
                 <option value="50">Tempo minimo necessario </option>
@@ -200,7 +200,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="TempoDispnibile_note" class="form-control" rows="1" onchange="updateJSON(event)" ></textarea>
             </div>
           </div>
           
@@ -210,7 +210,7 @@
               <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSON(event)">
                 <option selected>Livello di Valutazione</option>
                 <option value="5.0">Molto Pericoloso </option>
                 <option value="2.0">Moderatamente Pericoloso </option>
@@ -221,7 +221,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea  id="StressDaMinaccia_note" class="form-control" rows="1" onchange="updateJSON(event)" ></textarea>
             </div>
           </div>
 
@@ -231,7 +231,7 @@
               <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="ComplessitàTask" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="50.0">Molto Complesso </option>
                 <option value="10.0">Moderatamente Complesso </option>
@@ -243,7 +243,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="ComplessitàTask_note" onchange="updateJSON(event)" class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -253,7 +253,7 @@
               <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="Esperienza" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="100.0">Conoscenze o abilità in contrasto con il comportamento corretto</option>
                 <option value="50.0">Nessuna esperienza o formazione specifica</option>
@@ -266,7 +266,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="Esperienza_note" onchange="updateJSON(event)" class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -276,7 +276,7 @@
               <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="Procedure" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="50.0">Procedure non disponibili o non utilizzate</option>
                 <option value="20.0">Procedure altamente insufficienti</option>
@@ -289,7 +289,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="Procedure_note" onchange="updateJSON(event)" class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -299,7 +299,7 @@
               <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="InterazioneUmanoMacchina" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="100.0">Totalmente inadeguata</option>
                 <option value="50.0">Inadeguata</option>
@@ -312,7 +312,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="InterazioneUmanoMacchina_note" onchange="updateJSON(event)" class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -322,7 +322,7 @@
               <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="ContestoAmbientale" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="100.0">Condizioni impossibilitanti</option>
                 <option value="10.0">Condizioni avverse</option>
@@ -333,7 +333,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="ContestoAmbientale_note" onchange="updateJSON(event)" class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -343,7 +343,7 @@
               <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
             </div>
             <div class="col-8">
-              <select style="width: 100%;">
+              <select id="Affaticamento" onchange="updateJSON(event)" style="width: 100%;">
                 <option selected>Livello di Valutazione</option>
                 <option value="100.0">Affaticamento elevato</option>
                 <option value="10.0">Affaticamento moderato</option>
@@ -354,7 +354,7 @@
             <br>
             <div class="form-group">
               <label>Note:</label>
-              <textarea class="form-control" rows="1" ></textarea>
+              <textarea id="Affaticamento_note" onchange="updateJSON(event)"  class="form-control" rows="1" ></textarea>
             </div>
           </div>
 
@@ -396,5 +396,6 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script> 
+    <script src="../scripts/dashboard.js"></script>
   </body>
 </html>
