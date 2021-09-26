@@ -147,13 +147,7 @@
                     </tr>
                   </thead>
                   <tbody id ="tBody">
-                    <tr>
-                      <td>1,001</td>
-                      <td>random</td>
-                      <td>data</td>
-                      <td>placeholder</td>
-                      <td>text</td>
-                    </tr>
+
                   </tbody>
                 </table>
               </div>
@@ -170,8 +164,46 @@
     <script src="../scripts/json.js"></script>
 
     <script>
-        var files = fs.readdirSync('/assets/photos/');
-        console.log(files)
+        var files = fs.readdirSync('./dati');
+        reports = []
+        // read file
+        Object.keys(files).forEach(function(key) {
+            let rawdata = fs.readFileSync('./dati/' + files[key]);
+            let report = JSON.parse(rawdata);
+            reports.push(report)
+        })
+
+        // sort file by data
+        reports.sort(function(a,b) {
+                return b.date - a.date
+            });
+
+        // insert file in table
+        reports.forEach(function(el) {
+            var tr = document.createElement("tr");
+            // nome
+            var td_name = document.createElement("td")
+            td_name.innerText = el["name"]
+            tr.append(td_name)
+
+            // data
+            var td_date = document.createElement("td")
+            td_date.innerText = el["dateToPrint"]
+            tr.append(td_date)
+
+            // bottone di modifica
+            var td_date = document.createElement("td")
+            td_date.inneHTML = el["dateToPrint"]
+            tr.append(td_date)
+
+            // bottone di elimina
+            var td_date = document.createElement("td")
+            td_date.innerText = el["dateToPrint"]
+            tr.append(td_date)
+
+            const element = document.getElementById("tBody");
+            element.appendChild(tr);
+        })
     </script>
 
     
