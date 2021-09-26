@@ -33,7 +33,7 @@
     <link href="../style/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <div style="display: none;" id="title">prob_errore</div>
+    <div style="display: none;" id="title"></div>
 
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -46,79 +46,84 @@
     <!-- NAvigation BAr -->
     <div class="container-fluid">
       <div class="row">
-
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-          <div class="position-sticky pt-3">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.html">
-                  <span data-feather="home"></span>
-                  Introduzione 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="alert-triangle"></span>
-                  Probabilità D'Errore
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./barriere_dirette.html">
-                  <span data-feather="code"></span>
-                  Barriere Dirette
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./barriere_salvaguardia.html">
-                  <span data-feather="life-buoy"></span>
-                  Barriere Salvaguardia
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./valori_culturali.html">
-                  <span data-feather="bar-chart-2"></span>
-                  Valori Culturali 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./risultati.html">
-                  <span data-feather="activity"></span>
-                  Risultati
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./interventi.html">
-                  <span data-feather="layers"></span>
-                  Interventi
-                </a>
-              </li>
-            </ul>        
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Salvataggio Reports</span>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="newReport()">
-                  <span data-feather="plus-circle"></span>
-                  Nuovo File
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="save()">
-                  <span data-feather="download"></span>
-                  Scarica File
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="upload"></span>
-                  Carica da File
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../index.html">
+                    <span data-feather="home"></span>
+                    Introduzione 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./prob_errore.html">
+                    <span data-feather="alert-triangle"></span>
+                    Probabilità D'Errore
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./barriere_dirette.html">
+                    <span data-feather="code"></span>
+                    Barriere Dirette
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./barriere_salvaguardia.html">
+                    <span data-feather="life-buoy"></span>
+                    Barriere Salvaguardia
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./valori_culturali.html">
+                    <span data-feather="bar-chart-2"></span>
+                    Valori Culturali 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./risultati.html">
+                    <span data-feather="activity"></span>
+                    Risultati
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./interventi.html">
+                    <span data-feather="layers"></span>
+                    Interventi
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                    <span data-feather="file-text"></span>
+                    Reports
+                  </a>
+                </li>
+              </ul>        
+  
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Salvataggio Reports</span>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="newReport()">
+                    <span data-feather="file-plus"></span>
+                    Nuovo Report
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="save()">
+                    <span data-feather="download"></span>
+                    Scarica Report
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="upload"></span>
+                    Carica Report
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
       
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="padding-bottom: 50px;">
     <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -192,14 +197,14 @@
             tr.append(td_date)
 
             // bottone di modifica
-            var td_date = document.createElement("td")
-            td_date.inneHTML = el["dateToPrint"]
-            tr.append(td_date)
+            var td_button_modify = document.createElement("td")
+            td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+el["name"]+"'"+')" >Modifica</button>'
+            tr.append(td_button_modify)
 
             // bottone di elimina
-            var td_date = document.createElement("td")
-            td_date.innerText = el["dateToPrint"]
-            tr.append(td_date)
+            var td_button_delete = document.createElement("td")
+            td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete('+"'"+el["name"]+"'"+')">Elimina</button>'
+            tr.append(td_button_delete)
 
             const element = document.getElementById("tBody");
             element.appendChild(tr);

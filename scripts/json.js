@@ -15,14 +15,17 @@ console.log(report);
 var currentPage = document.getElementById("title").innerText
 
 // con dati.json modifica tutti i campi nella pagina
-if (report[currentPage] == null){
-    report[currentPage] = {}
+if(currentPage != ""){
+    if (report[currentPage] == null){
+        report[currentPage] = {}
+    }
+    
+    Object.keys(report[currentPage]).forEach(function(key) {
+        console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
+        document.getElementById(key).value = report[currentPage][key]
+    })
+    
 }
-
-Object.keys(report[currentPage]).forEach(function(key) {
-    console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
-    document.getElementById(key).value = report[currentPage][key]
-})
 
 
 
@@ -60,6 +63,7 @@ function newReport(){
 function updateCurrent(report_name){
     config["currentReport"] = report_name
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
+    console.log("Update to " + report_name)
 }
 
 //Saves the current report status into a file
@@ -88,3 +92,6 @@ function download(filename, text) {
 // TODO
 // - insierie pagina con tabella che legga tutti i file in dati
 // - dare la possibilità di cambiare nome al file json
+// - sistemare data print aggiungendo anno e togliendo underscore
+// - aggiungere nel dict anche il nome del file
+// - sistemare menu laterale reports 
