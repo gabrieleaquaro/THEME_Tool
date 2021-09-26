@@ -1,5 +1,5 @@
-{ 
-  "name": "THEME Tool",
+{
+  "name": "THEME_Tool",
   "version": "1.0.0",
   "description": "Hello World!",
   "main": "index.js",
@@ -23,12 +23,14 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./icon"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "THEMEtool"
+            "name": "THEME_Tool"
           }
         },
         {

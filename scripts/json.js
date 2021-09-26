@@ -1,16 +1,27 @@
-// read current file from config.json - subito
 'use strict';
 const fs = require('fs');
 
-let rawdata = fs.readFileSync('./config.json');
+// Check that config file exists or create it
+let rawdata
+if (!fs.existsSync('./config.json')){
+    fs.writeFileSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
+}
+rawdata = fs.readFileSync('./config.json'); 
 let config = JSON.parse(rawdata);
-console.log(config);
 var currentReport = config["currentReport"]
 
-// usa la variabile del config.json per caricare i dati.json
+// Checks taht dati folder exists
+if(!fs.existsSync('./dati/')){
+    fs.mkdirSync('./dati/');
+}
+
+//Checks that the current report exists and load it
+if(!fs.existsSync('./dati/' + currentReport)){
+    let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
+    fs.writeFileSync('./dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
+}
 rawdata = fs.readFileSync('./dati/' + currentReport);
 let report = JSON.parse(rawdata);
-console.log(report);
 
 var currentPage = document.getElementById("title").innerText
 
@@ -54,7 +65,6 @@ function newReport(){
 
    
     data = JSON.stringify(data, null, 4)
-    console.log(typeof data)
     fs.writeFileSync('./dati/' + report_name, data);
     updateCurrent(report_name)
 }

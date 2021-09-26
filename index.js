@@ -2,11 +2,12 @@ const { app, BrowserWindow } = require("electron");
 const url = require("url");
 
 function newApp() {
-  win = new BrowserWindow({icon:'./images/icon.png',
+  win = new BrowserWindow({icon:'./icon.ico',
                            webPreferences: {
                               nodeIntegration: true,
                               contextIsolation: false,
-                          }
+                          }, 
+                          autoHideMenuBar  : true,
                         });
   win.loadFile('./index.html');
 }
