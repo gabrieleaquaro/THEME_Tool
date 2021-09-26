@@ -14,9 +14,6 @@ function newApp() {
       slashes: true
     })    
   );
-  //report is a JSON dictionary containing all the current data 
-  report = JSON.parse("{}")
-  report["creation_date"] = new Date().getDate() + "_" + new Date().getMonth();
 }
 
 app.on("ready", newApp);
