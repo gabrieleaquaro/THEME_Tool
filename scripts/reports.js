@@ -32,7 +32,7 @@ reports.forEach(function(el) {
 
     // bottone di elimina
     var td_button_delete = document.createElement("td")
-    td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete('+"'"+el["name"]+"'"+')">Elimina</button>'
+    td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete_report('+"'"+el["name"]+"'"+')">Elimina</button>'
     tr.append(td_button_delete)
 
     const element = document.getElementById("tBody");

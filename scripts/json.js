@@ -80,6 +80,11 @@ function updateCurrent(report_name){
     console.log("Update to " + report_name)
 }
 
+//delete the report file with the passed name
+function delete_report(name){
+    //TODO
+}
+
 //Saves the current report status into a file
 function save(){
     var d = new Date();
