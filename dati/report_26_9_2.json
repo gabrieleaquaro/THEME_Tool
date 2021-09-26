@@ -6,8 +6,8 @@
         "TipoTask": "0.26",
         "TempoDisponibie": "10",
         "TempoDispnibile_note": "Pippo franco",
-        "StressDaMinaccia": "2.0",
-        "ComplessitàTask": "10.0"
+        "StressDaMinaccia": "1.0",
+        "ComplessitàTask": "10.0",
+        "StressDaMinaccia_note": "Note...."
     }
-
 }

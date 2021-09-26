@@ -8,12 +8,13 @@ function newApp() {
                               contextIsolation: false,
                           }
                         });
-  win.loadURL(
-    url.format({
-      pathname: "index.html",
-      slashes: true
-    })    
-  );
+  win.loadFile('./index.html');
 }
 
-app.on("ready", newApp);
+app.whenReady().then(() => {
+  newApp()
+})
+
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit()
+})
