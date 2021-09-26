@@ -16,6 +16,8 @@
   </head>
 
   <body>
+    <div style="display: none;" id="title">barriere_salvaguardia</div>
+
     
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../index.html">THEME Tool </a>
@@ -71,25 +73,34 @@
                   Interventi
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/reports.html">
+                  <span data-feather="file-text"></span>
+                  Reports
+                </a>
+              </li>
             </ul>
           
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Salvataggio Reports</span>
-              <a class="link-secondary" href="#" aria-label="Add a new report">
-                <span data-feather="plus-circle"></span>
-              </a>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
+                <a class="nav-link" href="#" onclick="newReport()">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" onclick="save()">
                   <span data-feather="download"></span>
-                  Salva 
+                  Scarica Report 
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="upload"></span>
-                  Carica da File
+                  Carica Report
                 </a>
               </li>
             </ul>
@@ -116,7 +127,7 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
     <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>
   </body>
 </html>

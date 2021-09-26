@@ -64,7 +64,7 @@ function updateCurrent(report_name){
 
 //Saves the current report status into a file
 function save(){
-    d = new Date();
+    var d = new Date();
     var filename = "report_" + d.getDate()+ "_" + d.getMonth();
     var text = JSON.stringify(global.report)
     download(filename, text);

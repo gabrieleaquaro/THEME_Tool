@@ -1,5 +1,12 @@
 {
-    "name": "report_26_9_2.json",
-    "date": 1632653607941,
-    "dateToPrint": "26_9_2021"
+    "date": 1632654014176,
+    "dateToPrint": "26_9_2021",
+    "prob_errore": {
+        "TipoTask": "0.26",
+        "TempoDisponibie": "10",
+        "TempoDispnibile_note": "Pippo franco",
+        "StressDaMinaccia": "2.0",
+        "ComplessitàTask": "10.0"
+    }
+
 }
