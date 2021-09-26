@@ -34,6 +34,7 @@ function updateJSON(e){
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
 
+// create new report
 function newReport(){
 
     var data = {
