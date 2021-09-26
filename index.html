@@ -48,43 +48,43 @@
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" id="homeIndex" href ="#" onclick="changeFrame(this,'./pages/home.html')">
                   <span data-feather="home"></span>
                   Introduzione 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/prob_errore.html">
+                <a class="nav-link" href ="#" onclick="changeFrame(this,'./pages/prob_errore.html')">
                   <span data-feather="alert-triangle"></span>
-                  Probailità d'errore
+                  Probabilità D'Errore
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/barriere_dirette.html">
+                <a class="nav-link"  href ="#" onclick="changeFrame(this,'./pages/barriere_dirette.html')">
                   <span data-feather="code"></span>
                   Barriere Dirette
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/barriere_salvaguardia.html">
+                <a class="nav-link"  href ="#" onclick="changeFrame(this,'./pages/barriere_salvaguardia.html')">
                   <span data-feather="life-buoy"></span>
                   Barriere Salvaguardia
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/valori_culturali.html">
+                <a class="nav-link"  href ="#" onclick="changeFrame(this,'./pages/valori_culturali.html')">
                   <span data-feather="bar-chart-2"></span>
                   Valori Culturali 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/risultati.html">
+                <a class="nav-link"  href ="#" onclick="changeFrame(this,'./pages/risultati.html')" >
                   <span data-feather="activity"></span>
                   Risultati
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/interventi.html">
+                <a class="nav-link" href ="#" onclick="changeFrame(this,'./pages/interventi.html')" >
                   <span data-feather="layers"></span>
                   Interventi
                 </a>
@@ -101,7 +101,7 @@
               <li class="nav-item">
                 <a class="nav-link" onclick="save()">
                   <span data-feather="download"></span>
-                  Salva 
+                  Scarica File
                 </a>
               </li>
               <li class="nav-item">
@@ -115,7 +115,7 @@
         </nav>
         
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <iframe frameborder="0" scrolling="no" onload="resizeIframe(this)" src="./pages/home.html"></iframe>
+            <iframe style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)" src="./pages/home.html" id="frame"></iframe>
         </main>
           
       </div>
