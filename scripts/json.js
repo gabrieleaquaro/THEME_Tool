@@ -51,11 +51,12 @@ function updateJSON(e){
 // create new report
 function newReport(){
 
+    var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + ".json"
     var data = {
+        "name" : report_name,
         "date": Date.now(),
         "dateToPrint": new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
     }
-    var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + ".json"
     
     var i = 1
     while(fs.existsSync('./dati/' + report_name)){
@@ -67,6 +68,9 @@ function newReport(){
     data = JSON.stringify(data, null, 4)
     fs.writeFileSync('./dati/' + report_name, data);
     updateCurrent(report_name)
+    if(currentPage == ""){
+        location.reload();
+    }
 }
 
 // update stats in config of current report
@@ -80,7 +84,7 @@ function updateCurrent(report_name){
 function save(){
     var d = new Date();
     var filename = "report_" + d.getDate()+ "_" + d.getMonth();
-    var text = JSON.stringify(global.report)
+    var text = fs.readFileSync('./dati/' + currentReport);
     download(filename, text);
 }
 
