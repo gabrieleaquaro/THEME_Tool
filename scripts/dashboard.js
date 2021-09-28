@@ -6,16 +6,14 @@ function load_data(event){
 
 }
 
-function snackbarShow() {
-    // Get the snackbar DIV
+function snackbarShow(color = "#5cd65c", text = "Nuovo report creato e pronto per la modifica!"){
     var x = document.getElementById("snackbar");
-  
-    // Add the "show" class to DIV
+    x.style.backgroundColor = color;
+    //SHOW
     x.className = "show";
-  
-    // After 3 seconds, remove the show class from DIV
+    x.innerText = text;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
+}
 
 //Update the results at the end of the page, given the pageTitle
 

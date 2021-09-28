@@ -64,12 +64,13 @@ function newReport(){
         "dateToPrint": new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
     }
        
-    data = JSON.stringify(data, null, 4);
-    fs.writeFileSync('./dati/' + report_name, data);
+    var data_string = JSON.stringify(data, null, 4);
+    fs.writeFileSync('./dati/' + report_name, data_string);
     updateCurrent(report_name);
     if(currentPage == ""){
-        location.reload();
+        addRow(data);
     }
+    snackbarShow();
 }
 
 // update stats in config of current report
@@ -81,17 +82,20 @@ function updateCurrent(report_name){
 
 //delete the report file with the passed name
 function delete_report(name){
-    if (confirm('Sei sicuro di voler cancellare questo report? (L\'azione non è resersibile!)')) {
+    if (confirm('Sei sicuro di voler cancellare questo report? (AZIONE IRREVERSIBILE!)')) {
         fs.unlinkSync("./dati/" + name);
         if(name  == currentReport){
             updateCurrent("default.json");
         }
-        location.reload()
+        removeRow(name);
+        snackbarShow("#dd1a1a", "Report Eliminato");
+        
     }
     else {
-      console.log("Elimina annullata dall'utente.") 
+        var color = "#ffe066";
+        var text = "Eliminazione Annullata, report conservato";
+        snackbarShow(color , text);
       }
-    
     }
 
 //Saves the current report status into a file
