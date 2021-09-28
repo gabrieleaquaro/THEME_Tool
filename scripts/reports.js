@@ -23,6 +23,10 @@ function addRow(report){
 
     const element = document.getElementById("tBody");
     element.appendChild(tr);
+
+    if (report["name"] == currentReport){
+        setUnmodifiable(report["name"]);
+    }
 }
 
 var files = fs.readdirSync('./dati/');
@@ -44,4 +48,12 @@ reports.forEach(report =>addRow(report));
 function removeRow(report_name){
     x = document.getElementById(report_name);
     x.parentNode.removeChild(x);
+}
+
+function setUnmodifiable(report_name){
+    document.getElementById(report_name).getElementsByTagName("button")[0].disabled = true;
+}
+
+function setModifiable(report_name){
+    document.getElementById(report_name).getElementsByTagName("button")[0].disabled = false;
 }

@@ -75,9 +75,15 @@ function newReport(){
 
 // update stats in config of current report
 function updateCurrent(report_name){
+    var old_rep = config["currentReport"];
     config["currentReport"] = report_name
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
-    console.log("Current report set to " + report_name)
+    snackbarShow("#5cd65c", "Report Corrente Aggiornato");
+    if(currentPage == ""){
+        setUnmodifiable(report_name);
+        setModifiable(old_rep);
+    }
+
 }
 
 //delete the report file with the passed name
@@ -120,10 +126,3 @@ function download(filename, text) {
   
     document.body.removeChild(element);
  }
-
-// TODO
-// - insierie pagina con tabella che legga tutti i file in dati
-// - dare la possibilità di cambiare nome al file json
-// - sistemare data print aggiungendo anno e togliendo underscore
-// - aggiungere nel dict anche il nome del file
-// - sistemare menu laterale reports 
