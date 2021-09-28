@@ -28,6 +28,7 @@
 
     <div class="container-fluid">
       <div class="row">
+        <!-- NAVBAR BLOCK -->
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
@@ -86,7 +87,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="newReport()">
+                <a class="nav-link" href="#" onclick="newReport(); snackbarShow()">
                   <span data-feather="file-plus"></span>
                   Nuovo Report
                 </a>
@@ -94,7 +95,7 @@
               <li class="nav-item">
                 <a class="nav-link" onclick="save()">
                   <span data-feather="download"></span>
-                  Scarica Report
+                  Scarica Report 
                 </a>
               </li>
               <li class="nav-item">
@@ -106,87 +107,83 @@
             </ul>
           </div>
         </nav>
+
+        <!-- SNACKBARS BLOCK -->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-12 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">RISULTATI </h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Button1</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Button2</button>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
+                <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">PSF</th>
+                      <th scope="col">Probabilità d'Errore</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Tempo disponibile</td>
+                      <td style="background-color: #10cf00;">0.1</td>
+                    </tr>
+                    <tr>
+                      <td>Pericolosità del Compito</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Complessità del Compito</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Esperienza/ Formazione</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Procedure</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Interazione Umano-Macchina</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Contesto Ambientale</td>
+                      <td style="background-color: #22ff0e;">1</td>
+                    </tr>
+                    <tr>
+                      <td>Affaticamento</td>
+                      <td style="background-color: #fffb0e;">1.5</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="position: relative; height:50px;" align ="center">
+                <canvas id="chart"></canvas>
+              </div>
+            </div>
+          </div>           
+        </main>
+      
       </div>
     </div>
-
-    <main class="col-md-12 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">RISULTATI </h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Button1</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Button2</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
-            <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
-          </button>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">PSF</th>
-                  <th scope="col">Probabilità d'Errore</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tempo disponibile</td>
-                  <td style="background-color: #10cf00;">0.1</td>
-                </tr>
-                <tr>
-                  <td>Pericolosità del Compito</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Complessità del Compito</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Esperienza/ Formazione</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Procedure</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Interazione Umano-Macchina</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Contesto Ambientale</td>
-                  <td style="background-color: #22ff0e;">1</td>
-                </tr>
-                <tr>
-                  <td>Affaticamento</td>
-                  <td style="background-color: #fffb0e;">1.5</td>
-                </tr>
-              
-              </tbody>
-            </table>
-          </div>
-   
-        
-
-        </div>
-        <div class="col-6">
-          <div style="position: relative; height:50px;" align ="center">
-            <canvas id="chart"></canvas>
-          </div>
-        </div>
-      </div>
-
-
-
-
-    
-    </main>
-
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>

@@ -36,6 +36,7 @@ if(currentPage != ""){
         document.getElementById(key).value = report[currentPage][key]
     })
     
+    updateResults(currentPage, report);
 }
 
 
@@ -50,24 +51,22 @@ function updateJSON(e){
 
 // create new report
 function newReport(){
+   
+    var i = 1;
+    do{
+        var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+".json";
+        i++;
+    }while(fs.existsSync('./dati/' + report_name));
 
-    var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + ".json"
     var data = {
         "name" : report_name,
         "date": Date.now(),
         "dateToPrint": new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
     }
-    
-    var i = 1
-    while(fs.existsSync('./dati/' + report_name)){
-        report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+".json"
-        i++
-    }
-
-   
-    data = JSON.stringify(data, null, 4)
+       
+    data = JSON.stringify(data, null, 4);
     fs.writeFileSync('./dati/' + report_name, data);
-    updateCurrent(report_name)
+    updateCurrent(report_name);
     if(currentPage == ""){
         location.reload();
     }
@@ -77,13 +76,23 @@ function newReport(){
 function updateCurrent(report_name){
     config["currentReport"] = report_name
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
-    console.log("Update to " + report_name)
+    console.log("Current report set to " + report_name)
 }
 
 //delete the report file with the passed name
 function delete_report(name){
-    //TODO
-}
+    if (confirm('Sei sicuro di voler cancellare questo report? (L\'azione non è resersibile!)')) {
+        fs.unlinkSync("./dati/" + name);
+        if(name  == currentReport){
+            updateCurrent("default.json");
+        }
+        location.reload()
+    }
+    else {
+      console.log("Elimina annullata dall'utente.") 
+      }
+    
+    }
 
 //Saves the current report status into a file
 function save(){
