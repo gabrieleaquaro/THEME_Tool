@@ -25,20 +25,23 @@ let report = JSON.parse(rawdata);
 
 var currentPage = document.getElementById("title").innerText
 
-// con dati.json modifica tutti i campi nella pagina
-if(currentPage != ""){
-    if (report[currentPage] == null){
-        report[currentPage] = {}
-    }
-    
-    Object.keys(report[currentPage]).forEach(function(key) {
-        console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
-        document.getElementById(key).value = report[currentPage][key]
-    })
-    
-    updateResults(currentPage, report);
-}
+updatePage(report)
 
+function updatePage(report){
+    // con dati.json modifica tutti i campi nella pagina
+    if(currentPage != ""){
+        if (report[currentPage] == null){
+            report[currentPage] = {}
+        }
+        
+        Object.keys(report[currentPage]).forEach(function(key) {
+            console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
+            document.getElementById(key).value = report[currentPage][key]
+        })
+        
+        updateResults(currentPage, report);
+    }
+}
 
 
 // on change fai si che dati.json venga modificato e poi salva il file nel path
@@ -51,7 +54,6 @@ function updateJSON(e){
 
 // create new report
 function newReport(){
-   
     var i = 1;
     do{
         var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+".json";
@@ -66,34 +68,37 @@ function newReport(){
        
     var data_string = JSON.stringify(data, null, 4);
     fs.writeFileSync('./dati/' + report_name, data_string);
-    updateCurrent(report_name);
     if(currentPage == ""){
         addRow(data);
     }
     snackbarShow();
+    updateCurrent(report_name, false);
 }
 
 // update stats in config of current report
-function updateCurrent(report_name){
+function updateCurrent(report_name, printSnackbar = true){
     var old_rep = config["currentReport"];
     config["currentReport"] = report_name
+
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
-    snackbarShow("#5cd65c", "Report Corrente Aggiornato");
+    if(printSnackbar){
+        snackbarShow("#5cd65c", "Report Corrente Aggiornato");
+    }
     if(currentPage == ""){
         setUnmodifiable(report_name);
         setModifiable(old_rep);
     }
-
+    updatePage(JSON.parse(fs.readFileSync('./dati/' + report_name)));
 }
 
 //delete the report file with the passed name
 function delete_report(name){
     if (confirm('Sei sicuro di voler cancellare questo report? (AZIONE IRREVERSIBILE!)')) {
-        fs.unlinkSync("./dati/" + name);
         if(name  == currentReport){
             updateCurrent("default.json");
         }
         removeRow(name);
+        fs.unlinkSync("./dati/" + name);
         snackbarShow("#dd1a1a", "Report Eliminato");
         
     }
@@ -126,3 +131,15 @@ function download(filename, text) {
   
     document.body.removeChild(element);
  }
+
+
+function resetCurrent(){
+    if (confirm('Resettare questo report allo stato originale?')){
+    
+    }
+    else{
+        var color = "#ffe066";
+        var text = "Reset Annullato";
+        snackbarShow(color , text);
+    }
+}
