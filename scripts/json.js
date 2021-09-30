@@ -48,12 +48,19 @@ function updatePage(report){
 
 
 // on change fai si che dati.json venga modificato e poi salva il file nel path
-function updateJSON(e){
+function updateJSONevent(e){
     var field = e.target.id;
     var data = e.target.value;
+    updateJSON(field,data)
+    refreshPage()
+}
+
+function updateJSON(field,data){
     report[currentPage][field] = data;
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
+
+
 
 // create new report
 function newReport(){
@@ -66,7 +73,7 @@ function newReport(){
     var data = {
         "name" : report_name,
         "date": Date.now(),
-        "dateToPrint": new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
+        "dateToPrint": new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
     }
        
     var data_string = JSON.stringify(data, null, 4);
@@ -152,3 +159,7 @@ function resetCurrent(){
 function showUpdate(){
     document.getElementById("current_report_title").innerText = currentReport.split(".")[0]
 }
+
+function refreshPage(){
+    document.location.reload(true)
+  }
