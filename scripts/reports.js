@@ -35,8 +35,6 @@ function addRow(report){
 
 }
 
-
-
 function removeRow(report_name){
     x = document.getElementById(report_name);
     x.parentNode.removeChild(x);

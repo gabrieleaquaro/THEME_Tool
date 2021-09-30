@@ -385,9 +385,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td id="PSFComposto">- </td>
+                  <td id="PSFComposto"> - </td>
                   <td id="ProbErrore"> -  </td>
-                  <td id="ProbErroreAdj"> -</td>
+                  <td id="ProbErroreAdj"> - </td>
                 </tr>
               
               </tbody>
@@ -403,38 +403,6 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
     <script src="../scripts/dashboard.js"></script>
-    <script src="../scripts/json.js"></script>
-    <script >
-
-      PSFComposto = 1
-      
-
-      for (const [key, value] of Object.entries(report[currentPage])) {
-        if(key != "TipoTask" && key != "PSFComposto"&& key != "ProbErrore"&& key != "ProbErroreAdj"){
-          PSFComposto *= value
-        }
-      }
-
-      tipotask = document.getElementById("TipoTask").value
-      if(tipotask != 1){
-        ProbErrore = PSFComposto *tipotask
-
-        ProbErroreAdj = ProbErrore/(tipotask*(PSFComposto-1)+1)
-
-        document.getElementById("PSFComposto").innerText = PSFComposto
-        updateJSON("PSFComposto",PSFComposto)
-
-        document.getElementById("ProbErrore").innerText = ProbErrore
-        updateJSON("ProbErrore",ProbErrore)
-
-        document.getElementById("ProbErroreAdj").innerText = ProbErroreAdj
-        updateJSON("ProbErroreAdj",ProbErroreAdj)
-      }
-
-   
-
-
-    </script>
-    
+    <script src="../scripts/json.js"></script>   
   </body>
 </html>

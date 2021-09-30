@@ -52,7 +52,8 @@ function updateJSONevent(e){
     var field = e.target.id;
     var data = e.target.value;
     updateJSON(field,data)
-    refreshPage()
+    //In update results le tabelle alla fine di ogni pagina vengono riempite
+    updateResults(currentPage, report) 
 }
 
 function updateJSON(field,data){
@@ -147,7 +148,7 @@ function download(filename, text) {
 
 function resetCurrent(){
     if (confirm('Resettare questo report allo stato originale?')){
-    
+        //TODO
     }
     else{
         var color = "#ffe066";
