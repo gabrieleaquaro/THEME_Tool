@@ -1,5 +1,8 @@
 - aggiungere nome del current report nell'header a destra
 - sistemare button di modifica e di elimina
-- sistemare i grafici
-- creare logica prob_errore
+- Reset button
+- Help button (Documentation)
+- Homepage (?)
+- Upload file (everything)
+- Scaricare in locale i grafici in modo che funzionino offline (librerie)
 - aggiungere funzione di ricerca e filtraggio
