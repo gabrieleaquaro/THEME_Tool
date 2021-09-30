@@ -1,0 +1,4 @@
+- aggiungere nome del current report nell'header a destra
+- sistemare button di modifica e di elimina
+- sistemare i grafici
+- creare logica prob_errore

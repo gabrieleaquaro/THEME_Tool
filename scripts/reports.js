@@ -2,7 +2,7 @@ function addRow(report){
     var tr = document.createElement("tr");
     // nome
     var td_name = document.createElement("td")
-    td_name.innerText = report["name"]
+    td_name.innerText = report["name"].split(".")[0]
     tr.id = report["name"];
     tr.append(td_name)
 
@@ -27,23 +27,15 @@ function addRow(report){
     if (report["name"] == currentReport){
         setUnmodifiable(report["name"]);
     }
+
+    if (report["name"] == "default.json"){
+        setUnmodifiable(report["name"]);
+        setUndeleteble(report["name"]);
+    }
+
 }
 
-var files = fs.readdirSync('./dati/');
-reports = []
-// read file
-Object.keys(files).forEach(function(key) {
-    let rawdata = fs.readFileSync('./dati/' + files[key]);
-    let report = JSON.parse(rawdata);
-    reports.push(report)
-})
 
-// sort file by data
-reports.sort(function(a,b) {
-        return b.date - a.date
-    });
-// insert file in table
-reports.forEach(report =>addRow(report));
 
 function removeRow(report_name){
     x = document.getElementById(report_name);
@@ -57,3 +49,29 @@ function setUnmodifiable(report_name){
 function setModifiable(report_name){
     document.getElementById(report_name).getElementsByTagName("button")[0].disabled = false;
 }
+
+function setUndeleteble(report_name){
+    document.getElementById(report_name).getElementsByTagName("button")[1].disabled = true;
+}
+
+function refreshReports(){
+    document.getElementById("tBody").innerHTML = "";
+    var files = fs.readdirSync('./dati/');
+    reports = []
+    // read file
+    Object.keys(files).forEach(function(key) {
+        let rawdata = fs.readFileSync('./dati/' + files[key]);
+        let report = JSON.parse(rawdata);
+        reports.push(report)
+    })
+    
+    // sort file by data
+    reports.sort(function(a,b) {
+            return b.date - a.date
+        });
+    // insert file in table
+    reports.forEach(report =>addRow(report));
+}
+
+refreshReports()
+

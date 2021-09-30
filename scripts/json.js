@@ -10,6 +10,9 @@ rawdata = fs.readFileSync('./config.json');
 let config = JSON.parse(rawdata);
 var currentReport = config["currentReport"]
 
+// mostrare report a video
+showUpdate()
+
 // Checks taht dati folder exists
 if(!fs.existsSync('./dati/')){
     fs.mkdirSync('./dati/');
@@ -69,7 +72,7 @@ function newReport(){
     var data_string = JSON.stringify(data, null, 4);
     fs.writeFileSync('./dati/' + report_name, data_string);
     if(currentPage == ""){
-        addRow(data);
+        refreshReports(data);
     }
     snackbarShow();
     updateCurrent(report_name, false);
@@ -79,8 +82,10 @@ function newReport(){
 function updateCurrent(report_name, printSnackbar = true){
     var old_rep = config["currentReport"];
     config["currentReport"] = report_name
+    currentReport = report_name
 
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
+    showUpdate()
     if(printSnackbar){
         snackbarShow("#5cd65c", "Report Corrente Aggiornato");
     }
@@ -142,4 +147,8 @@ function resetCurrent(){
         var text = "Reset Annullato";
         snackbarShow(color , text);
     }
+}
+
+function showUpdate(){
+    document.getElementById("current_report_title").innerText = currentReport.split(".")[0]
 }
