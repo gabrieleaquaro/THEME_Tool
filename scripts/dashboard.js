@@ -112,38 +112,38 @@ function generateChart_PSF(values){
     const data = {
         labels: labels,
         datasets: [
-            // {   
-            //     data: [100,100,100,100,100,100,100,100],
-            //     backgroundColor : '#e3191920',
-            //     borderColor :'#e3191920',
-            //     pointRadius : 0,
-            //     order: 4,
-            //     clip:0
-            // },
-            // {   
-            //     data: [10,10,10,10,10,10,10,10],
-            //     backgroundColor : '#ede60e30',
-            //     borderColor :'#ede60e30',
-            //     pointRadius : 0,
-            //     order: 3,
-            //     clip:0
-            // },
-            // {   
-            //     data: [5,5,5,5,5,5,5,5],
-            //     backgroundColor : '#048f2040',
-            //     borderColor :'#048f2040',
-            //     pointRadius : 0,
-            //     order: 3,
-            //     clip:0
-            // },
-            // {   
-            //     data: [1,1,1,1,1,1,1,1],
-            //     backgroundColor : '#34eb4950',
-            //     borderColor :'#34eb4950',
-            //     pointRadius : 0,
-            //     order:2,
-            //     clip:0
-            // },
+            {   
+                data: [6,6,6,6,6,6,6,6],
+                backgroundColor : '#e3191920',
+                borderColor :'#e3191920',
+                pointRadius : 0,
+                order: 4,
+                clip:0
+            },
+            {   
+                data: [4,4,4,4,4,4,4,4],
+                backgroundColor : '#ede60e30',
+                borderColor :'#ede60e30',
+                pointRadius : 0,
+                order: 3,
+                clip:0
+            },
+            {   
+                data: [2,2,2,2,2,2,2,2],
+                backgroundColor : '#048f2040',
+                borderColor :'#048f2040',
+                pointRadius : 0,
+                order: 3,
+                clip:0
+            },
+            {   
+                data: [1,1,1,1,1,1,1,1],
+                backgroundColor : '#34eb4950',
+                borderColor :'#34eb4950',
+                pointRadius : 0,
+                order:2,
+                clip:0
+            },
             {
                 label: 'Valore',
                 data: chart_data,
