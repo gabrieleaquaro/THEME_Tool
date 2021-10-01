@@ -89,9 +89,26 @@ function generateChart_PSF(values){
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
                         values["ContestoAmbientale"],values["Affaticamento"]]; 
 
-    var max_present_value = Math.max(...values_list);
-    var limit_max = max_present_value < 5 ? 2 :(max_present_value < 10 ? 5 : (max_present_value < 20 ? 15 : (max_present_value < 50 ? 30 : (max_present_value < 100 ? 60 : 100)))); 
-    var stepSize = limit_max < 3 ? 0.5 : limit_max <  5 ? 1 : (limit_max < 10 ? 2 :(limit_max < 20 ? 5 : 15));            
+    
+    //To rescale the values that makes no sanse
+    var values_map = {
+        0.1 : 1,
+        1 : 2,
+        '1.0' : 2,
+        5 : 3,
+        10 : 4,
+        20 : 5,
+        50 : 6,
+        100 : 7
+    } 
+
+    var chart_data = values_list.map(x => values_map[x]);
+    console.log(chart_data, values_list)
+    
+    // var max_present_value = Math.max(...values_list);
+    // var limit_max = max_present_value < 5 ? 2 :(max_present_value < 10 ? 5 : (max_present_value < 20 ? 15 : (max_present_value < 50 ? 30 : (max_present_value < 100 ? 60 : 100)))); 
+    // var stepSize = limit_max < 3 ? 0.5 : limit_max <  5 ? 1 : (limit_max < 10 ? 2 :(limit_max < 20 ? 5 : 20));    
+
     const data = {
         labels: labels,
         datasets: [
@@ -129,13 +146,13 @@ function generateChart_PSF(values){
             // },
             {
                 label: 'Valore',
-                data: values_list,
+                data: chart_data,
                 borderColor: '#000',
                 backgroundColor: '#a6a6a660',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 1 ? '#34eb49' : value <= 5 ? '#e9ed66' : '#e31919';
+                    return value <= 2 ? '#34eb49' : value <= 5 ? '#e9ed66' : '#e31919';
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -150,13 +167,10 @@ function generateChart_PSF(values){
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
-            scale: {
-                ticks: {
-                    stepSize: stepSize
-                },
-                max: limit_max,
-                min: 0,
+            maintainAspectRatio: false,    
+            scale:{
+                stepSize:1,
+                min : 0,
             },
             plugins: {
                 title: {
@@ -165,7 +179,7 @@ function generateChart_PSF(values){
                 },
                 legend: {
                     display: false
-                }
+                },
             },            
         },
       };
