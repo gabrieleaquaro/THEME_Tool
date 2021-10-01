@@ -95,8 +95,8 @@ function generateChart_PSF(values){
                         values["ContestoAmbientale"],values["Affaticamento"]]; 
 
     var max_present_value = Math.max(...values_list);
-    var limit_max = max_present_value + 5 < 10 ? max_present_value + 1 : max_present_value + 5; 
-                  
+    var limit_max = max_present_value < 5 ? 2 :(max_present_value < 10 ? 5 : (max_present_value < 20 ? 15 : (max_present_value < 50 ? 30 : (max_present_value < 100 ? 60 : 100)))); 
+    var stepSize = limit_max < 3 ? 0.5 : limit_max < limit_max <= 5 ? 1 : (limit_max < 10 ? 2 :(limit_max < 20 ? 5 : 10));              
     const data = {
         labels: labels,
         datasets: [
@@ -118,7 +118,7 @@ function generateChart_PSF(values){
             maintainAspectRatio: false,
             scale: {
                 ticks: {
-                    stepSize: limit_max / 5 
+                    stepSize: stepSize
                 },
                 max: limit_max,
                 min: 0,

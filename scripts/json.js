@@ -23,6 +23,7 @@ if(!fs.existsSync('./dati/' + currentReport)){
     let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
 }
+
 rawdata = fs.readFileSync('./dati/' + currentReport);
 let report = JSON.parse(rawdata);
 
@@ -38,7 +39,7 @@ function updatePage(report){
         }
         
         Object.keys(report[currentPage]).forEach(function(key) {
-            console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
+            //console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
             document.getElementById(key).value = report[currentPage][key]
         })
         
@@ -107,7 +108,7 @@ function updateCurrent(report_name, printSnackbar = true){
 //delete the report file with the passed name
 function delete_report(name){
     if (confirm('Sei sicuro di voler cancellare questo report? (AZIONE IRREVERSIBILE!)')) {
-        if(name  == currentReport){
+        if(name  == currentReport){            
             updateCurrent("default.json");
         }
         removeRow(name);
@@ -148,7 +149,10 @@ function download(filename, text) {
 
 function resetCurrent(){
     if (confirm('Resettare questo report allo stato originale?')){
-        //TODO
+        let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
+        let resetted_report = {"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print};
+        fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(resetted_report, null, 4));
+        refreshPage();
     }
     else{
         var color = "#ffe066";

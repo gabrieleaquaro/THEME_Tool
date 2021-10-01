@@ -6,3 +6,4 @@
 - Upload file (everything)
 - Scaricare in locale i grafici in modo che funzionino offline (librerie)
 - aggiungere funzione di ricerca e filtraggio
+- Colorare background grafici results, pare un po' impossibile. 
