@@ -4,7 +4,7 @@ const fs = require("fs");
 // Check that config file exists or create it
 let rawdata
 if (!fs.existsSync('./config.json')){
-    fs.writeFileSyncSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
+    fs.writeFileSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
 }
 rawdata = fs.readFileSync('./config.json'); 
 let config = JSON.parse(rawdata);
