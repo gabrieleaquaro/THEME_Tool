@@ -30,7 +30,7 @@ body {
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
   width:50%;
-  min-width: 150px; /* Set a default minimum width */
+  min-width: 200px; /* Set a default minimum width */
   margin-left:10%; /* Divide value of min-width by 2 */
   color: #000; /* White text color */
   font-weight: 500;

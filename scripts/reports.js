@@ -29,7 +29,7 @@ function addRow(report){
     }
 
     if (report["name"] == "default.json"){
-        setUnmodifiable(report["name"]);
+        //setUnmodifiable(report["name"]);
         setUndeleteble(report["name"]);
     }
 
