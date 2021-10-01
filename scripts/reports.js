@@ -1,38 +1,34 @@
 function addRow(report){
-    var tr = document.createElement("tr");
-    // nome
-    var td_name = document.createElement("td")
-    td_name.innerText = report["name"].split(".")[0]
-    tr.id = report["name"];
-    tr.append(td_name)
+    if(report["name"] != 'default.json'){
+        var tr = document.createElement("tr");
+        // nome
+        var td_name = document.createElement("td")
+        td_name.innerText = report["name"].split(".")[0]
+        tr.id = report["name"];
+        tr.append(td_name)
 
-    // data
-    var td_date = document.createElement("td")
-    td_date.innerText = report["dateToPrint"]
-    tr.append(td_date)
+        // data
+        var td_date = document.createElement("td")
+        td_date.innerText = report["dateToPrint"]
+        tr.append(td_date)
 
-    // bottone di modifica
-    var td_button_modify = document.createElement("td")
-    td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Modifica</button>'
-    tr.append(td_button_modify)
+        // bottone di modifica
+        var td_button_modify = document.createElement("td")
+        td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Modifica</button>'
+        tr.append(td_button_modify)
 
-    // bottone di elimina
-    var td_button_delete = document.createElement("td")
-    td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete_report('+"'"+report["name"]+"'"+')">Elimina</button>'
-    tr.append(td_button_delete)
+        // bottone di elimina
+        var td_button_delete = document.createElement("td")
+        td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete_report('+"'"+report["name"]+"'"+')">Elimina</button>'
+        tr.append(td_button_delete)
 
-    const element = document.getElementById("tBody");
-    element.appendChild(tr);
+        const element = document.getElementById("tBody");
+        element.appendChild(tr);
 
-    if (report["name"] == currentReport){
-        setUnmodifiable(report["name"]);
+        if (report["name"] == currentReport){
+            setUnmodifiable(report["name"]);
+        }
     }
-
-    if (report["name"] == "default.json"){
-        //setUnmodifiable(report["name"]);
-        setUndeleteble(report["name"]);
-    }
-
 }
 
 function removeRow(report_name){
@@ -41,15 +37,21 @@ function removeRow(report_name){
 }
 
 function setUnmodifiable(report_name){
-    document.getElementById(report_name).getElementsByTagName("button")[0].disabled = true;
+    if(report_name != 'default.json'){
+        document.getElementById(report_name).getElementsByTagName("button")[0].disabled = true;
+    }
 }
 
 function setModifiable(report_name){
-    document.getElementById(report_name).getElementsByTagName("button")[0].disabled = false;
+    if(report_name != 'default.json'){
+        document.getElementById(report_name).getElementsByTagName("button")[0].disabled = false;
+    }
 }
 
 function setUndeleteble(report_name){
-    document.getElementById(report_name).getElementsByTagName("button")[1].disabled = true;
+    if(report_name != 'default.json'){
+        document.getElementById(report_name).getElementsByTagName("button")[1].disabled = true;
+    }
 }
 
 function refreshReports(){

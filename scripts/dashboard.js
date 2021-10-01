@@ -1,3 +1,4 @@
+
 //Icon loading
 feather.replace()
 
@@ -23,7 +24,11 @@ function updateResults(currentPage, report){
         case 'prob_errore':
             updateProbError_results(report[currentPage]);
             break;
-        
+
+        case 'risultati':
+            updateRisultati_results(report);
+            break;
+
         default:
           console.log("Nothing results to compute here...");
       }
@@ -33,11 +38,11 @@ function updateResults(currentPage, report){
 //Update della tabella a fie di Prob Errore
 function updateProbError_results(data){
 
-    elements = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
+    elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
 
     var PSFComposto = 1
 
-    elements.forEach(function(key){
+    elements_PSF.forEach(function(key){
         if(data[key] != null){
             PSFComposto = PSFComposto * data[key] ;
     }});
@@ -57,4 +62,79 @@ function updateProbError_results(data){
       document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100*100) / 100 + "%";
       updateJSON("ProbErroreAdj",ProbErroreAdj);
     }
+}
+
+function updateRisultati_results(report){
+    if(report['prob_errore']){
+        //First table of PSF
+        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
+        elements_PSF.forEach(function(key){
+            if(report['prob_errore'][key] != null){
+                document.getElementById(key).innerText = report['prob_errore'][key];
+            }
+            else{
+                document.getElementById(key).innerText = '-';
+            }
+        })
+        generateChart_PSF(report["prob_errore"]);
+    }
+}
+
+function generateChart_PSF(values){
+    const DATA_COUNT = 8;
+    const labels = ["Tempo disponibile",
+                    "Pericolosità del Compito",
+                    "Complessità del Compito",
+                    "Esperienza/ Formazione",
+                    "Procedure",
+                    "Interazione Umano-Macchina",
+                    "Contesto Ambientale",
+                    "Affaticamento"];
+    var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
+                        values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
+                        values["ContestoAmbientale"],values["Affaticamento"]]; 
+
+    var max_present_value = Math.max(...values_list);
+    var limit_max = max_present_value + 5 < 10 ? max_present_value + 1 : max_present_value + 5; 
+                  
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                data: values_list,
+                borderColor: '#000',
+                pointBackgroundColor: '#000', 
+                borderDash: [2],
+            },
+        ]
+    };
+
+    
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scale: {
+                ticks: {
+                    stepSize: limit_max / 5 
+                },
+                max: limit_max,
+                min: 0,
+            },
+            plugins: {
+                title: {
+                display: true,
+                text: 'PSF'
+                },
+                legend: {
+                    display: false
+                }
+            },            
+        },
+      };
+
+    var grapharea = document.getElementById("chart_PSF").getContext("2d");
+    var PSF_chart = new Chart(grapharea,config);  
 }

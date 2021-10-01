@@ -100,7 +100,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #2470dc;
+  color: #b81111;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -122,7 +122,9 @@ body {
   padding-bottom: .75rem;
   font-size: 1rem;
   background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(36, 35, 35, 0.25);
+  color: #b81111!important;
+  font-weight: bold;
 }
 
 .navbar .navbar-toggler {
@@ -145,4 +147,11 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+
+/**Main **/
+
+main {
+  background-color:#5c5c5c05;
 }

@@ -124,13 +124,13 @@
         <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
         
         <!-- MAIN CONTENT BLOCK -->
-        <main class="col-md-12 ms-sm-auto col-lg-10 px-md-4">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">RISULTATI </h1>
+            <h1 class="h2" style="color:#b81111;">RISULTATI </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Button1</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Button2</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Reset!</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Help</button>
               </div>
               <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
                 <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
@@ -138,62 +138,70 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-6">
+          <div class="row my-auto">
+            <div class="col my-auto" >
               <div class="table-responsive">
                 <table class="table table-striped table-sm">
                   <thead>
                     <tr>
-                      <th scope="col">PSF</th>
-                      <th scope="col">Probabilità d'Errore</th>
+                      <th scope="col" style="color:#b81111;">PSF</th>
+                      <th scope="col" style="color:#b81111;">Probabilità d'Errore</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Tempo disponibile</td>
-                      <td style="background-color: #10cf00;">0.1</td>
+                      <td id="TempoDisponibie" ></td>
                     </tr>
                     <tr>
                       <td>Pericolosità del Compito</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id="StressDaMinaccia"></td>
                     </tr>
                     <tr>
                       <td>Complessità del Compito</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id="ComplessitàTask"></td>
                     </tr>
                     <tr>
                       <td>Esperienza/ Formazione</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id = "Esperienza"></td>
                     </tr>
                     <tr>
                       <td>Procedure</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id="Procedure"></td>
                     </tr>
                     <tr>
                       <td>Interazione Umano-Macchina</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id="InterazioneUmanoMacchina"></td>
                     </tr>
                     <tr>
                       <td>Contesto Ambientale</td>
-                      <td style="background-color: #22ff0e;">1</td>
+                      <td id="ContestoAmbientale"></td>
                     </tr>
                     <tr>
                       <td>Affaticamento</td>
-                      <td style="background-color: #fffb0e;">1.5</td>
+                      <td id="Affaticamento"></td>
                     </tr>
                   
                   </tbody>
                 </table>
               </div>
             </div>
-            <div class="col-6">
-              <div style="position: relative; height:50px;" align ="center">
-                <canvas id="chart"></canvas>
-              </div>
+            <div class="col my-auto">
+              <!-- <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas> -->
+              <canvas id="chart_PSF" style = "max-height:50vh !important;" class="chart chart-base" 
+                chart-type="'Radar'"
+                chart-data="chart_PSF.data"
+                chart-options="chart_PSF.options"
+                chart-labels="chart_PSF.labels"
+                chart-series="chart_PSF.series"
+                chart-colours="chart_PSF.colors">
+              </canvas>
+
             </div>
-          </div>           
+          </div>    
+
         </main>
-      
+    
       </div>
     </div> 
 
@@ -203,67 +211,5 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../scripts/dashboard.js"></script>
     <script src="../scripts/json.js"></script>
-    <script>
-
-      const DATA_COUNT = 7;
-      const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
-
-      const labels = ["Tempo disponibile",
-                      "Pericolosità del Compito",
-                      "Complessità del Compito",
-                      "Esperienza/ Formazione",
-                      "Procedure",
-                      "Interazione Umano-Macchina",
-                      "Contesto Ambientale",
-                      "Affaticamento"];
-      const data = {
-        labels: labels,
-        datasets: [
-          {
-            label: 'PSF',
-            data: [0.1,1,1,1,1,1,1,1.5],
-            // borderColor: Utils.CHART_COLORS.red,
-            backgroundColor: ["#10cf00",
-                              "#22ff0e",
-                              "#22ff0e",
-                              "#22ff0e",
-                              "#22ff0e",
-                              "#22ff0e",
-                              "#22ff0e",
-                              "#fffb0e"],
-          },
-        ]
-      };
-
-      const configuration = {
-        type: 'polarArea',
-        data: data,
-        options: {
-          responsive: false,
-        
-          plugins: {
-            legend: {
-              display: false
-            },
-            title: {
-              display: false,
-              text: 'Chart.js Radar Chart'
-            }
-          }
-        },
-      };
-      
-      var grapharea = document.getElementById("chart").getContext("2d");
-      var myChart = new Chart(
-        grapharea,
-        configuration
-      );
-      myChart.destroy();
-
-      var myChart = new Chart(
-        grapharea,
-        configuration
-      );
-    </script>
   </body>
 </html>
