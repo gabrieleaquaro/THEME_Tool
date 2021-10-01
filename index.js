@@ -1,11 +1,15 @@
-const { app, BrowserWindow } = require("electron");
-const url = require("url");
+const {
+  app,
+  BrowserWindow,
+  ipcMain
+} = require("electron");
+const path = require("path");
 
 function newApp() {
   win = new BrowserWindow({icon:'./icon.ico',
                            webPreferences: {
-                              nodeIntegration: true,
-                              contextIsolation: false,
+                            nodeIntegration : true,
+                            contextIsolation : false
                           }, 
                           autoHideMenuBar  : true,
                         });

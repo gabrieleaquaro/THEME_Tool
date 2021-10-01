@@ -1,10 +1,10 @@
-'use strict';
-const fs = require('fs');
+"use strict";
+const fs = require("fs");
 
 // Check that config file exists or create it
 let rawdata
 if (!fs.existsSync('./config.json')){
-    fs.writeFileSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
+    fs.writeFileSyncSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
 }
 rawdata = fs.readFileSync('./config.json'); 
 let config = JSON.parse(rawdata);
@@ -47,7 +47,6 @@ function updatePage(report){
     }
 }
 
-
 // on change fai si che dati.json venga modificato e poi salva il file nel path
 function updateJSONevent(e){
     var field = e.target.id;
@@ -61,8 +60,6 @@ function updateJSON(field,data){
     report[currentPage][field] = data;
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
-
-
 
 // create new report
 function newReport(){
@@ -146,6 +143,10 @@ function download(filename, text) {
     document.body.removeChild(element);
  }
 
+//Gets a file and load it into report variable
+function load_data(){
+   
+}
 
 function resetCurrent(){
     if (confirm('Resettare questo report allo stato originale?')){

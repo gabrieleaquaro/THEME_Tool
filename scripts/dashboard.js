@@ -2,11 +2,6 @@
 //Icon loading
 feather.replace()
 
-//Gets a file and load it into report variable
-function load_data(event){
-
-}
-
 function snackbarShow(color = "#5cd65c", text = "Nuovo report creato e pronto per la modifica!"){
     var x = document.getElementById("snackbar");
     x.style.backgroundColor = color;
@@ -30,7 +25,7 @@ function updateResults(currentPage, report){
             break;
 
         default:
-          console.log("Nothing results to compute here...");
+          break;
       }
       
 }
