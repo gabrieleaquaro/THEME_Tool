@@ -96,29 +96,36 @@ function generateChart_PSF(values){
         0.1   : 1,
         1     : 2,
         '1.0' : 2,
-        5     : 3,
-        10    : 4,
-        20    : 5,
-        50    : 6,
-        100   : 7
+        2     : 3,
+        5     : 4,
+        10    : 5,
+        15    : 6,
+        20    : 7,
+        50    : 8,
+        100   : 9
     } 
     var chart_data = values_list.map(x => values_map[x]);
+    var max_value = Math.max(...chart_data);
+    console.log(max_value)
 
     //Datasets for the chart
     const data = {
         labels: chart_labels,
         datasets: [
             {   
+                lable: 'red',
                 data: [6,6,6,6,6,6,6,6],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FF3333',
                 pointRadius : 0,
                 order: 5,
                 hoverRadius : 0,
-                hitRadius: 0
+                hitRadius: 0,
+                
             },
             {   
-                data: [4,4,4,4,4,4,4,4],
+                label: 'orange',
+                data: [5,5,5,5,5,5,5,5],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#ffae00',
                 pointRadius : 0,
@@ -127,7 +134,8 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                data: [2,2,2,2,2,2,2,2],
+                label: 'yellow',
+                data: [3,3,3,3,3,3,3,3],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FFFF33',
                 pointRadius : 0,
@@ -152,7 +160,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 1 ? '#33CC33' : value <= 2 ? '#FFFF33' : value <= 4 ? '#ffae00' :'#FF3333';
+                    return value <= 1 ? '#33CC33' : value <= 3 ? '#FFFF33' : value <= 5 ? '#ffae00' :'#FF3333';
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -160,6 +168,14 @@ function generateChart_PSF(values){
             
         ]
     };
+
+    //Remvoes useless levels
+    if(max_value <= 6){
+      data.datasets.splice(0, 1)
+      if(max_value  <= 5){
+        data.datasets.splice(0, 1)
+      }
+    }
 
     //chart Configuration    
     const config = {
@@ -172,13 +188,18 @@ function generateChart_PSF(values){
                 stepSize:1,
                 min : 0,
                 ticks:{
+                    beginAtZero: true,
+                    max: max_value,
+                    min: 0,
+                    stepSize: 1,
                     display: false,
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        display:false
+                        display:false,
+                        max: max_value,
                     },
                 },
             },
@@ -196,11 +217,13 @@ function generateChart_PSF(values){
                             var inverse_values_map = {
                                 1 : 0.1  ,
                                 2 : 1    ,
-                                3 : 5    ,
-                                4 : 10   ,
-                                5 : 20   ,
-                                6 : 50   ,
-                                7 : 100  
+                                3 : 2    ,
+                                4 : 5    ,
+                                5 : 10   ,
+                                6 : 15   ,
+                                7 : 20   ,
+                                8 : 50   ,
+                                9 : 100  
                             } 
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }

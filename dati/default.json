@@ -1,5 +1,15 @@
 {
     "name": "default.json",
     "date": 1632927778248,
-    "dateToPrint": "29_9_2021"
+    "dateToPrint": "29_9_2021",
+    "prob_errore": {
+        "TempoDisponibie": "10",
+        "StressDaMinaccia": "5",
+        "ComplessitàTask": "10",
+        "Esperienza": "15",
+        "Procedure": "20",
+        "InterazioneUmanoMacchina": "1.0",
+        "ContestoAmbientale": "10",
+        "Affaticamento": "1.0"
+    }
 }
