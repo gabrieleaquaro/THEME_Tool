@@ -110,7 +110,7 @@ function generateChart_PSF(values){
         datasets: [
             {   
                 data: [6,6,6,6,6,6,6,6],
-                backgroundColor : '#FF333330',
+                backgroundColor : '#FFFFFF00',
                 borderColor :'#FF3333',
                 pointRadius : 0,
                 order: 5,
@@ -119,8 +119,8 @@ function generateChart_PSF(values){
             },
             {   
                 data: [4,4,4,4,4,4,4,4],
-                backgroundColor : '#FFFF3340',
-                borderColor :'#FFFF33',
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#ffae00',
                 pointRadius : 0,
                 order: 4,
                 hoverRadius : 0,
@@ -128,8 +128,8 @@ function generateChart_PSF(values){
             },
             {   
                 data: [2,2,2,2,2,2,2,2],
-                backgroundColor : '#33CC3350',
-                borderColor :'#33CC33',
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#FFFF33',
                 pointRadius : 0,
                 order: 3,
                 hoverRadius : 0,
@@ -137,8 +137,8 @@ function generateChart_PSF(values){
             },
             {   
                 data: [1,1,1,1,1,1,1,1],
-                backgroundColor : '#66FF3360',
-                borderColor :'#66FF33',
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#33CC33',
                 pointRadius : 0,
                 order:2,
                 hoverRadius : 0,
@@ -152,7 +152,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 2 ? '#34eb49' : value <= 5 ? '#e9ed66' : '#e31919';
+                    return value <= 1 ? '#33CC33' : value <= 2 ? '#FFFF33' : value <= 4 ? '#ffae00' :'#FF3333';
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -206,10 +206,18 @@ function generateChart_PSF(values){
                         }
                     }
                 }
-            },            
+            }   
         },
       };
-
+    
     var grapharea = document.getElementById("chart_PSF").getContext("2d");
     var PSF_chart = new Chart(grapharea,config);  
+    var canvas = document.getElementById("chart_PSF");
+    canvas.addEventListener('click', function() {
+        var a = document.createElement('a');
+        var image = PSF_chart.toBase64Image();
+        a.href = image;
+        a.download = 'PSF_chart.png';
+        a.click()
+     }, false);
 }
