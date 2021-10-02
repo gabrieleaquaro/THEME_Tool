@@ -90,12 +90,13 @@ function generateChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Tempo",
                          "Pericolosità ",
-                      "Complessità",
-                    "Esperienza",
-                    "Procedure",
-                    "Interazione U-M",
-                    "Contesto Amb.",
-                    "Affaticamento"];
+                         "Complessità",
+                         "Esperienza",
+                         "Procedure",
+                         "Interazione U-M",
+                         "Contesto Amb.",
+                         "Affaticamento"
+                        ];
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
                         values["ContestoAmbientale"],values["Affaticamento"]]; 
@@ -123,7 +124,7 @@ function generateChart_PSF(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [6,6,6,6,6,6,6,6],
+                data: [8,8,8,8,8,8,8,8],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FF3333',
                 pointRadius : 0,
@@ -134,7 +135,7 @@ function generateChart_PSF(values){
             },
             {   
                 label: 'orange',
-                data: [5,5,5,5,5,5,5,5],
+                data: [6,6,6,6,6,6,6,6],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#ffae00',
                 pointRadius : 0,
@@ -144,7 +145,7 @@ function generateChart_PSF(values){
             },
             {   
                 label: 'yellow',
-                data: [3,3,3,3,3,3,3,3],
+                data: [4,4,4,4,4,4,4,4],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FFFF33',
                 pointRadius : 0,
@@ -153,7 +154,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                data: [1,1,1,1,1,1,1,1],
+                data: [2,2,2,2,2,2,2,2],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#33CC33',
                 pointRadius : 0,
@@ -169,7 +170,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 1 ? '#33CC33' : value <= 3 ? '#FFFF33' : value <= 5 ? '#ffae00' :'#FF3333';
+                    return value <= 2 ? '#33CC33' : value <= 4 ? '#FFFF33' : value <= 6 ? '#ffae00' :'#FF3333';
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -181,7 +182,7 @@ function generateChart_PSF(values){
     //Remvoes useless levels
     if(max_value <= 6){
       data.datasets.splice(0, 1)
-      if(max_value  <= 5){
+      if(max_value  <= 4){
         data.datasets.splice(0, 1)
       }
     }
