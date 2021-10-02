@@ -1,3 +1,4 @@
+const { contentTracing } = require("electron");
 
 //Icon loading
 feather.replace()
@@ -77,72 +78,71 @@ function updateRisultati_results(report){
 
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
-    const labels = ["Tempo disponibile",
-                    "Pericolosità del Compito",
-                    "Complessità del Compito",
-                    "Esperienza/ Formazione",
+    const chart_labels = ["Tempo",
+                         "Pericolosità ",
+                      "Complessità",
+                    "Esperienza",
                     "Procedure",
-                    "Interazione Umano-Macchina",
-                    "Contesto Ambientale",
+                    "Interazione U-M",
+                    "Contesto Amb.",
                     "Affaticamento"];
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
                         values["ContestoAmbientale"],values["Affaticamento"]]; 
 
     
-    //To rescale the values that makes no sanse
-    var values_map = {
-        0.1 : 1,
-        1 : 2,
+    //To rescale the values that makes no sense elseway on the graph
+    const values_map = {
+        0.1   : 1,
+        1     : 2,
         '1.0' : 2,
-        5 : 3,
-        10 : 4,
-        20 : 5,
-        50 : 6,
-        100 : 7
+        5     : 3,
+        10    : 4,
+        20    : 5,
+        50    : 6,
+        100   : 7
     } 
-
     var chart_data = values_list.map(x => values_map[x]);
-    console.log(chart_data, values_list)
-    
-    // var max_present_value = Math.max(...values_list);
-    // var limit_max = max_present_value < 5 ? 2 :(max_present_value < 10 ? 5 : (max_present_value < 20 ? 15 : (max_present_value < 50 ? 30 : (max_present_value < 100 ? 60 : 100)))); 
-    // var stepSize = limit_max < 3 ? 0.5 : limit_max <  5 ? 1 : (limit_max < 10 ? 2 :(limit_max < 20 ? 5 : 20));    
 
+    //Datasets for the chart
     const data = {
-        labels: labels,
+        labels: chart_labels,
         datasets: [
             {   
                 data: [6,6,6,6,6,6,6,6],
-                backgroundColor : '#e3191920',
-                borderColor :'#e3191920',
+                backgroundColor : '#FF333330',
+                borderColor :'#FF3333',
                 pointRadius : 0,
-                order: 4,
-                clip:0
+                order: 5,
+                hoverRadius : 0,
+                hitRadius: 0
             },
             {   
                 data: [4,4,4,4,4,4,4,4],
-                backgroundColor : '#ede60e30',
-                borderColor :'#ede60e30',
+                backgroundColor : '#FFFF3340',
+                borderColor :'#FFFF33',
                 pointRadius : 0,
-                order: 3,
-                clip:0
+                order: 4,
+                hoverRadius : 0,
+                hitRadius: 0
             },
             {   
                 data: [2,2,2,2,2,2,2,2],
-                backgroundColor : '#048f2040',
-                borderColor :'#048f2040',
+                backgroundColor : '#33CC3350',
+                borderColor :'#33CC33',
                 pointRadius : 0,
                 order: 3,
-                clip:0
+                hoverRadius : 0,
+                hitRadius: 0
             },
             {   
                 data: [1,1,1,1,1,1,1,1],
-                backgroundColor : '#34eb4950',
-                borderColor :'#34eb4950',
+                backgroundColor : '#66FF3360',
+                borderColor :'#66FF33',
                 pointRadius : 0,
                 order:2,
-                clip:0
+                hoverRadius : 0,
+                hitRadius: 0
             },
             {
                 label: 'Valore',
@@ -161,7 +161,7 @@ function generateChart_PSF(values){
         ]
     };
 
-    
+    //chart Configuration    
     const config = {
         type: 'radar',
         data: data,
@@ -171,15 +171,41 @@ function generateChart_PSF(values){
             scale:{
                 stepSize:1,
                 min : 0,
+                ticks:{
+                    display: false,
+                },
+            },
+            scales:{
+                r:{
+                    ticks:{
+                        display:false
+                    },
+                },
             },
             plugins: {
                 title: {
-                display: true,
+                display: false,
                 text: 'PSF'
                 },
                 legend: {
                     display: false
                 },
+                tooltip:{
+                    callbacks:{
+                        label: function(context){
+                            var inverse_values_map = {
+                                1 : 0.1  ,
+                                2 : 1    ,
+                                3 : 5    ,
+                                4 : 10   ,
+                                5 : 20   ,
+                                6 : 50   ,
+                                7 : 100  
+                            } 
+                            return 'Valore: ' + inverse_values_map[context.raw];
+                        }
+                    }
+                }
             },            
         },
       };
