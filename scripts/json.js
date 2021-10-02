@@ -144,8 +144,23 @@ function download(filename, text) {
  }
 
 //Gets a file and load it into report variable
-function load_data(){
-   
+function load_data(event){
+    var file = event.target.files[0]
+    var reader = new FileReader();
+
+    reader.onload = onReaderLoad;
+    reader.readAsText(file);
+}
+
+function onReaderLoad(event){
+    var data = JSON.parse(event.target.result);
+    console.log(data)
+
+    //TODO do something with the data read...
+}
+
+function show_loader(){
+    document.getElementById("file-loader").style = "padding-left:5%;";
 }
 
 function resetCurrent(){
