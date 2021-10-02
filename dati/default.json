@@ -11,5 +11,8 @@
         "InterazioneUmanoMacchina": "1.0",
         "ContestoAmbientale": "10",
         "Affaticamento": "1.0"
+    },
+    "barriere_dirette": {
+        "barriere_dirette_1_3": "1.0"
     }
 }

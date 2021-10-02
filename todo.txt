@@ -1,5 +1,3 @@
-- aggiungere nome del current report nell'header a destra
-- sistemare button di modifica e di elimina
 - Reset button
 - Help button (Documentation)
 - Homepage (?)

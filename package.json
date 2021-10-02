@@ -22,6 +22,7 @@
     "chart.js": "^3.5.1",
     "dialog": "^0.3.1",
     "electron-squirrel-startup": "^1.0.0",
+    "jquery": "^3.6.0",
     "remote": "^0.2.6"
   },
   "config": {

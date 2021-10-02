@@ -3,6 +3,16 @@ const { contentTracing } = require("electron");
 //Icon loading
 feather.replace()
 
+// popover enabling
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+
+
+// import jQuery
+window.$ = window.jQuery = require('jquery');
+
 function snackbarShow(color = "#5cd65c", text = "Nuovo report creato e pronto per la modifica!"){
     var x = document.getElementById("snackbar");
     x.style.backgroundColor = color;
@@ -39,7 +49,7 @@ function updateProbError_results(data){
     var PSFComposto = 1
 
     elements_PSF.forEach(function(key){
-        if(data[key] != null){
+        if(data[key] != null && data[key] != "-"){
             PSFComposto = PSFComposto * data[key] ;
     }});
 
