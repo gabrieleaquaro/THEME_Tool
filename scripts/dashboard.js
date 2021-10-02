@@ -60,6 +60,8 @@ function updateProbError_results(data){
     }
 }
 
+
+//Update dei risultati in results page
 function updateRisultati_results(report){
     if(report['prob_errore']){
         //First table of PSF
@@ -74,8 +76,16 @@ function updateRisultati_results(report){
         })
         generateChart_PSF(report["prob_errore"]);
     }
+    else{
+        generateChart_PSF({});
+        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
+        elements_PSF.forEach(function(key){
+            document.getElementById(key).innerText = '-';
+        });
+    }
 }
 
+//GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Tempo",
@@ -106,7 +116,6 @@ function generateChart_PSF(values){
     } 
     var chart_data = values_list.map(x => values_map[x]);
     var max_value = Math.max(...chart_data);
-    console.log(max_value)
 
     //Datasets for the chart
     const data = {
@@ -228,16 +237,23 @@ function generateChart_PSF(values){
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
                     }
-                }
+                },            
             }   
         },
       };
     
-    var grapharea = document.getElementById("chart_PSF").getContext("2d");
-    var PSF_chart = new Chart(grapharea,config);  
-    var canvas = document.getElementById("chart_PSF");
+    var canvas = document.getElementById("chart_PSF")
+    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
     canvas.addEventListener('click', function() {
+        //Apply white background
         var a = document.createElement('a');
+        var context = canvas.getContext("2d");
+        context.save();
+        context.globalCompositeOperation = 'destination-over';
+        context.fillStyle = '#FFF';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.restore();
+
         var image = PSF_chart.toBase64Image();
         a.href = image;
         a.download = 'PSF_chart.png';
