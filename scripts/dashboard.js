@@ -31,6 +31,10 @@ function updateResults(currentPage, report){
             updateProbError_results(report[currentPage]);
             break;
 
+        case 'barriere_dirette':
+            updateBarriereDirette_results(report[currentPage]);
+            break;
+
         case 'risultati':
             updateRisultati_results(report);
             break;
@@ -67,6 +71,39 @@ function updateProbError_results(data){
 
       document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100*100) / 100 + "%";
       updateJSON("ProbErroreAdj",ProbErroreAdj);
+    }
+}
+
+//Update della tabella a file barriere dirette
+function updateBarriereDirette_results(data){
+
+    elements = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
+
+    var val;
+
+    for(var i = 1; i< elements.length + 1; i++){
+        val=1
+        max = 6
+        if(i == 5) max = 7
+        for(var j = 1; j< 6; j++){
+
+            console.log("barriere_dirette_"+i+"_" + j)
+            console.log(data["barriere_dirette_"+i+"_" + j])
+            if(data["barriere_dirette_"+i+"_" + j] == undefined){
+                val = "-"
+                break
+            }
+            else if(data["barriere_dirette_"+i+"_" + j] != '-'){
+
+                val = val * data["barriere_dirette_"+i+"_" + j]
+            }
+        }
+        if(val != "-"){
+            val = Math.round(val * 10000) / 10000
+        }   
+        document.getElementById(elements[i - 1]).innerText = val
+        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        data[elements[i - 1]] =  val
     }
 }
 

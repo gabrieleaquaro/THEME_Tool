@@ -13,6 +13,27 @@
         "Affaticamento": "1.0"
     },
     "barriere_dirette": {
-        "barriere_dirette_1_3": "1.0"
+        "barriere_dirette_1_3": "0.33",
+        "barriere_dirette_1_2": "0.33",
+        "PrestSicuraCompiti": 0.0359,
+        "Adesione": 0.4356,
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": 0,
+        "barriere_dirette_1_1": "1.0",
+        "barriere_dirette_1_4": "1.0",
+        "barriere_dirette_1_5": "0.33",
+        "barriere_dirette_2_1": "1.0",
+        "barriere_dirette_2_2": "0.66",
+        "barriere_dirette_2_3": "0.66",
+        "barriere_dirette_2_4": "-",
+        "barriere_dirette_2_5": "1.0",
+        "barriere_dirette_6_5": "1.0",
+        "barriere_dirette_6_4": "0.66",
+        "barriere_dirette_6_3": "-",
+        "barriere_dirette_6_2": "0.33",
+        "barriere_dirette_6_1": "0.33",
+        "barriere_dirette_6_6": "0.66"
     }
 }
