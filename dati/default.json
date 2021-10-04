@@ -10,7 +10,11 @@
         "Procedure": "20",
         "InterazioneUmanoMacchina": "1.0",
         "ContestoAmbientale": "10",
-        "Affaticamento": "1.0"
+        "Affaticamento": "1.0",
+        "TipoTask": "0.003",
+        "PSFComposto": 1500000,
+        "ProbErrore": 4500,
+        "ProbErroreAdj": 0.9997784935204355
     },
     "barriere_dirette": {
         "barriere_dirette_1_3": "0.66",
