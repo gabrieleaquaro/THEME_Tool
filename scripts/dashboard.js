@@ -331,12 +331,12 @@ function generateChart_PSF(values){
 //GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
-    const chart_labels = ["Prestazione sicura rispetto ai compiti",
-                         "Adesione alle norme/procedure di sicurezza ",
-                         "Prestazione sicura orientata al contesto",
-                         "Partecipazione attiva alla sicurezza",
+    const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
+                         ["Adesione alle norme o","procedure di sicurezza "],
+                         ["Prestazione sicura", "orientata al contesto"],
+                         ["Partecipazione attiva", "alla sicurezza"],
                          "Lavoro di squadra",
-                         "Comunicazione inerente la sicurezza"
+                         ["Comunicazione inerente", "la sicurezza"]
                         ];
 
     var values_list =  [values["PrestSicuraCompiti"],

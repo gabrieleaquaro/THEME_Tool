@@ -1,6 +1,6 @@
 :root {
   --primary: #F5CE00;
-  --primary-light: #fbf2c821;
+  --primary-light: rgba(251, 242, 200, 0.2);
   --secondary: rgb(250 168 11);
   --black: #2d2926;
 }
@@ -165,7 +165,8 @@ body {
   margin-left: -2.5%;
   margin-right: -2.5%;
   padding: 20px;
-  padding-right: 20px;
+  padding-right: 2.5%;
+  padding-left: 2.5%;
 }
 
 .bg-custom {

@@ -9,5 +9,13 @@
         "Partecipazione": "-",
         "LavoroSquad": "-",
         "Comunicazione": "-"
+    },
+    "prob_errore": {
+        "TipoTask": "0.26",
+        "PSFComposto": 0.5,
+        "ProbErrore": 0.13,
+        "ProbErroreAdj": 0.14942528735632185,
+        "StressDaMinaccia": "5",
+        "ComplessitàTask": "0.1"
     }
 }
