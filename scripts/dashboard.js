@@ -94,16 +94,15 @@ function updateBarriereDirette_results(data){
                 break
             }
             else if(data["barriere_dirette_"+i+"_" + j] != '-'){
-
                 val = val * data["barriere_dirette_"+i+"_" + j]
             }
         }
         if(val != "-"){
-            val = Math.round(val * 10000) / 10000
+            val = Math.round(val * 10000) / 10000;
         }   
         document.getElementById(elements[i - 1]).innerText = val
         document.getElementById(elements[i - 1] + "_1").innerText =  val
-        data[elements[i - 1]] =  val
+        updateJSON(elements[i - 1],  val);
     }
 }
 
@@ -131,7 +130,7 @@ function updateRisultati_results(report){
     }
 
     if(report['barriere_dirette']){
-        //First table of PSF
+        //First table of Barriere Dirette
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             if(report['barriere_dirette'][key] != null){
@@ -141,9 +140,9 @@ function updateRisultati_results(report){
                 document.getElementById(key).innerText = '-';
             }
         })
-        //generateChart_PSF(report["prob_errore"]);
+        generateChart_Barriere_dirette(report["barriere_dirette"]);
     }else{
-        //generateChart_PSF({});
+        generateChart_Barriere_dirette({});
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             document.getElementById(key).innerText = '-';
@@ -339,6 +338,7 @@ function generateChart_Barriere_dirette(values){
                          "Lavoro di squadra",
                          "Comunicazione inerente la sicurezza"
                         ];
+
     var values_list =  [values["PrestSicuraCompiti"],
                         values["Adesione"],
                         values["PrestSicuraContesto"],
@@ -347,21 +347,8 @@ function generateChart_Barriere_dirette(values){
                         values["Comunicazione"]]; 
 
     
-    //To rescale the values that makes no sense elseway on the graph
-    const values_map = {
-        0.1   : 1,
-        1     : 2,
-        '1.0' : 2,
-        2     : 3,
-        5     : 4,
-        10    : 5,
-        15    : 6,
-        20    : 7,
-        50    : 8,
-        100   : 9
-    } 
-    var chart_data = values_list.map(x => values_map[x]);
-    var max_value = Math.max(...chart_data);
+    //Here we don't need to rescale because the values are already normalized
+    var max_value = Math.max(...values_list);
 
     //Datasets for the chart
     const data = {
@@ -369,7 +356,7 @@ function generateChart_Barriere_dirette(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [8,8,8,8,8,8,8,8],
+                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FF3333',
                 pointRadius : 0,
@@ -380,7 +367,7 @@ function generateChart_Barriere_dirette(values){
             },
             {   
                 label: 'orange',
-                data: [6,6,6,6,6,6,6,6],
+                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#ffae00',
                 pointRadius : 0,
@@ -390,7 +377,7 @@ function generateChart_Barriere_dirette(values){
             },
             {   
                 label: 'yellow',
-                data: [4,4,4,4,4,4,4,4],
+                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#FFFF33',
                 pointRadius : 0,
@@ -399,7 +386,7 @@ function generateChart_Barriere_dirette(values){
                 hitRadius: 0
             },
             {   
-                data: [2,2,2,2,2,2,2,2],
+                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : '#FFFFFF00',
                 borderColor :'#33CC33',
                 pointRadius : 0,
@@ -409,13 +396,13 @@ function generateChart_Barriere_dirette(values){
             },
             {
                 label: 'Valore',
-                data: chart_data,
+                data: values_list,
                 borderColor: '#000',
                 backgroundColor: '#a6a6a660',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 2 ? '#33CC33' : value <= 4 ? '#FFFF33' : value <= 6 ? '#ffae00' :'#FF3333';
+                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -423,14 +410,6 @@ function generateChart_Barriere_dirette(values){
             
         ]
     };
-
-    //Remvoes useless levels
-    if(max_value <= 6){
-      data.datasets.splice(0, 1)
-      if(max_value  <= 4){
-        data.datasets.splice(0, 1)
-      }
-    }
 
     //chart Configuration    
     const config = {
@@ -440,20 +419,19 @@ function generateChart_Barriere_dirette(values){
             responsive: true,
             maintainAspectRatio: false,    
             scale:{
-                stepSize:1,
+                stepSize: 0.1,
                 min : 0,
                 ticks:{
                     beginAtZero: true,
                     max: max_value,
                     min: 0,
-                    stepSize: 1,
+                    stepSize: 0.1,
                     display: false,
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        display:false,
                         max: max_value,
                     },
                 },
@@ -461,34 +439,16 @@ function generateChart_Barriere_dirette(values){
             plugins: {
                 title: {
                 display: false,
-                text: 'PSF'
+                text: 'Barriere Dirette'
                 },
                 legend: {
                     display: false
-                },
-                tooltip:{
-                    callbacks:{
-                        label: function(context){
-                            var inverse_values_map = {
-                                1 : 0.1  ,
-                                2 : 1    ,
-                                3 : 2    ,
-                                4 : 5    ,
-                                5 : 10   ,
-                                6 : 15   ,
-                                7 : 20   ,
-                                8 : 50   ,
-                                9 : 100  
-                            } 
-                            return 'Valore: ' + inverse_values_map[context.raw];
-                        }
-                    }
                 },            
             }   
         },
       };
     
-    var canvas = document.getElementById("chart_PSF")
+    var canvas = document.getElementById("chart_barriere_dirette")
     var PSF_chart = new Chart(canvas.getContext("2d"), config);  
     canvas.addEventListener('click', function() {
         //Apply white background
@@ -502,7 +462,7 @@ function generateChart_Barriere_dirette(values){
 
         var image = PSF_chart.toBase64Image();
         a.href = image;
-        a.download = 'PSF_chart.png';
+        a.download = 'chart_barriere_dirette.png';
         a.click()
      }, false);
 }
