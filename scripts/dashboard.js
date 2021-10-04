@@ -13,7 +13,7 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 // import jQuery
 window.$ = window.jQuery = require('jquery');
 
-function snackbarShow(color = "#5cd65c", text = "Nuovo report creato e pronto per la modifica!"){
+function snackbarShow(color = "#28a745", text = "Nuovo report creato e pronto per la modifica!"){
     var x = document.getElementById("snackbar");
     x.style.backgroundColor = color;
     //SHOW
