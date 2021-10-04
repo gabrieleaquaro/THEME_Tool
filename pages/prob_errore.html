@@ -18,7 +18,7 @@
   <body>
     <div style="display: none;" id="title">prob_errore</div>
 
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../index.html">THEME Tool </a>
       <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -181,216 +181,220 @@
           <!-- ###################################################################-->
           
 
-          <br><br><br>
-          <div class="row" style="margin-bottom: 20px;"> 
-            <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4>
-          </div>
-          <div class = "bg-light">
-          <div class="row">
-            <div class="col-4">
-              <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+          <br><br>
+        
+          <div class = "section bg-light">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4>
             </div>
-            <div class="col-8">
-              <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="100">Tempo insufficente </option>
-                <option value="50">Tempo minimo necessario </option>
-                <option value="10">Tempo Limitato </option>
-                <option value="1.0">Tempo preventivato </option>
-                <option value="0.1">Tempo Extra </option>  
-                <option value="-">Info non disponibili</option>
-              </select>
+            <div class="row">
+              <div class="col-4">
+                <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+              </div>
+              <div class="col-8">
+                <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="100">Tempo insufficente </option>
+                  <option value="50">Tempo minimo necessario </option>
+                  <option value="10">Tempo Limitato </option>
+                  <option value="1.0">Tempo preventivato </option>
+                  <option value="0.1">Tempo Extra </option>  
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="TempoDisponibile_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
+              </div>
             </div>
+            
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="TempoDisponibile_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
+            <div class="row">
+              <div class="col-4">
+                <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
+              </div>
+              <div class="col-8">
+                <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="5">Molto Pericoloso </option>
+                  <option value="2">Moderatamente Pericoloso </option>
+                  <option value="1.0">Non Pericoloso</option>
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea  id="StressDaMinaccia_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
+              </div>
             </div>
-          </div>
-          
-          <br>
-          <div class="row">
-            <div class="col-4">
-              <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
-            </div>
-            <div class="col-8">
-              <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="5">Molto Pericoloso </option>
-                <option value="2">Moderatamente Pericoloso </option>
-                <option value="1.0">Non Pericoloso</option>
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
-            <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea  id="StressDaMinaccia_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
-            </div>
-          </div>
 
-          <br>
-          <div class="row">
-            <div class="col-4">
-              <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
-            </div>
-            <div class="col-8">
-              <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="50">Molto Complesso </option>
-                <option value="10">Moderatamente Complesso </option>
-                <option value="1.0">Non Complesso</option>
-                <option value="0.1">Semplificato</option>
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="ComplessitàTask_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+            <div class="row">
+              <div class="col-4">
+                <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
+              </div>
+              <div class="col-8">
+                <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="50">Molto Complesso </option>
+                  <option value="10">Moderatamente Complesso </option>
+                  <option value="1.0">Non Complesso</option>
+                  <option value="0.1">Semplificato</option>
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="ComplessitàTask_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
-          <br>
-          <div class="row justify-content-center align-self-center">
-            <div class="col-4">
-              <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
-            </div>
-            <div class="col-8">
-              <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="100">Conoscenze o abilità in contrasto con il comportamento corretto</option>
-                <option value="50">Nessuna esperienza o formazione specifica</option>
-                <option value="15">Poca esperienza o formazione specifica</option>
-                <option value="1.0">Esperienza e formazione come previsto</option>
-                <option value="0.1">Ampia esperienza e formazione </option>  
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="Esperienza_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+            <div class="row justify-content-center align-self-center">
+              <div class="col-4">
+                <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
+              </div>
+              <div class="col-8">
+                <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="100">Conoscenze o abilità in contrasto con il comportamento corretto</option>
+                  <option value="50">Nessuna esperienza o formazione specifica</option>
+                  <option value="15">Poca esperienza o formazione specifica</option>
+                  <option value="1.0">Esperienza e formazione come previsto</option>
+                  <option value="0.1">Ampia esperienza e formazione </option>  
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Esperienza_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
-          <br>
-          <div class="row justify-content-center align-self-center">
-            <div class="col-4">
-              <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
-            </div>
-            <div class="col-8">
-              <select id="Procedure" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="50">Procedure non disponibili o non utilizzate</option>
-                <option value="20">Procedure altamente insufficienti</option>
-                <option value="5">Procedure insufficienti</option>
-                <option value="1.0">Procedure adeguate seguite</option>
-                <option value="0.1">Procedure chiare e dettagliate che vengono seguite</option>  
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="Procedure_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+            <div class="row justify-content-center align-self-center">
+              <div class="col-4">
+                <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
+              </div>
+              <div class="col-8">
+                <select id="Procedure" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="50">Procedure non disponibili o non utilizzate</option>
+                  <option value="20">Procedure altamente insufficienti</option>
+                  <option value="5">Procedure insufficienti</option>
+                  <option value="1.0">Procedure adeguate seguite</option>
+                  <option value="0.1">Procedure chiare e dettagliate che vengono seguite</option>  
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Procedure_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
-          <br>
-          <div class="row">
-            <div class="col-4">
-              <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
-            </div>
-            <div class="col-8">
-              <select id="InterazioneUmanoMacchina" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="100">Totalmente inadeguata</option>
-                <option value="50">Inadeguata</option>
-                <option value="10">Appena Adeguata</option>
-                <option value="1.0">Adeguata</option>
-                <option value="0.1">Specificamente progettata per favorire la prestazione</option>  
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="InterazioneUmanoMacchina_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+            <div class="row">
+              <div class="col-4">
+                <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
+              </div>
+              <div class="col-8">
+                <select id="InterazioneUmanoMacchina" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="100">Totalmente inadeguata</option>
+                  <option value="50">Inadeguata</option>
+                  <option value="10">Appena Adeguata</option>
+                  <option value="1.0">Adeguata</option>
+                  <option value="0.1">Specificamente progettata per favorire la prestazione</option>  
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="InterazioneUmanoMacchina_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
-          <br>
-          <div class="row">
-            <div class="col-4">
-              <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
-            </div>
-            <div class="col-8">
-              <select id="ContestoAmbientale" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="100">Condizioni impossibilitanti</option>
-                <option value="10">Condizioni avverse</option>
-                <option value="1.0">Condizioni ambientali normali</option>
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="ContestoAmbientale_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+            <div class="row">
+              <div class="col-4">
+                <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
+              </div>
+              <div class="col-8">
+                <select id="ContestoAmbientale" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="100">Condizioni impossibilitanti</option>
+                  <option value="10">Condizioni avverse</option>
+                  <option value="1.0">Condizioni ambientali normali</option>
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="ContestoAmbientale_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
-          <br>
-          <div class="row">
-            <div class="col-4">
-              <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
-            </div>
-            <div class="col-8">
-              <select id="Affaticamento" onchange="updateJSONevent(event)" style="width: 100%;">
-                <option value="1" selected>Livello di Valutazione</option>
-                <option value="100">Affaticamento elevato</option>
-                <option value="10">Affaticamento moderato</option>
-                <option value="1.0">Affaticamento normale</option>
-                <option value="-">Info non disponibili</option>
-              </select>
-            </div>
             <br>
-            <div class="form-group">
-              <label>Note:</label>
-              <textarea id="Affaticamento_note" onchange="updateJSONevent(event)"  class="form-control" rows="1" ></textarea>
+            <div class="row">
+              <div class="col-4">
+                <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
+              </div>
+              <div class="col-8">
+                <select id="Affaticamento" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="100">Affaticamento elevato</option>
+                  <option value="10">Affaticamento moderato</option>
+                  <option value="1.0">Affaticamento normale</option>
+                  <option value="-">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Affaticamento_note" onchange="updateJSONevent(event)"  class="form-control" rows="1" ></textarea>
+              </div>
             </div>
-          </div>
 
           </div>
           <!-- ###################################################################-->
-          <br><br><br>
-          <div class="row border-bottom" style="margin-bottom: 20px;"> 
-            <h4 class="colorized">Report Probabilità Errore</h4>
+          
+          <div class ="section">
+            <div class="row border-bottom" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Report Probabilità Errore</h4>
+            </div>
+  
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <h6 class="lead" > Probabilità di Errore Umano nel compito specificato</h6>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Indice PSF Composto</th>
+                    <th scope="col">Probabilità d'Errore</th>
+                    <th scope="col">Probabilità d'Errore Adjusted (da 0 a 100%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="PSFComposto"> - </td>
+                    <td id="ProbErrore"> -  </td>
+                    <td id="ProbErroreAdj"> - </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
           </div>
-
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <h6 class="lead" > Probabilità di Errore Umano nel compito specificato</h6>
-              </thead>
-              <thead>
-                <tr>
-                  <th scope="col">Indice PSF Composto</th>
-                  <th scope="col">Probabilità d'Errore</th>
-                  <th scope="col">Probabilità d'Errore Adjusted (da 0 a 100%)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td id="PSFComposto"> - </td>
-                  <td id="ProbErrore"> -  </td>
-                  <td id="ProbErroreAdj"> - </td>
-                </tr>
-              
-              </tbody>
-            </table>
-          </div>
+          
    
         
 
