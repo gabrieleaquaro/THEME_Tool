@@ -1,5 +1,9 @@
+- Reset button
 - Help button (Documentation)
-- Add something to eni-log ? (copyrigths pop-up?)
-- implement renaming reports
 - Homepage (?)
+- Upload file (everything)
+- Scaricare in locale i grafici in modo che funzionino offline (librerie)
 - aggiungere funzione di ricerca e filtraggio
+- Colorare background grafici results, pare un po' impossibile. 
+
+- generare file word da grafici

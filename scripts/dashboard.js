@@ -35,6 +35,10 @@ function updateResults(currentPage, report){
             updateBarriereDirette_results(report[currentPage]);
             break;
 
+        case 'barriere_salvaguardia':
+            updateBarriereSalvaguardia_results(report[currentPage]);
+            break;
+
         case 'risultati':
             updateRisultati_results(report);
             break;
@@ -85,7 +89,7 @@ function updateBarriereDirette_results(data){
         val=1
         max = 6
         if(i == 5) max = 7
-        for(var j = 1; j< 6; j++){
+        for(var j = 1; j< max; j++){
 
             console.log("barriere_dirette_"+i+"_" + j)
             console.log(data["barriere_dirette_"+i+"_" + j])
@@ -95,6 +99,39 @@ function updateBarriereDirette_results(data){
             }
             else if(data["barriere_dirette_"+i+"_" + j] != '-'){
                 val = val * data["barriere_dirette_"+i+"_" + j]
+            }
+        }
+        if(val != "-"){
+            val = Math.round(val * 10000) / 10000;
+        }   
+        document.getElementById(elements[i - 1]).innerText = val
+        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        updateJSON(elements[i - 1],  val);
+    }
+}
+
+//Update della tabella a file barriere dirette
+function updateBarriereSalvaguardia_results(data){
+
+    elements = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+
+    var val;
+
+    for(var i = 1; i< elements.length + 1; i++){
+        val=1
+        max = 9
+        if (i == 2 || i == 3) max = 6
+        if ( i == 7) max = 11
+        for(var j = 1; j< max; j++){
+            console.log(".....")
+            console.log("barriere_salvaguardia_"+i+"_" + j)
+            console.log(data["barriere_salvaguardia_"+i+"_" + j])
+            if(data["barriere_salvaguardia_"+i+"_" + j] == undefined){
+                val = "-"
+                break
+            }
+            else if(data["barriere_salvaguardia_"+i+"_" + j] != '-'){
+                val = val * data["barriere_salvaguardia_"+i+"_" + j]
             }
         }
         if(val != "-"){
@@ -145,6 +182,26 @@ function updateRisultati_results(report){
         generateChart_Barriere_dirette({});
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
+            document.getElementById(key).innerText = '-';
+        });
+    }
+
+    if(report['barriere_salvaguardia']){
+        //First table of Barriere Dirette
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia.forEach(function(key){
+            if(report['barriere_salvaguardia'][key] != null){
+                document.getElementById(key).innerText = report['barriere_salvaguardia'][key];
+            }
+            else{
+                document.getElementById(key).innerText = '-';
+            }
+        })
+        generateChart_Barriere_Salvaguardia(report["barriere_salvaguardia"]);
+    }else{
+        generateChart_Barriere_Salvaguardia({});
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
     }
@@ -463,6 +520,148 @@ function generateChart_Barriere_dirette(values){
         var image = PSF_chart.toBase64Image();
         a.href = image;
         a.download = 'chart_barriere_dirette.png';
+        a.click()
+     }, false);
+}
+
+//GENERATE THE CHART OF PSF IN RESUTS PAGE
+function generateChart_Barriere_Salvaguardia(values){
+    const DATA_COUNT = 8;
+
+    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
+                         ["Competenze tecniche","di sicurezza"],
+                         ["Motivazione alla ", "sicurezza"],
+                         ["Cittadinanza organizzativa ", "di sicurezza"],
+                         ["Valutazione e sviluppo","delle competenze per la sicurezza"],
+                         "Leadership per l'HSE",
+                         "Clima e cultura di HSE"
+                        ];
+
+    var values_list =  [values["CompNonTechSicurezza"],
+                        values["CompTechSicurezza"],
+                        values["MotivazioneSicurezza"],
+                        values["CittadinanzaSicurezza"],
+                        values["ValutazioneSicurezza"],
+                        values["LeaderHSE"],
+                        values["ClimaHSE"]]; 
+
+    
+    //Here we don't need to rescale because the values are already normalized
+    var max_value = Math.max(...values_list);
+
+    //Datasets for the chart
+    const data = {
+        labels: chart_labels,
+        datasets: [
+            {   
+                lable: 'red',
+                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#FF3333',
+                pointRadius : 0,
+                order: 5,
+                hoverRadius : 0,
+                hitRadius: 0,
+                
+            },
+            {   
+                label: 'orange',
+                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#ffae00',
+                pointRadius : 0,
+                order: 4,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                label: 'yellow',
+                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#FFFF33',
+                pointRadius : 0,
+                order: 3,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#33CC33',
+                pointRadius : 0,
+                order:2,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {
+                label: 'Valore',
+                data: values_list,
+                borderColor: '#000',
+                backgroundColor: '#a6a6a660',
+                pointBackgroundColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
+                }, 
+                pointRadius: 4,
+                order:1,
+            },
+            
+        ]
+    };
+
+    //chart Configuration    
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,    
+            scale:{
+                stepSize: 0.1,
+                min : 0,
+                ticks:{
+                    beginAtZero: true,
+                    max: max_value,
+                    min: 0,
+                    stepSize: 0.1,
+                    display: false,
+                },
+            },
+            scales:{
+                r:{
+                    ticks:{
+                        max: max_value,
+                    },
+                },
+            },
+            plugins: {
+                title: {
+                display: false,
+                text: 'Barriere Salvaguardia'
+                },
+                legend: {
+                    display: false
+                },            
+            }   
+        },
+      };
+    
+    var canvas = document.getElementById("chart_barriere_salvaguardia")
+    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
+    canvas.addEventListener('click', function() {
+        //Apply white background
+        var a = document.createElement('a');
+        var context = canvas.getContext("2d");
+        context.save();
+        context.globalCompositeOperation = 'destination-over';
+        context.fillStyle = '#FFF';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.restore();
+
+        var image = PSF_chart.toBase64Image();
+        a.href = image;
+        a.download = 'chart_barriere_salvaguardia.png';
         a.click()
      }, false);
 }
