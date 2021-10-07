@@ -86,23 +86,21 @@ function updateBarriereDirette_results(data){
     var val;
 
     for(var i = 1; i< elements.length + 1; i++){
-        val=1
-        max = 6
-        if(i == 5) max = 7
-        for(var j = 1; j< max; j++){
+        val = 0
+        max = i != 6 ? 6 : 7
 
-            console.log("barriere_dirette_"+i+"_" + j)
-            console.log(data["barriere_dirette_"+i+"_" + j])
+        for(var j = 1; j < max; j++){
+            console.log("barriere_dirette_"+i+"_" + j +':', data["barriere_dirette_"+i+"_" + j])
             if(data["barriere_dirette_"+i+"_" + j] == undefined){
                 val = "-"
                 break
             }
             else if(data["barriere_dirette_"+i+"_" + j] != '-'){
-                val = val * data["barriere_dirette_"+i+"_" + j]
+                val += parseFloat(data["barriere_dirette_"+i+"_" + j])
             }
         }
         if(val != "-"){
-            val = Math.round(val * 10000) / 10000;
+            val = Math.round(val / max * 10000) / 10000;
         }   
         document.getElementById(elements[i - 1]).innerText = val
         document.getElementById(elements[i - 1] + "_1").innerText =  val
@@ -118,24 +116,21 @@ function updateBarriereSalvaguardia_results(data){
     var val;
 
     for(var i = 1; i< elements.length + 1; i++){
-        val=1
-        max = 9
-        if (i == 2 || i == 3) max = 6
-        if ( i == 7) max = 11
+        val=0
+        max = (i==2 || i == 3) ? 6 : i == 7 ? 11 : 9  
+        
         for(var j = 1; j< max; j++){
-            console.log(".....")
-            console.log("barriere_salvaguardia_"+i+"_" + j)
-            console.log(data["barriere_salvaguardia_"+i+"_" + j])
+            console.log("barriere_salvaguardia_"+i+"_" + j +': ', data["barriere_salvaguardia_"+i+"_" + j])
             if(data["barriere_salvaguardia_"+i+"_" + j] == undefined){
                 val = "-"
                 break
             }
             else if(data["barriere_salvaguardia_"+i+"_" + j] != '-'){
-                val = val * data["barriere_salvaguardia_"+i+"_" + j]
+                val += parseFloat(data["barriere_salvaguardia_"+i+"_" + j])
             }
         }
         if(val != "-"){
-            val = Math.round(val * 10000) / 10000;
+            val = Math.round(val / max * 10000) / 10000;
         }   
         document.getElementById(elements[i - 1]).innerText = val
         document.getElementById(elements[i - 1] + "_1").innerText =  val
@@ -289,7 +284,7 @@ function generateChart_PSF(values){
                 label: 'Valore',
                 data: chart_data,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a660',
+                backgroundColor: '#a6a6a630',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -455,7 +450,7 @@ function generateChart_Barriere_dirette(values){
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a660',
+                backgroundColor: '#a6a6a630',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -597,7 +592,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a660',
+                backgroundColor: '#a6a6a630',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
