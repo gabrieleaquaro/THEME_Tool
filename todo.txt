@@ -6,3 +6,4 @@
 
 
 - generare file word da grafici 
+- Grafici salvati con stessa dimensione, magari Grande
