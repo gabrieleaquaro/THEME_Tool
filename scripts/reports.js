@@ -38,7 +38,9 @@ function addRow(report){
                                 td.parentNode.getElementsByTagName('button')[1].onclick = deleteHandler(newName);
                                 td.modifing = false;
                             }else{
-                                textarea.value = "";
+                                textarea.className += 'error';
+                                textarea.value = report_name;
+                                setTimeout(function(){textarea.className = ''}, 1000);
                             }
                         }
                     }
