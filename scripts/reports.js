@@ -30,7 +30,7 @@ function addRow(report){
                             report_name = td.parentNode.id;
                             newName = textarea.value.slice(0, -1); 
                             validation = changeReportName(report_name, newName);
-                            if(validation){
+                            if(validation || newName == report_name){
                                 textarea.parentNode.removeChild(textarea);
                                 td.parentNode.id = newName;
                                 td.innerText = newName;
