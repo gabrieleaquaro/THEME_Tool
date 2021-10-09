@@ -28,7 +28,7 @@ function addRow(report){
                     return function(){
                         if(window.event.keyCode == 13){
                             report_name = td.parentNode.id;
-                            newName = textarea.value
+                            newName = textarea.value.slice(0, -1); 
                             validation = changeReportName(report_name, newName);
                             if(validation){
                                 textarea.parentNode.removeChild(textarea);
@@ -43,6 +43,11 @@ function addRow(report){
                                 setTimeout(function(){textarea.className = ''}, 1000);
                             }
                         }
+                        //esc
+                        if(window.event.keyCode == 27){
+                            textarea.parentNode.removeChild(textarea);
+                            td.innerText = td.parentNode.id;
+                        }
                     }
                 }
                 if(td.modifing == false){
@@ -50,7 +55,7 @@ function addRow(report){
                     area.value = td.innerText
                     area.rows = 1;
                     area.style.resize = 'none';
-                    area.addEventListener("keypress", changeName(td, area));
+                    area.addEventListener("keyup", changeName(td, area));
                     td.innerText = "";
                     td.append(area);
                     td.style.width = '27%';
