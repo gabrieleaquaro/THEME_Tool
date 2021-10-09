@@ -1,7 +1,6 @@
 out/
 .vscode/
 node_modules/
-dati/
 config.json
 Excell_riferimento.xlsx
 ~$Excell_riferimento.xlsx

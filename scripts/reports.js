@@ -32,13 +32,14 @@ function addRow(report){
                     }
                 }
                 if(td.modifing == false){
-                    area = document.createElement("textarea");
+                    var area = document.createElement("textarea");
                     area.value = td.innerText
                     area.rows = 1;
-                    td.style.width = '20%'
+                    var w = td.style.width
                     area.addEventListener("keypress", changeName(td, area));
                     td.innerText = "";
                     td.append(area);
+                    td.style.width = '27%';
                     td.modifing = true;
                 }
             }

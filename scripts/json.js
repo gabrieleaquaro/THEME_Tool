@@ -20,7 +20,7 @@ if(!fs.existsSync('./dati/')){
 
 //Checks that the current report exists and load it
 if(!fs.existsSync('./dati/' + currentReport)){
-    let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
+    let date_to_print = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
 }
 
