@@ -1,3 +1,5 @@
+const { nodeName } = require("jquery");
+
 function addRow(report){
     if(report["name"] != 'default'){
         var tr = document.createElement("tr");
@@ -45,7 +47,7 @@ function addRow(report){
                     var area = document.createElement("textarea");
                     area.value = td.innerText
                     area.rows = 1;
-                    var w = td.style.width
+                    area.style.resize = 'none';
                     area.addEventListener("keypress", changeName(td, area));
                     td.innerText = "";
                     td.append(area);
