@@ -8,6 +8,18 @@ function addRow(report){
         tr.append(td_name);
         td_name.modifing = false;        
 
+        var updateHandler = function(name){
+            return function(){
+                updateCurrent(name);
+            }
+        }
+
+        var deleteHandler = function(name){
+            return function(){
+                delete_report(name)
+            }
+        }
+
         var createClickHanler = function(td){
             return function(){
                 var changeName = function(td, textarea){
@@ -20,10 +32,8 @@ function addRow(report){
                                 textarea.parentNode.removeChild(textarea);
                                 td.parentNode.id = newName;
                                 td.innerText = newName;
-                                var updateHandler = function(newName){return updateCurrent(newName);};
-                                var deleteHandler = function(newName){return delete_report(newName);};
-                                td.parentNode.getElementsByTagName('button')[0].onclick = updateHandler;
-                                td.parentNode.getElementsByTagName('button')[1].onclick = deleteHandler;
+                                td.parentNode.getElementsByTagName('button')[0].onclick = updateHandler(newName);
+                                td.parentNode.getElementsByTagName('button')[1].onclick = deleteHandler(newName);
                                 td.modifing = false;
                             }else{
                                 textarea.value = "";
