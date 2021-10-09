@@ -1,17 +1,55 @@
 function addRow(report){
-    if(report["name"] != 'default.json'){
+    if(report["name"] != 'default'){
         var tr = document.createElement("tr");
         // nome
         var td_name = document.createElement("td")
-        td_name.innerText = report["name"].split(".")[0]
+        td_name.innerText = report["name"]
         tr.id = report["name"];
-        tr.append(td_name)
+        tr.append(td_name);
+        td_name.modifing = false;        
+
+        var createClickHanler = function(td){
+            return function(){
+                var changeName = function(td, textarea){
+                    return function(){
+                        if(window.event.keyCode == 13){
+                            report_name = td.parentNode.id;
+                            newName = textarea.value
+                            validation = changeReportName(report_name, newName);
+                            if(validation){
+                                textarea.parentNode.removeChild(textarea);
+                                td.parentNode.id = newName;
+                                td.innerText = newName;
+                                var updateHandler = function(newName){return updateCurrent(newName);};
+                                var deleteHandler = function(newName){return delete_report(newName);};
+                                td.parentNode.getElementsByTagName('button')[0].onclick = updateHandler;
+                                td.parentNode.getElementsByTagName('button')[1].onclick = deleteHandler;
+                                td.modifing = false;
+                            }else{
+                                textarea.value = "";
+                            }
+                        }
+                    }
+                }
+                if(td.modifing == false){
+                    area = document.createElement("textarea");
+                    area.value = td.innerText
+                    area.rows = 1;
+                    area.addEventListener("keypress", changeName(td, area));
+                    td.innerText = "";
+                    td.append(area);
+                    td.modifing = true;
+                }
+            }
+        }
+        
+        td_name.onclick = createClickHanler(td_name);
 
         // data
         var td_date = document.createElement("td")
         td_date.innerText = report["dateToPrint"]
         tr.append(td_date)
-
+       
         // bottone di modifica
         var td_button_modify = document.createElement("td")
         td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Modifica</button>'
@@ -37,19 +75,19 @@ function removeRow(report_name){
 }
 
 function setUnmodifiable(report_name){
-    if(report_name != 'default.json'){
+    if(report_name != 'default'){
         document.getElementById(report_name).getElementsByTagName("button")[0].disabled = true;
     }
 }
 
 function setModifiable(report_name){
-    if(report_name != 'default.json'){
+    if(report_name != 'default'){
         document.getElementById(report_name).getElementsByTagName("button")[0].disabled = false;
     }
 }
 
 function setUndeleteble(report_name){
-    if(report_name != 'default.json'){
+    if(report_name != 'default'){
         document.getElementById(report_name).getElementsByTagName("button")[1].disabled = true;
     }
 }

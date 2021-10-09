@@ -3,10 +3,10 @@ const fs = require("fs");
 
 // Check that config file exists or create it
 let rawdata
-if (!fs.existsSync('./config.json')){
-    fs.writeFileSync('./config.json', JSON.stringify({ "currentReport": "default.json"}, null, 4));
+if (!fs.existsSync('./config')){
+    fs.writeFileSync('./config', JSON.stringify({ "currentReport": "default"}, null, 4));
 }
-rawdata = fs.readFileSync('./config.json'); 
+rawdata = fs.readFileSync('./config'); 
 let config = JSON.parse(rawdata);
 var currentReport = config["currentReport"]
 
@@ -32,7 +32,7 @@ var currentPage = document.getElementById("title").innerText
 updatePage(report)
 
 function updatePage(report){
-    // con dati.json modifica tutti i campi nella pagina
+    // con dati modifica tutti i campi nella pagina
     if(currentPage != ""){
         if (report[currentPage] == null){
             report[currentPage] = {}
@@ -47,7 +47,7 @@ function updatePage(report){
     }
 }
 
-// on change fai si che dati.json venga modificato e poi salva il file nel path
+// on change fai si che dati venga modificato e poi salva il file nel path
 function updateJSONevent(e){
     var field = e.target.id;
     var data = e.target.value;
@@ -65,7 +65,7 @@ function updateJSON(field,data){
 function newReport(){
     var i = 1;
     do{
-        var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+".json";
+        var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+"";
         i++;
     }while(fs.existsSync('./dati/' + report_name));
 
@@ -85,17 +85,17 @@ function newReport(){
 }
 
 // update stats in config of current report
-function updateCurrent(report_name, printSnackbar = true){
+function updateCurrent(report_name, printSnackbar = true, changeName = false){
     var old_rep = config["currentReport"];
     config["currentReport"] = report_name
     currentReport = report_name
 
-    fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
+    fs.writeFileSync('./config', JSON.stringify(config, null, 4));
     showUpdate()
     if(printSnackbar){
         snackbarShow("#28a745", "Report Corrente Aggiornato");
     }
-    if(currentPage == ""){
+    if(currentPage == "" && !changeName){
         setUnmodifiable(report_name);
         setModifiable(old_rep);
     }
@@ -106,7 +106,7 @@ function updateCurrent(report_name, printSnackbar = true){
 function delete_report(name){
     if (confirm('Sei sicuro di voler cancellare questo report? (AZIONE IRREVERSIBILE!)')) {
         if(name  == currentReport){            
-            updateCurrent("default.json");
+            updateCurrent("default");
         }
         removeRow(name);
         fs.unlinkSync("./dati/" + name);
@@ -133,7 +133,7 @@ function save(){
 function download(filename, text) {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename + '.json');
+    element.setAttribute('download', filename + '');
   
     element.style.display = 'none';
     document.body.appendChild(element);
@@ -151,6 +151,20 @@ function load_data(event){
     reader.fileName = file.name
     reader.onload = onReaderLoad;
     reader.readAsText(file);
+}
+
+function changeReportName(currentName, newName){
+    report = JSON.parse(fs.readFileSync('./dati/'+ currentName));
+    report["name"] = newName
+    if(fs.existsSync('./dati/'+newName)){
+        return false;
+    }
+    fs.writeFileSync('./dati/' + newName, JSON.stringify(report, null, 4));
+    fs.unlinkSync('./dati/' + currentName);
+    if(currentReport == currentName){
+        updateCurrent(newName, true, true);
+    }
+    return true;
 }
 
 function onReaderLoad(event){
@@ -179,7 +193,7 @@ function onReaderLoad(event){
       
     var i = 1;
     while(fs.existsSync('./dati/' + new_data["name"])){
-        new_data["name"] = new_data["name"].split(".")[0] + '_'+ i + '.json'; 
+        new_data["name"] = new_data["name"] + '_'+ i + ''; 
         i += 1;
     }
     fs.writeFileSync('./dati/' + new_data["name"],  JSON.stringify(new_data, null, 4));
@@ -217,7 +231,7 @@ function resetCurrent(){
 }
 
 function showUpdate(){
-    document.getElementById("current_report_title").innerText = currentReport.split(".")[0]
+    document.getElementById("current_report_title").innerText = currentReport
 }
 
 function refreshPage(){

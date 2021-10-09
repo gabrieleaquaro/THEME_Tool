@@ -108,10 +108,11 @@
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <label for="file-loader" class="nav-link">
                   <span data-feather="upload"></span>
                   Carica Report
-                </a>
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
               </li>
             </ul>
           </div>
