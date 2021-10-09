@@ -35,6 +35,7 @@ function addRow(report){
                     area = document.createElement("textarea");
                     area.value = td.innerText
                     area.rows = 1;
+                    td.style.width = '20%'
                     area.addEventListener("keypress", changeName(td, area));
                     td.innerText = "";
                     td.append(area);
