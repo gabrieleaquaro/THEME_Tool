@@ -1,6 +1,6 @@
 :root {
   --primary: #F5CE00;
-  --primary-light: rgba(251, 242, 200, 0.2);
+  --primary-light: rgb(255, 250, 234);
   --secondary: rgb(250 168 11);
   --black: #2d2926;
 }
@@ -26,11 +26,7 @@ body {
 .sidebar {
   position: fixed;
   top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
   bottom: 0;
-  /* rtl:remove */
   left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
@@ -104,10 +100,6 @@ body {
     top: 5rem;
   }
 }
-
-/*Animation shake*/
-
-
 
 .sidebar-sticky {
   position: relative;

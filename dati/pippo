@@ -1,5 +1,13 @@
 {
     "name": "pippo",
     "date": 1633800484525,
-    "dateToPrint": "9/10/2021"
+    "dateToPrint": "9/10/2021",
+    "barriere_dirette": {
+        "PrestSicuraCompiti": "-",
+        "Adesione": "-",
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": "-"
+    }
 }
