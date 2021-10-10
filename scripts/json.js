@@ -3,7 +3,7 @@ const fs = require("fs");
 
 // Check that config file exists or create it
 if (!fs.existsSync('./config')){
-    fs.writeFileSync('./config', JSON.stringify({ "lastModifiedReport": "default", "currentReports" : {0 : 'default'}}, null, 4));
+    fs.writeFileSync('./config', JSON.stringify({ "lastModifiedReport": "default", "openedWindows" : 0, "currentReports" : {0 : 'default'}}, null, 4));
 }
 
 var configData = fs.readFileSync('./config'); 
@@ -11,8 +11,8 @@ var config = JSON.parse(configData);
 var currentReport = config["currentReports"][window.name]
 
 if (window.name == ''){
-    let index = Math.max(Object.keys(config["currentReports"]))
-    window.name = index + 1 
+    config["openedWindows"] += 1
+    window.name = config["openedWindows"]
     config["currentReports"][window.name] = config['lastModifiedReport']
     currentReport = config["currentReports"][window.name]
     fs.writeFileSync('./config', JSON.stringify(config, null, 4));

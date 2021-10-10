@@ -15,8 +15,8 @@ function newApp() {
                           autoHideMenuBar  : true,
                         });
   win.loadFile('./index.html');
+  return win.name
 }
-
 app.whenReady().then(() => {
   newApp()
 })
@@ -24,7 +24,10 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   const fs = require("fs");
   var config = JSON.parse(fs.readFileSync('./config'));
-  config['currentReports'] = {0 : config['lastModifiedReport']}
+  config["openedWindows"] -= 1;
+  if(config["openedWindows"] == 0){
+    config["currentReports"] = {0 : config['lastModifiedReport']}; 
+  }
   fs.writeFileSync('./config', JSON.stringify(config, null, 4));
   if (process.platform !== 'darwin') app.quit()
 })
