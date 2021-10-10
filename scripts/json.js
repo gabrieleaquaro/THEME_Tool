@@ -2,18 +2,24 @@
 const fs = require("fs");
 
 // Check that config file exists or create it
-let rawdata
 if (!fs.existsSync('./config')){
-    fs.writeFileSync('./config', JSON.stringify({ "currentReport": "default"}, null, 4));
+    fs.writeFileSync('./config', JSON.stringify({ "lastModifiedReport": "default", "currentReports" : {0 : 'default'}}, null, 4));
 }
-rawdata = fs.readFileSync('./config'); 
-let config = JSON.parse(rawdata);
-var currentReport = config["currentReport"]
 
-// mostrare report a video
-showUpdate()
+var configData = fs.readFileSync('./config'); 
+var config = JSON.parse(configData);
+var currentReport = config["currentReports"][window.name]
 
-// Checks taht dati folder exists
+if (window.name == ''){
+    let index = Math.max(Object.keys(config["currentReports"]))
+    window.name = index + 1 
+    config["currentReports"][window.name] = config['lastModifiedReport']
+    currentReport = config["currentReports"][window.name]
+    fs.writeFileSync('./config', JSON.stringify(config, null, 4));
+}
+
+
+// Checks that dati folder exists
 if(!fs.existsSync('./dati/')){
     fs.mkdirSync('./dati/');
 }
@@ -24,11 +30,13 @@ if(!fs.existsSync('./dati/' + currentReport)){
     fs.writeFileSync('./dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
 }
 
-rawdata = fs.readFileSync('./dati/' + currentReport);
+let rawdata = fs.readFileSync('./dati/' + currentReport);
 let report = JSON.parse(rawdata);
 
 var currentPage = document.getElementById("title").innerText
 
+// mostrare report a video
+showUpdate()
 updatePage(report)
 
 function updatePage(report){
@@ -86,8 +94,9 @@ function newReport(){
 
 // update stats in config of current report
 function updateCurrent(report_name, printSnackbar = true, changeName = false){
-    var old_rep = config["currentReport"];
-    config["currentReport"] = report_name
+    var old_rep = config["currentReports"][window.name];
+    config["currentReports"][window.name] = report_name
+    config['lastModifiedReport'] = report_name
     currentReport = report_name
 
     fs.writeFileSync('./config', JSON.stringify(config, null, 4));

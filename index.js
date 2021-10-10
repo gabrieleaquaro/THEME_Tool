@@ -3,6 +3,7 @@ const {
   BrowserWindow,
   ipcMain
 } = require("electron");
+const { fstat } = require("fs");
 const path = require("path");
 
 function newApp() {
@@ -21,5 +22,9 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', function () {
+  const fs = require("fs");
+  var config = JSON.parse(fs.readFileSync('./config'));
+  config['currentReports'] = {0 : config['lastModifiedReport']}
+  fs.writeFileSync('./config', JSON.stringify(config, null, 4));
   if (process.platform !== 'darwin') app.quit()
 })

@@ -1,3 +1,6 @@
 {
-    "currentReport": "pippo"
+    "lastModifiedReport": "pippo",
+    "currentReports": {
+        "0": "pippo"
+    }
 }
