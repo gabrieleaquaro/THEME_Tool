@@ -1,5 +1,36 @@
 {
     "name": "franco",
-    "date": 1633863838057,
-    "dateToPrint": "10/10/2021"
+    "date": 1634060661098,
+    "dateToPrint": "12_10_2021",
+    "valori_culturali": {
+        "Individualismo": 1,
+        "DistPotere": 0.3333,
+        "RigeIncertezza": 0.3333,
+        "Mascolinità": 0.3333,
+        "valori_culturali_1_1": "1.0",
+        "valori_culturali_1_2": "1.0",
+        "valori_culturali_1_3": "1.0",
+        "valori_culturali_2_1": "0",
+        "valori_culturali_2_2": "0",
+        "valori_culturali_2_3": "1.0",
+        "valori_culturali_3_1": "0",
+        "valori_culturali_3_2": "0",
+        "valori_culturali_3_3": "1.0",
+        "valori_culturali_4_1": "0",
+        "valori_culturali_4_2": "0",
+        "valori_culturali_4_3": "1.0",
+        "valori_culturali_5_1": "0",
+        "valori_culturali_5_2": "1.0",
+        "valori_culturali_5_3": "1.0",
+        "Orientamento": 0.6667
+    },
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    }
 }

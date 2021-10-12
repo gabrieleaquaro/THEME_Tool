@@ -188,5 +188,15 @@ body {
 }
 
 
+-webkit-slider-thumb:active {
+  background-color: red;
+}
+-webkit-slider-thumb,
+.custom-range:focus::-webkit-slider-thumb, 
+.custom-range:focus::-moz-range-thumb,
+.custom-range:focus::-ms-thumb {
+  box-shadow: red;
+}
+
 
 

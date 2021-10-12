@@ -126,18 +126,347 @@
         
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2 text-center">THEME Tool </h1>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="colorized">VALUTAZIONE DEI VALORI CULTURALI </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="resetCurrent()">Reset</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary">Help!</button>
               </div>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
+              <button type="button" class="btn btn-sm btn-outline-secondary btn-block" >
                 <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
               </button>
             </div>
           </div>
+          <p class="lead" style="margin-bottom: 30px;">
+            In base alle osservazioni dell’ambiente di lavoro condotte nel sito, inserisca il valore <b>Si</b> se l'affermazione rispecchia l'ambiente di lavoro e inserisca il valore <b>No</b> se non lo rispecchia.
+          </p>
+
+          <!-- Individualismo -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Individualismo".</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_1" style="margin-top: -4px;font-size: 16px;">Gli individui preferiscono lavorare individualmente piuttosto che in gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_2" style="margin-top: -4px;font-size: 16px;">Gli individui attribuiscono molta importanza alla salute e sicurezza dell'individuo piuttosto che quella del gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_3" style="margin-top: -4px;font-size: 16px;">Gli individui tendono a dare maggior valore a riconoscimenti individuali piuttosto che di gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Individualismo_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Dist dal potere -->
+          <div class ="section  bg-light">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Distanza dal potere". </h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_1" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più alte prendono la maggior parte delle decisioni senza chiedere l’opinione delle persone in posizioni più basse. </div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_2" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più basse accettano le decisioni prese delle persone in posizioni superiori.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select></div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_3" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più alte danno per scontato atteggiamenti di remissione e obbedienza nei loro confronti.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select> </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="DistPotere_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Rigetto Incertezza -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Rigetto all'incertezza".           </h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">I lavoratori chiedono che le istruzioni siano spiegate in dettaglio.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">I lavoratori attribuiscono particolare importanza a pianificare il lavoro e ridurre gli imprevisti.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select></div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Le procedure di lavoro maggiormente standardizzate sono quelle più apprezzate dai lavoratori.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="RigeIncertezza_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Mascolinità -->
+          <div class ="section  bg-light">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Mascolinità". Inserisca 1 se l'affermazione è corretta.</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">Le posizioni di potere sono ricoperte prevalentemente da uomini.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+     
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">Il potere e la competizione sono più importanti della collaborazione e cooperazione.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">I problemi sono risolti con la negoziazione e il compromesso.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Mascolinità_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Orientamento a breve termine -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Orientamento a breve termine". Inserisca 1 se l'affermazione è corretta.</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Per i lavoratori è importante che i risultati siano immediati.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">È data più importanza a progetti che consentono un guadagno immediato.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Le decisioni prese sono legate alla tradizione e ciò che è stato fatto in passato.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Orientamento_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+          <!-- RISULTATI -->
+          <div class ="section bg-light ">
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <h4 class="colorized"  > Punteggi Totali</h6>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Individualismo</th>
+                    <th scope="col">Distanza del potere</th>
+                    <th scope="col">Rigetto all'incertezza</th>
+                    <th scope="col">Mascolinità</th>
+                    <th scope="col">Orientamento a breve termine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="Individualismo"> - </td>
+                    <td id="DistPotere"> -  </td>
+                    <td id="RigeIncertezza"> - </td>
+                    <td id="Mascolinità"> - </td>
+                    <td id="Orientamento"> -  </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+  
+          </div>
+
         </main>
 
       </div>

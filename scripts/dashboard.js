@@ -38,6 +38,10 @@ function updateResults(currentPage, report){
         case 'barriere_salvaguardia':
             updateBarriereSalvaguardia_results(report[currentPage]);
             break;
+        
+        case 'valori_culturali':
+            updateValoriCulturali_results(report[currentPage]);
+            break;
 
         case 'risultati':
             updateRisultati_results(report);
@@ -141,6 +145,39 @@ function updateBarriereSalvaguardia_results(data){
     }
 }
 
+//Update della tabella a file barriere dirette
+function updateValoriCulturali_results(data){
+
+    elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
+
+    var val;
+
+    for(var i = 1; i< elements.length + 1; i++){
+        val = 0
+        max = 4
+        var count = 0
+        for(var j = 1; j < max; j++){
+            console.log("valori_culturali_"+i+"_" + j +':', data["valori_culturali_"+i+"_" + j])
+            if(data["valori_culturali_"+i+"_" + j] == undefined){
+                val = "-"
+                break
+            }
+            else if(data["valori_culturali_"+i+"_" + j] != '-'){
+                val += parseFloat(data["valori_culturali_"+i+"_" + j])
+                count += 1
+            }
+            
+        }
+        if(val != "-"){
+            val = Math.round(val / count * 10000) / 10000;
+        }   
+        
+
+        document.getElementById(elements[i - 1]).innerText = val
+        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        updateJSON(elements[i - 1],  val);
+    }
+}
 
 //Update dei risultati in results page
 function updateRisultati_results(report){
@@ -200,6 +237,26 @@ function updateRisultati_results(report){
         generateChart_Barriere_Salvaguardia({});
         elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
+            document.getElementById(key).innerText = '-';
+        });
+    }
+
+    if(report['valori_culturali']){
+        //First table of Barriere Dirette
+        elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
+        elements.forEach(function(key){
+            if(report['valori_culturali'][key] != null){
+                document.getElementById(key).innerText = report['valori_culturali'][key];
+            }
+            else{
+                document.getElementById(key).innerText = '-';
+            }
+        })
+        generateChart_Valori_Culturali(report["valori_culturali"]);
+    }else{
+        generateChart_Valori_Culturali({});
+        elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
+        elements.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
     }
@@ -663,3 +720,141 @@ function generateChart_Barriere_Salvaguardia(values){
         a.click()
      }, false);
 }
+
+function generateChart_Valori_Culturali(values){
+    const DATA_COUNT = 8;
+
+    const chart_labels = ["Individualismo",
+                         "Distanza del potere",
+                         "Rigetto all'incertezza",
+                         "Mascolinità",
+                         ["Orientamento", "a breve termine"]
+                        ];
+
+    var values_list =  [values["Individualismo"],
+                        values["DistPotere"],
+                        values["RigeIncertezza"],
+                        values["Mascolinità"],
+                        values["Orientamento"]]; 
+
+    
+    //Here we don't need to rescale because the values are already normalized
+    var max_value = Math.max(...values_list);
+
+    //Datasets for the chart
+    const data = {
+        labels: chart_labels,
+        datasets: [
+            {   
+                lable: 'red',
+                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#FF3333',
+                pointRadius : 0,
+                order: 5,
+                hoverRadius : 0,
+                hitRadius: 0,
+                
+            },
+            {   
+                label: 'orange',
+                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#ffae00',
+                pointRadius : 0,
+                order: 4,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                label: 'yellow',
+                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#FFFF33',
+                pointRadius : 0,
+                order: 3,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
+                backgroundColor : '#FFFFFF00',
+                borderColor :'#33CC33',
+                pointRadius : 0,
+                order:2,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {
+                label: 'Valore',
+                data: values_list,
+                borderColor: '#000',
+                backgroundColor: '#a6a6a630',
+                pointBackgroundColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
+                }, 
+                pointRadius: 4,
+                order:1,
+            },
+            
+        ]
+    };
+
+    //chart Configuration    
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,    
+            scale:{
+                stepSize: 0.1,
+                min : 0,
+                ticks:{
+                    beginAtZero: true,
+                    max: max_value,
+                    min: 0,
+                    stepSize: 0.1,
+                    display: false,
+                },
+            },
+            scales:{
+                r:{
+                    ticks:{
+                        max: max_value,
+                    },
+                },
+            },
+            plugins: {
+                title: {
+                display: false,
+                text: 'Valori Culturali'
+                },
+                legend: {
+                    display: false
+                },            
+            }   
+        },
+      };
+    
+    var canvas = document.getElementById("chart_valori_culturali")
+    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
+    canvas.addEventListener('click', function() {
+        //Apply white background
+        var a = document.createElement('a');
+        var context = canvas.getContext("2d");
+        context.save();
+        context.globalCompositeOperation = 'destination-over';
+        context.fillStyle = '#FFF';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.restore();
+
+        var image = PSF_chart.toBase64Image();
+        a.href = image;
+        a.download = 'chart_barriere_salvaguardia.png';
+        a.click()
+     }, false);
+}
+
