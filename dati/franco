@@ -32,5 +32,29 @@
         "ValutazioneSicurezza": "-",
         "LeaderHSE": "-",
         "ClimaHSE": "-"
+    },
+    "prob_errore": {
+        "DescrizioneTask": "fadfda",
+        "TipoTask_note": "fda",
+        "TempoDisponibie": "50",
+        "StressDaMinaccia": "2",
+        "ComplessitàTask": "1.0",
+        "Esperienza": "50",
+        "Procedure": "20",
+        "InterazioneUmanoMacchina": "10",
+        "ContestoAmbientale": "10",
+        "Affaticamento": "10",
+        "TipoTask": "0.02",
+        "PSFComposto": 100000000,
+        "ProbErrore": 2000000,
+        "ProbErroreAdj": 0.9999995100002401
+    },
+    "barriere_dirette": {
+        "PrestSicuraCompiti": "-",
+        "Adesione": "-",
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": "-"
     }
 }
