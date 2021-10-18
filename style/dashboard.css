@@ -1,12 +1,15 @@
 :root {
-  --primary: #F5CE00;
+  --primary: rgb(255, 213, 0);
+  --red-primary: rgb(192,0,0)
   --primary-light: rgb(255, 251, 239);
-  --secondary: rgb(250, 168, 11);
-  --black: #2d2926;
+  --secondary: rgb(255,153,0);
+  --black: rgb(28,28,28);
 }
 
 body {
-  font-size: .875rem;
+  font-size: 1rem;
+  font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; /* THIS IS ACTUALLY BAD ???????*/ 
+
 }
 
 .feather {
@@ -55,13 +58,12 @@ body {
   display: block;
   position: absolute;
   background-color: white;
-  top: -10%;
   width: 100%;
   height: 100%;
   opacity: 0.3;
-  background-image: url('../images/eni_bg.jpg');
+  background-image: url('../images/header.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
 }
 
 .demo-content {
