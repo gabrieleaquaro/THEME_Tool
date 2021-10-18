@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(255, 213, 0);
-  --red-primary: rgb(192,0,0)
+  --red-primary: rgb(192,0,0);
   --primary-light: rgb(255, 251, 239);
   --secondary: rgb(255,153,0);
   --black: rgb(28,28,28);
@@ -70,6 +70,11 @@ body {
   position: relative;
 }
 
+.screenshot_box{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: -10%;
+}
 /*
  * Sidebar
  */
