@@ -122,8 +122,8 @@
         <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
 
         <!-- MAIN CONTENT BLOCK -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-0 ">
-          <div class="d-flex justify-content-between  px-4 flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-0">
+          <div class="d-flex justify-content-between  px-4 flex-wrap flex-md-nowrap align-items-center pt-3 pb-0 mb-0 border-bottom">
             <h2 id="title" class="colorized text-center">THEME Tool </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
@@ -136,9 +136,9 @@
             </div>
           </div>
           <!-- HEADLINE -->
-          <div class = "container-fluid mx-0 px-0 py-3 demo-wrap">
+          <div class = "container-fluid mx-0 mt-0 px-0 py-3 demo-wrap">
             <div class="position-relative  text-center ">
-              <div class="col-md-5 p-lg-9 mx-auto my-5 demo-content">
+              <div class="col-md-5 p-lg-9 mx-auto my-5 py-3 demo-content">
                 <h1 class="display-4" style="font-weight: 500;">THEME</h1>
                 <p class="lead" style="font-weight: 400;">Strumento di valutazione dei fattori umani legati alla sicurezza.</p>
                 <a class="btn btn-lg btn-primary" href="#">Crea un Report</a>
@@ -160,7 +160,7 @@
                       <li>Eliminare</li>
                       <li>Rinominare </li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary"> Visualliza </button>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='./pages/reports.html';"> Visualliza </button>
                   </div>
                 </div>
                 <div class="card mb-4 box-shadow">
@@ -174,7 +174,7 @@
                       <li>Scarica resoconti</li>
                       <li>Visualizza tabelle riassuntive</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Vedi Ora!</button>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='./pages/risultati.html';" >Vedi Ora!</button>
                   </div>
                 </div>
                 <div class="card mb-4 box-shadow">
@@ -188,22 +188,22 @@
                       <li>lo troverai nell'elenco </li>
                       <li>dei reports</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Carica</button>
+                    <button type="button" class="btn btn-lg btn-block btn-primary"><label for="file-loader">Carica</label></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <!-- OTHER stuffs -->
-          <div class="d-md-flex flex-md-equal w-100 my-3">
+          <div class="d-md-flex flex-md-equal w-100 mt-3">
             <div class="bg-colorized-primary mr-md-3 pt-3 px-3 py-0 pt-md-5 px-md-5 text-center overflow-hidden">
-              <div class="my-3 py-3">
+              <div class="py-4">
                 <h2 class="display-5">Finalità</h2>
                 <p class="lead">Valutare la probabilità di errore, l'affidabilità della performance e l'adeguatezza delle barriere. </p>
               </div>
             </div>
             <div class="bg-colorized-secondary mr-md-3 pt-3 px-3 py-0 pt-md-5 px-md-5 text-center overflow-hidden">
-              <div class="my-3 p-3">
+              <div class="py-4">
                 <h2 class="display-5">Interventi</h2>
                 <p class="lead">Strategie di cambiamento dei comportamenti e dei contesti lavorativi per l'aumento della sicurezza.</p>
               </div>
@@ -252,6 +252,7 @@
             </div>
           </div>
         -->
+        <footer class = "text-center bg-light py-0 my-0" > <small class="">© 2021 Copyright: <b>ENI S.P.A</b> | <div style ="font-size: 0.5rem;display: inline">Made by : <b>Aquaro Gabriele, Carratta Francesco </b></div> </small></footer>
         </main> 
       </div>
     </div>
