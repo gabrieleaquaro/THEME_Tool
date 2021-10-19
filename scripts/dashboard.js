@@ -279,7 +279,7 @@ function updateInterventi_results(report){
                 p.classList.add("show")
                 a.classList.remove("collapsed")                
             }else{
-                el.classList.add("collapse");
+                p.classList.add("collapse");
                 p.classList.remove("show")
                 a.classList.add("collapsed")      
             }  
