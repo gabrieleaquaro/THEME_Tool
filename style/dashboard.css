@@ -44,7 +44,19 @@ body {
 .btn-primary{
   color: #000;
   background-color: var(--primary);
-  border-color: var(--primary-light);
+  border-color: #000;
+  
+}
+
+.btn-primary:hover{
+  background-color: var(--secondary);
+}
+.btn-primary:focus{
+  background-color: var(--secondary);
+}
+
+.btn-primary:active{
+  background-color: var(--primary);
 }
 
 /*-----------HOME ----------*/
