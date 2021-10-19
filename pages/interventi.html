@@ -124,7 +124,7 @@
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2 text-center">THEME Tool </h1>
+            <h2 class="colorized text-center"> INTERVENTI </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="resetCurrent()">Reset</button>
@@ -135,9 +135,32 @@
               </button>
             </div>
           </div>
-        
-        </main>
 
+          <!-- Interventi HERE -->
+          <!-- PSF Compito-->
+          <div class = "container-fluid"></div>
+            <div class="row">
+              <div class="col ms-sm-auto"> 
+                  <div class="text-center py-1 font-weight-bold category_title">
+                    <h4 for="PDF_Compito_title" class =""style="display:inline;"> PSF legati al Task: </label>
+                    <h4 id ="PSF_Compito_title" class="" style="display:inline;color:var(--green)">Non Critico</div>
+                  </div>
+              </div>
+            </div>
+            <div class="table-responsive px-3 ms-sm-auto col-lg-10 col-md-9">
+             <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 15%;">Area Intervento</th>
+                    <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                    <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                    <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                  </tr>
+                </thead>
+                <tbody id = "PSF_Compito_table"></tbody>
+              </table>
+            </div>
+        </main>
       </div>
     </div>
 

@@ -102,7 +102,7 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
     fs.writeFileSync('./config', JSON.stringify(config, null, 4));
     showUpdate()
     if(printSnackbar){
-        snackbarShow("#28a745", "Report Corrente Aggiornato");
+        snackbarShow("rgb(66,166,42)", "Report Corrente Aggiornato");
     }
     if(currentPage == "" && !changeName){
         setUnmodifiable(report_name);
@@ -119,11 +119,11 @@ function delete_report(name){
         }
         removeRow(name);
         fs.unlinkSync("./dati/" + name);
-        snackbarShow("#dc3545", "Report Eliminato");
+        snackbarShow("rgb(192,0,0)", "Report Eliminato");
         
     }
     else {
-        var color = "#ffc107";
+        var color = "rgb(255, 213, 0)";
         var text = "Eliminazione Annullata, report conservato";
         snackbarShow(color , text);
       }
@@ -233,7 +233,7 @@ function resetCurrent(){
         refreshPage();
     }
     else{
-        var color = "#ffc107";
+        var color = "rgb(255, 213, 0)";
         var text = "Reset Annullato";
         snackbarShow(color , text);
     }

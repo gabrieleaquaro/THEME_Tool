@@ -1,9 +1,13 @@
 :root {
   --primary: rgb(255, 213, 0);
-  --red-primary: rgb(192,0,0);
   --primary-light: rgb(255, 251, 239);
+  --red-primary: rgb(192,0,0);
+  --red-primary-transparent: rgba(192,0,0,0.4);
   --secondary: rgb(255,153,0);
+  --secondary-transparent : rgba(255,153,0,0.4);
   --black: rgb(28,28,28);
+  --green: rgb(66,166,42);
+  --green-transparent: rgba(66,166,42,0.4);
 }
 
 body {
@@ -42,9 +46,9 @@ body {
 }
 
 .btn-primary{
-  color: #000;
+  color: var(--black);
   background-color: var(--primary);
-  border-color: #000;
+  border-color: var(--black);
   
 }
 
@@ -116,6 +120,9 @@ body {
   left: 23%; /* Center the snackbar */
   bottom: 30px; /* 30px from the bottom */
   border-radius: 2px; /* Rounded borders */
+  border-style: solid;
+  border-color: var(--black);
+  border-width: 1px;
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
@@ -131,7 +138,7 @@ body {
 .error
     {
       animation: shake 0.2s ease-in-out 0s 2;
-      box-shadow: 0 0 0.5em red;
+      box-shadow: 0 0 0.5em var(--red-primary);
     }
   
 @keyframes shake {
@@ -257,14 +264,37 @@ body {
 
 
 -webkit-slider-thumb:active {
-  background-color: red;
+  background-color: var(--red-primary);
 }
 -webkit-slider-thumb,
 .custom-range:focus::-webkit-slider-thumb, 
 .custom-range:focus::-moz-range-thumb,
 .custom-range:focus::-ms-thumb {
-  box-shadow: red;
+  box-shadow: var(--red-primary);
 }
 
 
 
+/*------------- Interventi ----------------*/
+.category_title{
+  background-color: var(--green-transparent);
+  border-radius: 25px;
+}
+
+td.collapsable p.collapse:not(.show) {
+  display:block;
+  height: 3rem;
+  overflow: hidden;
+}
+
+td.collapsable p.collapsing {
+  height: 3rem;
+}
+
+td.collapsable a.collapsed::after {
+  content: '+ Show More';
+}
+
+td.collapsable a:not(.collapsed)::after {
+  content: '- Show Less';
+}

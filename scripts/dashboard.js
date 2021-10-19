@@ -47,6 +47,9 @@ function updateResults(currentPage, report){
             updateRisultati_results(report);
             break;
 
+        case 'interventi':
+            updateInterventi_results(report);
+
         default:
           break;
       }
@@ -263,6 +266,68 @@ function updateRisultati_results(report){
 
 }
 
+//Update results in interventi page
+function updateInterventi_results(report){
+    var redTrasparent = getComputedStyle(document.documentElement).getPropertyValue("--red-primary-transparent");
+    var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
+    const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
+
+    var collapseFunction = function(el){
+        return function (){
+            if(el.classList.contains("collapse")){
+                el.classList.remove("collapse");
+            }else{
+                el.classList.add("collapse");
+            }  
+        }
+    }
+    if(   report["prob_errore"]["TempoDisponibie"] > 1
+       || report["prob_errore"]["StressDaMinaccia"]  > 1
+       || report["prob_errore"]["ComplessitàTask"] > 1
+       || report["prob_errore"]["ContestoAmbientale"] > 1){
+            //PSF Task Critici
+            //Modify the Title
+            var el = document.getElementById('PSF_Compito_title');             
+            el.parentElement.style.backgroundColor = redTrasparent;
+            el.style.color = red;
+            el.innerText = "Critico";
+            //Generate the table elements
+            var table = document.getElementById('PSF_Compito_table');
+            var row_number = 1
+            annex["PSF_Task"].forEach(function(dict){
+                let row = document.createElement('tr');
+                row.scope = "row";
+                Object.keys(dict).forEach(function(k){
+                    let td = document.createElement('td');
+                    let p = document.createElement('p');
+                    p.innerText = dict[k];
+                    td.appendChild(p)
+                    if(k == "Raccomandazioni" || k == 'Descrizione'){
+                        td.classList = "collapsable"
+                        p.classList = "collapse";
+                        p.id = "PSF_Task" + row_number + k; 
+                        p.setAttribute("aria-expanded", "false");
+                        let a = document.createElement('a');
+                        a.setAttribute("role", "button");
+                        a.classList = "collapsed"
+                        a.setAttribute("data-toggle", "collapse");
+                        a.setAttribute("href", "#" + p.id);
+                        a.setAttribute("aria-expanded", "false");
+                        a.setAttribute("aria-controls", p.id);
+                        td.append(a)
+                    }
+                    row.appendChild(td);
+                });
+                table.appendChild(row); 
+                row_number += 1;                
+            });
+                      
+            
+
+       }
+    
+}
+
 //GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
@@ -440,7 +505,7 @@ function generateChart_PSF(values){
      }, false);
 }
 
-//GENERATE THE CHART OF PSF IN RESUTS PAGE
+//GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
     const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
@@ -579,7 +644,7 @@ function generateChart_Barriere_dirette(values){
      }, false);
 }
 
-//GENERATE THE CHART OF PSF IN RESUTS PAGE
+//GENERATE THE CHART OF BARREIRE_SALVAGUARDIA IN RESUTS PAGE
 function generateChart_Barriere_Salvaguardia(values){
     const DATA_COUNT = 8;
 
@@ -721,6 +786,7 @@ function generateChart_Barriere_Salvaguardia(values){
      }, false);
 }
 
+//GENERATE CHART OF VALORI_CULTURALI IN RESULTS PAGE
 function generateChart_Valori_Culturali(values){
     const DATA_COUNT = 8;
 
