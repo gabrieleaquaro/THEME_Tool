@@ -276,11 +276,11 @@ function updateInterventi_results(report){
         return function (){
             if(p.classList.contains("collapse")){
                 p.classList.remove("collapse");
-                p.classList.add("show")
+                p.classList.add("notCollapsed")
                 a.classList.remove("collapsed")                
             }else{
                 p.classList.add("collapse");
-                p.classList.remove("show")
+                p.classList.remove("notCollapsed")
                 a.classList.add("collapsed")      
             }  
         }
@@ -308,7 +308,7 @@ function updateInterventi_results(report){
                     td.appendChild(p)
                     if(k == "Raccomandazioni" || k == 'Descrizione'){
                         td.classList = "collapsable"
-                        p.classList = "collapse";
+                        p.classList = "collapse transform";
                         p.id = "PSF_Task" + row_number + k; 
                         p.setAttribute("aria-expanded", "false");
                         let a = document.createElement('a');
