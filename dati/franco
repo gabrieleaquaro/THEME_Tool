@@ -88,18 +88,18 @@
     "prob_errore": {
         "DescrizioneTask": "Raccolta pomodori",
         "TipoTask_note": "",
-        "TempoDisponibie": "0.1",
-        "StressDaMinaccia": "2",
+        "TempoDisponibie": "100",
+        "StressDaMinaccia": "1.0",
         "ComplessitàTask": "1.0",
-        "Esperienza": "50",
-        "Procedure": "20",
-        "InterazioneUmanoMacchina": "10",
-        "ContestoAmbientale": "10",
-        "Affaticamento": "10",
+        "Esperienza": "0.1",
+        "Procedure": "0.1",
+        "InterazioneUmanoMacchina": "0.1",
+        "ContestoAmbientale": "1.0",
+        "Affaticamento": "1.0",
         "TipoTask": "0.02",
-        "PSFComposto": 200000,
-        "ProbErrore": 4000,
-        "ProbErroreAdj": 0.9997550600102975
+        "PSFComposto": 0.1,
+        "ProbErrore": 0.002,
+        "ProbErroreAdj": 0.0020366598778004076
     },
     "barriere_dirette": {
         "PrestSicuraCompiti": 0.864,

@@ -272,12 +272,16 @@ function updateInterventi_results(report){
     var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
     const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
 
-    var collapseFunction = function(el){
+    var collapseFunction = function(p, a){
         return function (){
-            if(el.classList.contains("collapse")){
-                el.classList.remove("collapse");
+            if(p.classList.contains("collapse")){
+                p.classList.remove("collapse");
+                p.classList.add("show")
+                a.classList.remove("collapsed")                
             }else{
                 el.classList.add("collapse");
+                p.classList.remove("show")
+                a.classList.add("collapsed")      
             }  
         }
     }
@@ -314,6 +318,7 @@ function updateInterventi_results(report){
                         a.setAttribute("href", "#" + p.id);
                         a.setAttribute("aria-expanded", "false");
                         a.setAttribute("aria-controls", p.id);
+                        a.onclick = collapseFunction(p, a)
                         td.append(a)
                     }
                     row.appendChild(td);
