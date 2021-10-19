@@ -9,3 +9,5 @@
 - Grafici salvati con stessa dimensione, magari Grande
 
 - sisteamre range e colori chart valori culturali
+
+- divisione estetica nel menù
