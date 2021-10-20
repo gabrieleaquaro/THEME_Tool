@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(255, 213, 0);
-  --primary-light: rgb(255, 251, 239);
+  --primary-light: rgba(255, 249, 232, 0.589);
   --red-primary: rgb(192,0,0);
   --red-primary-transparent: rgba(192,0,0,0.4);
   --secondary: rgb(255,153,0);
@@ -13,7 +13,6 @@
 body {
   font-size: 1rem;
   font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; /* THIS IS ACTUALLY BAD ???????*/ 
-
 }
 
 .feather {

@@ -1,5 +1,5 @@
 {
-    "name": "franco",
+    "name": "test",
     "date": 1634060661098,
     "dateToPrint": "12_10_2021",
     "valori_culturali": {
@@ -90,16 +90,16 @@
         "TipoTask_note": "",
         "TempoDisponibie": "100",
         "StressDaMinaccia": "1.0",
-        "ComplessitàTask": "1.0",
-        "Esperienza": "15",
-        "Procedure": "0.1",
-        "InterazioneUmanoMacchina": "50",
+        "ComplessitàTask": "0.1",
+        "Esperienza": "0.1",
+        "Procedure": "1.0",
+        "InterazioneUmanoMacchina": "1.0",
         "ContestoAmbientale": "1.0",
         "Affaticamento": "1.0",
         "TipoTask": "0.02",
-        "PSFComposto": 7500,
-        "ProbErrore": 150,
-        "ProbErroreAdj": 0.993509074049543
+        "PSFComposto": 1,
+        "ProbErrore": 0.02,
+        "ProbErroreAdj": 0.02
     },
     "barriere_dirette": {
         "PrestSicuraCompiti": 0.864,
