@@ -1,13 +1,18 @@
-
 - Help button (Documentation)
-- Homepage (?)
-
-- aggiungere funzione di ricerca e filtraggio
-
-
 - generare file word da grafici 
 - Grafici salvati con stessa dimensione, magari Grande
-
 - sisteamre range e colori chart valori culturali
-
 - divisione estetica nel menù
+
+ 
+1.	Togliere la scala logaritmica numerica dai grafici
+2.	Scala da 0-1
+3.	inserire tutte le note previste nel foglio excel usando il pulsante info
+4.	Colorare tabella
+5.	Grafici Spider – colorare pieno con trasparenza
+6.	Approvato approccio per gestire la scala logaritmica con step fissi
+7.	Per le tabelle, fare in modo che le tabelle nella schermata risultati siano allienate le colonne e i numeri
+8.	Usare approssimazione a due cifre decimali
+9.	Per interventi valutare fare un pop-up cliccando su “Show More”
+10.	Rimuovere il colore rosa e valutare il background
+11.	Rinominare Reports con “Archivio Reports” e separarlo visivamente
