@@ -91,15 +91,15 @@
         "TempoDisponibie": "100",
         "StressDaMinaccia": "1.0",
         "ComplessitàTask": "1.0",
-        "Esperienza": "0.1",
+        "Esperienza": "50",
         "Procedure": "0.1",
-        "InterazioneUmanoMacchina": "0.1",
+        "InterazioneUmanoMacchina": "50",
         "ContestoAmbientale": "1.0",
         "Affaticamento": "1.0",
         "TipoTask": "0.02",
-        "PSFComposto": 0.1,
-        "ProbErrore": 0.002,
-        "ProbErroreAdj": 0.0020366598778004076
+        "PSFComposto": 25000,
+        "ProbErrore": 500,
+        "ProbErroreAdj": 0.998043834085193
     },
     "barriere_dirette": {
         "PrestSicuraCompiti": 0.864,

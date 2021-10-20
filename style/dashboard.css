@@ -308,5 +308,5 @@ td.collapsable a:not(.collapsed)::after {
 }
 
 .notCollapsed{
-  max-height : 1000px;
+  max-height : 1020px;
 }

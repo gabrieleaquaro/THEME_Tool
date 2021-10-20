@@ -285,51 +285,61 @@ function updateInterventi_results(report){
             }  
         }
     }
+
+    function interventsCreation(group){
+        //Modify the Title
+        var el = document.getElementById(group + '_title');             
+        el.parentElement.style.backgroundColor = redTrasparent;
+        el.style.color = red;
+        el.innerText = "Critico";
+        //Generate the table elements
+        var table = document.getElementById(group + '_table');
+        var row_number = 1
+        annex[group].forEach(function(dict){
+            let row = document.createElement('tr');
+            row.scope = "row";
+            Object.keys(dict).forEach(function(k){
+                let td = document.createElement('td');
+                let p = document.createElement('p');
+                p.innerText = dict[k];
+                td.appendChild(p)
+                if(k == "Raccomandazioni" || k == 'Descrizione'){
+                    td.classList = "collapsable"
+                    p.classList = "collapse transform";
+                    p.id = group + row_number + k; 
+                    p.setAttribute("aria-expanded", "false");
+                    let a = document.createElement('a');
+                    a.setAttribute("role", "button");
+                    a.classList = "collapsed"
+                    a.setAttribute("data-toggle", "collapse");
+                    a.setAttribute("href", "#" + p.id);
+                    a.setAttribute("aria-expanded", "false");
+                    a.setAttribute("aria-controls", p.id);
+                    a.onclick = collapseFunction(p, a)
+                    td.append(a)
+                }
+                row.appendChild(td);
+            });
+            table.appendChild(row); 
+            row_number += 1;                
+        });
+    }
     if(   report["prob_errore"]["TempoDisponibie"] > 1
        || report["prob_errore"]["StressDaMinaccia"]  > 1
        || report["prob_errore"]["ComplessitàTask"] > 1
        || report["prob_errore"]["ContestoAmbientale"] > 1){
-            //PSF Task Critici
-            //Modify the Title
-            var el = document.getElementById('PSF_Compito_title');             
-            el.parentElement.style.backgroundColor = redTrasparent;
-            el.style.color = red;
-            el.innerText = "Critico";
-            //Generate the table elements
-            var table = document.getElementById('PSF_Compito_table');
-            var row_number = 1
-            annex["PSF_Task"].forEach(function(dict){
-                let row = document.createElement('tr');
-                row.scope = "row";
-                Object.keys(dict).forEach(function(k){
-                    let td = document.createElement('td');
-                    let p = document.createElement('p');
-                    p.innerText = dict[k];
-                    td.appendChild(p)
-                    if(k == "Raccomandazioni" || k == 'Descrizione'){
-                        td.classList = "collapsable"
-                        p.classList = "collapse transform";
-                        p.id = "PSF_Task" + row_number + k; 
-                        p.setAttribute("aria-expanded", "false");
-                        let a = document.createElement('a');
-                        a.setAttribute("role", "button");
-                        a.classList = "collapsed"
-                        a.setAttribute("data-toggle", "collapse");
-                        a.setAttribute("href", "#" + p.id);
-                        a.setAttribute("aria-expanded", "false");
-                        a.setAttribute("aria-controls", p.id);
-                        a.onclick = collapseFunction(p, a)
-                        td.append(a)
-                    }
-                    row.appendChild(td);
-                });
-                table.appendChild(row); 
-                row_number += 1;                
-            });
-                      
-            
-
+            interventsCreation("PSF_Task");
        }
+    
+    if(report["prob_errore"]["Procedure"] > 1
+    || report["prob_errore"]["InterazioneUmanoMacchina"]  > 1) {
+        interventsCreation("PSF_Tecnico");
+    }
+
+    if(report["prob_errore"]["Esperienza"] > 1
+    || report["prob_errore"]["Affaticamento"]  > 1) {
+        interventsCreation("PSF_Lavoratori")
+    }
     
 }
 
