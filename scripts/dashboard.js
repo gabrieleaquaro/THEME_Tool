@@ -324,6 +324,7 @@ function updateInterventi_results(report){
             row_number += 1;                
         });
     }
+    
     if(   report["prob_errore"]["TempoDisponibie"] > 1
        || report["prob_errore"]["StressDaMinaccia"]  > 1
        || report["prob_errore"]["ComplessitàTask"] > 1
