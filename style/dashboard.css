@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(255, 213, 0);
-  --primary-light: rgba(255, 249, 232, 0.589);
+  --primary-light: rgba(255, 251, 241, 0.993);
   --red-primary: rgb(192,0,0);
   --red-primary-transparent: rgba(192,0,0,0.4);
   --secondary: rgb(255,153,0);
@@ -30,6 +30,10 @@ body {
 }
 .bg-colorized-secondary{
   background-color: var(--secondary);
+}
+
+.bg-light-section{
+  background-color: rgba(182, 182, 150, 0.055);
 }
 
 .bg-image{

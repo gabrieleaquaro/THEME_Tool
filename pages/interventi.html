@@ -36,6 +36,21 @@
                   Introduzione 
                 </a>
               </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" href="#" id = "current_report_title">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="./prob_errore.html">
                   <span data-feather="alert-triangle"></span>
@@ -72,24 +87,17 @@
                   Interventi
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./reports.html">
-                  <span data-feather="file-text"></span>
-                  Reports
-                </a>
-              </li>
-            </ul>
-          
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Report Corrente</span>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#" id = "current_report_title">
-                </a>
-              </li>
-              
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Storico Reports</span>
+              </h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.html">
+                    <span data-feather="file-text"></span>
+                    Archivio
+                  </a>
+                </li>
+              </ul>              
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Salvataggio Reports</span>
@@ -150,7 +158,7 @@
                         <th scope="col" style="width: 15%;">Area Intervento</th>
                         <th scope="col" style="width: 15%;">Strategia di Intervento</th>
                         <th scope="col" style="width: 35%;">Descrizione Intervento</th>
-                        <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                        <th scope="col" style="width: 35%;">Raccomandazioni</th>
                       </tr>
                     </thead>
                     <tbody id = "PSF_Task_table"></tbody>
@@ -172,7 +180,7 @@
                       <th scope="col" style="width: 15%;">Area Intervento</th>
                       <th scope="col" style="width: 15%;">Strategia di Intervento</th>
                       <th scope="col" style="width: 35%;">Descrizione Intervento</th>
-                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
                     </tr>
                   </thead>
                   <tbody id = "PSF_Tecnico_table"></tbody>
@@ -192,7 +200,7 @@
                       <th scope="col" style="width: 15%;">Area Intervento</th>
                       <th scope="col" style="width: 15%;">Strategia di Intervento</th>
                       <th scope="col" style="width: 35%;">Descrizione Intervento</th>
-                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
                     </tr>
                   </thead>
                   <tbody id = "PSF_Lavoratori_table"></tbody>

@@ -38,6 +38,21 @@
                   Introduzione 
                 </a>
               </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" href="#" id = "current_report_title">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="./prob_errore.html">
                   <span data-feather="alert-triangle"></span>
@@ -74,26 +89,18 @@
                   Interventi
                 </a>
               </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="./reports.html">
                   <span data-feather="file-text"></span>
-                  Reports
+                  Archivio
                 </a>
               </li>
-            </ul>
-          
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Report Corrente</span>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#" id = "current_report_title">
-                </a>
-              </li>
-              
-            </ul>
-            
+            </ul>      
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Salvataggio Reports</span>
             </h6>
@@ -147,41 +154,41 @@
                   <thead>
                     <tr>
                       <th scope="col" class="colorized">PSF</th>
-                      <th scope="col" class="colorized">Probabilità d'Errore</th>
+                      <th scope="col" class="colorized text-end">Probabilità d'Errore</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Tempo disponibile</td>
-                      <td id="TempoDisponibie" ></td>
+                      <td id="TempoDisponibie" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Stress da minaccia</td>
-                      <td id="StressDaMinaccia"></td>
+                      <td id="StressDaMinaccia"  class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Complessità del Compito</td>
-                      <td id="ComplessitàTask"></td>
+                      <td id="ComplessitàTask" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Esperienza/ Formazione</td>
-                      <td id = "Esperienza"></td>
+                      <td id = "Esperienza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Procedure</td>
-                      <td id="Procedure"></td>
+                      <td id="Procedure" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Interazione Umano-Macchina</td>
-                      <td id="InterazioneUmanoMacchina"></td>
+                      <td id="InterazioneUmanoMacchina" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Contesto Ambientale</td>
-                      <td id="ContestoAmbientale"></td>
+                      <td id="ContestoAmbientale" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Affaticamento</td>
-                      <td id="Affaticamento"></td>
+                      <td id="Affaticamento" class="text-end"></td>
                     </tr>
                   
                   </tbody>
@@ -204,33 +211,33 @@
                   <thead>
                     <tr>
                       <th scope="col" class="colorized">Barriere Dirette</th>
-                      <th scope="col" class="colorized">Probabilità</th>
+                      <th scope="col" class="colorized  text-end" >Probabilità</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Prestazione sicura rispetto ai compiti</td>
-                      <td id="PrestSicuraCompiti" ></td>
+                      <td id="PrestSicuraCompiti" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Adesione alle norme/procedure di sicurezza</td>
-                      <td id="Adesione"></td>
+                      <td id="Adesione" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Prestazione sicura orientata al contesto</td>
-                      <td id="PrestSicuraContesto"></td>
+                      <td id="PrestSicuraContesto" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Partecipazione attiva alla sicurezza</td>
-                      <td id = "Partecipazione"></td>
+                      <td id = "Partecipazione" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Lavoro di squadra</td>
-                      <td id="LavoroSquad"></td>
+                      <td id="LavoroSquad" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Comunicazione inerente la sicurezza</td>
-                      <td id="Comunicazione"></td>
+                      <td id="Comunicazione" class="text-end"></td>
                     </tr>
   
                   
@@ -252,37 +259,37 @@
                   <thead>
                     <tr>
                       <th scope="col" class="colorized">Barriere Salvaguardia</th>
-                      <th scope="col" class="colorized">Probabilità</th>
+                      <th scope="col" class="colorized text-end">Probabilità</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Competenze non-tecniche di sicurezza</td>
-                      <td id="CompNonTechSicurezza" ></td>
+                      <td id="CompNonTechSicurezza" class="text-end" ></td>
                     </tr>
                     <tr>
                       <td>Competenze tecniche di sicurezza</td>
-                      <td id="CompTechSicurezza"></td>
+                      <td id="CompTechSicurezza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Motivazione alla sicurezza</td>
-                      <td id="MotivazioneSicurezza"></td>
+                      <td id="MotivazioneSicurezza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Cittadinanza organizzativa di sicurezza</td>
-                      <td id = "CittadinanzaSicurezza"></td>
+                      <td id = "CittadinanzaSicurezza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Valutazione e sviluppo delle competene per la sicurezza</td>
-                      <td id="ValutazioneSicurezza"></td>
+                      <td id="ValutazioneSicurezza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Leadership per l'HSE</td>
-                      <td id="LeaderHSE"></td>
+                      <td id="LeaderHSE" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Clima e cultura di HSE</td>
-                      <td id="ClimaHSE"></td>
+                      <td id="ClimaHSE" class="text-end"></td>
                     </tr>
   
                   
@@ -304,29 +311,29 @@
                   <thead>
                     <tr>
                       <th scope="col" class="colorized">Valori Culturali</th>
-                      <th scope="col" class="colorized">Probabilità</th>
+                      <th scope="col" class="colorized text-end">Probabilità</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Individualismo</td>
-                      <td id="Individualismo" ></td>
+                      <td id="Individualismo" class="text-end" ></td>
                     </tr>
                     <tr>
                       <td>Distanza del potere</td>
-                      <td id="DistPotere"></td>
+                      <td id="DistPotere" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Rigetto all'incertezza</td>
-                      <td id="RigeIncertezza"></td>
+                      <td id="RigeIncertezza" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Mascolinità</td>
-                      <td id = "Mascolinità"></td>
+                      <td id = "Mascolinità" class="text-end"></td>
                     </tr>
                     <tr>
                       <td>Orientamento a breve termine</td>
-                      <td id="Orientamento"></td>
+                      <td id="Orientamento" class="text-end"></td>
                     </tr>
   
                   

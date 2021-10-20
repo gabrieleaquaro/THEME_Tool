@@ -209,7 +209,7 @@ function updateRisultati_results(report){
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             if(report['barriere_dirette'][key] != null){
-                document.getElementById(key).innerText = report['barriere_dirette'][key];
+                document.getElementById(key).innerText = Math.round(report['barriere_dirette'][key]*100)/100;
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -229,7 +229,7 @@ function updateRisultati_results(report){
         elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
             if(report['barriere_salvaguardia'][key] != null){
-                document.getElementById(key).innerText = report['barriere_salvaguardia'][key];
+                document.getElementById(key).innerText = Math.round(report['barriere_salvaguardia'][key] * 100)/100;
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -249,7 +249,7 @@ function updateRisultati_results(report){
         elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
         elements.forEach(function(key){
             if(report['valori_culturali'][key] != null){
-                document.getElementById(key).innerText = report['valori_culturali'][key];
+                document.getElementById(key).innerText = Math.round(report['valori_culturali'][key]*100)/100;
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -452,7 +452,7 @@ function generateChart_PSF(values){
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,    
+            maintainAspectRatio: true,    
             scale:{
                 stepSize:1,
                 min : 0,
@@ -610,22 +610,20 @@ function generateChart_Barriere_dirette(values){
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,    
+            maintainAspectRatio: true,    
             scale:{
                 stepSize: 0.1,
                 min : 0,
+                max: 1,
                 ticks:{
                     beginAtZero: true,
-                    max: max_value,
-                    min: 0,
                     stepSize: 0.1,
-                    display: false,
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        max: max_value,
+                        display:false,
                     },
                 },
             },
@@ -752,22 +750,20 @@ function generateChart_Barriere_Salvaguardia(values){
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,    
+            maintainAspectRatio: true,    
             scale:{
                 stepSize: 0.1,
                 min : 0,
+                max: 1,
                 ticks:{
                     beginAtZero: true,
-                    max: max_value,
-                    min: 0,
                     stepSize: 0.1,
-                    display: false,
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        max: max_value,
+                        display:false,
                     },
                 },
             },
@@ -890,22 +886,19 @@ function generateChart_Valori_Culturali(values){
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,    
+            maintainAspectRatio: true,    
             scale:{
                 stepSize: 0.1,
                 min : 0,
+                max: 1,
                 ticks:{
                     beginAtZero: true,
-                    max: max_value,
-                    min: 0,
-                    stepSize: 0.1,
-                    display: false,
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        max: max_value,
+                        display:false,
                     },
                 },
             },
