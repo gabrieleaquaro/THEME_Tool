@@ -1,10 +1,9 @@
-- Help button (Documentation)
-- generare file word da grafici 
-- sisteamre range e colori chart valori culturali
-
- 
-3.	inserire tutte le note previste nel foglio excel usando il pulsante info
-4.	Colorare tabella
-5.	Grafici Spider – colorare pieno con trasparenza
-9.	Per interventi valutare fare un pop-up cliccando su “Show More”
+1.  Help button (Documentation)
+2.  generare file word da grafici 
+3.  sisteamre range e colori chart valori culturali
+4.  Bug Caricamento file 
+5.	inserire tutte le note previste nel foglio excel usando il pulsante info
+6.	Colorare tabella
+7.	Grafici Spider – colorare pieno con trasparenza
+8.	Per interventi valutare fare un pop-up cliccando su “Show More”
 
