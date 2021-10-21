@@ -61,27 +61,66 @@ function updateProbError_results(data){
 
     elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
 
+    
     var PSFComposto = 1
+    var Cluster1 = 1
+    var Cluster2 = 1
+    var Cluster3 = 1
 
     elements_PSF.forEach(function(key){
         if(data[key] != null && data[key] != "-"){
             PSFComposto = PSFComposto * data[key] ;
     }});
 
+    elements_PSF.slice(0, 4).forEach(function(key){
+        if(data[key] != null && data[key] != "-"){
+            console.log(key)
+            Cluster1 = Cluster1 * data[key] ;
+    }});
+    console.log("----------")
+    elements_PSF.slice(4, 6).forEach(function(key){
+        if(data[key] != null && data[key] != "-"){
+            console.log(key)
+            Cluster2 = Cluster2 * data[key] ;
+    }});
+    console.log("----------")
+    elements_PSF.slice(6, 8).forEach(function(key){
+        if(data[key] != null && data[key] != "-"){
+            console.log(key)
+            Cluster3 = Cluster3 * data[key] ;
+    }});
+
     tipotask = data["TipoTask"] 
+
     if(tipotask != null){
-      ProbErrore = PSFComposto * tipotask;
+        ProbErrore = PSFComposto * tipotask;
 
-      ProbErroreAdj = ProbErrore/(tipotask*(PSFComposto-1)+1);
+        ProbErroreAdj = ProbErrore/(tipotask*(PSFComposto-1)+1);
 
-      document.getElementById("PSFComposto").innerText = Math.round(PSFComposto * 10000) / 10000;
-      updateJSON("PSFComposto",PSFComposto);
+        document.getElementById("PSFComposto").innerText = Math.round(PSFComposto * 100) / 100;
+        updateJSON("PSFComposto", Math.round(PSFComposto * 100) / 100);
 
-      document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 10000) / 10000;
-      updateJSON("ProbErrore",ProbErrore);
+        document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 100) / 100;
+        updateJSON("ProbErrore",Math.round(ProbErrore * 100) / 100);
 
-      document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100*100) / 100 + "%";
-      updateJSON("ProbErroreAdj",ProbErroreAdj);
+        document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100) / 100 + "%";
+        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100) / 100 + "%");
+    
+        if (document.getElementById("Cluster1")){
+            document.getElementById("Cluster1").innerText = Math.round(Cluster1 * 100) / 100 ;
+        }
+        updateJSON("Cluster1",Math.round(Cluster1 * 100) / 100 );
+
+        if (document.getElementById("Cluster2")){
+            document.getElementById("Cluster2").innerText = Math.round(Cluster2 * 100) / 100 ;
+        }
+        updateJSON("Cluster2",Math.round(Cluster2 * 100) / 100 );
+
+        if (document.getElementById("Cluster3")){
+            document.getElementById("Cluster3").innerText = Math.round(Cluster3 * 100) / 100 ;
+        }
+        updateJSON("Cluster3",Math.round(Cluster3 * 100) / 100);
+
     }
 }
 
@@ -91,7 +130,7 @@ function updateBarriereDirette_results(data){
     elements = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
 
     var val;
-
+    var total_val = 0;
     for(var i = 1; i< elements.length + 1; i++){
         val = 0
         max = i != 6 ? 6 : 7
@@ -107,12 +146,16 @@ function updateBarriereDirette_results(data){
             }
         }
         if(val != "-"){
-            val = Math.round(val / count * 10000) / 10000;
+            val = Math.round(val / count * 100) / 100;
         }   
         document.getElementById(elements[i - 1]).innerText = val
         document.getElementById(elements[i - 1] + "_1").innerText =  val
         updateJSON(elements[i - 1],  val);
+        total_val = total_val + val
     }
+    updateJSON("average_barriere_dirette",  Math.round(total_val/6 * 100) / 100);
+
+
 }
 
 //Update della tabella a file barriere dirette
@@ -198,7 +241,10 @@ function updateRisultati_results(report){
         elements_PSF.forEach(function(key){
             if(report['prob_errore'][key] != null){
                 let value = report['prob_errore'][key];
-                document.getElementById(key).innerText = value;
+                if(document.getElementById(key)){
+                    document.getElementById(key).innerText = value;
+                }
+                
                 let color = value <= 1 ? green_transp : value <= 2  ? yellow_transp : value <= 5 ? orange_transp : red_transp;
                 document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
@@ -207,9 +253,21 @@ function updateRisultati_results(report){
             }
         })
         generateChart_PSF(report["prob_errore"]);
+
+        other_elements = ["Cluster1", "Cluster2", "Cluster3","ProbErroreAdj"]
+        
+        other_elements.forEach(function(key){
+            console.log(report['prob_errore'][key])
+            if(report['prob_errore'][key]){
+                document.getElementById(key).innerText = report['prob_errore'][key]
+            }else{
+                document.getElementById(key).innerText = "-"
+            }
+        })
+        
     }else{
         generateChart_PSF({});
-        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
+        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento", "Cluster1", "Cluster2", "Cluster3","ProbErroreAdj"]
         elements_PSF.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
@@ -230,9 +288,16 @@ function updateRisultati_results(report){
             }
         })
         generateChart_Barriere_dirette(report["barriere_dirette"]);
+
+        if( report['barriere_dirette']["average_barriere_dirette"]){
+            document.getElementById("average_barriere_dirette").innerText = report['barriere_dirette']["average_barriere_dirette"]
+        }else{
+            document.getElementById("average_barriere_dirette").innerText = "-"
+        }
+        
     }else{
         generateChart_Barriere_dirette({});
-        elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
+        elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione","average_barriere_dirette"]
         elements_barriereDirette.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
@@ -322,19 +387,8 @@ function updateInterventi_results(report){
                 p.innerText = dict[k];
                 td.appendChild(p)
                 if(k == "Raccomandazioni" || k == 'Descrizione'){
-                    td.classList = "collapsable"
-                    p.classList = "collapse transform";
-                    p.id = group + row_number + k; 
-                    p.setAttribute("aria-expanded", "false");
-                    let a = document.createElement('a');
-                    a.setAttribute("role", "button");
-                    a.classList = "collapsed"
-                    a.setAttribute("data-toggle", "collapse");
-                    a.setAttribute("href", "#" + p.id);
-                    a.setAttribute("aria-expanded", "false");
-                    a.setAttribute("aria-controls", p.id);
-                    a.onclick = collapseFunction(p, a)
-                    td.append(a)
+                    p.innerHTML = dict[k] + " " +'<a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note"> \
+                        <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span></a> '
                 }
                 row.appendChild(td);
             });

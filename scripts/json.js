@@ -48,7 +48,10 @@ function updatePage(report){
         
         Object.keys(report[currentPage]).forEach(function(key) {
             //console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
-            document.getElementById(key).value = report[currentPage][key]
+            if(document.getElementById(key)){
+                document.getElementById(key).value = report[currentPage][key]
+            }
+            
         })
         
         updateResults(currentPage, report);

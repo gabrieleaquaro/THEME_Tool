@@ -140,7 +140,7 @@
     "prob_errore": {
         "DescrizioneTask": "test 1 test 1 ",
         "TipoTask_note": "",
-        "TempoDisponibie": "100",
+        "TempoDisponibie": "0.1",
         "StressDaMinaccia": "2",
         "ComplessitàTask": "10",
         "Esperienza": "50",
@@ -149,17 +149,20 @@
         "ContestoAmbientale": "1.0",
         "Affaticamento": "1.0",
         "TipoTask": "0.02",
-        "PSFComposto": 1000,
-        "ProbErrore": 20,
-        "ProbErroreAdj": 0.9532888465204957
+        "PSFComposto": 1,
+        "ProbErrore": 0.02,
+        "ProbErroreAdj": "0.02%",
+        "Cluster1": 100,
+        "Cluster2": 0.01,
+        "Cluster3": 1
     },
     "barriere_dirette": {
-        "PrestSicuraCompiti": 0.332,
-        "Adesione": 0.596,
+        "PrestSicuraCompiti": 0.33,
+        "Adesione": 0.6,
         "PrestSicuraContesto": 0.73,
         "Partecipazione": 0.73,
         "LavoroSquad": 0.73,
-        "Comunicazione": 0.605,
+        "Comunicazione": 0.61,
         "barriere_dirette_1_1": "0",
         "barriere_dirette_1_2": "0",
         "barriere_dirette_1_3": "0",
@@ -190,6 +193,7 @@
         "barriere_dirette_6_3": "0.66",
         "barriere_dirette_6_4": "0.66",
         "barriere_dirette_6_5": "0.66",
-        "barriere_dirette_6_6": "0.33"
+        "barriere_dirette_6_6": "0.33",
+        "average_barriere_dirette": 0.62
     }
 }
