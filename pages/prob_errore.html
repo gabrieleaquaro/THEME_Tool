@@ -165,8 +165,8 @@
                 <div class="form-group">
                   <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
                   <small>Selezioni il tipo di compito dal menù a tendina.</small>
-                  <div style="display:inline;" >
-                    <a href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <div style="display:inline;">
+                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                       <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                     </a>
                   </div>
@@ -204,7 +204,7 @@
               <div class="col-4">
                 <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="TempoDisponibie_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -232,7 +232,7 @@
               <div class="col-4">
                 <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="StressDaMinaccia_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -258,7 +258,7 @@
               <div class="col-4">
                 <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="ComplessitàTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -285,7 +285,7 @@
               <div class="col-4">
                 <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Esperienza_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -313,7 +313,7 @@
               <div class="col-4">
                 <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Procedure_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -341,7 +341,7 @@
               <div class="col-4">
                 <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." d="InterazioneUmanoMacchina_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -369,7 +369,7 @@
               <div class="col-4">
                 <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -395,7 +395,7 @@
               <div class="col-4">
                 <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
                 <div style="display:inline;">
-                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Affaticamento_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -454,10 +454,11 @@
         </main>
       </div>  
     </div>
-  
+    
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
     <script src="../scripts/dashboard.js"></script>
     <script src="../scripts/json.js"></script>   
+    <script src="../scripts/info_handler.js"></script>
   </body>
 </html>

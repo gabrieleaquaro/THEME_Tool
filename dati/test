@@ -140,7 +140,7 @@
     "prob_errore": {
         "DescrizioneTask": "test 1 test 1 ",
         "TipoTask_note": "",
-        "TempoDisponibie": "10",
+        "TempoDisponibie": "100",
         "StressDaMinaccia": "2",
         "ComplessitàTask": "10",
         "Esperienza": "50",
@@ -149,9 +149,9 @@
         "ContestoAmbientale": "1.0",
         "Affaticamento": "1.0",
         "TipoTask": "0.02",
-        "PSFComposto": 100,
-        "ProbErrore": 2,
-        "ProbErroreAdj": 0.6711409395973155
+        "PSFComposto": 1000,
+        "ProbErrore": 20,
+        "ProbErroreAdj": 0.9532888465204957
     },
     "barriere_dirette": {
         "PrestSicuraCompiti": 0.332,
