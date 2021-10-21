@@ -76,7 +76,7 @@ function computeInfo(currentPage){
         Object.keys(data).forEach(function(k){
             el = document.getElementById(k+'_Info');
             if(el != null){
-                el.setAttribute("data-bs-content", PSFInfo[k][data[k]]);
+                el.setAttribute("data-bs-content", PSFInfo[k][data[k]]); //Not working
             }
         });
     }
