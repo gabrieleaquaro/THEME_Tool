@@ -11,8 +11,8 @@
 }
 
 body {
-  font-size: 1rem;
-  font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; /* THIS IS ACTUALLY BAD ???????*/ 
+  font-size: 0.875rem;
+  /*font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; /* THIS IS ACTUALLY BAD ???????*/ 
 }
 
 .feather {

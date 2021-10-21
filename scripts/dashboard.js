@@ -348,7 +348,7 @@ function updateInterventi_results(report){
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Tempo",
-                         "Pericolosità ",
+                         "Stress da Minaccia",
                          "Complessità",
                          "Esperienza",
                          "Procedure",

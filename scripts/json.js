@@ -190,7 +190,7 @@ function onReaderLoad(event){
     new_data["date"] = escapeHTML(data["date"]);
     new_data["dateToPrint"] = escapeHTML(data["dateToPrint"]);
     
-    const pages_ids = ["prob_errore", "barriere_dirette"]; 
+    const pages_ids = ["prob_errore", "barriere_dirette", "barriere_salvaguardia", "valori_culturali"]; 
     pages_ids.forEach(function(page_id){
         new_data[page_id] = {};
         Object.keys(data[page_id]).forEach(function(key){
@@ -207,6 +207,9 @@ function onReaderLoad(event){
     }
     fs.writeFileSync('./dati/' + new_data["name"],  JSON.stringify(new_data, null, 4));
     snackbarShow("#28a745", "Nuovo report caricato correttamente");
+    if(currentPage == ''){
+        //refreshPage();
+    }
 }
 
 function escapeHTML(unsafe) {
@@ -221,8 +224,10 @@ function escapeHTML(unsafe) {
 function isElement(string){
     const ids_prob_errore = ["TipoTask","PSFComposto","ProbErrore","ProbErroreAdj","TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza","Procedure","InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento","DescrizioneTask","TipoTask_note","TempoDisponibile_note","StressDaMinaccia_note","ComplessitàTask_note","Esperienza_note","Procedure_note","InterazioneUmanoMacchina_note","ContestoAmbientale_note","Affaticamento_note"];
     const ids_barriere_dirette = ["PrestSicuraCompiti","Adesione", "PrestSicuraContesto","Partecipazione","LavoroSquad","Comunicazione","barriere_dirette_1_1","barriere_dirette_1_2","barriere_dirette_1_3","barriere_dirette_1_4","barriere_dirette_1_5","barriere_dirette_2_1","barriere_dirette_2_2","barriere_dirette_2_3","barriere_dirette_2_4","barriere_dirette_2_5","barriere_dirette_3_1","barriere_dirette_3_2","barriere_dirette_3_3","barriere_dirette_3_4","barriere_dirette_3_5","barriere_dirette_4_1","barriere_dirette_4_2","barriere_dirette_4_3","barriere_dirette_4_4","barriere_dirette_4_5","barriere_dirette_5_1","barriere_dirette_5_2","barriere_dirette_5_3","barriere_dirette_5_4","barriere_dirette_5_5","barriere_dirette_6_1","barriere_dirette_6_2","barriere_dirette_6_3","barriere_dirette_6_4","barriere_dirette_6_5","barriere_dirette_6_6","barriere_dirette_1_1_note","barriere_dirette_1_2_note","barriere_dirette_1_3_note","barriere_dirette_1_4_note","barriere_dirette_1_5_note","barriere_dirette_2_1_note","barriere_dirette_2_2_note","barriere_dirette_2_3_note","barriere_dirette_2_4_note","barriere_dirette_2_5_note","barriere_dirette_3_1_note","barriere_dirette_3_2_note","barriere_dirette_3_3_note","barriere_dirette_3_4_note","barriere_dirette_3_5_note","barriere_dirette_4_1_note","barriere_dirette_4_2_note","barriere_dirette_4_3_note","barriere_dirette_4_4_note","barriere_dirette_4_5_note","barriere_dirette_5_1_note","barriere_dirette_5_2_note","barriere_dirette_5_3_note","barriere_dirette_5_4_note","barriere_dirette_5_5_note","barriere_dirette_6_1_note","barriere_dirette_6_2_note","barriere_dirette_6_3_note","barriere_dirette_6_4_note","barriere_dirette_6_5_note","barriere_dirette_6_6_note"];
-    
-    return ids_prob_errore.includes(string), ids_barriere_dirette.includes(string) 
+    const ids_barriere_salvaguardia = [  "CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE","barriere_salvaguardia_1_1","barriere_salvaguardia_1_2","barriere_salvaguardia_1_3","barriere_salvaguardia_1_4","barriere_salvaguardia_1_5","barriere_salvaguardia_1_6","barriere_salvaguardia_1_7","barriere_salvaguardia_1_8","barriere_salvaguardia_2_1","barriere_salvaguardia_2_2","barriere_salvaguardia_2_3","barriere_salvaguardia_2_4","barriere_salvaguardia_2_5","barriere_salvaguardia_3_1","barriere_salvaguardia_3_2","barriere_salvaguardia_3_3","barriere_salvaguardia_3_4","barriere_salvaguardia_3_5","barriere_salvaguardia_4_1","barriere_salvaguardia_4_2","barriere_salvaguardia_4_3","barriere_salvaguardia_4_4","barriere_salvaguardia_4_5","barriere_salvaguardia_4_6","barriere_salvaguardia_4_7","barriere_salvaguardia_4_8","barriere_salvaguardia_5_1","barriere_salvaguardia_5_2","barriere_salvaguardia_5_3","barriere_salvaguardia_5_4","barriere_salvaguardia_5_5","barriere_salvaguardia_5_6","barriere_salvaguardia_5_7","barriere_salvaguardia_5_8","barriere_salvaguardia_6_1","barriere_salvaguardia_6_2","barriere_salvaguardia_6_3","barriere_salvaguardia_6_4","barriere_salvaguardia_6_5","barriere_salvaguardia_6_6","barriere_salvaguardia_6_7","barriere_salvaguardia_6_8","barriere_salvaguardia_7_1","barriere_salvaguardia_7_2","barriere_salvaguardia_7_3","barriere_salvaguardia_7_4","barriere_salvaguardia_7_5","barriere_salvaguardia_7_6","barriere_salvaguardia_7_7","barriere_salvaguardia_7_8","barriere_salvaguardia_7_9","barriere_salvaguardia_7_10"]
+    const ids_valori_culturali = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","valori_culturali_1_1","valori_culturali_1_2","valori_culturali_1_3","valori_culturali_2_1","valori_culturali_2_2","valori_culturali_2_3","valori_culturali_3_1","valori_culturali_3_2","valori_culturali_3_3","valori_culturali_4_1","valori_culturali_4_2","valori_culturali_4_3","valori_culturali_5_1","valori_culturali_5_2","valori_culturali_5_3","Orientamento"];
+
+    return ids_prob_errore.includes(string) || ids_barriere_dirette.includes(string) || ids_barriere_salvaguardia.includes(string) || ids_valori_culturali.includes(string)
 }
 
 function resetCurrent(){
