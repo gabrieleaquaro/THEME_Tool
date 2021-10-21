@@ -4,6 +4,6 @@
 4.  
 5.	inserire tutte le note previste nel foglio excel usando il pulsante info
 6.	Colorare tabella
-7.	Grafici Spider – colorare pieno con trasparenza
+7.	
 8.	Per interventi valutare fare un pop-up cliccando su “Show More”
 

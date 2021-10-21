@@ -182,6 +182,15 @@ function updateValoriCulturali_results(data){
     }
 }
 
+const green_transp = '#33CC3380';
+const green = '#33CC33';
+const yellow_transp = '#FFFF3380';
+const yellow = '#FFFF33';
+const orange_transp = '#ffae0080';
+const orange = '#ffae00';
+const red_transp = '#FF333380';
+const red = '#FF3333';
+
 //Update dei risultati in results page
 function updateRisultati_results(report){
     if(report['prob_errore']){
@@ -189,7 +198,10 @@ function updateRisultati_results(report){
         elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento"]
         elements_PSF.forEach(function(key){
             if(report['prob_errore'][key] != null){
-                document.getElementById(key).innerText = report['prob_errore'][key];
+                let value = report['prob_errore'][key];
+                document.getElementById(key).innerText = value;
+                let color = value <= 2 ? green_transp : value <= 4 ? yellow_transp : value <= 6 ? orange_transp : red_transp;
+                document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -209,7 +221,10 @@ function updateRisultati_results(report){
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             if(report['barriere_dirette'][key] != null){
-                document.getElementById(key).innerText = Math.round(report['barriere_dirette'][key]*100)/100;
+                let value = report['barriere_dirette'][key];
+                document.getElementById(key).innerText = Math.round(value*100)/100;
+                let color = value < 0.3 ? red_transp : value < 0.5 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -229,7 +244,10 @@ function updateRisultati_results(report){
         elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
             if(report['barriere_salvaguardia'][key] != null){
-                document.getElementById(key).innerText = Math.round(report['barriere_salvaguardia'][key] * 100)/100;
+                let value = report['barriere_salvaguardia'][key];
+                document.getElementById(key).innerText = Math.round(value*100)/100;
+                let color = value < 0.3 ? red_transp : value < 0.5 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -249,7 +267,10 @@ function updateRisultati_results(report){
         elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
         elements.forEach(function(key){
             if(report['valori_culturali'][key] != null){
-                document.getElementById(key).innerText = Math.round(report['valori_culturali'][key]*100)/100;
+                let value = report['valori_culturali'][key];
+                document.getElementById(key).innerText = Math.round(value*100)/100;
+                let color = value < 0.3 ? red_transp : value < 0.5 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                document.getElementById(key).parentNode.style.backgroundColor = color;
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -384,7 +405,7 @@ function generateChart_PSF(values){
             {
                 lable: 'max',
                 data: [9,9,9,9,9,9,9,9],
-                backgroundColor : '#FF333380',
+                backgroundColor : red_transp,
                 borderColor :'#FF333300',
                 pointRadius : 0,
                 order: 6,
@@ -395,8 +416,8 @@ function generateChart_PSF(values){
             {   //FF333330
                 lable: 'red',
                 data: [8,8,8,8,8,8,8,8],
-                backgroundColor : '#ffae0080',
-                borderColor :'#FF3333',
+                backgroundColor : orange_transp,
+                borderColor :red,
                 pointRadius : 0,
                 order: 5,
                 fill : 2,
@@ -408,7 +429,7 @@ function generateChart_PSF(values){
                 label: 'orange',
                 data: [6,6,6,6,6,6,6,6],
                 backgroundColor : '#FFFF2080',
-                borderColor :'#ffae00',
+                borderColor :orange,
                 pointRadius : 0,
                 order: 4,
                 fill:3,
@@ -418,8 +439,8 @@ function generateChart_PSF(values){
             {   
                 label: 'yellow',
                 data: [4,4,4,4,4,4,4,4],
-                backgroundColor : '#33CC3380',
-                borderColor :'#FFFF33',
+                backgroundColor : green_transp,
+                borderColor :yellow,
                 pointRadius : 0,
                 order: 3,
                 fill:4,
@@ -428,8 +449,8 @@ function generateChart_PSF(values){
             },
             {   
                 data: [2,2,2,2,2,2,2,2],
-                backgroundColor : '#33CC3380',
-                borderColor :'#33CC33',
+                backgroundColor : green_transp,
+                borderColor :green,
                 pointRadius : 0,
                 order:2,
                 fill:'origin',
@@ -444,7 +465,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 2 ? '#33CC33' : value <= 4 ? '#FFFF33' : value <= 6 ? '#ffae00' :'#FF3333';
+                    return value <= 2 ? green : value <= 4 ? yellow : value <= 6 ? orange :red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -565,8 +586,8 @@ function generateChart_Barriere_dirette(values){
             {   
                 lable: 'red',
                 data: [0.1,0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FF333380',
-                borderColor :'#FF3333',
+                backgroundColor : red_transp,
+                borderColor :red,
                 fill:'origin',
                 order:2,
                 pointRadius : 0,
@@ -577,10 +598,10 @@ function generateChart_Barriere_dirette(values){
             {   
                 label: 'orange',
                 data: [0.3,0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FF333380',
+                backgroundColor : red_transp,
                 fill:0,
                 order:3,
-                borderColor :'#ffae00',
+                borderColor :orange,
                 pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
@@ -588,27 +609,27 @@ function generateChart_Barriere_dirette(values){
             {   
                 label: 'yellow',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#ffae0080',
+                backgroundColor : orange_transp,
                 fill:1,
                 order:4,
-                borderColor :'#FFFF33',
+                borderColor :yellow,
                 pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 data: [0.7,0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFF3380',
+                backgroundColor : yellow_transp,
                 fill:2,
                 order:5,
-                borderColor :'#33CC33',
+                borderColor :green,
                 pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 data: [1,1,1,1,1,1],
-                backgroundColor : '#33CC3380',
+                backgroundColor : green_transp,
                 borderColor :'#33CC3300',
                 pointRadius : 0,
                 fill:3,
@@ -624,7 +645,7 @@ function generateChart_Barriere_dirette(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
+                    return value < 0.3 ? red : value < 0.5 ? orange : value < 0.7 ? yellow :green;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -719,8 +740,8 @@ function generateChart_Barriere_Salvaguardia(values){
             {   
                 lable: 'red',
                 data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FF333380',
-                borderColor :'#FF3333',
+                backgroundColor : red_transp,
+                borderColor :red,
                 pointRadius : 0,
                 fill: 'origin',
                 order:2,
@@ -731,8 +752,8 @@ function generateChart_Barriere_Salvaguardia(values){
             {   
                 label: 'orange',
                 data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FF333380',
-                borderColor :'#ffae00',
+                backgroundColor : red_transp,
+                borderColor :orange,
                 pointRadius : 0,
                 fill: 0,
                 order:3,
@@ -742,8 +763,8 @@ function generateChart_Barriere_Salvaguardia(values){
             {   
                 label: 'yellow',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#ffae0080',
-                borderColor :'#FFFF33',
+                backgroundColor : orange_transp,
+                borderColor :yellow,
                 pointRadius : 0,
                 fill: 1,
                 order:4,
@@ -752,8 +773,8 @@ function generateChart_Barriere_Salvaguardia(values){
             },
             {   
                 data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFF3380',
-                borderColor :'#33CC33',
+                backgroundColor : yellow_transp,
+                borderColor :green,
                 pointRadius : 0,
                 fill:2,
                 order:5,
@@ -762,7 +783,7 @@ function generateChart_Barriere_Salvaguardia(values){
             },
             {   
                 data: [1,1,1,1,1,1,1],
-                backgroundColor : '#33CC3380',
+                backgroundColor : green_transp,
                 borderColor :'#00000000',
                 pointRadius : 0,
                 fill:3,
@@ -778,7 +799,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
+                    return value < 0.3 ? red : value < 0.5 ? orange : value < 0.7 ? yellow :green;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -869,8 +890,8 @@ function generateChart_Valori_Culturali(values){
             {   
                 lable: 'red',
                 data: [0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FF333380',
-                borderColor :'#FF3333',
+                backgroundColor : red_transp,
+                borderColor :red,
                 pointRadius : 0,
                 order: 1,
                 fill:'origin',
@@ -881,8 +902,8 @@ function generateChart_Valori_Culturali(values){
             {   
                 label: 'orange',
                 data: [0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FF333380',
-                borderColor :'#ffae00',
+                backgroundColor : red_transp,
+                borderColor :orange,
                 pointRadius : 0,
                 order: 2,
                 fill:0,
@@ -892,8 +913,8 @@ function generateChart_Valori_Culturali(values){
             {   
                 label: 'yellow',
                 data: [0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#ffae0080',
-                borderColor :'#FFFF33',
+                backgroundColor : orange_transp,
+                borderColor :yellow,
                 order: 3,
                 fill:1,
                 pointRadius : 0,
@@ -902,8 +923,8 @@ function generateChart_Valori_Culturali(values){
             },
             {   
                 data: [0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFF3380',
-                borderColor :'#33CC33',
+                backgroundColor : yellow_transp,
+                borderColor :green,
                 order:4,
                 fill:2,
                 pointRadius : 0,
@@ -912,7 +933,7 @@ function generateChart_Valori_Culturali(values){
             },
             {   
                 data: [1,1,1,1,1],
-                backgroundColor : '#33CC3380',
+                backgroundColor : green_transp,
                 borderColor :'#33CC3300',
                 order:5,
                 fill:3,
@@ -928,7 +949,7 @@ function generateChart_Valori_Culturali(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0.2 ? '#FF3333' : value <= 0.3 ? '#ffae00' : value <= 0.5 ? '#FFFF33' :'#33CC33';
+                    return value < 0.3 ? red : value < 0.5 ? orange : value < 0.7 ? yellow :green;
                 }, 
                 pointRadius: 4,
                 order:1,
