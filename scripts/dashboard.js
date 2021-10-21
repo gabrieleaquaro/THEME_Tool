@@ -381,13 +381,25 @@ function generateChart_PSF(values){
     const data = {
         labels: chart_labels,
         datasets: [
-            {   
+            {
+                lable: 'max',
+                data: [9,9,9,9,9,9,9,9],
+                backgroundColor : '#FF333380',
+                borderColor :'#FF333300',
+                pointRadius : 0,
+                order: 6,
+                fill : 1,
+                hoverRadius : 0,
+                hitRadius: 0,
+            },
+            {   //FF333330
                 lable: 'red',
                 data: [8,8,8,8,8,8,8,8],
-                backgroundColor : '#FFFFFF00',
+                backgroundColor : '#ffae0080',
                 borderColor :'#FF3333',
                 pointRadius : 0,
                 order: 5,
+                fill : 2,
                 hoverRadius : 0,
                 hitRadius: 0,
                 
@@ -395,29 +407,32 @@ function generateChart_PSF(values){
             {   
                 label: 'orange',
                 data: [6,6,6,6,6,6,6,6],
-                backgroundColor : '#FFFFFF00',
+                backgroundColor : '#FFFF2080',
                 borderColor :'#ffae00',
                 pointRadius : 0,
                 order: 4,
+                fill:3,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'yellow',
                 data: [4,4,4,4,4,4,4,4],
-                backgroundColor : '#FFFFFF00',
+                backgroundColor : '#33CC3380',
                 borderColor :'#FFFF33',
                 pointRadius : 0,
                 order: 3,
+                fill:4,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 data: [2,2,2,2,2,2,2,2],
-                backgroundColor : '#FFFFFF00',
+                backgroundColor : '#33CC3380',
                 borderColor :'#33CC33',
                 pointRadius : 0,
                 order:2,
+                fill:'origin',
                 hoverRadius : 0,
                 hitRadius: 0
             },
@@ -425,7 +440,7 @@ function generateChart_PSF(values){
                 label: 'Valore',
                 data: chart_data,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a630',
+                backgroundColor: '#a6a6a600',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];

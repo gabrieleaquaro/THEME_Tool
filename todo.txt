@@ -1,7 +1,7 @@
 1.  Help button (Documentation)
 2.  generare file word da grafici 
 3.  sisteamre range e colori chart valori culturali
-4.  Bug Caricamento file 
+4.  
 5.	inserire tutte le note previste nel foglio excel usando il pulsante info
 6.	Colorare tabella
 7.	Grafici Spider – colorare pieno con trasparenza
