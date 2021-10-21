@@ -3,7 +3,8 @@
 3.  sisteamre range e colori chart valori culturali
 4.  
 5.	inserire tutte le note previste nel foglio excel usando il pulsante info
-6.	Colorare tabella
+6.	
 7.	
 8.	Per interventi valutare fare un pop-up cliccando su “Show More”
+9.  "Risultati" mancano tabelle fondo pagina
 
