@@ -97,7 +97,6 @@ function updateBarriereDirette_results(data){
         max = i != 6 ? 6 : 7
         var count = 0
         for(var j = 1; j < max; j++){
-            console.log("barriere_dirette_"+i+"_" + j +':', data["barriere_dirette_"+i+"_" + j])
             if(data["barriere_dirette_"+i+"_" + j] == undefined){
                 val = "-"
                 break
@@ -888,7 +887,7 @@ function generateChart_Valori_Culturali(values){
                     ticks:{
                         display:true,
                         callback: function(value, index, values) {
-                            if(value == 0.8) return 'H';
+                            if(value == 0.9) return 'H';
                             if(value == 0.1) return 'L';
                             return '';
                         },

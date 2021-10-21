@@ -13,7 +13,7 @@
     <!-- Custom styles for this template -->
     <link href="../style/dashboard.css" rel="stylesheet">
 
-  </head>
+  </head> 
 
   <body>
     <div style="display: none;" id="title">prob_errore</div>
@@ -164,7 +164,12 @@
             <div class="row"> 
                 <div class="form-group">
                   <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
-                  <small>Selezioni il tipo di compito dal menù a tendina.</small><br>
+                  <small>Selezioni il tipo di compito dal menù a tendina.</small>
+                  <div style="display:inline;" >
+                    <a href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                      <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                    </a>
+                  </div>
                   <div >
                     <select id="TipoTask" onchange="updateJSONevent(event)" style="width:100%;">
                       <option value="1" selected>Tipo di Compito</option>
@@ -193,11 +198,16 @@
         
           <div class = "section bg-light-section">
             <div class="row" style="margin-bottom: 20px;"> 
-              <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4>
+              <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4> 
             </div>
             <div class="row">
               <div class="col-4">
                 <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -221,6 +231,11 @@
             <div class="row">
               <div class="col-4">
                 <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -242,6 +257,11 @@
             <div class="row">
               <div class="col-4">
                 <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
@@ -264,6 +284,11 @@
             <div class="row justify-content-center align-self-center">
               <div class="col-4">
                 <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
@@ -287,6 +312,11 @@
             <div class="row justify-content-center align-self-center">
               <div class="col-4">
                 <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="Procedure" onchange="updateJSONevent(event)" style="width: 100%;">
@@ -310,6 +340,11 @@
             <div class="row">
               <div class="col-4">
                 <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="InterazioneUmanoMacchina" onchange="updateJSONevent(event)" style="width: 100%;">
@@ -333,6 +368,11 @@
             <div class="row">
               <div class="col-4">
                 <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="ContestoAmbientale" onchange="updateJSONevent(event)" style="width: 100%;">
@@ -354,6 +394,11 @@
             <div class="row">
               <div class="col-4">
                 <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-8">
                 <select id="Affaticamento" onchange="updateJSONevent(event)" style="width: 100%;">
