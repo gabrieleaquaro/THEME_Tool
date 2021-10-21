@@ -564,49 +564,63 @@ function generateChart_Barriere_dirette(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FFFFFF00',
+                data: [0.1,0.1,0.1,0.1,0.1,0.1],
+                backgroundColor : '#FF333380',
                 borderColor :'#FF3333',
+                fill:'origin',
+                order:2,
                 pointRadius : 0,
-                order: 5,
                 hoverRadius : 0,
                 hitRadius: 0,
                 
             },
             {   
                 label: 'orange',
-                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FFFFFF00',
+                data: [0.3,0.3,0.3,0.3,0.3,0.3],
+                backgroundColor : '#FF333380',
+                fill:0,
+                order:3,
                 borderColor :'#ffae00',
                 pointRadius : 0,
-                order: 4,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'yellow',
-                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#FFFFFF00',
+                data: [0.5,0.5,0.5,0.5,0.5,0.5],
+                backgroundColor : '#ffae0080',
+                fill:1,
+                order:4,
                 borderColor :'#FFFF33',
                 pointRadius : 0,
-                order: 3,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
-                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFFFF00',
+                data: [0.7,0.7,0.7,0.7,0.7,0.7],
+                backgroundColor : '#FFFF3380',
+                fill:2,
+                order:5,
                 borderColor :'#33CC33',
                 pointRadius : 0,
-                order:2,
                 hoverRadius : 0,
                 hitRadius: 0
             },
+            {   
+                data: [1,1,1,1,1,1],
+                backgroundColor : '#33CC3380',
+                borderColor :'#33CC3300',
+                pointRadius : 0,
+                fill:3,
+                order:6,
+                hoverRadius : 0,
+                hitRadius: 0
+            },            
             {
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a630',
+                backgroundColor: '#a6a6a600',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -704,41 +718,55 @@ function generateChart_Barriere_Salvaguardia(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FFFFFF00',
+                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1],
+                backgroundColor : '#FF333380',
                 borderColor :'#FF3333',
                 pointRadius : 0,
-                order: 5,
+                fill: 'origin',
+                order:2,
                 hoverRadius : 0,
                 hitRadius: 0,
                 
             },
             {   
                 label: 'orange',
-                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FFFFFF00',
+                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3],
+                backgroundColor : '#FF333380',
                 borderColor :'#ffae00',
                 pointRadius : 0,
-                order: 4,
+                fill: 0,
+                order:3,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'yellow',
-                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#FFFFFF00',
+                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
+                backgroundColor : '#ffae0080',
                 borderColor :'#FFFF33',
                 pointRadius : 0,
-                order: 3,
+                fill: 1,
+                order:4,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
-                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFFFF00',
+                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
+                backgroundColor : '#FFFF3380',
                 borderColor :'#33CC33',
                 pointRadius : 0,
-                order:2,
+                fill:2,
+                order:5,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                data: [1,1,1,1,1,1,1],
+                backgroundColor : '#33CC3380',
+                borderColor :'#00000000',
+                pointRadius : 0,
+                fill:3,
+                order:6,
                 hoverRadius : 0,
                 hitRadius: 0
             },
@@ -746,7 +774,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a630',
+                backgroundColor: '#a6a6a600',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -840,41 +868,55 @@ function generateChart_Valori_Culturali(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : '#FFFFFF00',
+                data: [0.1,0.1,0.1,0.1,0.1],
+                backgroundColor : '#FF333380',
                 borderColor :'#FF3333',
                 pointRadius : 0,
-                order: 5,
+                order: 1,
+                fill:'origin',
                 hoverRadius : 0,
                 hitRadius: 0,
                 
             },
             {   
                 label: 'orange',
-                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : '#FFFFFF00',
+                data: [0.3,0.3,0.3,0.3,0.3],
+                backgroundColor : '#FF333380',
                 borderColor :'#ffae00',
                 pointRadius : 0,
-                order: 4,
+                order: 2,
+                fill:0,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'yellow',
-                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : '#FFFFFF00',
+                data: [0.5,0.5,0.5,0.5,0.5],
+                backgroundColor : '#ffae0080',
                 borderColor :'#FFFF33',
-                pointRadius : 0,
                 order: 3,
+                fill:1,
+                pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
-                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : '#FFFFFF00',
+                data: [0.7,0.7,0.7,0.7,0.7],
+                backgroundColor : '#FFFF3380',
                 borderColor :'#33CC33',
+                order:4,
+                fill:2,
                 pointRadius : 0,
-                order:2,
+                hoverRadius : 0,
+                hitRadius: 0
+            },
+            {   
+                data: [1,1,1,1,1],
+                backgroundColor : '#33CC3380',
+                borderColor :'#33CC3300',
+                order:5,
+                fill:3,
+                pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
             },
@@ -882,7 +924,7 @@ function generateChart_Valori_Culturali(values){
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#a6a6a630',
+                backgroundColor: '#00000000',
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
