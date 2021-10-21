@@ -1,6 +1,6 @@
 1.  Help button (Documentation)
 2.  generare file word da grafici 
-3.  sisteamre range e colori chart valori culturali
+3.  
 4.  
 5.	inserire tutte le note previste nel foglio excel usando il pulsante info
 6.	
