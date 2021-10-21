@@ -200,7 +200,7 @@ function updateRisultati_results(report){
             if(report['prob_errore'][key] != null){
                 let value = report['prob_errore'][key];
                 document.getElementById(key).innerText = value;
-                let color = value <= 5 ? green_transp : value <= 20  ? yellow_transp : value <= 50 ? orange_transp : red_transp;
+                let color = value <= 1 ? green_transp : value <= 2  ? yellow_transp : value <= 5 ? orange_transp : red_transp;
                 document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
@@ -269,8 +269,6 @@ function updateRisultati_results(report){
             if(report['valori_culturali'][key] != null){
                 let value = report['valori_culturali'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
-                let color = value < 0.3 ? red_transp : value < 0.5 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
-                document.getElementById(key).parentNode.style.backgroundColor = color;
             }
             else{
                 document.getElementById(key).innerText = '-';
@@ -403,44 +401,33 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                lable: 'max',
+                lable: 'red',
                 data: [9,9,9,9,9,9,9,9],
                 backgroundColor : red_transp,
                 borderColor : red,
                 pointRadius : 0,
-                order: 6,
-                fill : {value: 8},
+                order: 5,
+                fill : {value: 4},
                 hoverRadius : 0,
                 hitRadius: 0,
             },
             {   //FF333330
-                lable: 'red',
-                data: [8,8,8,8,8,8,8,8],
+                lable: 'orange',
+                data: [4,4,4,4,4,4,4,4],
                 backgroundColor : orange_transp,
                 borderColor :orange_transp,
                 pointRadius : 0,
-                order: 5,
-                fill :{value: 6},
+                order: 4,
+                fill :{value: 3},
                 hoverRadius : 0,
                 hitRadius: 0,
                 
             },
             {   
-                label: 'orange',
-                data: [6,6,6,6,6,6,6,6],
+                label: 'yellow',
+                data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :yellow_transp,
-                pointRadius : 0,
-                order: 4,
-                fill:{value: 4},
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
-                label: 'yellow',
-                data: [4,4,4,4,4,4,4,4],
-                backgroundColor : green_transp,
-                borderColor :green,
                 pointRadius : 0,
                 order: 3,
                 fill:{value: 2},
@@ -448,11 +435,12 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
+                label: 'green',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
-                borderColor :'#00000000',
+                borderColor :green,
                 pointRadius : 0,
-                order:2,
+                order: 2,
                 fill:'origin',
                 hoverRadius : 0,
                 hitRadius: 0
@@ -465,7 +453,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 4 ? green : value <= 6  ? yellow : value <= 8 ? orange :red;
+                    return value <= 2 ? green : value <= 3  ? yellow : value <= 4 ? orange :red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -887,70 +875,11 @@ function generateChart_Valori_Culturali(values){
     const data = {
         labels: chart_labels,
         datasets: [
-            {   
-                lable: 'red',
-                data: [0.1,0.1,0.1,0.1,0.1],
-                backgroundColor : red_transp,
-                borderColor :'#00000000',
-                pointRadius : 0,
-                order: 1,
-                fill:'origin',
-                hoverRadius : 0,
-                hitRadius: 0,
-                
-            },
-            {   
-                label: 'orange',
-                data: [0.3,0.3,0.3,0.3,0.3],
-                backgroundColor : red_transp,
-                borderColor :red,
-                pointRadius : 0,
-                order: 2,
-                fill:0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
-                label: 'yellow',
-                data: [0.5,0.5,0.5,0.5,0.5],
-                backgroundColor : orange_transp,
-                borderColor :orange,
-                order: 3,
-                fill:1,
-                pointRadius : 0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
-                data: [0.7,0.7,0.7,0.7,0.7],
-                backgroundColor : yellow_transp,
-                borderColor :yellow,
-                order:4,
-                fill:2,
-                pointRadius : 0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
-                data: [1,1,1,1,1],
-                backgroundColor : green_transp,
-                borderColor : green,
-                order:5,
-                fill:3,
-                pointRadius : 0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
             {
                 label: 'Valore',
                 data: values_list,
                 borderColor: '#000',
-                backgroundColor: '#00000000',
-                pointBackgroundColor: function(context){
-                    var index = context.dataIndex;
-                    var value = context.dataset.data[index];
-                    return value < 0.3 ? red : value < 0.5 ? orange : value < 0.7 ? yellow :green;
-                }, 
+                backgroundColor: '#a6a6a620', 
                 pointRadius: 4,
                 order:1,
             },
@@ -971,12 +900,21 @@ function generateChart_Valori_Culturali(values){
                 max: 1,
                 ticks:{
                     beginAtZero: true,
+                    
                 },
             },
             scales:{
                 r:{
                     ticks:{
-                        display:false,
+                        display:true,
+                        callback: function(value, index, values) {
+                            if(value == 0.8) return 'H';
+                            if(value == 0.1) return 'L';
+                            return '';
+                        },
+                        font : {
+                            size: 20,
+                        }
                     },
                 },
             },
