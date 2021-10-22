@@ -1,3 +1,14 @@
+
+const green_transp = '#33CC3380';
+const green = '#33CC33';
+const yellow_transp = '#FFFF3380';
+const yellow = '#FFFF33';
+const orange_transp = '#ffae0080';
+const orange = '#ffae00';
+const red_transp = '#FF333380';
+const red = '#FF3333';
+
+
 const { contentTracing } = require("electron");
 
 //Icon loading
@@ -224,14 +235,6 @@ function updateValoriCulturali_results(data){
     }
 }
 
-const green_transp = '#33CC3380';
-const green = '#33CC33';
-const yellow_transp = '#FFFF3380';
-const yellow = '#FFFF33';
-const orange_transp = '#ffae0080';
-const orange = '#ffae00';
-const red_transp = '#FF333380';
-const red = '#FF3333';
 
 //Update dei risultati in results page
 function updateRisultati_results(report){
@@ -387,8 +390,9 @@ function updateInterventi_results(report){
                 p.innerText = dict[k];
                 td.appendChild(p)
                 if(k == "Raccomandazioni" || k == 'Descrizione'){
-                    p.innerHTML = dict[k] + " " +'<a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note"> \
-                        <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span></a> '
+                    td.classList = "collapsable"
+                    p.classList = "reduced";
+                    p.id = group + row_number + k; 
                 }
                 row.appendChild(td);
             });

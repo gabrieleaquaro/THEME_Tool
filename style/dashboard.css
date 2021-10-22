@@ -341,3 +341,9 @@ td.collapsable a:not(.collapsed)::after {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
+
+/* ------------------------------------ */
+.reduced{
+  max-height: 100px;
+  overflow:auto;
+}
