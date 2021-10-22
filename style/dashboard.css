@@ -325,19 +325,21 @@ td.collapsable a:not(.collapsed)::after {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--primary-light);
+  background: white;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  border-radius: 6px;
   background: var(--primary);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+  border-radius: 6px;
   background: var(--secondary);
 }

@@ -165,7 +165,9 @@
                   <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
                   <small>Selezioni il tipo di compito dal menù a tendina.</small>
                   <div style="display:inline;">
-                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                      <div class ="py-2"><small>In caso un compito non sia classificabile nelle tipologie A-F, selezionare H1 o H2</small></div>
+                      '>
                       <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                     </a>
                   </div>
@@ -330,7 +332,13 @@
               <div class="col-4">
                 <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
                 <div style="display:inline;">
-                  <a href="#." id="Procedure_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Procedure_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Procedure non disponibili o non utilizzate:</b> Non ci sono procedure disponibili o le procedure non vengono utilizzate. Questo livello dovrebbe essere utilizzato anche se le procedure sono fortemente fuorvianti o non comprensibili, in modo tale da non essere utili per gli operatori. L’operatore esperto potrebbe non utilizzare le procedure perché ritiene riguardino solo le persone non esperte.</small></div>
+                  <div><small><b>Procedure altamente insufficienti:</b> Procedure di qualità altamente insufficiente. Le procedure mancano di passaggi e di informazioni importanti necessarie per svolgere il compito, oppure vengono utilizzate in maniera concisa. Questo livello dovrebbe essere utilizzato anche se le procedure stesse sono molto complesse o se è molto difficile per gli operatori navigare tra le diverse procedure.</small></div>
+                  <div><small><b>Procedure insufficienti:</b> Procedure di qualità insufficiente oppure non applicate pedissequamente. Le procedure sono complete ma ci sono alcuni problemi di relativi ai fattori umani (formulazione, lingua, struttura) riguardo le procedure o le procedure non sono seguite in modo ottimale. Questo livello dovrebbe essere utilizzato anche se le procedure sono complesse o se ci sono alcuni problemi per l’operatore nel navigare tra le diverse procedure.</small></div>
+                  <div><small><b>Procedure adeguate e seguite:</b> La qualità delle procedure è adeguata e vengono seguite in maniera precisa e puntuale. </small></div>
+                  <div><small><b>Procedure chiare e dettagliate che vengono seguite:</b> Le procedure sono eccezionalmente chiare e dettagliate, vengono seguite e aumentano le prestazioni corrette e i comportamenti sicuri</small></div>
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -358,7 +366,13 @@
               <div class="col-4">
                 <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
                 <div style="display:inline;">
-                  <a href="#." d="InterazioneUmanoMacchina_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." d="InterazioneUmanoMacchina_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Totalmente inadeguata:</b> Gli strumenti e le tecnologie in uso sono fortemente inadeguate, l’interfaccia è inadeguata per caratteristiche e layout, le attrezzature per fare il lavoro richiesto non sono per niente idonee.</small></div>               
+                  <div><small><b>Inadeguata:</b> L’Interazione Umano-Macchina causa difficoltà nell&#39;ottenere informazioni rilevanti o nell&#39eseguire il compito. L&#39;interfaccia non è progettata per il compito specifico e porta ad un aumento della difficoltà del lavoro, alcune delle informazioni rilevanti richieste per una decisione affidabile non sono rese disponibili o la navigazione tra le pagine crea difficoltà nell&#39;ottenere le informazioni rilevanti o nello svolgere il compito.</small></div>               
+                  <div><small><b>Appena adeguata:</b> L’Interazione Umano-Macchina causa alcuni problemi nell&#39;ottenere informazioni rilevanti o nello svolgere il compito. Ad esempio, l&#39;interfaccia non è conforme ai codici a cui sono abituati gli operatori (ad esempio, icone, colori e posizionamenti intuitivi, come l’uso del colore rosso per fornire indicazioni di routine anziché segnalare potenziali pericoli), o diversi cambi di pagina nella navigazione tra le pagine aumentano la difficoltà di ottenere le informazioni richieste o di eseguire il compito.</small></div>               
+                  <div><small><b>Adeguata:</b> Sebbene la tecnologia non sia specificamente progettata per rendere le prestazioni umane il più possibile affidabili e sicure per questo compito, questa rispetta i codici ai quali gli operatori sono abituati. Tutte le informazioni critiche per la sicurezza sono facilmente disponibili, e nessun problema relativo all&#39;interfaccia umano-macchina interferisce con l&#39;esecuzione del compito. </small></div>               
+                  <div><small><b>Specificamente progettata per favorire la prestazione:</b> La tecnologia è specificamente progettata per rendere le prestazioni umane il più affidabili e sicure possibile in questo tipo di compiti, rendendo difficile o impossibile l’esecuzione di comportamenti errati o non sicuri.</small></div>               
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -386,7 +400,11 @@
               <div class="col-4">
                 <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
                 <div style="display:inline;">
-                  <a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Condizioni ambientali che non permettono lo svolgimento del compito:</b> Il compito non può essere portato a termine in maniera sicura a causa delle condizioni del contesto ambientale o dell&#39;inaccessibilità o indisponibilità dell&#39;area in questione. L’operatore entra, violando una regola, in un luogo non idoneo per lo svolgimento del compito.</small></div>
+                  <div><small><b>Condizioni avverse:</b> Ci sono difficoltà dal punto di vista ambientale nel portare a termine il compito. L&#39;area in cui si svolge il lavoro è difficile da raggiungere, l’ambiente di lavoro richiede sforzo fisico, oppure ci sono condizioni meteorologiche estreme che influiscono negativamente sulle prestazioni.</small></div>
+                  <div><small><b>Contesto ambientale normale:</b> Il contesto ambientale non diminuisce o migliora significativamente le prestazioni. </small></div>
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -412,7 +430,11 @@
               <div class="col-4">
                 <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
                 <div style="display:inline;">
-                  <a href="#." id="Affaticamento_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Affaticamento_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Affaticamento elevato:</b> L’attività in oggetto di analisi è estremamente ardua dal punto di vista fisico e/o mentale. L’operatore svolge il compito in condizioni di elevato affaticamento fisico, mentale o muscolare (ad es.: l’operatore si trova in servizio da diverse ore oltre l’orario previsto oppure si trova in uno stato di deprivazione di sonno).</small></div>
+                  <div><small><b>Affaticamento moderato: </b>L’attività in oggetto di analisi è moderatamente ardua dal punto di vista fisico e/o mentale. L’operatore è in grado di svolgere i compiti ma si trova in uno stato di affaticamento fisico, mentale o muscolare.</small></div>
+                  <div><small><b>Affaticamento normale:</b> L’affaticamento dato dall’attività rientra nei limiti previsti o comunque sono implementate misure per mitigare i livelli di affaticamento degli operatori. Gli operatori sono in grado di svolgere i compiti e non è possibile riscontrare elementi che potrebbero contribuire ad uno stato di affaticamento fisico, mentale o muscolare fuori dal normale.</small></div>
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
