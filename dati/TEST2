@@ -151,7 +151,7 @@
         "TipoTask": "0.02",
         "PSFComposto": 25,
         "ProbErrore": 0.5,
-        "ProbErroreAdj": "0.34%",
+        "ProbErroreAdj": 0.34,
         "Cluster1": 100,
         "Cluster2": 0.25,
         "Cluster3": 1
