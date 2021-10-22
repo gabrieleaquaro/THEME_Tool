@@ -46,7 +46,7 @@
             <ul class="nav flex-column">
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#" id = "current_report_title">
+                <a class="nav-link" id = "current_report_title">
                 </a>
               </li>
             </ul>
@@ -107,13 +107,13 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="newReport()">
+                <a class="nav-link" href="#." onclick="newReport()">
                   <span data-feather="file-plus"></span>
                   Nuovo Report
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="save()">
+                <a class="nav-link" href="#." onclick="save()">
                   <span data-feather="download"></span>
                   Scarica Report
                 </a>
@@ -177,7 +177,12 @@
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_1" style="margin-top: -4px;font-size: 16px;">Facilitare la presa di decisioni nel gruppo?</div>
+                <div for="barriere_salvaguardia_1_1" style="display:inline;margin-top: -4px;font-size: 16px;">Facilitare la presa di decisioni nel gruppo?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Esperienza</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_1" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -198,7 +203,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_2" style="margin-top: -4px;font-size: 16px;">Stabilire priorità quando bisogna prendere decisioni?</div>
+                <div for="barriere_salvaguardia_1_2" style="display:inline;margin-top: -4px;font-size: 16px;">Stabilire priorità quando bisogna prendere decisioni?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Esperienza</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_2" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -219,7 +229,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_3" style="margin-top: -4px;font-size: 16px;">Usare le risorse a disposizione (ad esempio aiuto dei colleghi, superiori…) per proteggersi da situazioni di potenziale stress?</div>
+                <div for="barriere_salvaguardia_1_3" style="display:inline;margin-top: -4px;font-size: 16px;">Usare le risorse a disposizione (ad esempio aiuto dei colleghi, superiori…) per proteggersi da situazioni di potenziale stress?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Stress da Minaccia e Affaticamento</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_3" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -240,7 +255,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_4" style="margin-top: -4px;font-size: 16px;">Riconoscere gli stati e le cause della fatica fisica?</div>
+                <div for="barriere_salvaguardia_1_4" style="display:inline;margin-top: -4px;font-size: 16px;">Riconoscere gli stati e le cause della fatica fisica?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Affaticamento/i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_4" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -261,7 +281,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_5" style="margin-top: -4px;font-size: 16px;">Mettere in atto le strategie per far fronte alla fatica mentale?</div>
+                <div for="barriere_salvaguardia_1_5" style="display:inline;margin-top: -4px;font-size: 16px;">Mettere in atto le strategie per far fronte alla fatica mentale?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Affaticamento</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_5" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -282,7 +307,12 @@
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_6" style="margin-top: -4px;font-size: 16px;">Avere un’adeguata visione dei vari rischi presenti nel loro ambiente lavorativo?</div>
+                <div for="barriere_salvaguardia_1_6" style="display:inline;margin-top: -4px;font-size: 16px;">Avere un’adeguata visione dei vari rischi presenti nel loro ambiente lavorativo?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Stress da Minaccia e Contesto Ambientale</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_6" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -377,7 +407,12 @@
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_1" style="margin-top: -4px;font-size: 16px;">É in possesso delle conoscenze tecniche necessarie a lavorare in modo sicuro?</div>
+                <div for="barriere_salvaguardia_2_1" style="display:inline;margin-top: -4px;font-size: 16px;">É in possesso delle conoscenze tecniche necessarie a lavorare in modo sicuro?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Esperienza</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_1" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -398,7 +433,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_2" style="margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro?</div>
+                <div for="barriere_salvaguardia_2_2" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Esperienza</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_2" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -419,7 +459,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_3" style="margin-top: -4px;font-size: 16px;">É capace di attuare le procedure di emergenza?</div>
+                <div for="barriere_salvaguardia_2_3" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di attuare le procedure di emergenza?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Esperienza e HMI</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_3" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -440,7 +485,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_4" style="margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche di fronte agli imprevisti?</div>
+                <div for="barriere_salvaguardia_2_4" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche di fronte agli imprevisti?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>HMI</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_4" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -461,7 +511,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_5" style="margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche in situazioni di pressione temporale?</div>
+                <div for="barriere_salvaguardia_2_5" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche in situazioni di pressione temporale?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Tempo Disponibile</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_5" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -511,7 +566,12 @@
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_1" style="margin-top: -4px;font-size: 16px;">Per ottenere approvazione dagli altri?</div>
+                <div for="barriere_salvaguardia_3_1" style="display:inline;margin-top: -4px;font-size: 16px;">Per ottenere approvazione dagli altri?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Procedure</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_1" style="width: 100%;" onchange="updateJSONevent(event)">
@@ -532,7 +592,12 @@
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_2" style="margin-top: -4px;font-size: 16px;">Per evitare di essere criticati?</div>
+                <div for="barriere_salvaguardia_3_2" style="display:inline;margin-top: -4px;font-size: 16px;">Per evitare di essere criticati?</div>
+                <div style="display:inline;">
+                  <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi PSF <i>Procedure</i>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_2" style="width: 100%;" onchange="updateJSONevent(event)">

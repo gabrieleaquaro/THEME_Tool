@@ -2,10 +2,10 @@
 2.  generare file word da grafici 
 3.  
 4.  
-5.	inserire tutte le note previste nel foglio excel usando il pulsante info (iniziato, in info_handler e prob_errore)
+5.	inserire tutte le note previste nel foglio excel usando il pulsante info
 6.	
 7.	
 8.
-9.
+9.  Finire Results
 10. Finire interventi
 11. Click on chart --> open pop-up + button for download
