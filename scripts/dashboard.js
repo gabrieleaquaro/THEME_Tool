@@ -292,15 +292,10 @@ function updateRisultati_results(report){
         })
         generateChart_Barriere_dirette(report["barriere_dirette"]);
 
-        if( report['barriere_dirette']["average_barriere_dirette"]){
-            document.getElementById("average_barriere_dirette").innerText = report['barriere_dirette']["average_barriere_dirette"]
-        }else{
-            document.getElementById("average_barriere_dirette").innerText = "-"
-        }
         
     }else{
         generateChart_Barriere_dirette({});
-        elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione","average_barriere_dirette"]
+        elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
@@ -349,6 +344,62 @@ function updateRisultati_results(report){
             document.getElementById(key).innerText = '-';
         });
     }
+
+    // altri valori per la pagina risultati
+
+    var val = 0
+    var change = true
+
+    if(report['barriere_dirette']){
+        elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
+        elements_barriereDirette.forEach(function(key){
+            if(report['barriere_dirette'][key] == undefined || report['barriere_dirette'][key] == '-' ){
+                document.getElementById("average_barriere_dirette").innerText = '-'
+                change = false
+            }
+            val += report['barriere_dirette'][key]
+        })
+        if(change){
+            average_barriere_dirette = Math.round(val/6*100)/100
+            document.getElementById("average_barriere_dirette").innerText = average_barriere_dirette + "%";
+        }
+    }else{
+        average_barriere_dirette = 0
+        document.getElementById("average_barriere_dirette").innerText = '-'
+    }
+
+    val = 0
+    change = true
+
+    if(report['barriere_salvaguardia']){
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia.forEach(function(key){
+           
+            if(report['barriere_salvaguardia'][key] == undefined || report['barriere_salvaguardia'][key] == '-' ){
+                
+                document.getElementById("average_barriere_salvaguardia").innerText = '-'
+                change = false
+            }
+            val += report['barriere_salvaguardia'][key]
+        })
+        
+        if(change){
+            average_barriere_salvaguardia = Math.round(val/7*100)/100
+            document.getElementById("average_barriere_salvaguardia").innerText = average_barriere_salvaguardia + "%";
+        }
+    }else{
+        average_barriere_salvaguardia = 0
+        document.getElementById("average_barriere_salvaguardia").innerText = '-'
+    }
+
+    if(average_barriere_salvaguardia + average_barriere_dirette > 0){
+        document.getElementById("average_barriere").innerText = Math.round((average_barriere_salvaguardia + average_barriere_dirette)/2*100)/100 + "%"
+    }else{
+        document.getElementById("average_barriere").innerText = '-'
+    }
+
+
+
 
 }
 
