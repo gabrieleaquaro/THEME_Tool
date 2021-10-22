@@ -349,3 +349,24 @@ td.collapsable a:not(.collapsed)::after {
   max-height: 100px;
   overflow:auto;
 }
+
+/* width */
+.reduced::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.reduced::-webkit-scrollbar-track {
+  background: white;
+}
+/* Handle */
+.reduced::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: var(--secondary-transparent);
+}
+
+/* Handle on hover */
+.reduced::-webkit-scrollbar-thumb:hover {
+  border-radius: 6px;
+  background: var(--secondary);
+}
