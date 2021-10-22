@@ -440,15 +440,16 @@ function generateChart_PSF(values){
     //To rescale the values that makes no sense elseway on the graph
     const values_map = {
         0.1   : 1,
-        1     : 2,
-        '1.0' : 2,
-        2     : 3,
-        5     : 4,
-        10    : 5,
-        15    : 6,
-        20    : 7,
-        50    : 8,
-        100   : 9
+        0.5   : 2,
+        1     : 3,
+        '1.0' : 3,
+        2     : 4,
+        5     : 5,
+        10    : 6,
+        15    : 7,
+        20    : 8,
+        50    : 9,
+        100   : 10
     } 
     var chart_data = values_list.map(x => values_map[x]);
     var max_value = Math.max(...chart_data);
@@ -459,41 +460,41 @@ function generateChart_PSF(values){
         datasets: [
             {
                 lable: 'red',
-                data: [9,9,9,9,9,9,9,9],
+                data: [10,10,10,10,10,10,10,10],
                 backgroundColor : red_transp,
                 borderColor : red,
                 pointRadius : 0,
                 order: 5,
-                fill : {value: 4},
+                fill : {value: 5},
                 hoverRadius : 0,
                 hitRadius: 0,
             },
             {   //FF333330
                 lable: 'orange',
-                data: [4,4,4,4,4,4,4,4],
+                data: [5,5,5,5,5,5,5,5],
                 backgroundColor : orange_transp,
                 borderColor :orange_transp,
                 pointRadius : 0,
                 order: 4,
-                fill :{value: 3},
+                fill :{value: 4},
                 hoverRadius : 0,
                 hitRadius: 0,
                 
             },
             {   
                 label: 'yellow',
-                data: [3,3,3,3,3,3,3,3],
+                data: [4,4,4,4,4,4,4,4],
                 backgroundColor : yellow_transp,
                 borderColor :yellow_transp,
                 pointRadius : 0,
                 order: 3,
-                fill:{value: 2},
+                fill:{value: 3},
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'green',
-                data: [2,2,2,2,2,2,2,2],
+                data: [3,3,3,3,3,3,3,3],
                 backgroundColor : green_transp,
                 borderColor :green,
                 pointRadius : 0,
@@ -510,7 +511,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 2 ? green : value <= 3  ? yellow : value <= 4 ? orange :red;
+                    return value <= 3 ? green : value <= 4  ? yellow : value <= 5 ? orange :red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -520,9 +521,9 @@ function generateChart_PSF(values){
     };
 
     //Remvoes useless levels
-    if(max_value <= 6){
+    if(max_value <= 7){
       data.datasets.splice(0, 1)
-      if(max_value  <= 4){
+      if(max_value  <= 5){
         data.datasets.splice(0, 1)
       }
     }
@@ -566,14 +567,15 @@ function generateChart_PSF(values){
                         label: function(context){
                             var inverse_values_map = {
                                 1 : 0.1  ,
-                                2 : 1    ,
-                                3 : 2    ,
-                                4 : 5    ,
-                                5 : 10   ,
-                                6 : 15   ,
-                                7 : 20   ,
-                                8 : 50   ,
-                                9 : 100  
+                                2 : 0.5  ,
+                                3 : 1    ,
+                                4 : 2    ,
+                                5 : 5    ,
+                                6 : 10   ,
+                                7 : 15   ,
+                                8 : 20   ,
+                                9 : 50   ,
+                                10 : 100  
                             } 
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
