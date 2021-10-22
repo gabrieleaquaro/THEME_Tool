@@ -207,6 +207,7 @@
                   <div><small><b>Tempo Minimo Necessario</b>: il tempo a disposizione è uguale al tempo minimo necessario per eseguire il compito. Gli operatori hanno una forte pressione temporale e hanno appena il tempo necessario per svolgere l’attività. Non ci sono margini di tempo per gestire eventuali ritardi o anomalie. </small></div>  
                   <div><small><b>Tempo Limitato</b>: l&#39;operatore/gli operatori hanno a disposizione un tempo limitato per eseguire il compito. Il tempo disponibile è comunque superiore (di circa tre volte) al tempo minimo richiesto per eseguire il compito. Vi è un minimo margine di tempo per gestire eventuali ritardi o anomalie di lieve entità.</small></div>
                   <div><small><b>Tempo come previsto</b>: il tempo a disposizione è più che sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è sufficientemente superiore (di circa sei volte) al tempo minimo richiesto per eseguire il compito. Vi è un adeguato margine a gestire in totale sicurezza eventuali ritardi o anomalie di diversi tipi.  </small></div>  
+                  <div> <small><b>Tempo Extra</b>:il tempo a disposizione è abbondantemente sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è considerevolmente superiore (di circa 10 volte) al tempo minimo richiesto per eseguire il compito. Vi è un abbondante margine di tempo per gestire eventuali anomalie o ritardi di qualsiasi tipo. </small></div>
                   '>
                   <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                 </a>
@@ -234,7 +235,11 @@
               <div class="col-4">
                 <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
                 <div style="display:inline;">
-                  <a href="#." id="StressDaMinaccia_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="StressDaMinaccia_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Compito molto pericoloso:</b> l’attività in oggetto è particolarmente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione le probabilità che si verifichi un evento avverso sono alte e le conseguenze in caso si verifichi tale evento sono gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
+                  <div><small><b>Compito moderatamente pericoloso: </b> l’attività in oggetto è moderatamente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono moderate e le conseguenze in caso si verifichi tale evento sono moderatamente gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
+                  <div><small><b>Compito non pericoloso:</b> l’attività in oggetto non presenta particolari elementi pericolosi per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono estremamente basse e le conseguenze in caso si verifichi tale evento sono trascurabili. Gli operatori coinvolti, a livello generale, hanno un’adeguata percezione dei rischi connessi all’attività.</small></div>
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -260,7 +265,11 @@
               <div class="col-4">
                 <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
                 <div style="display:inline;">
-                  <a href="#." id="ComplessitàTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="ComplessitàTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Compito molto complesso: </b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono in maniera significativa ad aumentare la complessità del compito ed influenzano le prestazioni in modo molto negativo.</small></div>                  
+                  <div><small><b>Compito moderatamente complesso:</b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono ad aumentare la complessità del compito ed influenzano negativamente le prestazioni.</small></div>
+                  <div><small><b>Compito non complesso: </b>Il compito non è significativamente complesso o comunque la sua complessità non influisce sulle prestazioni dell’operatore.</small></div>
+                  <div><small><b>Compito semplificato: </b>il compito è notevolmente semplificato e se si dovesse presentare un’anomalia sarebbe talmente evidente da rendere molto difficile che un operatore esegua una diagnosi errata.</small></div>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
@@ -287,7 +296,13 @@
               <div class="col-4">
                 <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
                 <div style="display:inline;">
-                  <a href="#." id="Esperienza_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-placement="left" data-bs-content="Note">
+                  <a href="#." id="Esperienza_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='                
+                  <div><small><b>Conoscenze o abilità in contrasto con il comportamento corretto:</b> Gli operatori possiedono conoscenze o abilità apprese durante la formazione l’esperienza che non favoriscono comportamenti sicuri e corretti in questo compito nello specifico scenario. Un esempio potrebbe essere che gli operatori, durante l&#39;esperienza o la formazione, hanno sviluppato un’idea non appropriata riguardo lo sviluppo di uno scenario e hanno appreso comportamenti che non si adattano allo scenario in questione. Oppure operatori che non comprendono il motivo delle numerose regole da seguire (es. il toolbox talk).</small></div>
+                  <div><small><b>Nessuna esperienza o formazione specifica:</b> Gli operatori non hanno alcuna esperienza o formazione e non hanno le conoscenze e le competenze necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione generica in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
+                  <div><small><b>Poca esperienza o formazione specifica:</b>Gli operatori hanno poca esperienza/formazione e hanno poche conoscenze ed esperienza necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione sufficiente in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
+                  <div><small><b>Esperienza e formazione come previsto:</b> Gli operatori hanno un’adeguata esperienza e formazione riguardo il compito e sono in grado di svolgerlo in maniera sicura e corretta. Il compito è stato svolto l’ultima volta non più di 12 mesi prima. </small></div>
+                  <div><small><b>Ampia esperienza e formazione: </b>Gli operatori hanno una vasta esperienza e/o formazione su questo compito e possiedono una vasta conoscenza per essere preparati a svolgere il compito in maniera corretta e sicura. Il compito è svolto in maniera frequente o almeno con cadenza trimestrale. </small></div>
+                  '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>

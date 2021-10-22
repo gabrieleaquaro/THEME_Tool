@@ -3,7 +3,7 @@
     "date": 1633862203298,
     "dateToPrint": "10/10/2021",
     "barriere_dirette": {
-        "PrestSicuraCompiti": 0.596,
+        "PrestSicuraCompiti": 0.6,
         "Adesione": "-",
         "PrestSicuraContesto": "-",
         "Partecipazione": "-",
@@ -13,7 +13,8 @@
         "barriere_dirette_1_2": "0.33",
         "barriere_dirette_1_3": "0.66",
         "barriere_dirette_1_4": "0.33",
-        "barriere_dirette_1_5": "0.66"
+        "barriere_dirette_1_5": "0.66",
+        "average_barriere_dirette": null
     },
     "barriere_salvaguardia": {
         "CompNonTechSicurezza": "-",

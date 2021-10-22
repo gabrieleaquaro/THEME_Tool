@@ -676,7 +676,7 @@ function generateChart_Barriere_dirette(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.6 ? yellow_transp :green_transp;
+                    return value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
                 }, 
                 pointRadius: 4,
                 order:1,
