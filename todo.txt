@@ -5,7 +5,7 @@
 5.	inserire tutte le note previste nel foglio excel usando il pulsante info (iniziato, in info_handler e prob_errore)
 6.	
 7.	
-8.	Per interventi valutare fare un pop-up cliccando su “Show More”
-9.  "Risultati" mancano tabelle fondo pagina
+8.
+9.
 10. Finire interventi
 11. Click on chart --> open pop-up + button for download
