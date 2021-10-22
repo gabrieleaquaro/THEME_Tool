@@ -85,19 +85,19 @@ function updateProbError_results(data){
 
     elements_PSF.slice(0, 4).forEach(function(key){
         if(data[key] != null && data[key] != "-"){
-            console.log(key)
+            //console.log(key)
             Cluster1 = Cluster1 * data[key] ;
     }});
-    console.log("----------")
+    //console.log("----------")
     elements_PSF.slice(4, 6).forEach(function(key){
         if(data[key] != null && data[key] != "-"){
-            console.log(key)
+            //console.log(key)
             Cluster2 = Cluster2 * data[key] ;
     }});
-    console.log("----------")
+    //console.log("----------")
     elements_PSF.slice(6, 8).forEach(function(key){
         if(data[key] != null && data[key] != "-"){
-            console.log(key)
+            //console.log(key)
             Cluster3 = Cluster3 * data[key] ;
     }});
 
@@ -115,7 +115,7 @@ function updateProbError_results(data){
         updateJSON("ProbErrore",Math.round(ProbErrore * 100) / 100);
 
         document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100) / 100 + "%";
-        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100) / 100 + "%");
+        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100) / 100 );
     
         if (document.getElementById("Cluster1")){
             document.getElementById("Cluster1").innerText = Math.round(Cluster1 * 100) / 100 ;
@@ -182,7 +182,7 @@ function updateBarriereSalvaguardia_results(data){
         var count = 0
         
         for(var j = 1; j< max; j++){
-            console.log("barriere_salvaguardia_"+i+"_" + j +': ', data["barriere_salvaguardia_"+i+"_" + j])
+            //console.log("barriere_salvaguardia_"+i+"_" + j +': ', data["barriere_salvaguardia_"+i+"_" + j])
             if(data["barriere_salvaguardia_"+i+"_" + j] == undefined){
                 val = "-"
                 break
@@ -213,7 +213,7 @@ function updateValoriCulturali_results(data){
         max = 4
         var count = 0
         for(var j = 1; j < max; j++){
-            console.log("valori_culturali_"+i+"_" + j +':', data["valori_culturali_"+i+"_" + j])
+            //console.log("valori_culturali_"+i+"_" + j +':', data["valori_culturali_"+i+"_" + j])
             if(data["valori_culturali_"+i+"_" + j] == undefined){
                 val = "-"
                 break
@@ -257,10 +257,10 @@ function updateRisultati_results(report){
         })
         generateChart_PSF(report["prob_errore"]);
 
-        other_elements = ["Cluster1", "Cluster2", "Cluster3","ProbErroreAdj"]
+        other_elements = ["Cluster1", "Cluster2", "Cluster3"]
         
         other_elements.forEach(function(key){
-            console.log(report['prob_errore'][key])
+            //console.log(report['prob_errore'][key])
             if(report['prob_errore'][key]){
                 document.getElementById(key).innerText = report['prob_errore'][key]
             }else{
@@ -324,16 +324,30 @@ function updateRisultati_results(report){
         });
     }
 
+    total_valori = 0
     if(report['valori_culturali']){
         //First table of Barriere Dirette
         elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
         elements.forEach(function(key){
             if(report['valori_culturali'][key] != null){
                 let value = report['valori_culturali'][key];
-                document.getElementById(key).innerText = Math.round(value*100)/100;
+                if(Math.round(value*100)/100 >= 0.66){
+                    document.getElementById(key).innerText = "H"
+                }else if(Math.round(value*100)/100 >= 0.33){
+                    document.getElementById(key).innerText = "M"
+                }else{
+                    document.getElementById(key).innerText = "L"
+                }
+               
+
+                document.getElementById(key+"_bar").setAttribute("aria-valuenow", value * 100);
+                document.getElementById(key+"_bar").setAttribute("style","width: "+( value * 100)+"%");
+                total_valori = total_valori + value
             }
             else{
                 document.getElementById(key).innerText = '-';
+                document.getElementById(key+"_bar").setAttribute("aria-valuenow", 0);
+                document.getElementById(key+"_bar").setAttribute("style","width: 0%");
             }
         })
         generateChart_Valori_Culturali(report["valori_culturali"]);
@@ -345,7 +359,20 @@ function updateRisultati_results(report){
         });
     }
 
+    // ----------------------------------------------------------------------
     // altri valori per la pagina risultati
+    if(report['prob_errore']){
+        if(report['prob_errore']["ProbErroreAdj"] != undefined && report['prob_errore']["ProbErroreAdj"] != "-"){
+            document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", report['prob_errore']["ProbErroreAdj"] * 100);
+            document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: "+( report['prob_errore']["ProbErroreAdj"] * 100)+"%");
+        }else{
+            document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
+            document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
+        }
+    }else{
+        document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
+        document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
+    }
 
     var val = 0
     var change = true
@@ -354,18 +381,21 @@ function updateRisultati_results(report){
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             if(report['barriere_dirette'][key] == undefined || report['barriere_dirette'][key] == '-' ){
-                document.getElementById("average_barriere_dirette").innerText = '-'
+                document.getElementById("average_barriere_dirette").setAttribute("aria-valuenow", 0);
+                document.getElementById("average_barriere_dirette").setAttribute("style","width: 0%");
                 change = false
             }
             val += report['barriere_dirette'][key]
         })
         if(change){
             average_barriere_dirette = Math.round(val/6*100)/100
-            document.getElementById("average_barriere_dirette").innerText = average_barriere_dirette + "%";
+            document.getElementById("average_barriere_dirette").setAttribute("aria-valuenow", average_barriere_dirette * 100);
+            document.getElementById("average_barriere_dirette").setAttribute("style","width: "+( average_barriere_dirette * 100)+"%");
         }
     }else{
         average_barriere_dirette = 0
-        document.getElementById("average_barriere_dirette").innerText = '-'
+        document.getElementById("average_barriere_dirette").setAttribute("aria-valuenow", 0);
+        document.getElementById("average_barriere_dirette").setAttribute("style","width: 0%");
     }
 
     val = 0
@@ -376,8 +406,8 @@ function updateRisultati_results(report){
         elements_barriereSalvaguardia.forEach(function(key){
            
             if(report['barriere_salvaguardia'][key] == undefined || report['barriere_salvaguardia'][key] == '-' ){
-                
-                document.getElementById("average_barriere_salvaguardia").innerText = '-'
+                document.getElementById("average_barriere_salvaguardia").setAttribute("aria-valuenow", 0);
+                document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: 0%");
                 change = false
             }
             val += report['barriere_salvaguardia'][key]
@@ -385,18 +415,71 @@ function updateRisultati_results(report){
         
         if(change){
             average_barriere_salvaguardia = Math.round(val/7*100)/100
-            document.getElementById("average_barriere_salvaguardia").innerText = average_barriere_salvaguardia + "%";
+            document.getElementById("average_barriere_salvaguardia").setAttribute("aria-valuenow", average_barriere_salvaguardia * 100);
+            document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: "+( average_barriere_salvaguardia * 100)+"%");
         }
     }else{
         average_barriere_salvaguardia = 0
-        document.getElementById("average_barriere_salvaguardia").innerText = '-'
+        document.getElementById("average_barriere_salvaguardia").setAttribute("aria-valuenow", 0);
+        document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: 0%");
     }
 
     if(average_barriere_salvaguardia + average_barriere_dirette > 0){
-        document.getElementById("average_barriere").innerText = Math.round((average_barriere_salvaguardia + average_barriere_dirette)/2*100)/100 + "%"
+        document.getElementById("average_barriere").setAttribute("aria-valuenow", (average_barriere_salvaguardia + average_barriere_dirette)/2 * 100);
+        document.getElementById("average_barriere").setAttribute("style","width: "+( (average_barriere_salvaguardia + average_barriere_dirette)/2 * 100)+"%");
     }else{
-        document.getElementById("average_barriere").innerText = '-'
+        document.getElementById("average_barriere").setAttribute("aria-valuenow", 0);
+        document.getElementById("average_barriere").setAttribute("style","width: 0%");
     }
+
+
+    var coeff_bas = -1
+    var coeff_bd = -1
+
+    if(average_barriere_dirette >= 0.75){
+        coeff_bd = 0.2
+    }else if(average_barriere_dirette >= 0.6){
+        coeff_bd = 0.6
+    }else if(average_barriere_dirette >= 0.3){
+        coeff_bd = 1
+    }else if(average_barriere_dirette >= 0.15){
+        coeff_bd = 1.4
+    }else if(average_barriere_dirette >= 0){
+        coeff_bd = 1.8
+    }
+
+    if(average_barriere_salvaguardia >= 0.75){
+        coeff_bas = 0.2
+    }else if(average_barriere_salvaguardia >= 0.6){
+        coeff_bas = 0.6
+    }else if(average_barriere_salvaguardia >= 0.3){
+        coeff_bas = 1
+    }else if(average_barriere_salvaguardia >= 0.15){
+        coeff_bas = 1.4
+    }else if(average_barriere_salvaguardia >= 0){
+        coeff_bas = 1.8
+    }
+
+    
+    
+    if(report['prob_errore'] && coeff_bas >=0 && coeff_bd >= 0){
+        if(report['prob_errore']["TipoTask"] && report['prob_errore']["PSFComposto"]){
+            ProbErroreAdj_barriere_valori = (report['prob_errore']["TipoTask"]*report['prob_errore']["PSFComposto"]*coeff_bd*coeff_bas)/(report['prob_errore']["TipoTask"]*(report['prob_errore']["PSFComposto"]*coeff_bd*coeff_bas-1)+1)
+
+            document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", ProbErroreAdj_barriere_valori * 100);
+            document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: "+( ProbErroreAdj_barriere_valori * 100)+"%");
+        }else{
+            document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
+            document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: 0%"); 
+        }
+
+    }else{
+        document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
+        document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: 0%");
+    }
+
+        
+    
 
 
 

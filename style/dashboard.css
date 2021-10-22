@@ -370,3 +370,12 @@ td.collapsable a:not(.collapsed)::after {
   border-radius: 6px;
   background: var(--secondary);
 }
+
+
+.progress-bar{
+  background-color: var(--primary);
+}
+
+.progress_label{
+  margin-bottom: 10px;
+}
