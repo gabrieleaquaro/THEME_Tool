@@ -2,7 +2,7 @@
 2.  generare file word da grafici 
 3.  
 4.  
-5.	inserire tutte le note previste nel foglio excel usando il pulsante info
+5.	
 6.	
 7.	
 8.
