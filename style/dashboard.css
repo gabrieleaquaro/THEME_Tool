@@ -343,3 +343,9 @@ td.collapsable a:not(.collapsed)::after {
   border-radius: 6px;
   background: var(--secondary);
 }
+
+/* ------------------------------------ */
+.reduced{
+  max-height: 100px;
+  overflow:auto;
+}
