@@ -132,7 +132,7 @@
         <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
         
         <!-- MAIN CONTENT BLOCK -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 50px;" id = "main">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 50px;">
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2 class="colorized">RISULTATI </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -146,6 +146,7 @@
             </div>
           </div>
 
+          <div id="toPrint">
           <!-- PSF-->
           <div class="row my-auto">
             <div class="col my-auto" >
@@ -197,7 +198,7 @@
             </div>
             <div class="col my-auto">
               <!-- <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas> -->
-              <canvas id="chart_PSF" style = "max-height:50vh !important;background-color: aqua;"></canvas>
+              <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas>
 
             </div>
           </div>    
@@ -447,6 +448,8 @@
               </div>
             </div>
           </div> 
+          </div>
+
 
         </main>
 
@@ -469,19 +472,19 @@
       
       function print_report(){
         var doc = new jsPDF("p", "mm", "a4");
-        var elementHTML = $('#psf_rag').html();
+
 
         var width = doc.internal.pageSize.getWidth();
         var height = doc.internal.pageSize.getHeight();
 
-        doc.html(document.getElementById("main"), {
+        doc.html(document.getElementById("toPrint"), {
           callback: function (doc) {
             doc.save('sample-document.pdf');
           },
           x: 5,
           y: 5,
           html2canvas:{
-            scale: 0.2
+            scale: 0.155
           }
       });
     }

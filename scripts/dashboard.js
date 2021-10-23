@@ -662,7 +662,20 @@ function generateChart_PSF(values){
       }
     }
 
-    //chart Configuration    
+    //chart Configuration   
+    
+    const plugin_1 = {
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+
     const config = {
         type: 'radar',
         data: data,
@@ -714,12 +727,18 @@ function generateChart_PSF(values){
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
                     }
-                },            
-            }   
+                }        
+            }
         },
+        plugins: [plugin_1]
       };
+
+
+
     
     var canvas = document.getElementById("chart_PSF")
+
+
     var PSF_chart = new Chart(canvas.getContext("2d"), config);  
     canvas.addEventListener('click', function() {
         //Apply white background
@@ -825,7 +844,20 @@ function generateChart_Barriere_dirette(values){
         ]
     };
 
-    //chart Configuration    
+    //chart Configuration  
+
+    const plugin_2 = {
+        id: 'custom_canvas_background_color_2',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+
     const config = {
         type: 'radar',
         data: data,
@@ -858,6 +890,7 @@ function generateChart_Barriere_dirette(values){
                 },            
             }   
         },
+        plugins: [plugin_2]
       };
     
     var canvas = document.getElementById("chart_barriere_dirette")
@@ -969,7 +1002,19 @@ function generateChart_Barriere_Salvaguardia(values){
         ]
     };
 
-    //chart Configuration    
+    //chart Configuration 
+    const plugin_3 = {
+        id: 'custom_canvas_background_color_3',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+
     const config = {
         type: 'radar',
         data: data,
@@ -1002,6 +1047,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 },            
             }   
         },
+        plugins: [plugin_3]
       };
     
     var canvas = document.getElementById("chart_barriere_salvaguardia")
@@ -1060,7 +1106,20 @@ function generateChart_Valori_Culturali(values){
         ]
     };
 
-    //chart Configuration    
+    //chart Configuration  
+    const plugin_4 = {
+        id: 'custom_canvas_background_color_4',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+
+    
     const config = {
         type: 'radar',
         data: data,
@@ -1101,6 +1160,7 @@ function generateChart_Valori_Culturali(values){
                 },            
             }   
         },
+        plugins: [plugin_4]
       };
     
     var canvas = document.getElementById("chart_valori_culturali")
