@@ -147,12 +147,12 @@
  
           <!-- Interventi HERE -->
           <!-- PSF Compito-->
-            <div class="row">
-                  <div class="text-center py-1 font-weight-bold category_title">
+            <div class="row row_interventi">
+                  <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Task')">
                     <h4 for="PSF_Task_title" class =""style="display:inline;"> PSF legati al Task: </h4>
                     <h4 id ="PSF_Task_title" class="" style="display:inline;color:var(--green)">Non Critico </h4>
                   </div>
-              <div class="table-responsive ms-sm-auto">
+              <div class="table-responsive ms-sm-auto table_interventi" id="PSF_Task_main" style="display: none;">
                 <table class="table">
                     <thead>
                       <tr>
@@ -169,12 +169,12 @@
               
           
           
-            <div class="row">
-                  <div class="text-center py-1 font-weight-bold category_title">
+            <div class="row row_interventi">
+                  <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Tecnico')">
                     <h4 for="PSF_Tecnico_title" class =""style="display:inline;"> PSF legati al sistema socio-tecnico: </h4>
                     <h4 id ="PSF_Tecnico_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
                   </div>
-              <div class="table-responsive ms-sm-auto">
+              <div class="table-responsive ms-sm-auto table_interventi" id="PSF_Tecnico_main" style="display: none;">
               <table class="table">
                   <thead>
                     <tr>
@@ -190,12 +190,12 @@
             </div>
             
 
-            <div class="row">
-              <div class="text-center py-1 font-weight-bold category_title">
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Lavoratori')">
                 <h4 for="PSF_Lavoratori_title" class =""style="display:inline;"> PSF legati ai lavoratori: </h4>
                 <h4 id ="PSF_Lavoratori_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
               </div>
-              <div class="table-responsive ms-sm-auto">
+              <div class="table-responsive ms-sm-auto table_interventi" id="PSF_Lavoratori_main" style="display: none;">
               <table class="table">
                   <thead>
                     <tr>

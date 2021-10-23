@@ -492,28 +492,18 @@ function updateInterventi_results(report){
     var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
     const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
 
-    var collapseFunction = function(p, a){
-        return function (){
-            if(p.classList.contains("collapse")){
-                p.classList.remove("collapse");
-                p.classList.add("notCollapsed")
-                a.classList.remove("collapsed")                
-            }else{
-                p.classList.add("collapse");
-                p.classList.remove("notCollapsed")
-                a.classList.add("collapsed")      
-            }  
-        }
-    }
-
     function interventsCreation(group){
+        console.log(group + '_table')
+        document.getElementById(group+"_main").style.display = "Block"
         //Modify the Title
         var el = document.getElementById(group + '_title');             
         el.parentElement.style.backgroundColor = redTrasparent;
+        el.parentElement.style.cursor = "pointer"
         el.style.color = red;
         el.innerText = "Critico";
         //Generate the table elements
         var table = document.getElementById(group + '_table');
+        console.log(table)
         var row_number = 1
         annex[group].forEach(function(dict){
             let row = document.createElement('tr');
@@ -530,6 +520,7 @@ function updateInterventi_results(report){
                 }
                 row.appendChild(td);
             });
+            
             table.appendChild(row); 
             row_number += 1;                
         });
@@ -551,6 +542,21 @@ function updateInterventi_results(report){
     || report["prob_errore"]["Affaticamento"]  > 1) {
         interventsCreation("PSF_Lavoratori")
     }
+    
+}
+
+function showMore(id){
+    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori']
+
+    if(document.getElementById(id+"_main").style.display != "none"){
+        if(document.getElementById(id+"_main").style.maxHeight == "2000px"){
+            document.getElementById(id+"_main").style.maxHeight="0px"
+        }else{
+            document.getElementById(id+"_main").style.maxHeight="2000px"
+        }
+    }
+
+
     
 }
 
@@ -1182,3 +1188,26 @@ function generateChart_Valori_Culturali(values){
      }, false);
 }
 
+
+
+// PDF generator
+const { jsPDF } = require("jspdf"); // will automatically load the node version
+      
+function print_report(){
+  var doc = new jsPDF("p", "mm", "a4");
+
+
+  var width = doc.internal.pageSize.getWidth();
+  var height = doc.internal.pageSize.getHeight();
+
+  doc.html(document.getElementById("toPrint"), {
+    callback: function (doc) {
+      doc.save('sample-document.pdf');
+    },
+    x: 5,
+    y: 5,
+    html2canvas:{
+      scale: 0.155
+    }
+});
+}

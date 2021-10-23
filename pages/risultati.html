@@ -466,32 +466,5 @@
     <script src="../assets/dist/js/jspdf.min.js"></script>
     <script src="../scripts/dashboard.js"></script>
     <script src="../scripts/json.js"></script>
-
-    <script>
-      const { jsPDF } = require("jspdf"); // will automatically load the node version
-      
-      function print_report(){
-        var doc = new jsPDF("p", "mm", "a4");
-
-
-        var width = doc.internal.pageSize.getWidth();
-        var height = doc.internal.pageSize.getHeight();
-
-        doc.html(document.getElementById("toPrint"), {
-          callback: function (doc) {
-            doc.save('sample-document.pdf');
-          },
-          x: 5,
-          y: 5,
-          html2canvas:{
-            scale: 0.155
-          }
-      });
-    }
-
-
-
-
-    </script>
   </body>
 </html>
