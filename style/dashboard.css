@@ -281,6 +281,16 @@ body {
 
 
 /*------------- Interventi ----------------*/
+
+.row_interventi{
+  margin-bottom: 20px;
+}
+
+.table_interventi{
+  max-height: 0px;
+  transition: max-height 1s;
+}
+
 .category_title{
   background-color: var(--green-transparent);
   border-radius: 25px;
