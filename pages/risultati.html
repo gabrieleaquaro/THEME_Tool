@@ -134,11 +134,15 @@
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 50px;">
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="colorized">RISULTATI </h1>
+            <h2 class="colorized">RISULTATI 
+                <a href="#." onclick="print_report()" on data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-placement="bottom" data-bs-content='Save the results to PDF'>
+                  <span style="width: 30px;height: 30px;color: var(--black); margin: 4px;" data-feather="printer"></span>
+                </a>
+            </h2>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="resetCurrent()">Reset</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="print_report()">Stampa</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" > Help! </button>
               </div>
               <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
                 <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
@@ -479,7 +483,7 @@
 
         doc.html(document.getElementById("toPrint"), {
           callback: function (doc) {
-            doc.save('sample-document.pdf');
+            doc.save(currentReport +'.pdf');
           },
           x: 5,
           y: 5,
