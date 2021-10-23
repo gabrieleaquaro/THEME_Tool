@@ -495,12 +495,14 @@ function updateInterventi_results(report){
     function interventsCreation(group){
         console.log(group + '_table')
         document.getElementById(group+"_main").style.display = "Block"
+        document.getElementById(group+"_icon").style.display = "Block"
+
         //Modify the Title
         var el = document.getElementById(group + '_title');             
         el.parentElement.style.backgroundColor = redTrasparent;
         el.parentElement.style.cursor = "pointer"
         el.style.color = red;
-        el.innerText = "Critico";
+        el.innerHTML = 'Critico  <span data-feather="chevron-down" style="width:10px"></span>';
         //Generate the table elements
         var table = document.getElementById(group + '_table');
         console.log(table)
@@ -551,8 +553,10 @@ function showMore(id){
     if(document.getElementById(id+"_main").style.display != "none"){
         if(document.getElementById(id+"_main").style.maxHeight == "2000px"){
             document.getElementById(id+"_main").style.maxHeight="0px"
+            document.getElementById(id+"_icon").classList.remove("open")
         }else{
             document.getElementById(id+"_main").style.maxHeight="2000px"
+            document.getElementById(id+"_icon").classList.add("open")
         }
     }
 
