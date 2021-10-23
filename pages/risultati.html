@@ -24,6 +24,7 @@
       <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <img src="../images/Eni_SpA.png" class="img-fluid mx-4 d-sm-none" width="30" >
     </header>
 
     <div class="container-fluid">
@@ -144,9 +145,6 @@
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="resetCurrent()">Reset</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary" > Help! </button>
               </div>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-block dropdown-toggle" >
-                <img src="../images/Eni_SpA.png" class="img-fluid " width="20" >
-              </button>
             </div>
           </div>
 
@@ -470,30 +468,5 @@
     <script src="../assets/dist/js/jspdf.min.js"></script>
     <script src="../scripts/dashboard.js"></script>
     <script src="../scripts/json.js"></script>
-
-    <script>
-      const { jsPDF } = require("jspdf"); // will automatically load the node version
-      
-      function print_report(){
-        var doc = new jsPDF("p", "mm", "a4");
-
-
-        var width = doc.internal.pageSize.getWidth();
-        var height = doc.internal.pageSize.getHeight();
-
-        doc.html(document.getElementById("toPrint"), {
-          callback: function (doc) {
-            doc.save(currentReport +'.pdf');
-          },
-          x: 5,
-          y: 5,
-          html2canvas:{
-            scale: 0.155
-          }
-      });
-    }
-    </script>
-
-    
   </body>
 </html>

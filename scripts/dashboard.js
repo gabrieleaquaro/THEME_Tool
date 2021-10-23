@@ -477,13 +477,6 @@ function updateRisultati_results(report){
         document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
         document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: 0%");
     }
-
-        
-    
-
-
-
-
 }
 
 //Update results in interventi page
@@ -1192,8 +1185,6 @@ function generateChart_Valori_Culturali(values){
      }, false);
 }
 
-
-
 // PDF generator
 const { jsPDF } = require("jspdf"); // will automatically load the node version
       
@@ -1206,7 +1197,7 @@ function print_report(){
 
   doc.html(document.getElementById("toPrint"), {
     callback: function (doc) {
-      doc.save('sample-document.pdf');
+      doc.save(currentReport +'.pdf');
     },
     x: 5,
     y: 5,
