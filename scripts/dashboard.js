@@ -537,11 +537,19 @@ function updateInterventi_results(report){
     || report["prob_errore"]["Affaticamento"]  > 1) {
         interventsCreation("PSF_Lavoratori")
     }
+
+    if(report["barriere_dirette"]["PrestSicuraCompiti"] < 0.6 ||
+        report["barriere_dirette"]["Adesione"] < 0.6 ||
+        report["barriere_dirette"]["PrestSicuraContesto"] < 0.6 ||
+        report["barriere_dirette"]["Partecipazione"] < 0.6 
+        ){
+            interventsCreation("BarriereDiretteIndv");
+        }
     
 }
 
 function showMore(id){
-    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori']
+    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv']
 
     if(document.getElementById(id+"_main").style.display != "none"){
         if(document.getElementById(id+"_main").style.maxHeight == "2000px"){
