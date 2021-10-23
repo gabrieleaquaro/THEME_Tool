@@ -1187,7 +1187,6 @@ const { jsPDF } = require("jspdf"); // will automatically load the node version
 function print_report(){
   var doc = new jsPDF("p", "mm", "a4");
 
-
   var width = doc.internal.pageSize.getWidth();
   var height = doc.internal.pageSize.getHeight();
 
