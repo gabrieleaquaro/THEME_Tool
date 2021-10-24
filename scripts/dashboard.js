@@ -549,11 +549,40 @@ function updateInterventi_results(report){
     if(report["barriere_dirette"]["Comunicazione"] < 0.6 || report["barrire_dirette"]["LavoroSquad"] < 0.6){
         interventsCreation("BarriereDiretteTeam");
     }
+
+    if(report["barriere_salvaguardia"]["CompNonTechSicurezza"] < 0.6){
+        interventsCreation("B_SalvaguardiaNonTecn");
+    }
+
+    if(report["barriere_salvaguardia"]["CompTechSicurezza"] < 0.6){
+        interventsCreation("B_SalvaguardiaTecn");
+    }
     
+    if(report["barriere_salvaguardia"]["MotivazioneSicurezza"] < 0.6){
+        interventsCreation("MotivazioneSicurezza");
+    }
+
+    if(report["barriere_salvaguardia"]["CittadinanzaSicurezza"] < 0.6){
+        interventsCreation("CittadinanzaSicurezza");
+    }
+    
+    if(report["barriere_salvaguardia"]["LeaderHSE"] < 0.6){
+        interventsCreation("LeaderHSE");
+    }
+    
+    if(report["barriere_salvaguardia"]["ClimaHSE"] < 0.6){
+        interventsCreation("ClimaHSE");
+    }
+    
+    if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.6){
+        interventsCreation("ValutazioneSicurezza");
+    }
 }
 
 function showMore(id){
-    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv', 'BarriereDiretteTeam']
+    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv', 'BarriereDiretteTeam', 'B_SalvaguardiaNonTecn', 'B_SalvaguardiaTecn',
+           'MotivazioneSicurezza', 'CittadinanzaSicurezza', 'LeaderHSE', 'ClimaHSE', 'ValutazioneSicurezza'
+        ]
 
     if(document.getElementById(id+"_main").style.display != "none"){
         if(document.getElementById(id+"_main").style.maxHeight == "2000px"){

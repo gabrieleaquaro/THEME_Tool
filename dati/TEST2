@@ -25,14 +25,14 @@
         "Orientamento": 0.6667
     },
     "barriere_salvaguardia": {
-        "CompNonTechSicurezza": 0.3725,
+        "CompNonTechSicurezza": 0.3313,
         "CompTechSicurezza": 0.66,
         "MotivazioneSicurezza": 0.532,
         "CittadinanzaSicurezza": 0.7475,
         "ValutazioneSicurezza": 0.52,
         "LeaderHSE": 0.79,
         "ClimaHSE": 0.63,
-        "barriere_salvaguardia_1_1": "0.33",
+        "barriere_salvaguardia_1_1": "0",
         "barriere_salvaguardia_1_2": "0.66",
         "barriere_salvaguardia_1_3": "1.0",
         "barriere_salvaguardia_1_4": "0.66",

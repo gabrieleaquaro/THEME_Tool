@@ -148,7 +148,6 @@
           </p>
  
           <!-- Interventi HERE -->
-          <!-- PSF Compito-->
           <div>
             <div class="row" style="margin-bottom: 20px;"> 
               <h4 class="colorized">Aree di intervento in relazione alle criticità dei PSF</h4> 
@@ -156,7 +155,7 @@
             
             <div class="row row_interventi">
                   <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Task')">
-                    <h4 for="PSF_Task_title" class =""style="display:inline;"> PSF legati al Task: </h4>
+                    <h4 for="PSF_Task_title" class =""style="display:inline;"> PSF - Task: </h4>
                     <h4 id ="PSF_Task_title" class="" style="display:inline;color:var(--green)">Non Critico </h4>
                     <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Task_icon">
                   </div>
@@ -179,7 +178,7 @@
           
             <div class="row row_interventi">
                   <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Tecnico')">
-                    <h4 for="PSF_Tecnico_title" class =""style="display:inline;"> PSF legati al sistema socio-tecnico: </h4>
+                    <h4 for="PSF_Tecnico_title" class =""style="display:inline;"> PSF - Sistema Socio Tecnico: </h4>
                     <h4 id ="PSF_Tecnico_title" class="" style="display:inline;color:var(--green)">Non Critico </h4>
                     <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Tecnico_icon">
                   </div>
@@ -201,7 +200,7 @@
 
             <div class="row row_interventi">
               <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('PSF_Lavoratori')">
-                <h4 for="PSF_Lavoratori_title" class =""style="display:inline;"> PSF legati ai lavoratori: </h4>
+                <h4 for="PSF_Lavoratori_title" class =""style="display:inline;"> PSF - Lavoratori: </h4>
                 <h4 id ="PSF_Lavoratori_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
                 <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Lavoratori_icon">
               </div>
@@ -220,9 +219,13 @@
               </div>
             </div>
 
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Aree di intervento in relazione alle criticità delle Barriere Dirette</h4> 
+            </div>
+
             <div class="row row_interventi">
               <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('BarriereDiretteIndv')">
-                <h4 for="BarriereDiretteIndv_title" class =""style="display:inline;"> Criticità delle Barriere Dirette (Individuali):</h4>
+                <h4 for="BarriereDiretteIndv_title" class =""style="display:inline;">Prestazione Individuale:</h4>
                 <h4 id ="BarriereDiretteIndv_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
                 <span data-feather="chevron-down"  class="icon_interventi" id="BarriereDiretteIndv_icon">
               </div>
@@ -244,7 +247,7 @@
             <!-- BarriereDiretteTeam Group -->
             <div class="row row_interventi">
               <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('BarriereDiretteTeam')">
-                <h4 for="BarriereDiretteTeam_title" class =""style="display:inline;"> Criticità delle Barriere Dirette (Team):</h4>
+                <h4 for="BarriereDiretteTeam_title" class =""style="display:inline;"> Prestazione del Team:</h4>
                 <h4 id ="BarriereDiretteTeam_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
                 <span data-feather="chevron-down"  class="icon_interventi" id="BarriereDiretteTeam_icon">
               </div>
@@ -259,6 +262,165 @@
                     </tr>
                   </thead>
                   <tbody id = "BarriereDiretteTeam_table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Aree di intervento in relazione alle criticità delle Barriere Salvaguardia</h4> 
+            </div>
+
+            <!-- B_SalvaguardiaNonTecn Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('B_SalvaguardiaNonTecn')">
+                <h4 for="B_SalvaguardiaNonTecn_title" class =""style="display:inline;">Competenze non tecniche di sicurezza:</h4>
+                <h4 id ="B_SalvaguardiaNonTecn_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="B_SalvaguardiaNonTecn_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="B_SalvaguardiaNonTecn_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "B_SalvaguardiaNonTecn_table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- B_SalvaguardiaTecn Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('B_SalvaguardiaTecn')">
+                <h4 for="B_SalvaguardiaTecn_title" class =""style="display:inline;">Competenze tecniche di sicurezza:</h4>
+                <h4 id ="B_SalvaguardiaTecn_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="B_SalvaguardiaTecn_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="B_SalvaguardiaTecn_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "B_SalvaguardiaTecn_table"></tbody>
+                </table>
+              </div>
+            </div>
+            
+
+            <!-- MotivazioneSicurezza Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('MotivazioneSicurezza')">
+                <h4 for="MotivazioneSicurezza_title" class =""style="display:inline;">Motivazione alla sicurezza:</h4>
+                <h4 id ="MotivazioneSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="MotivazioneSicurezza_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="MotivazioneSicurezza_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "MotivazioneSicurezza_table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- CittadinanzaSicurezza Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('CittadinanzaSicurezza')">
+                <h4 for="CittadinanzaSicurezza_title" class =""style="display:inline;">Cittadinanza Organizzativa di sicurezza:</h4>
+                <h4 id ="CittadinanzaSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="CittadinanzaSicurezza_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="CittadinanzaSicurezza_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "CittadinanzaSicurezza_table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- LeaderHSE Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('LeaderHSE')">
+                <h4 for="LeaderHSE_title" class =""style="display:inline;">Leadership per la sicurezza:</h4>
+                <h4 id ="LeaderHSE_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="LeaderHSE_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="LeaderHSE_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "LeaderHSE_table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ClimaHSE Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('ClimaHSE')">
+                <h4 for="ClimaHSE_title" class =""style="display:inline;">Clima e Cultura di sicurezza:</h4>
+                <h4 id ="ClimaHSE_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="ClimaHSE_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="ClimaHSE_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "ClimaHSE_table"></tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- ValutazioneSicurezza Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('ValutazioneSicurezza')">
+                <h4 for="ValutazioneSicurezza_title" class =""style="display:inline;">Valutazione e sviluppo delle competenze:</h4>
+                <h4 id ="ValutazioneSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="ValutazioneSicurezza_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="ValutazioneSicurezza_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "ValutazioneSicurezza_table"></tbody>
                 </table>
               </div>
             </div>
