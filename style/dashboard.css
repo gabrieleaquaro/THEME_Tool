@@ -310,37 +310,6 @@ body {
   border-radius: 25px;
 }
 
-td.collapsable p.collapse:not(.notCollapsed) {
-  display:block;
-  max-height: 3rem;
-  overflow: hidden;
-}
-
-td.collapsable p.collapsing {
-  max-height: 3rem;
-}
-
-td.collapsable a.collapsed::after {
-  content: '+ Show More';
-}
-
-td.collapsable a:not(.collapsed)::after {
-  content: '- Show Less';
-}
-
-.transform{
-  -webkit-transition:  max-height 0.5s; 
-  -moz-transition:  max-height 0.5s; 
-  -ms-transition:  max-height 0.5s; 
-  -o-transition: max-height 0.5s; 
-  transition:  max-height 0.5s;  
-}
-
-.notCollapsed{
-  max-height : 1020px;
-}
-
-
 .popover-body{
   max-height: 250px;
   overflow-y: auto;
