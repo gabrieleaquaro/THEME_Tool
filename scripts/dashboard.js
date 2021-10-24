@@ -486,18 +486,15 @@ function updateInterventi_results(report){
     const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
 
     function interventsCreation(group){
-        document.getElementById(group+"_main").style.display = "Block"
         document.getElementById(group+"_icon").style.display = "Block"
 
         //Modify the Title
         var el = document.getElementById(group + '_title');             
         el.parentElement.style.backgroundColor = redTrasparent;
-        el.parentElement.style.cursor = "pointer"
         el.style.color = red;
         el.innerHTML = 'Critico  <span data-feather="chevron-down" style="width:10px"></span>';
         //Generate the table elements
         var table = document.getElementById(group + '_table');
-        var row_number = 1
         annex[group].forEach(function(dict){
             let row = document.createElement('tr');
             row.scope = "row";
@@ -507,15 +504,11 @@ function updateInterventi_results(report){
                 p.innerText = dict[k];
                 td.appendChild(p)
                 if(k == "Raccomandazioni" || k == 'Descrizione'){
-                    td.classList = "collapsable"
                     p.classList = "reduced";
-                    p.id = group + row_number + k; 
                 }
                 row.appendChild(td);
             });
-            
-            table.appendChild(row); 
-            row_number += 1;                
+            table.appendChild(row);                 
         });
     }
     
@@ -546,7 +539,7 @@ function updateInterventi_results(report){
             interventsCreation("BarriereDiretteIndv");
     }
     
-    if(report["barriere_dirette"]["Comunicazione"] < 0.6 || report["barrire_dirette"]["LavoroSquad"] < 0.6){
+    if(report["barriere_dirette"]["Comunicazione"] < 0.6 || report["barriere_dirette"]["LavoroSquad"] < 0.6){
         interventsCreation("BarriereDiretteTeam");
     }
 
@@ -577,26 +570,72 @@ function updateInterventi_results(report){
     if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.6){
         interventsCreation("ValutazioneSicurezza");
     }
-}
 
-function showMore(id){
-    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv', 'BarriereDiretteTeam', 'B_SalvaguardiaNonTecn', 'B_SalvaguardiaTecn',
-           'MotivazioneSicurezza', 'CittadinanzaSicurezza', 'LeaderHSE', 'ClimaHSE', 'ValutazioneSicurezza'
-        ]
-
-    if(document.getElementById(id+"_main").style.display != "none"){
-        if(document.getElementById(id+"_main").style.maxHeight == "2000px"){
-            document.getElementById(id+"_main").style.maxHeight="0px"
-            document.getElementById(id+"_icon").classList.remove("open")
-        }else{
-            document.getElementById(id+"_main").style.maxHeight="2000px"
-            document.getElementById(id+"_icon").classList.add("open")
-        }
+    if(report["valori_culturali"]["Individualismo"] < 0.34){
+        createVCRaccomendation("Individualismo", 'L');
+    }else{
+        createVCRaccomendation("Individualismo", 'H')
     }
 
+    if(report["valori_culturali"]["DistPotere"] < 0.34){
+        createVCRaccomendation("DistPotere", 'L');
+    }else{
+        createVCRaccomendation("DistPotere", 'H')
+    }
 
-    
+    if(report["valori_culturali"]["RigeIncertezza"] < 0.34){
+        createVCRaccomendation("RigeIncertezza", 'L');
+    }else{
+        createVCRaccomendation("RigeIncertezza", 'H')
+    }
+
+    if(report["valori_culturali"]["Mascolinità"] < 0.34){
+        createVCRaccomendation("Mascolinità", 'L');
+    }else{
+        createVCRaccomendation("Mascolinità", 'H')
+    }
+
+    if(report["valori_culturali"]["Orientamento"] < 0.34){
+        createVCRaccomendation("Orientamento", 'L');
+    }else{
+        createVCRaccomendation("Orientamento", 'H')
+    }
 }
+
+function createVCRaccomendation(group, value){
+    var redTrasparent = getComputedStyle(document.documentElement).getPropertyValue("--red-primary-transparent");
+    var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
+    const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
+
+    document.getElementById(group+"_icon").style.display = "Block"
+    var el = document.getElementById(group + '_title');           
+      
+    //Modify the Title
+    if(value == 'H'){
+        el.parentElement.style.backgroundColor = redTrasparent;
+        el.style.color = red;
+        el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
+    }
+
+    //Generate the table elements
+    var table = document.getElementById(group + '_table');
+    annex[group +'_'+ value].forEach(function(dict){
+        let row = document.createElement('tr');
+        row.scope = "row";
+        Object.keys(dict).forEach(function(k){
+            let td = document.createElement('td');
+            let p = document.createElement('p');
+            p.innerText = dict[k];
+            td.appendChild(p)
+            if(k == "Descrizione"){
+                p.classList = "reduced";
+            }
+            row.appendChild(td);
+        });
+        table.appendChild(row);                 
+    });
+}
+
 
 //GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_PSF(values){

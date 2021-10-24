@@ -209,5 +209,186 @@
             "Raccomandazioni" : "Interventi di gestione della performance devono tenere conto sia dei livelli di individualismo che di rigetto dell’incertezza presenti all’interno del contesto lavorativo. Per quanto riguarda il primo, in contesti caratterizzati da elevati livelli di individualismo, i processi di monitoraggio e gestione della performance di sicurezza dovrebbero essere maggiormente customizzati sulla base delle specificità del lavoratore, pianificando obiettivi individuali di sicurezza e relative modalità di raggiungimento degli stessi. Per quanto riguarda il secondo, invece, in funzione dei livelli di rigetto dell’incertezza è possibile progettare la gestione della performance in maniera più o meno flessibile. Nel caso in cui vi fossero elevati livelli del valore culturale, occorrerebbe definire a priori con il lavoratore chiari obiettivi di sicurezza, le finalità del monitoraggio ed i precisi comportamenti attesi da parte del lavoratore. In caso in cui, per contro, il contesto lavorativo presentasse livelli di rigetto dell’incertezza minori, i piani di gestione della performance potrebbero essere formulati in maniera più flessibile, prevedendo accorgimenti in corso d’opera in funzione dei risultati dell’operatore rispetto agli obiettivi ed ai comportamenti di sicurezza attesi."
         }
         
+    ],
+
+    "Individualismo_H":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "Individualismo_L":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],  
+    "DistPotere_H":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "DistPotere_L":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "RigeIncertezza_H":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "RigeIncertezza_L":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "Mascolinità_H":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "Mascolinità_L":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "Orientamento_H":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
+    ],
+    "Orientamento_L":[   
+        {
+            "Area":"Lavoro", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Operatori", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Team", 
+            "Descrizione" : ""
+        },
+        {
+            "Area":"Organizzazione", 
+            "Descrizione" : ""
+        }
     ]
 }

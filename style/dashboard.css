@@ -300,10 +300,6 @@ body {
   transform: rotate(180deg);
   transition: transform 0.2s linear;
 }
-.table_interventi{
-  max-height: 0px;
-  transition: max-height 1s;
-}
 
 .category_title{
   background-color: var(--green-transparent);
