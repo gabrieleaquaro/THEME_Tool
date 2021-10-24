@@ -512,6 +512,37 @@ function updateInterventi_results(report){
         });
     }
     
+    function createVCRaccomendation(group, value){
+
+        document.getElementById(group+"_icon").style.display = "Block"
+        var el = document.getElementById(group + '_title');           
+          
+        //Modify the Title
+        if(value == 'H'){
+            el.parentElement.style.backgroundColor = redTrasparent;
+            el.style.color = red;
+            el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
+        }
+    
+        //Generate the table elements
+        var table = document.getElementById(group + '_table');
+        annex[group +'_'+ value].forEach(function(dict){
+            let row = document.createElement('tr');
+            row.scope = "row";
+            Object.keys(dict).forEach(function(k){
+                let td = document.createElement('td');
+                let p = document.createElement('p');
+                p.innerText = dict[k];
+                td.appendChild(p)
+                if(k == "Descrizione"){
+                    p.classList = "reduced";
+                }
+                row.appendChild(td);
+            });
+            table.appendChild(row);                 
+        });
+    }
+    
     if(   report["prob_errore"]["TempoDisponibie"] > 1
        || report["prob_errore"]["StressDaMinaccia"]  > 1
        || report["prob_errore"]["ComplessitàTask"] > 1
@@ -602,40 +633,14 @@ function updateInterventi_results(report){
     }
 }
 
-function createVCRaccomendation(group, value){
-    var redTrasparent = getComputedStyle(document.documentElement).getPropertyValue("--red-primary-transparent");
-    var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
-    const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
-
-    document.getElementById(group+"_icon").style.display = "Block"
-    var el = document.getElementById(group + '_title');           
-      
-    //Modify the Title
-    if(value == 'H'){
-        el.parentElement.style.backgroundColor = redTrasparent;
-        el.style.color = red;
-        el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
+function toggleIconRotation(id){
+    var  el = document.getElementById(id);
+    if(el.classList.contains('open')){
+        el.classList.remove('open');
+    }else{
+        el.classList.add('open');
     }
-
-    //Generate the table elements
-    var table = document.getElementById(group + '_table');
-    annex[group +'_'+ value].forEach(function(dict){
-        let row = document.createElement('tr');
-        row.scope = "row";
-        Object.keys(dict).forEach(function(k){
-            let td = document.createElement('td');
-            let p = document.createElement('p');
-            p.innerText = dict[k];
-            td.appendChild(p)
-            if(k == "Descrizione"){
-                p.classList = "reduced";
-            }
-            row.appendChild(td);
-        });
-        table.appendChild(row);                 
-    });
 }
-
 
 //GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_PSF(values){
