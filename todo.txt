@@ -9,3 +9,28 @@
 9.  
 10. Finire interventi
 11. Click on chart --> open pop-up + button for download
+
+
+
+
+
+
+"BarriereDiretteTeam" : [
+        {
+            "Area" : "",
+            "Strategia" : "",
+            "Descrizione" : "",
+            "Raccomandazioni" : ""
+        },
+        {
+            "Area" : "",
+            "Strategia" : "",
+            "Descrizione" : "",
+            "Raccomandazioni" : ""},
+        {
+            "Area" : "",
+            "Strategia" : "",
+            "Descrizione" : "",
+            "Raccomandazioni" : ""},
+    ]
+

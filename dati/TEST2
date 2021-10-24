@@ -162,7 +162,7 @@
         "PrestSicuraContesto": 0.73,
         "Partecipazione": 0.73,
         "LavoroSquad": 0.73,
-        "Comunicazione": 0.61,
+        "Comunicazione": 0.44,
         "barriere_dirette_1_1": "0",
         "barriere_dirette_1_2": "0",
         "barriere_dirette_1_3": "0",
@@ -188,12 +188,12 @@
         "barriere_dirette_5_3": "0.33",
         "barriere_dirette_5_4": "1.0",
         "barriere_dirette_5_5": "0.66",
-        "barriere_dirette_6_1": "0.66",
-        "barriere_dirette_6_2": "0.66",
+        "barriere_dirette_6_1": "0",
+        "barriere_dirette_6_2": "0.33",
         "barriere_dirette_6_3": "0.66",
         "barriere_dirette_6_4": "0.66",
         "barriere_dirette_6_5": "0.66",
         "barriere_dirette_6_6": "0.33",
-        "average_barriere_dirette": 0.62
+        "average_barriere_dirette": 0.59
     }
 }

@@ -486,7 +486,6 @@ function updateInterventi_results(report){
     const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
 
     function interventsCreation(group){
-        console.log(group + '_table')
         document.getElementById(group+"_main").style.display = "Block"
         document.getElementById(group+"_icon").style.display = "Block"
 
@@ -498,7 +497,6 @@ function updateInterventi_results(report){
         el.innerHTML = 'Critico  <span data-feather="chevron-down" style="width:10px"></span>';
         //Generate the table elements
         var table = document.getElementById(group + '_table');
-        console.log(table)
         var row_number = 1
         annex[group].forEach(function(dict){
             let row = document.createElement('tr');
@@ -534,7 +532,8 @@ function updateInterventi_results(report){
     }
 
     if(report["prob_errore"]["Esperienza"] > 1
-    || report["prob_errore"]["Affaticamento"]  > 1) {
+    || report["prob_errore"]["Affaticamento"]  > 1) 
+    {
         interventsCreation("PSF_Lavoratori")
     }
 
@@ -542,14 +541,19 @@ function updateInterventi_results(report){
         report["barriere_dirette"]["Adesione"] < 0.6 ||
         report["barriere_dirette"]["PrestSicuraContesto"] < 0.6 ||
         report["barriere_dirette"]["Partecipazione"] < 0.6 
-        ){
+        )
+    {
             interventsCreation("BarriereDiretteIndv");
-        }
+    }
+    
+    if(report["barriere_dirette"]["Comunicazione"] < 0.6 || report["barrire_dirette"]["LavoroSquad"] < 0.6){
+        interventsCreation("BarriereDiretteTeam");
+    }
     
 }
 
 function showMore(id){
-    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv']
+    ids = ['PSF_Task','PSF_Tecnico','PSF_Lavoratori', 'BarriereDiretteIndv', 'BarriereDiretteTeam']
 
     if(document.getElementById(id+"_main").style.display != "none"){
         if(document.getElementById(id+"_main").style.maxHeight == "2000px"){

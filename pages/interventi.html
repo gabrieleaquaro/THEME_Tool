@@ -240,6 +240,28 @@
                 </table>
               </div>
             </div>
+            
+            <!-- BarriereDiretteTeam Group -->
+            <div class="row row_interventi">
+              <div class="text-center py-1 font-weight-bold category_title" onclick="showMore('BarriereDiretteTeam')">
+                <h4 for="BarriereDiretteTeam_title" class =""style="display:inline;"> Criticità delle Barriere Dirette (Team):</h4>
+                <h4 id ="BarriereDiretteTeam_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="BarriereDiretteTeam_icon">
+              </div>
+              <div class="table-responsive ms-sm-auto table_interventi" id="BarriereDiretteTeam_main" style="display: none;">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "BarriereDiretteTeam_table"></tbody>
+                </table>
+              </div>
+            </div>
 
           </div>
         </main>
