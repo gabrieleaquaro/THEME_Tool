@@ -821,28 +821,8 @@ function generateChart_PSF(values){
         plugins: [plugin_1]
       };
 
-
-
-    
     var canvas = document.getElementById("chart_PSF")
-
-
-    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
-    canvas.addEventListener('click', function() {
-        //Apply white background
-        var a = document.createElement('a');
-        var context = canvas.getContext("2d");
-        context.save();
-        context.globalCompositeOperation = 'destination-over';
-        context.fillStyle = '#FFF';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.restore();
-
-        var image = PSF_chart.toBase64Image();
-        a.href = image;
-        a.download = 'PSF_chart.png';
-        a.click()
-     }, false);
+    new Chart(canvas.getContext("2d"), config);  
 }
 
 //GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
@@ -982,22 +962,7 @@ function generateChart_Barriere_dirette(values){
       };
     
     var canvas = document.getElementById("chart_barriere_dirette")
-    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
-    canvas.addEventListener('click', function() {
-        //Apply white background
-        var a = document.createElement('a');
-        var context = canvas.getContext("2d");
-        context.save();
-        context.globalCompositeOperation = 'destination-over';
-        context.fillStyle = '#FFF';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.restore();
-
-        var image = PSF_chart.toBase64Image();
-        a.href = image;
-        a.download = 'chart_barriere_dirette.png';
-        a.click()
-     }, false);
+    new Chart(canvas.getContext("2d"), config);  
 }
 
 //GENERATE THE CHART OF BARREIRE_SALVAGUARDIA IN RESUTS PAGE
@@ -1252,22 +1217,25 @@ function generateChart_Valori_Culturali(values){
       };
     
     var canvas = document.getElementById("chart_valori_culturali")
-    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
-    canvas.addEventListener('click', function() {
-        //Apply white background
-        var a = document.createElement('a');
-        var context = canvas.getContext("2d");
-        context.save();
-        context.globalCompositeOperation = 'destination-over';
-        context.fillStyle = '#FFF';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.restore();
+    new Chart(canvas.getContext("2d"), config);     
+}
 
-        var image = PSF_chart.toBase64Image();
-        a.href = image;
-        a.download = 'chart_barriere_salvaguardia.png';
-        a.click()
-     }, false);
+
+
+function saveChart(canvas_id){
+    var canvas = document.getElementById(canvas_id)
+    var a = document.createElement('a');
+    var context = canvas.getContext("2d");
+    context.save();
+    context.globalCompositeOperation = 'destination-over';
+    context.fillStyle = '#FFF';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.restore();
+
+    var image = Chart.getChart(canvas_id).toBase64Image();
+    a.href = image;
+    a.download = 'chart_barriere_salvaguardia.png';
+    a.click()
 }
 
 // PDF generator

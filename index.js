@@ -12,7 +12,7 @@ function newApp() {
                             nodeIntegration : true,
                             contextIsolation : false
                           }, 
-                          autoHideMenuBar  : true,
+                          autoHideMenuBar  : true
                         });
   win.loadFile('./index.html');
   return win.name

@@ -139,7 +139,7 @@
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2 class="colorized">RISULTATI 
                 <a href="#." onclick="print_report()" on data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-placement="bottom" data-bs-content='Save the results to PDF'>
-                  <span style="width: 30px;height: 30px;color: var(--black); margin: 4px;" data-feather="printer"></span>
+                  <span style="width: 30px;height: 30px;color: #747474; margin: 4px;" data-feather="printer"></span>
                 </a>
             </h2>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -195,18 +195,17 @@
                       <td>Affaticamento</td>
                       <td id="Affaticamento" class="text-end"></td>
                     </tr>
-                  
                   </tbody>
                 </table>
               </div>
             </div>
             <div class="col my-auto">
-              <!-- <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas> -->
+              <a href="#." onclick='saveChart("chart_PSF")'>
+                <span  class ="save-btn" data-feather="save"></span>
+              </a>
               <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas>
-
             </div>
           </div>    
-
           <hr>
           <!-- Barriere dirette-->
           <div class="row my-auto">
@@ -251,6 +250,9 @@
               </div>
             </div>
             <div class="col my-auto">
+              <a href="#." onclick='saveChart("chart_barriere_dirette")'>
+                <span class ="save-btn" data-feather="save"></span>
+              </a>
               <canvas id="chart_barriere_dirette" style = "max-height:50vh !important;"></canvas>
             </div>
           </div> 
@@ -296,13 +298,14 @@
                       <td>Clima e cultura di HSE</td>
                       <td id="ClimaHSE" class="text-end"></td>
                     </tr>
-  
-                  
                   </tbody>
                 </table>
               </div>
             </div>
             <div class="col my-auto">
+              <a href="#." onclick='saveChart("chart_barriere_salvaguardia")'>
+                <span class ="save-btn" data-feather="save"></span>
+              </a>
               <canvas id="chart_barriere_salvaguardia" style = "max-height:50vh !important;"></canvas>
             </div>
           </div> 
@@ -346,6 +349,9 @@
               </div>
             </div>
             <div class="col my-auto">
+              <a href="#." onclick='saveChart("chart_valori_culturali")'>
+                <span class ="save-btn" data-feather="save"></span>
+              </a>
               <canvas id="chart_valori_culturali" style = "max-height:50vh !important;"></canvas>
             </div>
           </div> 

@@ -368,3 +368,15 @@ body {
 .progress_label{
   margin-bottom: 10px;
 }
+
+
+/*--------SAVE BUTTON------*/
+
+.save-btn{
+  height: 20px;
+  width: 20px;
+  color: #747474;
+  position: absolute; 
+  z-index: 10;
+  right: 3rem;
+}
