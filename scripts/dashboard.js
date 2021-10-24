@@ -699,9 +699,9 @@ function generateChart_PSF(values){
     };
 
     //Remvoes useless levels
-    if(max_value <= 7){
+    if(max_value <= 5){
       data.datasets.splice(0, 1)
-      if(max_value  <= 5){
+      if(max_value  <= 3){
         data.datasets.splice(0, 1)
       }
     }
