@@ -214,181 +214,181 @@
     "Individualismo_H":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad essere maggiormente disposti a sostenere orari di lavoro più lunghi, prediligendo controlli maggiori sulle condizioni di lavoro e sul lavoro stesso. Inoltre, i lavoratori tendono a desiderare alti standard per la sicurezza individuale."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori sono maggiormente orientati ad apprezzare e sostenere le decisioni prese individualmente e le mansioni svolte individualmente. La comunicazione dovrebbe enfatizzare che la sicurezza è una responsabilità personale. Se si deve comunicare la presenza di elementi rischiosi (comportamenti, situazioni, compiti) bisognerebbe incentrare il discorso sulle conseguenze che il rischio avrebbe sul “tu” invece che sul “noi”."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori prediligono prendere iniziative individuali invece di seguire il gruppo. Si riporta inoltre che i lavoratori tendono ad apprezzare maggiormente la partecipazione alla presa di decisione. I confronti tra performance individuali sono particolarmente efficaci in questo contesto culturale. Formazione e istruzione devono essere mirate e progettate a livello individuale. È presumibile che i lavoratori siano responsabili di sé stessi e dei propri familiari. Predisporre riunioni in piccoli gruppi, in cui tutti i membri possano avere l’opportunità di prendere la parola, può rappresentare una strategia efficacie per individuare e riconoscere fonti di stress, criticità nel sistema di sicurezza."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a prediligere di partecipare attivamente alla presa di decisioni. I lavoratori tendono a credere che sia importante il successo personale e le caratteristiche individuali che li contraddistinguono dagli altri. Il successo organizzativo viene prevalentemente attribuito all’impegno personale senza l’ausilio di collaborazioni. I lavoratori sono maggiormente disposti ad accettare che le decisioni in merito di assunzioni/promozioni siano basate prevalentemente sulle competenze personali e che i licenziamenti sino motivati da prestazioni scadenti."
         }
     ],
     "Individualismo_L":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori non sono particolarmente disposti a sostenere orari di lavoro più lunghi, prediligendo minori controlli sulle condizioni di lavoro e sul lavoro stesso. In questo contesto i lavoratori sono maggiormente soddisfatti di lavorare in gruppo e riportano di ottenere migliori risultati quando si è all'interno di un gruppo. I lavoratori sono maggiormente disposti ad accettare che bassi livelli di performance o scarso rendimento siano motivi per assegnare un lavoratore ad altre mansioni."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a prediligere, apprezzare e sostenere le decisioni prese collettivamente e le mansioni svolte in gruppo. In questo contesto i lavoratori agiscono prevalentemente nell'interesse del loro gruppo, non necessariamente di sé stessi. La comunicazione dovrebbe enfatizzare che la sicurezza ha un’influenza sul benessere generale del gruppo. Se si deve comunicare la presenza di elementi rischiosi (comportamenti, situazioni, compiti) bisognerebbe incentrare il discorso sulle conseguenze che il rischio avrebbe sul “noi” invece che sul “tu”, attribuendo importanza alle connessioni tra sicurezza pubblica e quella lavorativa. I lavoratori sono maggiormente disposti a credere che la sicurezza sia un fattore di interesse reciproco e frutto della collaborazione. Inoltre, in questo orientamento culturale gli individui tendono maggiormente a non assumere direttamente le responsabilità, ritenendo che possa essere di qualche altro membro del gruppo. Pertanto, si ritiene vantaggioso adottare strategie comunicative che supportino la responsabilità personale verso la sicurezza o l’adozione di strategie quale la formazione di abitudini stabili."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a prediligere il modello comportamentale del gruppo invece che mostrare iniziativa personale, evitando di esprimere opinioni o visioni personali quando si trovano di fronte a una situazione decisionale critica. In questo contesto è particolarmente efficacie mettere in luce che due o più membri del gruppo abbiano esibito comportamenti sicuri (buone performance) invece di sottolineare le differenze tra i membri del gruppo.  Formazione e istruzione devono essere mirate e progettate a livello di gruppo e per la sicurezza collettiva."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad essere maggiormente disposti ad accettare che le decisioni in merito di assunzioni/promozioni siano basate prevalentemente sulle competenze di cui il gruppo di lavoro necessita o che abbia mostrato. In questo contesto i lavoratori tendono ad accettare con maggiore facilità che lo scarso rendimento sia motivo per assegnare un lavoratore ad altre mansioni. I lavoratori tendono a prediligere uno stretto controllo/supervisione da parte del management sulle pratiche di sicurezza. Il successo organizzativo viene maggiormente attribuito alla condivisione delle informazioni, alle dichiarazioni di impegno e alle collaborazioni con entità esterne alla propria unità di business."
         }
     ],  
     "DistPotere_H":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti alla ristrutturazione del lavoro devono tenere in considerazione che i lavoratori tendono ad apprezzare maggiormente regolamenti rigidi e formalizzati, che dettano gli standard per la performance di sicurezza. In questo contesto tendono ad essere maggiormente frequenti le ambiguità di ruolo e di sovraccarico. Pertanto saranno maggiormente efficaci gli interventi che arricchiscono e migliorano il lavoro/performance dei supervisori e degli addetti alla sicurezza."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti agli operatori dovrebbero tenere in considerazione che i lavoratori tendono ad essere maggiormente propensi a ricevere le direttive in ambito di sicurezza, invece di essere consultati. Saranno maggiormente efficaci gli interventi che riducono atteggiamenti negativi rispetto alle pratiche di sicurezza e le esercitazioni nelle procedure e per raggiungere le performance di sicurezza."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti al team devono considerare che in questo contesto è preponderante il modello/controllo fornito dai supervisori. Una leadership autorevole e una stretta supervisione potranno produrre nei lavoratori soddisfazione, buone prestazioni e alta produttività. Saranno quindi maggiormente efficaci gli interventi mirati sulla figura del supervisore o dei responsabili per la sicurezza quali mezzi per mostrare le aspettative dell’organizzazioni in materia di performance sicura, per fornire informazioni, e quali principali erogatori di incentivi sociali che sostengono la motivazione all’adesione alle regole."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti all’organizzazione dovrebbero tenere in considerazione che i lavoratori tendono ad accettare con maggiore facilità le comunicazioni sulla sicurezza a senso unico, dall’alto verso il basso. Contemporaneamente, i lavoratori tendono ad accettare con maggiore facilità strutture organizzative altamente centralizzate e gerarchiche. Un effetto di questo orientamento culturale è che i lavoratori tendono ad accettare con maggiore facilità gli abusi di potere da parte di chi riveste ruoli superiori. L’introduzione di cambiamenti può essere motivata attraverso il principio dell’autorità. Inoltre, la comunicazione organizzativa può trarre vantaggio dalla credenza che i lavoratori hanno rispetto al potere, adottando simbologie e artefatti che rimandano alla gerarchia e ai ruoli di potere."
         }
     ],
     "DistPotere_L":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti alla ristrutturazione del lavoro devono tenere in considerazione che i lavoratori tendono ad apprezzare maggiormente i sistemi di gestione della sicurezza decentrati e controvertibili. Pertanto saranno maggiormente efficaci gli interventi che arricchiscono il lavoro con ruoli/mansioni di responsabilità per la sicurezza, se adeguatamente corredati a regole, procedure, standard flessibili e imposti dal management."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti agli operatori dovrebbero tenere in considerazione che i lavoratori tendono ad essere maggiormente propensi ad essere consultati in ambito di sicurezza, invece di ricevere le direttive. Saranno maggiormente efficaci gli interventi rivolti all’automonitoraggio e al confronto tra pro e contro delle performance di sicurezza."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti al team dovrebbero considerare che i lavoratori tendono ad essere maggiormente disposti a collaborare con i manager/supervisori rispetto alle problematiche legate alla sicurezza. In questo contesto la partecipazione alle attività legate alla sicurezza, come il contributo nella definizione/progettazione di regole o procedure, la partecipazione a corsi di formazione per la sicurezza possono essere adottate come forme di incentivi in cui ai partecipanti è permesso riportare la propria opinione ed esperienza."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti all’organizzazione devono tenere in considerazione che i lavoratori tendono a percepire la gerarchia come “disuguaglianza di ruoli” e “stabilita per necessità”. I lavoratori accetteranno maggiormente strutture decisionali decentralizzate, una minore concentrazione di autorità e piramidi organizzative appiattite. In questo contesto, modelli di leadership che siano consultivi potranno aumentare nei lavoratori la soddisfazione, le prestazioni e la produttività."
         }
     ],
     "RigeIncertezza_H":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "Gli interventi rivolti alla ristrutturazione del lavoro devono tenere in considerazione che i lavoratori tendono a prediligere l’adozione di procedure, regole e standard chiari e particolareggiati. I lavoratori tendono a seguire più facilmente regole e procedure per la sicurezza che siano semplici, anche quando sono fornire poche giustificazioni sul motivo per cui esistono."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad essere orientati al compito invece che alle relazioni. In questo contesto saranno maggiormente efficaci gli interventi che permettono ai lavoratori di riflettere sui pro e sui contro dell’adottare le pratiche per la sicurezza, e all’attribuzione di specifici comportamenti a specifici contesti o ambienti. Se interessati ad erogare percorsi di formazione, saranno maggiormente efficaci quelli che hanno una durata costante nel tempo, che riportano i più recenti aggiornamenti, che siano molto strutturati ed erogati in modalità top-down."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I supervisori e gli addetti alla sicurezza rivestono un ruolo fondamentale nel comunicare il valore/importanza che l’organizzazione ripone nei temi della sicurezza. L’approvazione da parte dei supervisori è favorita come modalità di feedback comportamentale e come ricompensa."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "Le percezioni dei lavoratori rispetto all'importanza attribuita alla sicurezza tendono ad essere fortemente influenzate da quanto i supervisori riescono a controllare in termini di incertezze e  fattori di rischio sul luogo di lavoro, che può essere favorito dal coinvolgimento di manager e supervisori nelle procedure. I lavoratori sono disposti ad accettare che le decisioni in merito di assunzioni/promozioni siano basate prevalentemente sulle competenze e sulla specializzazione nel proprio ambito di lavoro."
         }
     ],
     "RigeIncertezza_L":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a prediligere l’adozione di un sistema di sicurezza flessibile e adattabile alle esigenze del contesto. I lavoratori seguiranno più facilmente regole e procedure per la sicurezza che permettono di scegliere il comportamento da adottare in base alle mutevoli condizioni in cui si deve operare."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "In questo contesto è preferibile adottare processi di responsabilizzazione invece di fornire ulteriori protezioni, procedure o regole per la sicurezza e strutturare i programmi formativi in base alle mutevoli esigenze del contesto di lavoro e alle tecnologie utilizzate rappresenterà un vantaggio."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad essere maggiormente orientati alle relazioni invece che ai compiti. Le strategie che prevedono il confronto con i colleghi e la mutua influenza saranno pertanto da preferire. I lavoratori accetteranno più facilmente lo stile di leadership innovativo e orientato al cambiamento."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori sono scettici verso le soluzioni tecnologiche e sono maggiormente orientati a collaborazioni di lavoro di breve durata. Strategie di potenziamento del clima e cultura di sicurezza sono quindi raccomandate. Rispetto al clima e alla cultura di sicurezza, le percezioni dei lavoratori rispetto all'importanza attribuita alla sicurezza sono influenzate dal ruolo gerarchico dei supervisori e dalla qualità delle relazioni che instaurano con i lavoratori. "
         }
     ],
     "Mascolinità_H":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad attribuire elevata importanza all’attività lavorativa in generale e alle sfide. In questo contesto risultano maggiormente efficaci per la sicurezza le strategie che consistono nel fornire compiti graduati o arricchirli per renderli maggiormente interessanti."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" :"Gli interventi dovrebbero enfatizzare che i comportamenti di sicurezza sono una responsabilità personale, e che le regole e procedure sono finalizzate a preservare la sicurezza individuale dei lavoratori. L’automonitoraggio e il miglioramento delle abitudini sono strategie consigliate in questo contesto organizzativo. Inoltre, sollecitare il lavoratore ad analizzare i fattori che possono favorire un comportamento di sicurezza potrà recare vantaggi se i supervisori sono rispettati. Se fossero previsti interventi di comunicazione, considerare di fornire molte informazioni sui problemi e sulle conseguenze a livello personale e fisico che i comportamenti rischiosi hanno."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori considerano favorevolmente la competizione tra colleghi. In questo contesto si raccomandano strategie di supporto alla sicurezza, condotte dai supervisori, e l’incremento delle competenze tecniche e non-tecniche. Rispetto alle strategie di ricompensa, si consiglia l’adozione di incentivi materiali/monetari e riconoscimenti sociali rispetto al successo personale e al miglioramento professionale."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a considerare favorevolmente la sicurezza personale, alta retribuzione e un lavoro che generi interesse. I lavoratori sono maggiormente disposti ad accettare che le decisioni in merito ad assunzioni/promozioni siano basate prevalentemente sulla qualità e sulle prestazioni. Pertanto, rendere l’adozione di comportamenti sicuri parte del sistema di promozione e di valutazione può rappresentare uno strumento efficace in questo contesto. Il management e i supervisori ricoprono un ruolo privilegiato per far leva sui valori di risolutezza, competizione e giustizia."
         }
     ],
     "Mascolinità_L":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad attribuire elevata importanza alle relazioni (tra colleghi ed esternamente al contesto lavorativo) e alle condizioni di lavoro. In questo contesto risultano maggiormente efficaci per la sicurezza le strategie che consistono nella rotazione delle mansioni."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I comportamenti di sicurezza prevalgono come una responsabilità condivisa, e che le regole e procedure sono percepite come finalizzate a preservare la sicurezza dell’ambiente, della società e dei colleghi. Adottando gruppi di lavoro, si coniglia di sollecitare i lavoratori ad analizzare i fattori che possono favorire un comportamento di sicurezza. Condurre riunioni in gruppi numerosi per identificare e rimuovere gli elementi che ostacolano le prestazioni sicure. Se sono previsti interventi o strategie di comunicazione, considerare di fornire informazioni sulle conseguenze dei comportamenti di sicurezza per l’ambiente e la società"
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a considerare favorevolmente l'uguaglianza e la solidarietà. In questo contesto si raccomandano strategie di confronto all’interno della squadra e di modelli di riferimento. Rispetto alle strategie di ricompensa, si consiglia l’adozione di incentivi sociali (approvazione) e materiali (riduzione ore lavorative). Rispetto allo stile di leadership da adottare, i supervisori possono cercare il consenso del gruppo di lavoro affrontandone i sentimenti."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori valorizzano l'uguaglianza, la solidarietà e la qualità della vita lavorativa. I lavoratori sono maggiormente disposti ad accettare che le decisioni in merito ad assunzioni/promozioni siano basate prevalentemente sui successi, in materia di sicurezza, dell'organizzazione o del gruppo. Rispetto al clima e alla cultura di sicurezza, il management e i supervisori non ricoprono un ruolo privilegiato, ma sono considerati come tutti i dipendenti. Si consiglia di considerare la sicurezza come un valore centrale condiviso, piuttosto che una priorità del management."
         }
     ],
     "Orientamento_H":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori apprezzano maggiormente i comportamenti mirati ai risultati. Pertanto si suggerisce di progettare regole e procedure per la sicurezza e miglioramenti della strutturazione del lavoro con il contributo dei lavoratori, organizzando gruppi di discussione focalizzati a individuare strategie di implementazione (cioè come applicare le novità nel proprio contesto organizzativo)."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a esibire una propensione ad adottare comportamenti pianificati. Nella progettazione degli incentivi, si consideri che in questo contesto i lavoratori pongono attenzione ai profitti a lungo termine (attorno ai 10 anni)."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "La sicurezza è prevalentemente un valore importante per i lavoratori. Sono pertanto raccomandate le strategie di supporto alla sicurezza e quelle di supporto al diventare modelli per la sicurezza."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a considerare favorevolmente i valori di parsimonia e perseveranza. Inoltre, per i lavoratori tendono a rivestire alta importanza la sostenibilità dell'organizzazione, la pianificazione delle procedure e dei processi di sicurezza e l’affrontare tempestivamente i problemi legati alla sicurezza."
         }
     ],
     "Orientamento_L":[   
         {
             "Area":"Lavoro", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono ad essere maggiormente orientati ad accettare che le regole siano dettate dall’organizzazione, preferendo non partecipare alla strutturazione delle stesse."
         },
         {
             "Area":"Operatori", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori accettano di regolare i comportamenti attraverso l’imposizione delle regole e procedure. Nella progettazione degli incentivi, si consideri che in questo contesto i lavoratori pongono attenzione ai profitti a breve termine (attorno a 1 anno)."
         },
         {
             "Area":"Team", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a ritenere importante la collaborazione con supervisori e con i colleghi. Il confronto interno relativo alle performance dei membri del team è in questo contesto raccomandato."
         },
         {
             "Area":"Organizzazione", 
-            "Descrizione" : ""
+            "Descrizione" : "I lavoratori tendono a considerare favorevolmente gli obblighi sociali e le tradizioni. In questo contesto, considerare le tradizioni (simboli, immagini, artefatti) nella progettazione della comunicazione può rappresentare un vantaggio."
         }
     ]
 }
