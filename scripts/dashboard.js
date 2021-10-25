@@ -1243,12 +1243,15 @@ function print_report(){
 
   doc.html(document.getElementById("toPrint"), {
     callback: function (doc) {
+      
       doc.save(currentReport +'.pdf');
     },
     x: 5,
     y: 5,
     html2canvas:{
-      scale: 0.155
-    }
-});
+        scale: 0.155,
+        ignoreElements: 'span',
+        allowTaint: true
+        }
+    });
 }

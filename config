@@ -1,6 +1,6 @@
 {
     "lastModifiedReport": "TEST",
-    "openedWindows": 15,
+    "openedWindows": 17,
     "currentReports": {
         "0": "franco",
         "1": "TEST2",
@@ -17,6 +17,8 @@
         "12": "TEST2",
         "13": "TEST2",
         "14": "TEST2",
-        "15": "TEST"
+        "15": "TEST",
+        "16": "TEST",
+        "17": "TEST"
     }
 }
