@@ -203,9 +203,23 @@
               <a href="#." onclick='saveChart("chart_PSF")'>
                 <span  class ="save-btn" data-feather="save"></span>
               </a>
-              <canvas id="chart_PSF" style = "max-height:50vh !important;"></canvas>
+              <a role="button" data-bs-toggle="modal" data-bs-target="#PSFExpansion">
+                <span class="maximize-btn" data-feather="maximize"></span>
+              </a>
+              <canvas id="chart_PSF" style ="max-height:50vh !important;"></canvas>
+            </div>           
+            <!-- Maximize Modal -->
+            <div class="modal fade" id="PSFExpansion" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                  <div class="modal-body">
+                    <canvas id="expanded_chart_PSF"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>    
+          </div>  
+
           <hr>
           <!-- Barriere dirette-->
           <div class="row my-auto">
@@ -253,7 +267,20 @@
               <a href="#." onclick='saveChart("chart_barriere_dirette")'>
                 <span class ="save-btn" data-feather="save"></span>
               </a>
+              <a role="button" data-bs-toggle="modal" data-bs-target="#CBD_Expansion">
+                <span class="maximize-btn" data-feather="maximize"></span>
+              </a>
               <canvas id="chart_barriere_dirette" style = "max-height:50vh !important;"></canvas>
+            </div>
+            <!-- Maximize Modal -->
+            <div class="modal fade" id="CBD_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                  <div class="modal-body">
+                    <canvas id="expanded_chart_barriere_dirette"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
           </div> 
 
@@ -306,7 +333,20 @@
               <a href="#." onclick='saveChart("chart_barriere_salvaguardia")'>
                 <span class ="save-btn" data-feather="save"></span>
               </a>
+              <a role="button" data-bs-toggle="modal" data-bs-target="#CBS_Expansion">
+                <span class="maximize-btn" data-feather="maximize"></span>
+              </a>
               <canvas id="chart_barriere_salvaguardia" style = "max-height:50vh !important;"></canvas>
+            </div>
+            <!-- Maximize Modal -->
+            <div class="modal fade" id="CBS_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                  <div class="modal-body">
+                    <canvas id="expanded_chart_barriere_salvaguardia"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
           </div> 
 
@@ -352,7 +392,20 @@
               <a href="#." onclick='saveChart("chart_valori_culturali")'>
                 <span class ="save-btn" data-feather="save"></span>
               </a>
+              <a role="button" data-bs-toggle="modal" data-bs-target="#CVC_Expansion">
+                <span class="maximize-btn" data-feather="maximize"></span>
+              </a>
               <canvas id="chart_valori_culturali" style = "max-height:50vh !important;"></canvas>
+            </div>
+            <!-- Maximize Modal -->
+            <div class="modal fade" id="CVC_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                  <div class="modal-body">
+                    <canvas id="expanded_chart_valori_culturali"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
           </div> 
 

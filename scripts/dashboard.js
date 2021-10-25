@@ -9,6 +9,7 @@ const red_transp = '#FF333380';
 const red = '#FF3333';
 
 
+const { Chart } = require("chart.js");
 const { contentTracing } = require("electron");
 
 //Icon loading
@@ -822,7 +823,9 @@ function generateChart_PSF(values){
       };
 
     var canvas = document.getElementById("chart_PSF")
+    var canvas_expanded = document.getElementById("expanded_chart_PSF");
     new Chart(canvas.getContext("2d"), config);  
+    new Chart(canvas_expanded.getContext("2d"), config);
 }
 
 //GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
@@ -962,7 +965,9 @@ function generateChart_Barriere_dirette(values){
       };
     
     var canvas = document.getElementById("chart_barriere_dirette")
+    var canvas_expanded = document.getElementById("expanded_chart_barriere_dirette");
     new Chart(canvas.getContext("2d"), config);  
+    new Chart(canvas_expanded.getContext("2d"), config); 
 }
 
 //GENERATE THE CHART OF BARREIRE_SALVAGUARDIA IN RESUTS PAGE
@@ -1104,22 +1109,9 @@ function generateChart_Barriere_Salvaguardia(values){
       };
     
     var canvas = document.getElementById("chart_barriere_salvaguardia")
-    var PSF_chart = new Chart(canvas.getContext("2d"), config);  
-    canvas.addEventListener('click', function() {
-        //Apply white background
-        var a = document.createElement('a');
-        var context = canvas.getContext("2d");
-        context.save();
-        context.globalCompositeOperation = 'destination-over';
-        context.fillStyle = '#FFF';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.restore();
-
-        var image = PSF_chart.toBase64Image();
-        a.href = image;
-        a.download = 'chart_barriere_salvaguardia.png';
-        a.click()
-     }, false);
+    var canvas_expanded = document.getElementById("expanded_chart_barriere_salvaguardia");
+    new Chart(canvas.getContext("2d"), config);  
+    new Chart(canvas_expanded.getContext("2d"), config);   
 }
 
 //GENERATE CHART OF VALORI_CULTURALI IN RESULTS PAGE
@@ -1217,7 +1209,9 @@ function generateChart_Valori_Culturali(values){
       };
     
     var canvas = document.getElementById("chart_valori_culturali")
-    new Chart(canvas.getContext("2d"), config);     
+    var canvas_expanded = document.getElementById("expanded_chart_valori_culturali");
+    new Chart(canvas.getContext("2d"), config);  
+    new Chart(canvas_expanded.getContext("2d"), config);    
 }
 
 
@@ -1234,7 +1228,7 @@ function saveChart(canvas_id){
 
     var image = Chart.getChart(canvas_id).toBase64Image();
     a.href = image;
-    a.download = 'chart_barriere_salvaguardia.png';
+    a.download = canvas_id + '.png';
     a.click()
 }
 

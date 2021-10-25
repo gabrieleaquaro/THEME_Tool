@@ -370,7 +370,7 @@ body {
 }
 
 
-/*--------SAVE BUTTON------*/
+/*--------GRAPH BUTTON------*/
 
 .save-btn{
   height: 20px;
@@ -379,4 +379,14 @@ body {
   position: absolute; 
   z-index: 10;
   right: 3rem;
+}
+
+
+.maximize-btn{
+  height: 20px;
+  width: 20px;
+  color: #747474;
+  position: absolute; 
+  z-index: 10;
+  right: 5rem;
 }
