@@ -1,6 +1,6 @@
 1.  Help button (Documentation)
 2.  Tabelle come png o testo-word-compatibile ?
-3.  
+3.  Salvare file pdf dei risultati nei download e non nei ProgramFIle
 4.  
 5.	
 6.	
