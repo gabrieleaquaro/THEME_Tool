@@ -1,5 +1,5 @@
 1.  Help button (Documentation)
-2.  generare file word da grafici 
+2.  Tabelle come png o testo-word-compatibile ?
 3.  
 4.  
 5.	
@@ -8,4 +8,4 @@
 8.
 9.  
 10.
-11. Click on chart --> open pop-up + button for download
+11.
