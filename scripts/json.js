@@ -124,7 +124,7 @@ function delete_report(name){
             updateCurrent("default");
         }
         removeRow(name);
-        fs.unlinkSync("base_dir + 'dati/" + name);
+        fs.unlinkSync(base_dir + 'dati/' + name);
         snackbarShow("rgb(192,0,0)", "Report Eliminato");
         
     }
