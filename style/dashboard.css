@@ -398,11 +398,17 @@ body {
   color-adjust: exact;
 }
 
-@media print {
-  table{
-    break-inside:avoid;
-  }
 
+
+@media print {
+ 
+  table,
+  tr,
+  td,
+  div {
+      page-break-inside: avoid;
+  }
+  
   body * {
     visibility: hidden;
   }
@@ -413,6 +419,14 @@ body {
 
   #toPrint * {
     visibility: visible;
+    
   }
+
+  #toPrint{
+    position: absolute;
+    left: 0;
+    top: 70px;
+  }
+
 
 }
