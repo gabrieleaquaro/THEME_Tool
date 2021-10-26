@@ -115,11 +115,11 @@ function setUndeleteble(report_name){
 
 function refreshReports(){
     document.getElementById("tBody").innerHTML = "";
-    var files = fs.readdirSync('./dati/');
+    var files = fs.readdirSync(base_dir + 'dati/');
     reports = []
     // read file
     Object.keys(files).forEach(function(key) {
-        let rawdata = fs.readFileSync('./dati/' + files[key]);
+        let rawdata = fs.readFileSync(base_dir + 'dati/' + files[key]);
         let report = JSON.parse(rawdata);
         reports.push(report)
     })

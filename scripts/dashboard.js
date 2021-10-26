@@ -484,9 +484,7 @@ function updateRisultati_results(report){
 function updateInterventi_results(report){
     var redTrasparent = getComputedStyle(document.documentElement).getPropertyValue("--red-primary-transparent");
     var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
-    const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
-    //For build
-    // const annex = JSON.parse(fs.readFileSync("./resources/app/scripts/annex_interventi.json"));
+    const annex = JSON.parse(fs.readFileSync(base_dir + "scripts/annex_interventi.json"));
 
     function interventsCreation(group){
         document.getElementById(group+"_icon").style.display = "Block"
