@@ -1,12 +1,13 @@
 "use strict";
 const fs = require("fs");
+const base_dir = './';
 
 // Check that config file exists or create it
-if (!fs.existsSync('./config')){
-    fs.writeFileSync('./config', JSON.stringify({ "lastModifiedReport": "default", "openedWindows" : 0, "currentReports" : {0 : 'default'}}, null, 4));
+if (!fs.existsSync(base_dir + 'config')){
+    fs.writeFileSync(base_dir + 'config', JSON.stringify({ "lastModifiedReport": "default", "openedWindows" : 0, "currentReports" : {0 : 'default'}}, null, 4));
 }
 
-var configData = fs.readFileSync('./config'); 
+var configData = fs.readFileSync(base_dir + 'config'); 
 var config = JSON.parse(configData);
 var currentReport = config["currentReports"][window.name]
 
@@ -15,22 +16,22 @@ if (window.name == ''){
     window.name =  Math.max(...Object.keys(config["currentReports"]).map(function(v) {return parseInt(v, 10);})) + 1
     config["currentReports"][window.name] = config['lastModifiedReport']
     currentReport = config["currentReports"][window.name]
-    fs.writeFileSync('./config', JSON.stringify(config, null, 4));
+    fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
 }
 
 
 // Checks that dati folder exists
-if(!fs.existsSync('./dati/')){
-    fs.mkdirSync('./dati/');
+if(!fs.existsSync(base_dir + 'dati/')){
+    fs.mkdirSync(base_dir + 'dati/');
 }
 
 //Checks that the current report exists and load it
-if(!fs.existsSync('./dati/' + currentReport)){
+if(!fs.existsSync(base_dir + 'dati/' + currentReport)){
     let date_to_print = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
-    fs.writeFileSync('./dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
+    fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify({"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print}, null, 4));
 }
 
-let rawdata = fs.readFileSync('./dati/' + currentReport);
+let rawdata = fs.readFileSync(base_dir + 'dati/' + currentReport);
 let report = JSON.parse(rawdata);
 
 var currentPage = document.getElementById("title").innerText
@@ -69,7 +70,7 @@ function updateJSONevent(e){
 
 function updateJSON(field,data){
     report[currentPage][field] = data;
-    fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(report, null, 4));
+    fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
 
 // create new report
@@ -78,7 +79,7 @@ function newReport(){
     do{
         var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+"";
         i++;
-    }while(fs.existsSync('./dati/' + report_name));
+    }while(fs.existsSync(base_dir + 'dati/' + report_name));
 
     var data = {
         "name" : report_name,
@@ -87,7 +88,7 @@ function newReport(){
     }
        
     var data_string = JSON.stringify(data, null, 4);
-    fs.writeFileSync('./dati/' + report_name, data_string);
+    fs.writeFileSync(base_dir + 'dati/' + report_name, data_string);
     if(currentPage == ""){
         refreshReports(data);
     }
@@ -102,7 +103,7 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
     config['lastModifiedReport'] = report_name
     currentReport = report_name
 
-    fs.writeFileSync('./config', JSON.stringify(config, null, 4));
+    fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
     showUpdate()
     if(printSnackbar){
         snackbarShow("rgb(66,166,42)", "Report Corrente Aggiornato");
@@ -111,7 +112,7 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
         setUnmodifiable(report_name);
         setModifiable(old_rep);
     }
-    updatePage(JSON.parse(fs.readFileSync('./dati/' + report_name)));
+    updatePage(JSON.parse(fs.readFileSync(base_dir + 'dati/' + report_name)));
 }
 
 //delete the report file with the passed name
@@ -121,7 +122,7 @@ function delete_report(name){
             updateCurrent("default");
         }
         removeRow(name);
-        fs.unlinkSync("./dati/" + name);
+        fs.unlinkSync("base_dir + 'dati/" + name);
         snackbarShow("rgb(192,0,0)", "Report Eliminato");
         
     }
@@ -136,7 +137,7 @@ function delete_report(name){
 function save(){
     var d = new Date();
     var filename = "report_" + d.getDate()+ "_" + d.getMonth();
-    var text = fs.readFileSync('./dati/' + currentReport);
+    var text = fs.readFileSync(base_dir + 'dati/' + currentReport);
     download(filename, text);
 }
 
@@ -166,20 +167,20 @@ function load_data(event){
 }
 
 function changeReportName(currentName, newName){
-    report = JSON.parse(fs.readFileSync('./dati/'+ currentName));
+    report = JSON.parse(fs.readFileSync(base_dir + 'dati/'+ currentName));
     report["name"] = newName
-    if(fs.existsSync('./dati/'+newName)){
+    if(fs.existsSync(base_dir + 'dati/'+newName)){
         return false;
     }
-    fs.writeFileSync('./dati/' + newName, JSON.stringify(report, null, 4));
-    fs.unlinkSync('./dati/' + currentName);
+    fs.writeFileSync(base_dir + 'dati/' + newName, JSON.stringify(report, null, 4));
+    fs.unlinkSync(base_dir + 'dati/' + currentName);
     if(currentReport == currentName){
         updateCurrent(newName, true, true);
     }
     Object.keys(config["currentReports"]).forEach(function(key){ 
         if(config["currentReports"][key] == currentName){ 
             config["currentReports"][key] = newName;
-            fs.writeFileSync('./config', JSON.stringify(config, null, 4));
+            fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
         }
     });
     return true;
@@ -210,11 +211,11 @@ function onReaderLoad(event){
     }); 
       
     var i = 1;
-    while(fs.existsSync('./dati/' + new_data["name"])){
+    while(fs.existsSync(base_dir + 'dati/' + new_data["name"])){
         new_data["name"] = new_data["name"] + '_'+ i + ''; 
         i += 1;
     }
-    fs.writeFileSync('./dati/' + new_data["name"],  JSON.stringify(new_data, null, 4));
+    fs.writeFileSync(base_dir + 'dati/' + new_data["name"],  JSON.stringify(new_data, null, 4));
     snackbarShow("#28a745", "Nuovo report caricato correttamente");
     if(currentPage == ''){
         refreshPage();
@@ -243,7 +244,7 @@ function resetCurrent(){
     if (confirm('Resettare questo report allo stato originale?')){
         let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
         let resetted_report = {"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print};
-        fs.writeFileSync('./dati/' + currentReport,  JSON.stringify(resetted_report, null, 4));
+        fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(resetted_report, null, 4));
         refreshPage();
     }
     else{

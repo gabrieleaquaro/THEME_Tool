@@ -261,7 +261,6 @@ function updateRisultati_results(report){
         other_elements = ["Cluster1", "Cluster2", "Cluster3"]
         
         other_elements.forEach(function(key){
-            //console.log(report['prob_errore'][key])
             if(report['prob_errore'][key]){
                 document.getElementById(key).innerText = report['prob_errore'][key]
             }else{
@@ -271,8 +270,9 @@ function updateRisultati_results(report){
         
     }else{
         generateChart_PSF({});
-        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento", "Cluster1", "Cluster2", "Cluster3","ProbErroreAdj"]
+        elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento", "Cluster1", "Cluster2", "Cluster3"]
         elements_PSF.forEach(function(key){
+
             document.getElementById(key).innerText = '-';
         });
     }
@@ -306,7 +306,7 @@ function updateRisultati_results(report){
         //First table of Barriere Dirette
         elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
-            if(report['barriere_salvaguardia'][key] != null){
+            if(report['barriere_salvaguardia'][key] != null && report['barriere_salvaguardia'][key] != '-' ){
                 let value = report['barriere_salvaguardia'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
                 let color = value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
@@ -485,6 +485,8 @@ function updateInterventi_results(report){
     var redTrasparent = getComputedStyle(document.documentElement).getPropertyValue("--red-primary-transparent");
     var red = getComputedStyle(document.documentElement).getPropertyValue("--red-primary");
     const annex = JSON.parse(fs.readFileSync("./scripts/annex_interventi.json"));
+    //For build
+    // const annex = JSON.parse(fs.readFileSync("./resources/app/scripts/annex_interventi.json"));
 
     function interventsCreation(group){
         document.getElementById(group+"_icon").style.display = "Block"
