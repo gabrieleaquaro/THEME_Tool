@@ -1,8 +1,8 @@
 "use strict";
 const fs = require("fs");
-const base_dir = './';
+//const base_dir = './';
 // FOR BUILD
-//const base_dir = './resources/app/'
+const base_dir = './resources/app/'
 
 // Check that config file exists or create it
 if (!fs.existsSync(base_dir + 'config')){
