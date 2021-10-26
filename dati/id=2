@@ -1,0 +1,14 @@
+{
+    "name": "id=2",
+    "date": 1635250651998,
+    "dateToPrint": "26/10/2021",
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    }
+}

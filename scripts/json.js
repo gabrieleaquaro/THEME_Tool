@@ -12,7 +12,7 @@ var currentReport = config["currentReports"][window.name]
 
 if (window.name == ''){
     config["openedWindows"] += 1
-    window.name = config["openedWindows"]
+    window.name =  Math.max(...Object.keys(config["currentReports"]).map(function(v) {return parseInt(v, 10);})) + 1
     config["currentReports"][window.name] = config['lastModifiedReport']
     currentReport = config["currentReports"][window.name]
     fs.writeFileSync('./config', JSON.stringify(config, null, 4));
@@ -176,6 +176,12 @@ function changeReportName(currentName, newName){
     if(currentReport == currentName){
         updateCurrent(newName, true, true);
     }
+    Object.keys(config["currentReports"]).forEach(function(key){ 
+        if(config["currentReports"][key] == currentName){ 
+            config["currentReports"][key] = newName;
+            fs.writeFileSync('./config', JSON.stringify(config, null, 4));
+        }
+    });
     return true;
 }
 
