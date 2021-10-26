@@ -390,3 +390,29 @@ body {
   z-index: 10;
   right: 5rem;
 }
+
+/*----Printing stuff ---*/
+
+#toPrint { 
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+@media print {
+  table{
+    break-inside:avoid;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+  
+  h2{
+    visibility: visible;
+  }
+
+  #toPrint * {
+    visibility: visible;
+  }
+
+}

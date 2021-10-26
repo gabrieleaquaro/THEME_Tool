@@ -1231,27 +1231,3 @@ function saveChart(canvas_id){
     a.download = canvas_id + '.png';
     a.click()
 }
-
-// PDF generator
-const { jsPDF } = require("jspdf"); // will automatically load the node version
-      
-function print_report(){
-  var doc = new jsPDF("p", "mm", "a4");
-
-  var width = doc.internal.pageSize.getWidth();
-  var height = doc.internal.pageSize.getHeight();
-
-  doc.html(document.getElementById("toPrint"), {
-    callback: function (doc) {
-      
-      doc.save(currentReport +'.pdf');
-    },
-    x: 5,
-    y: 5,
-    html2canvas:{
-        scale: 0.155,
-        ignoreElements: 'span',
-        allowTaint: true
-        }
-    });
-}

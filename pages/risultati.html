@@ -138,7 +138,7 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 50px;">
           <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2 class="colorized">RISULTATI 
-                <a href="#." onclick="print_report()" on data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-placement="bottom" data-bs-content='Save the results to PDF'>
+                <a href="#." onclick="print()" on data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-placement="bottom" data-bs-content='Save the results to PDF'>
                   <span style="width: 30px;height: 30px;color: #747474; margin: 4px;" data-feather="printer"></span>
                 </a>
             </h2>
@@ -201,10 +201,10 @@
               </div>
               <div class="col my-auto">
                 <a href="#." onclick='saveChart("chart_PSF")'>
-                  <span  class ="save-btn" data-feather="save"></span>
+                  <span  class ="save-btn d-print-none" data-feather="save"></span>
                 </a>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#PSFExpansion">
-                  <span class="maximize-btn" data-feather="maximize"></span>
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
                 </a>
                 <canvas id="chart_PSF" style ="max-height:50vh !important;"></canvas>
               </div>           
@@ -255,16 +255,17 @@
               </div>
               <div class="col my-auto">
                 <a href="#." onclick='saveChart("chart_barriere_dirette")'>
-                  <span class ="save-btn" data-feather="save"></span>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
                 </a>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#CBD_Expansion">
-                  <span class="maximize-btn" data-feather="maximize"></span>
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
                 </a>
                 <canvas id="chart_barriere_dirette" style = "max-height:50vh !important;"></canvas>
               </div>
             </div> 
 
             <hr>
+            <br>
             <!-- Barriere salvaguardia-->
             <div class="row my-auto">
               <div class="col my-auto" >
@@ -311,10 +312,10 @@
               </div>
               <div class="col my-auto">
                 <a href="#." onclick='saveChart("chart_barriere_salvaguardia")'>
-                  <span class ="save-btn" data-feather="save"></span>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
                 </a>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#CBS_Expansion">
-                  <span class="maximize-btn" data-feather="maximize"></span>
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
                 </a>
                 <canvas id="chart_barriere_salvaguardia" style = "max-height:50vh !important;"></canvas>
               </div>
@@ -360,10 +361,10 @@
               </div>
               <div class="col my-auto">
                 <a href="#." onclick='saveChart("chart_valori_culturali")'>
-                  <span class ="save-btn" data-feather="save"></span>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
                 </a>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#CVC_Expansion">
-                  <span class="maximize-btn" data-feather="maximize"></span>
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
                 </a>
                 <canvas id="chart_valori_culturali" style = "max-height:50vh !important;"></canvas>
               </div>
