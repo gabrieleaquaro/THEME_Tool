@@ -115,7 +115,7 @@ function updateProbError_results(data){
         document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 100) / 100;
         updateJSON("ProbErrore",Math.round(ProbErrore * 100) / 100);
 
-        document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100) / 100 + "%";
+        document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 10000) / 100+ "%";
         updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100) / 100 );
     
         if (document.getElementById("Cluster1")){
@@ -160,8 +160,8 @@ function updateBarriereDirette_results(data){
         if(val != "-"){
             val = Math.round(val / count * 100) / 100;
         }   
-        document.getElementById(elements[i - 1]).innerText = val
-        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        document.getElementById(elements[i - 1]).innerText = Math.round(val *100)/100;
+        document.getElementById(elements[i - 1] + "_1").innerText =  Math.round(val *100)/100;
         updateJSON(elements[i - 1],  val);
         total_val = total_val + val
     }
@@ -196,8 +196,8 @@ function updateBarriereSalvaguardia_results(data){
         if(val != "-"){
             val = Math.round(val / count * 10000) / 10000;
         }   
-        document.getElementById(elements[i - 1]).innerText = val
-        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        document.getElementById(elements[i - 1]).innerText = Math.round(val *100)/100;
+        document.getElementById(elements[i - 1] + "_1").innerText =  Math.round(val *100)/100;
         updateJSON(elements[i - 1],  val);
     }
 }
@@ -230,8 +230,8 @@ function updateValoriCulturali_results(data){
         }   
         
 
-        document.getElementById(elements[i - 1]).innerText = val
-        document.getElementById(elements[i - 1] + "_1").innerText =  val
+        document.getElementById(elements[i - 1]).innerText = Math.round(val *100)/100;
+        document.getElementById(elements[i - 1] + "_1").innerText =  Math.round(val *100)/100;
         updateJSON(elements[i - 1],  val);
     }
 }

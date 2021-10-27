@@ -171,7 +171,7 @@
                   </div>
                   <div >
                     <select id="TipoTask" onchange="updateJSONevent(event)" style="width:100%;">
-                      <option value="1" selected>Tipo di Compito</option>
+                      <option value="-" selected>Tipo di Compito</option>
                       <option value="0.55">A: Completamente sconosciuto, eseguito a ritmo sostenuto. </option>
                       <option value="0.26">B: Ripristino dello stato di un sistema, in un singolo tentativo, senza supervisione.</option>
                       <option value="0.16">C: Elaborato e richiedente un alto livello di comprensione e di abilità.</option>
@@ -214,13 +214,13 @@
               </div>
               <div class="col-8">
                 <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="100">Tempo insufficente </option>
                   <option value="50">Tempo minimo necessario </option>
                   <option value="10">Tempo Limitato </option>
                   <option value="1.0">Tempo preventivato </option>
                   <option value="0.1">Tempo Extra </option>  
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -246,11 +246,11 @@
               </div>
               <div class="col-8">
                 <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="5">Molto Pericoloso </option>
                   <option value="2">Moderatamente Pericoloso </option>
                   <option value="1.0">Non Pericoloso</option>
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -276,12 +276,12 @@
               </div>
               <div class="col-8">
                 <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="50">Molto Complesso </option>
                   <option value="10">Moderatamente Complesso </option>
                   <option value="1.0">Non Complesso</option>
                   <option value="0.1">Semplificato</option>
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -309,13 +309,13 @@
               </div>
               <div class="col-8">
                 <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="100">Conoscenze o abilità in contrasto con il comportamento corretto</option>
                   <option value="50">Nessuna esperienza o formazione specifica</option>
                   <option value="15">Poca esperienza o formazione specifica</option>
                   <option value="1.0">Esperienza e formazione come previsto</option>
                   <option value="0.1">Ampia esperienza e formazione </option>  
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -343,13 +343,13 @@
               </div>
               <div class="col-8">
                 <select id="Procedure" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="50">Procedure non disponibili o non utilizzate</option>
                   <option value="20">Procedure altamente insufficienti</option>
                   <option value="5">Procedure insufficienti</option>
                   <option value="1.0">Procedure adeguate seguite</option>
                   <option value="0.5">Procedure chiare e dettagliate che vengono seguite</option>  
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -377,13 +377,13 @@
               </div>
               <div class="col-8">
                 <select id="InterazioneUmanoMacchina" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="100">Totalmente inadeguata</option>
                   <option value="50">Inadeguata</option>
                   <option value="10">Appena Adeguata</option>
                   <option value="1.0">Adeguata</option>
                   <option value="0.5">Specificamente progettata per favorire la prestazione</option>  
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -409,11 +409,11 @@
               </div>
               <div class="col-8">
                 <select id="ContestoAmbientale" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="100">Condizioni impossibilitanti</option>
                   <option value="10">Condizioni avverse</option>
                   <option value="1.0">Condizioni ambientali normali</option>
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
@@ -439,11 +439,11 @@
               </div>
               <div class="col-8">
                 <select id="Affaticamento" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="-" selected>Livello di Valutazione</option>
                   <option value="100">Affaticamento elevato</option>
                   <option value="10">Affaticamento moderato</option>
                   <option value="1.0">Affaticamento normale</option>
-                  <option value="-">Info non disponibili</option>
+                  <option value="1">Info non disponibili</option>
                 </select>
               </div>
               <br>
