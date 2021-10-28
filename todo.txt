@@ -1,10 +1,10 @@
 1.  Help button (Documentation)
-2.  Tabelle come png o testo-word-compatibile ?
-3.  Git Readme
-4. 
-6.	
-7.	
-8.
-9.  
-10.
+2. 
+3.  Git Readme finire
+4.  Fix etichette valori culturali : VL / L / H / VH
+6.	Fix bug caricamento file in builded version
+7.	Colori PSF : solo 3: 0 - 1, 1-2 , 2-100 
+8.  Colori altri : 0-0.5 / 0.5-0.7 / 0.7-1 
+9.  Cambiare valore interventi 0.6 -> 0.5
+10. Bug stampa 
 11.

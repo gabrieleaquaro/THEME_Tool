@@ -148,10 +148,10 @@
         "InterazioneUmanoMacchina": "10",
         "ContestoAmbientale": "1",
         "Affaticamento": "1",
-        "TipoTask": "0.02",
+        "TipoTask": "0.00002",
         "PSFComposto": 400,
-        "ProbErrore": 8,
-        "ProbErroreAdj": 0.89,
+        "ProbErrore": 0.01,
+        "ProbErroreAdj": 0.01,
         "Cluster1": 2,
         "Cluster2": 200,
         "Cluster3": 1
