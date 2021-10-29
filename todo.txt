@@ -7,5 +7,5 @@
 8.  Colori altri : 0-0.5 / 0.5-0.7 / 0.7-1 
 9.  Cambiare valore interventi 0.6 -> 0.5
 10. Bug stampa 
-11. Nome durante creazione
+
 12. Valutare note in interventi

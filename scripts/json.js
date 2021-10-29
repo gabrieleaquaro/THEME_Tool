@@ -75,6 +75,42 @@ function updateJSON(field,data){
     fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
 
+function changeName(){
+    document.getElementById("current_report_title").style.display = "none"
+    document.getElementById("form_change_name").style.display = "block"
+    document.getElementById("change_name").value = currentReport
+  }
+
+  function change_report_name(val){
+    report_name = val.value
+    console.log(report_name)
+    id_alert = "alert_change"
+    if(report_name){
+      if(fs.existsSync(base_dir + 'dati/' + report_name)){
+        document.getElementById(id_alert).innerText = "Attenzione! Esiste un altro report con lo stesso nome ."
+        document.getElementById(id_alert).style.display = "block"
+      }else{
+        fs.unlinkSync(base_dir + 'dati/' + currentReport)
+        report["name"] = report_name
+
+        var data_string = JSON.stringify(report, null, 4);
+        fs.writeFileSync(base_dir + 'dati/' + report_name, data_string);
+        if(currentPage == ""){
+            refreshReports(report);
+        }
+        snackbarShow();
+        updateCurrent(report_name, false);
+        document.getElementById("current_report_title").style.display = "block"
+        document.getElementById("form_change_name").style.display = "none"
+        document.getElementById("current_report_title").innerText = currentReport
+      }
+    }else{
+      document.getElementById(id_alert).innerText = "Attenzione! Il campo di inserimento nome è vuoto."
+      document.getElementById(id_alert).style.display = "block"
+    }
+  }
+
+
 function create_report_from_modal(val){
     report_name = val.value
     console.log(report_name)
