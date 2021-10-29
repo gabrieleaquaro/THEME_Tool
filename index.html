@@ -41,10 +41,22 @@
               <span>Report Corrente</span>
             </h6>
             <ul class="nav flex-column">
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#" id = "current_report_title">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#" id = "current_report_title" onclick="changeName()" style="cursor: pointer;">
                 </a>
+
+                <form id="form_change_name"> 
+                  <div class="form-group"> 
+                    <div class="alert alert-warning" role="alert" id="alert_change" style="display: none;">
+                    </div>  
+                    <input type="text" required class="form-control" id="change_name" > 
+                  </div> 
+                  <br> 
+                  <div align="right"> 
+                    <button type="button" class="btn btn-primary"  onclick="change_report_name(document.getElementById('change_name'))">Rinomina</button>
+                  </div>
+                </form> 
+
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -106,7 +118,7 @@
             <ul class="nav flex-column mb-2">
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="newReport()">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
                   <span data-feather="file-plus"></span>
                   Nuovo Report
                 </a>
@@ -212,9 +224,82 @@
       </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                 
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="./assets/dist/js/jquery.min.js"></script>
     <script src="./scripts/dashboard.js"></script>
     <script src="./scripts/json.js"></script>
+
+    <script>
+
+      function changeName(){
+        document.getElementById("current_report_title").style.display = "none"
+        document.getElementById("form_change_name").style.display = "block"
+        document.getElementById("change_name").value = currentReport
+      }
+
+      function change_report_name(val){
+        report_name = val.value
+        console.log(report_name)
+        id_alert = "alert_change"
+        if(report_name){
+          if(fs.existsSync(base_dir + 'dati/' + report_name)){
+            document.getElementById(id_alert).innerText = "Attenzione! Esiste un altro report con lo stesso nome ."
+            document.getElementById(id_alert).style.display = "block"
+          }else{
+            fs.unlinkSync(base_dir + 'dati/' + currentReport)
+            report["name"] = report_name
+
+            var data_string = JSON.stringify(report, null, 4);
+            fs.writeFileSync(base_dir + 'dati/' + report_name, data_string);
+            if(currentPage == ""){
+                refreshReports(report);
+            }
+            snackbarShow();
+            updateCurrent(report_name, false);
+            document.getElementById("current_report_title").style.display = "block"
+            document.getElementById("form_change_name").style.display = "none"
+            document.getElementById("current_report_title").innerText = currentReport
+          }
+        }else{
+          document.getElementById(id_alert).innerText = "Attenzione! Il campo di inserimento nome è vuoto."
+          document.getElementById(id_alert).style.display = "block"
+        }
+      }
+
+    </script>
   </body>
 </html>

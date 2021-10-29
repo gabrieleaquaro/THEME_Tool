@@ -1,0 +1,27 @@
+{
+    "name": "report",
+    "date": 1635519052107,
+    "dateToPrint": "29/10/2021",
+    "valori_culturali": {
+        "Individualismo": "-",
+        "DistPotere": "-",
+        "RigeIncertezza": "-",
+        "Mascolinità": "-",
+        "Orientamento": "-"
+    },
+    "index": {},
+    "barriere_dirette": {
+        "PrestSicuraCompiti": "-",
+        "Adesione": "-",
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": "-",
+        "average_barriere_dirette": null
+    },
+    "prob_errore": {
+        "TempoDisponibie": "100",
+        "StressDaMinaccia": "5",
+        "ComplessitàTask": "10"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "report_29_10_6",
+    "date": 1635519008464,
+    "dateToPrint": "29/10/2021",
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    }
+}

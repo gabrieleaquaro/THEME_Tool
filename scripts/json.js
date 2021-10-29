@@ -75,14 +75,41 @@ function updateJSON(field,data){
     fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
 
-// create new report
-function newReport(){
-    var i = 1;
-    do{
-        var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+"";
-        i++;
-    }while(fs.existsSync(base_dir + 'dati/' + report_name));
+function create_report_from_modal(val){
+    report_name = val.value
+    console.log(report_name)
+    id_alert = "alert_modal"
+    if(report_name){
+      if(fs.existsSync(base_dir + 'dati/' + report_name)){
+        document.getElementById(id_alert).innerText = "Attenzione! Esiste un altro report con lo stesso nome ."
+        document.getElementById(id_alert).style.display = "block"
+      }else{
+        document.getElementById(id_alert).style.display = "none"
+        newReport(report_name)
+        $('#createNewReport').modal('hide')
+      }
+    }else{
+      document.getElementById(id_alert).innerText = "Attenzione! Il campo di inserimento nome è vuoto."
+      document.getElementById(id_alert).style.display = "block"
+    }
+    
+  }
 
+  function close_modal(){
+    document.getElementById("alert_modal").style.display = "none"
+  }
+
+// create new report
+function newReport(report_name){
+    var i = 1;
+    console.log(report_name)
+    if(! report_name){
+        do{
+            var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+"";
+            i++;
+        }while(fs.existsSync(base_dir + 'dati/' + report_name));
+    }
+    
     var data = {
         "name" : report_name,
         "date": Date.now(),
