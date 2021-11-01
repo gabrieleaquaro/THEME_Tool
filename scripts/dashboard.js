@@ -562,44 +562,44 @@ function updateInterventi_results(report){
         interventsCreation("PSF_Lavoratori")
     }
 
-    if(report["barriere_dirette"]["PrestSicuraCompiti"] < 0.6 ||
-        report["barriere_dirette"]["Adesione"] < 0.6 ||
-        report["barriere_dirette"]["PrestSicuraContesto"] < 0.6 ||
-        report["barriere_dirette"]["Partecipazione"] < 0.6 
+    if(report["barriere_dirette"]["PrestSicuraCompiti"] < 0.5 ||
+        report["barriere_dirette"]["Adesione"] < 0.5 ||
+        report["barriere_dirette"]["PrestSicuraContesto"] < 0.5 ||
+        report["barriere_dirette"]["Partecipazione"] < 0.5 
         )
     {
             interventsCreation("BarriereDiretteIndv");
     }
     
-    if(report["barriere_dirette"]["Comunicazione"] < 0.6 || report["barriere_dirette"]["LavoroSquad"] < 0.6){
+    if(report["barriere_dirette"]["Comunicazione"] < 0.5 || report["barriere_dirette"]["LavoroSquad"] < 0.5){
         interventsCreation("BarriereDiretteTeam");
     }
 
-    if(report["barriere_salvaguardia"]["CompNonTechSicurezza"] < 0.6){
+    if(report["barriere_salvaguardia"]["CompNonTechSicurezza"] < 0.5){
         interventsCreation("B_SalvaguardiaNonTecn");
     }
 
-    if(report["barriere_salvaguardia"]["CompTechSicurezza"] < 0.6){
+    if(report["barriere_salvaguardia"]["CompTechSicurezza"] < 0.5){
         interventsCreation("B_SalvaguardiaTecn");
     }
     
-    if(report["barriere_salvaguardia"]["MotivazioneSicurezza"] < 0.6){
+    if(report["barriere_salvaguardia"]["MotivazioneSicurezza"] < 0.5){
         interventsCreation("MotivazioneSicurezza");
     }
 
-    if(report["barriere_salvaguardia"]["CittadinanzaSicurezza"] < 0.6){
+    if(report["barriere_salvaguardia"]["CittadinanzaSicurezza"] < 0.5){
         interventsCreation("CittadinanzaSicurezza");
     }
     
-    if(report["barriere_salvaguardia"]["LeaderHSE"] < 0.6){
+    if(report["barriere_salvaguardia"]["LeaderHSE"] < 0.5){
         interventsCreation("LeaderHSE");
     }
     
-    if(report["barriere_salvaguardia"]["ClimaHSE"] < 0.6){
+    if(report["barriere_salvaguardia"]["ClimaHSE"] < 0.5){
         interventsCreation("ClimaHSE");
     }
     
-    if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.6){
+    if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.5){
         interventsCreation("ValutazioneSicurezza");
     }
 

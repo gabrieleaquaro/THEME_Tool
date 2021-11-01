@@ -157,7 +157,7 @@
         "Cluster3": 1
     },
     "barriere_dirette": {
-        "PrestSicuraCompiti": 0.58,
+        "PrestSicuraCompiti": 0.46,
         "Adesione": 0.75,
         "PrestSicuraContesto": 0.83,
         "Partecipazione": 0.5,
@@ -167,7 +167,7 @@
         "barriere_dirette_1_2": "0.66",
         "barriere_dirette_1_3": "1.0",
         "barriere_dirette_1_4": "0",
-        "barriere_dirette_1_5": "-",
+        "barriere_dirette_1_5": "0",
         "barriere_dirette_2_1": "0.66",
         "barriere_dirette_2_2": "0.66",
         "barriere_dirette_2_3": "1.0",
@@ -194,6 +194,6 @@
         "barriere_dirette_6_4": "0.66",
         "barriere_dirette_6_5": "1.0",
         "barriere_dirette_6_6": "1.0",
-        "average_barriere_dirette": 0.77
+        "average_barriere_dirette": 0.75
     }
 }
