@@ -1138,7 +1138,7 @@ function generateChart_Valori_Culturali(values){
             responsive: true,
             maintainAspectRatio: true,    
             scale:{
-                stepSize: 0.1,
+                stepSize: 0.33,
                 min : 0,
                 max: 1,
                 ticks:{
@@ -1151,8 +1151,10 @@ function generateChart_Valori_Culturali(values){
                     ticks:{
                         display:true,
                         callback: function(value, index, values) {
-                            if(value == 0.9) return 'H';
-                            if(value == 0.1) return 'L';
+                            if(value == 1) return 'VH';
+                            if(value == 0.66) return 'H';
+                            if(value == 0.33) return 'L'
+                            if(value == 0) return 'VL';
                             return '';
                         },
                         font : {
