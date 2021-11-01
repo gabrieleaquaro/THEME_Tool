@@ -85,6 +85,9 @@ function createRenameHandler(el){
                 if(validation || newName == report_name){
                     el.innerText = newName;
                     el.modifing = false;
+                    if(currentPage == ""){
+                        refreshReports()
+                    }
                 }else{
                     textarea.className += 'error';
                     textarea.value = report_name;
