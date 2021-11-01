@@ -183,8 +183,18 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
             snackbarShow("rgb(66,166,42)", "Report rinominato correttamente");
         }
     }
-
+    updateDate(currentReport);
     updatePage(JSON.parse(fs.readFileSync(base_dir + 'dati/' + report_name)));
+}
+
+
+function updateDate(r){
+    var r_data = JSON.parse(fs.readFileSync(base_dir + 'dati/' + r));
+    var date_to_print = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
+    var date =  Date.now()
+    r_data["date"] = date
+    r_data["dateToPrint"] = date_to_print
+    fs.writeFileSync(base_dir + 'dati/' + r, JSON.stringify(r_data, null, 4));
 }
 
 //delete the report file with the passed name
@@ -314,7 +324,7 @@ function isElement(string){
 
 function resetCurrent(){
     if (confirm('Resettare questo report allo stato originale?')){
-        let date_to_print = new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_" + new Date().getFullYear()
+        let date_to_print = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
         let resetted_report = {"name" : currentReport, "date" : Date.now(), "dateToPrint" : date_to_print};
         fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(resetted_report, null, 4));
         refreshPage();
