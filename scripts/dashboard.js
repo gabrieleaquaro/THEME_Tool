@@ -284,7 +284,7 @@ function updateRisultati_results(report){
             if(report['barriere_dirette'][key] != null){
                 let value = report['barriere_dirette'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
-                let color = value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                let color = value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp : green_transp;
                 document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
@@ -309,7 +309,7 @@ function updateRisultati_results(report){
             if(report['barriere_salvaguardia'][key] != null && report['barriere_salvaguardia'][key] != '-' ){
                 let value = report['barriere_salvaguardia'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
-                let color = value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                let color = value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp : green_transp;
                 document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
@@ -844,7 +844,7 @@ function generateChart_Barriere_dirette(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [0.2,0.2,0.2,0.2,0.2,0.2],
+                data: [0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor :red,
                 fill:'origin',
@@ -855,21 +855,10 @@ function generateChart_Barriere_dirette(values){
                 
             },
             {   
-                label: 'orange',
-                data: [0.4,0.4,0.4,0.4,0.4,0.4],
-                backgroundColor : orange_transp,
-                borderColor :orange,
-                fill:{value:0.2},
-                order:3,
-                pointRadius : 0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
                 label: 'yellow',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
-                fill:{value:0.4},
+                fill:{value:0.5},
                 order:4,
                 borderColor :yellow,
                 pointRadius : 0,
@@ -894,7 +883,7 @@ function generateChart_Barriere_dirette(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                    return value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp :green_transp;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -989,7 +978,7 @@ function generateChart_Barriere_Salvaguardia(values){
         datasets: [
             {   
                 lable: 'red',
-                data: [0.2,0.2,0.2,0.2,0.2,0.2,0.2],
+                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor :red,
                 fill:'origin',
@@ -1000,21 +989,10 @@ function generateChart_Barriere_Salvaguardia(values){
                 
             },
             {   
-                label: 'orange',
-                data: [0.4,0.4,0.4,0.4,0.4,0.4,0.4],
-                backgroundColor : orange_transp,
-                borderColor :orange,
-                fill:{value:0.2},
-                order:3,
-                pointRadius : 0,
-                hoverRadius : 0,
-                hitRadius: 0
-            },
-            {   
                 label: 'yellow',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
-                fill:{value:0.4},
+                fill:{value:0.5},
                 order:4,
                 borderColor :yellow,
                 pointRadius : 0,
@@ -1039,7 +1017,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value < 0.2 ? red_transp : value < 0.4 ? orange_transp : value < 0.7 ? yellow_transp :green_transp;
+                    return value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp :green_transp;
                 }, 
                 pointRadius: 4,
                 order:1,
