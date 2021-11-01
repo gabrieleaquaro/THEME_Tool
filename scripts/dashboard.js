@@ -249,7 +249,7 @@ function updateRisultati_results(report){
                     document.getElementById(key).innerText = value;
                 }
                 
-                let color = value <= 1 ? green_transp : value <= 2  ? yellow_transp : value <= 5 ? orange_transp : red_transp;
+                let color = value <= 1 ? green_transp : value <= 2  ? yellow_transp : red_transp;
                 document.getElementById(key).parentNode.style.backgroundColor = color; 
             }
             else{
@@ -341,8 +341,6 @@ function updateRisultati_results(report){
                 }else{
                     document.getElementById(key).innerText = "VL"
                 }
-               
-
                 document.getElementById(key+"_bar").setAttribute("aria-valuenow", value * 100);
                 document.getElementById(key+"_bar").setAttribute("style","width: "+( value * 100)+"%");
                 total_valori = total_valori + value
@@ -690,21 +688,9 @@ function generateChart_PSF(values){
                 borderColor : red,
                 pointRadius : 0,
                 order: 5,
-                fill : {value: 5},
+                fill : {value: 4},
                 hoverRadius : 0,
                 hitRadius: 0,
-            },
-            {   //FF333330
-                lable: 'orange',
-                data: [5,5,5,5,5,5,5,5],
-                backgroundColor : orange_transp,
-                borderColor :orange_transp,
-                pointRadius : 0,
-                order: 4,
-                fill :{value: 4},
-                hoverRadius : 0,
-                hitRadius: 0,
-                
             },
             {   
                 label: 'yellow',
@@ -736,7 +722,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 3 ? green : value <= 4  ? yellow : value <= 5 ? orange :red;
+                    return value <= 3 ? green : value <= 4  ? yellow : red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -746,7 +732,7 @@ function generateChart_PSF(values){
     };
 
     //Remvoes useless levels
-    if(max_value <= 5){
+    if(max_value <= 4){
       data.datasets.splice(0, 1)
       if(max_value  <= 3){
         data.datasets.splice(0, 1)
