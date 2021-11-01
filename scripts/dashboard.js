@@ -544,94 +544,104 @@ function updateInterventi_results(report){
         });
     }
     
-    if(   report["prob_errore"]["TempoDisponibie"] > 1
-       || report["prob_errore"]["StressDaMinaccia"]  > 1
-       || report["prob_errore"]["ComplessitàTask"] > 1
-       || report["prob_errore"]["ContestoAmbientale"] > 1){
-            interventsCreation("PSF_Task");
-       }
+    if(report["prob_errore"]){
+        if(   report["prob_errore"]["TempoDisponibie"] > 1
+        || report["prob_errore"]["StressDaMinaccia"]  > 1
+        || report["prob_errore"]["ComplessitàTask"] > 1
+        || report["prob_errore"]["ContestoAmbientale"] > 1){
+             interventsCreation("PSF_Task");
+        }
+        if(report["prob_errore"]["Procedure"] > 1
+        || report["prob_errore"]["InterazioneUmanoMacchina"]  > 1) {
+            interventsCreation("PSF_Tecnico");
+        }
     
-    if(report["prob_errore"]["Procedure"] > 1
-    || report["prob_errore"]["InterazioneUmanoMacchina"]  > 1) {
-        interventsCreation("PSF_Tecnico");
+        if(report["prob_errore"]["Esperienza"] > 1
+        || report["prob_errore"]["Affaticamento"]  > 1) 
+        {
+            interventsCreation("PSF_Lavoratori")
+        }
     }
 
-    if(report["prob_errore"]["Esperienza"] > 1
-    || report["prob_errore"]["Affaticamento"]  > 1) 
-    {
-        interventsCreation("PSF_Lavoratori")
-    }
-
-    if(report["barriere_dirette"]["PrestSicuraCompiti"] < 0.5 ||
+    
+    if(report["barriere_dirette"]){
+        if(report["barriere_dirette"]["PrestSicuraCompiti"] < 0.5 ||
         report["barriere_dirette"]["Adesione"] < 0.5 ||
         report["barriere_dirette"]["PrestSicuraContesto"] < 0.5 ||
         report["barriere_dirette"]["Partecipazione"] < 0.5 
         )
-    {
-            interventsCreation("BarriereDiretteIndv");
+        {
+                interventsCreation("BarriereDiretteIndv");
+        }
+        
+        if(report["barriere_dirette"]["Comunicazione"] < 0.5 || report["barriere_dirette"]["LavoroSquad"] < 0.5){
+            interventsCreation("BarriereDiretteTeam");
+        }
     }
+
+    if (report["barriere_salvaguardia"]){
+        if(report["barriere_salvaguardia"]["CompNonTechSicurezza"] < 0.5){
+            interventsCreation("B_SalvaguardiaNonTecn");
+        }
     
-    if(report["barriere_dirette"]["Comunicazione"] < 0.5 || report["barriere_dirette"]["LavoroSquad"] < 0.5){
-        interventsCreation("BarriereDiretteTeam");
-    }
-
-    if(report["barriere_salvaguardia"]["CompNonTechSicurezza"] < 0.5){
-        interventsCreation("B_SalvaguardiaNonTecn");
-    }
-
-    if(report["barriere_salvaguardia"]["CompTechSicurezza"] < 0.5){
-        interventsCreation("B_SalvaguardiaTecn");
-    }
+        if(report["barriere_salvaguardia"]["CompTechSicurezza"] < 0.5){
+            interventsCreation("B_SalvaguardiaTecn");
+        }
+        
+        if(report["barriere_salvaguardia"]["MotivazioneSicurezza"] < 0.5){
+            interventsCreation("MotivazioneSicurezza");
+        }
     
-    if(report["barriere_salvaguardia"]["MotivazioneSicurezza"] < 0.5){
-        interventsCreation("MotivazioneSicurezza");
+        if(report["barriere_salvaguardia"]["CittadinanzaSicurezza"] < 0.5){
+            interventsCreation("CittadinanzaSicurezza");
+        }
+        
+        if(report["barriere_salvaguardia"]["LeaderHSE"] < 0.5){
+            interventsCreation("LeaderHSE");
+        }
+        
+        if(report["barriere_salvaguardia"]["ClimaHSE"] < 0.5){
+            interventsCreation("ClimaHSE");
+        }
+        
+        if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.5){
+            interventsCreation("ValutazioneSicurezza");
+        }
     }
 
-    if(report["barriere_salvaguardia"]["CittadinanzaSicurezza"] < 0.5){
-        interventsCreation("CittadinanzaSicurezza");
-    }
+    if(report["valori_culturali"]){
+        if(report["valori_culturali"]["Individualismo"] < 0.34){
+            createVCRaccomendation("Individualismo", 'L');
+        }else{
+            createVCRaccomendation("Individualismo", 'H')
+        }
     
-    if(report["barriere_salvaguardia"]["LeaderHSE"] < 0.5){
-        interventsCreation("LeaderHSE");
-    }
+        if(report["valori_culturali"]["DistPotere"] < 0.34){
+            createVCRaccomendation("DistPotere", 'L');
+        }else{
+            createVCRaccomendation("DistPotere", 'H')
+        }
     
-    if(report["barriere_salvaguardia"]["ClimaHSE"] < 0.5){
-        interventsCreation("ClimaHSE");
-    }
+        if(report["valori_culturali"]["RigeIncertezza"] < 0.34){
+            createVCRaccomendation("RigeIncertezza", 'L');
+        }else{
+            createVCRaccomendation("RigeIncertezza", 'H')
+        }
     
-    if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.5){
-        interventsCreation("ValutazioneSicurezza");
+        if(report["valori_culturali"]["Mascolinità"] < 0.34){
+            createVCRaccomendation("Mascolinità", 'L');
+        }else{
+            createVCRaccomendation("Mascolinità", 'H')
+        }
+    
+        if(report["valori_culturali"]["Orientamento"] < 0.34){
+            createVCRaccomendation("Orientamento", 'L');
+        }else{
+            createVCRaccomendation("Orientamento", 'H')
+        }
     }
 
-    if(report["valori_culturali"]["Individualismo"] < 0.34){
-        createVCRaccomendation("Individualismo", 'L');
-    }else{
-        createVCRaccomendation("Individualismo", 'H')
-    }
-
-    if(report["valori_culturali"]["DistPotere"] < 0.34){
-        createVCRaccomendation("DistPotere", 'L');
-    }else{
-        createVCRaccomendation("DistPotere", 'H')
-    }
-
-    if(report["valori_culturali"]["RigeIncertezza"] < 0.34){
-        createVCRaccomendation("RigeIncertezza", 'L');
-    }else{
-        createVCRaccomendation("RigeIncertezza", 'H')
-    }
-
-    if(report["valori_culturali"]["Mascolinità"] < 0.34){
-        createVCRaccomendation("Mascolinità", 'L');
-    }else{
-        createVCRaccomendation("Mascolinità", 'H')
-    }
-
-    if(report["valori_culturali"]["Orientamento"] < 0.34){
-        createVCRaccomendation("Orientamento", 'L');
-    }else{
-        createVCRaccomendation("Orientamento", 'H')
-    }
+    
 }
 
 function toggleIconRotation(id){

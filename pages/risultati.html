@@ -108,7 +108,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="newReport()">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
                   <span data-feather="file-plus"></span>
                   Nuovo Report
                 </a>
@@ -512,6 +512,38 @@
         </main>
       </div>
     </div> 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+                <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+                  <span data-feather="x" ></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                     
+                    </div>
+                    <label for="exampleInputEmail1">Nome Report</label>
+                    <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+                  </div>
+                  <br>
+                  <div align="right">
+                    <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                    <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
