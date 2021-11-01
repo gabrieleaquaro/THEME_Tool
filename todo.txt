@@ -2,10 +2,10 @@
 2. 
 3.  Git Readme finire
 4. 
-6.	Fix bug caricamento file in builded version
+6.	
 7.
 8.  
 9.  
-10. Bug stampa 
+10.
 
 12. Valutare note in interventi
