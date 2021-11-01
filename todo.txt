@@ -1,7 +1,7 @@
 1.  Help button (Documentation)
 2. 
 3.  Git Readme finire
-4.  Fix etichette valori culturali : VL / L / H / VH
+4. 
 6.	Fix bug caricamento file in builded version
 7.	Colori PSF : solo 3: 0 - 1, 1-2 , 2-100 
 8.  Colori altri : 0-0.5 / 0.5-0.7 / 0.7-1 
