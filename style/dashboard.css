@@ -431,20 +431,17 @@ body {
 
   #toPrint * {
     visibility: visible;
-    
   }
 
   #toPrint{
     position: absolute;
+    width: 950px;
     left: 0;
-    top: 70px;
+    top: 150px;
   }
 
 
 }
-
-
-
 
 .button_modal_new_report{
   border: 0px;
