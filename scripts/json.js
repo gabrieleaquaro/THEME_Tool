@@ -75,46 +75,45 @@ function updateJSON(field,data){
     fs.writeFileSync(base_dir + 'dati/' + currentReport,  JSON.stringify(report, null, 4));
 }
 
-function changeName(){
-    document.getElementById("current_report_title").style.display = "none"
-    document.getElementById("form_change_name").style.display = "block"
-    document.getElementById("change_name").value = currentReport
-  }
-
-  function change_report_name(val){
-    report_name = val.value
-    console.log(report_name)
-    id_alert = "alert_change"
-    if(report_name){
-      if(fs.existsSync(base_dir + 'dati/' + report_name)){
-        document.getElementById(id_alert).innerText = "Attenzione! Esiste un altro report con lo stesso nome ."
-        document.getElementById(id_alert).style.display = "block"
-      }else{
-        fs.unlinkSync(base_dir + 'dati/' + currentReport)
-        report["name"] = report_name
-
-        var data_string = JSON.stringify(report, null, 4);
-        fs.writeFileSync(base_dir + 'dati/' + report_name, data_string);
-        if(currentPage == ""){
-            refreshReports(report);
+function createRenameHandler(el){
+    var changeName = function(el, textarea){
+        return function(){
+            if(window.event.keyCode == 13){
+                var report_name = currentReport;
+                var newName = textarea.value.slice(0, -1); 
+                var validation = changeReportName(report_name, newName);
+                if(validation || newName == report_name){
+                    el.innerText = newName;
+                    el.modifing = false;
+                }else{
+                    textarea.className += 'error';
+                    textarea.value = report_name;
+                    setTimeout(function(){textarea.className = ''}, 1000);
+                }
+            }
+            //esc
+            if(window.event.keyCode == 27){
+                textarea.parentNode.removeChild(textarea);
+                el.innerText = currentReport;
+            }
         }
-        snackbarShow();
-        updateCurrent(report_name, false);
-        document.getElementById("current_report_title").style.display = "block"
-        document.getElementById("form_change_name").style.display = "none"
-        document.getElementById("current_report_title").innerText = currentReport
-      }
-    }else{
-      document.getElementById(id_alert).innerText = "Attenzione! Il campo di inserimento nome è vuoto."
-      document.getElementById(id_alert).style.display = "block"
     }
-  }
+    if(el.modifing == false || el.modifing == null){
+        var area = document.createElement("textarea");
+        area.value = el.innerText
+        area.rows = 1;
+        area.style.resize = 'none';
+        area.addEventListener("keyup", changeName(el, area));
+        el.innerText = "";
+        el.append(area);
+        el.modifing = true;
+    }
+}
 
 
 function create_report_from_modal(val){
-    report_name = val.value
-    console.log(report_name)
-    id_alert = "alert_modal"
+    var report_name = val.value
+    var id_alert = "alert_modal"
     if(report_name){
       if(fs.existsSync(base_dir + 'dati/' + report_name)){
         document.getElementById(id_alert).innerText = "Attenzione! Esiste un altro report con lo stesso nome ."
@@ -170,13 +169,18 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
 
     fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
     showUpdate()
-    if(printSnackbar){
-        snackbarShow("rgb(66,166,42)", "Report Corrente Aggiornato");
-    }
     if(currentPage == "" && !changeName){
         setUnmodifiable(report_name);
         setModifiable(old_rep);
     }
+    if(printSnackbar && !changeName){
+        snackbarShow("rgb(66,166,42)", "Report Corrente Aggiornato");
+    }else{
+        if(printSnackbar && changeName){
+            snackbarShow("rgb(66,166,42)", "Report rinominato correttamente");
+        }
+    }
+
     updatePage(JSON.parse(fs.readFileSync(base_dir + 'dati/' + report_name)));
 }
 

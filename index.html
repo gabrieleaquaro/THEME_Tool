@@ -42,21 +42,8 @@
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item" id="current_report_title_li">
-                <a class="nav-link" href="#" id = "current_report_title" onclick="changeName()" style="cursor: pointer;">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
                 </a>
-
-                <form id="form_change_name"> 
-                  <div class="form-group"> 
-                    <div class="alert alert-warning" role="alert" id="alert_change" style="display: none;">
-                    </div>  
-                    <input type="text" required class="form-control" id="change_name" > 
-                  </div> 
-                  <br> 
-                  <div align="right"> 
-                    <button type="button" class="btn btn-primary"  onclick="change_report_name(document.getElementById('change_name'))">Rinomina</button>
-                  </div>
-                </form> 
-
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -151,7 +138,7 @@
               <div class="col-md-5 p-lg-9 mx-auto my-5 py-3 demo-content">
                 <h1 class="display-4" style="font-weight: 500;">THEME</h1>
                 <p class="lead" style="font-weight: 400;">Strumento di valutazione del fattore umano legato alla sicurezza.</p>
-                <a class="btn btn-lg btn-primary" onclick="newReport()" href="#">Crea un Report</a>
+                <a class="btn btn-lg btn-primary" href = '#.' data-bs-toggle="modal" data-bs-target="#createNewReport">Crea un Report</a>
               </div>
               <div class="product-device box-shadow d-none d-md-block"></div>
               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>

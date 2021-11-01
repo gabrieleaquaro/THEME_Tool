@@ -1,11 +1,12 @@
 {
-    "lastModifiedReport": "report",
-    "openedWindows": 2,
+    "lastModifiedReport": "TEST",
+    "openedWindows": 3,
     "currentReports": {
-        "0": "TEST",
-        "1": "TEST",
-        "2": "TEST",
-        "3": "TEST",
-        "4": "report"
+        "0": "TEST1",
+        "1": "TEST1",
+        "2": "TEST1",
+        "3": "TEST1",
+        "4": "report",
+        "5": "TEST"
     }
 }

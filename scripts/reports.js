@@ -22,7 +22,7 @@ function addRow(report){
             }
         }
 
-        var createClickHanler = function(td){
+        var createClickHandler = function(td){
             return function(){
                 var changeName = function(td, textarea){
                     return function(){
@@ -64,7 +64,7 @@ function addRow(report){
             }
         }
         
-        td_name.onclick = createClickHanler(td_name);
+        td_name.onclick = createClickHandler(td_name);
 
         // data
         var td_date = document.createElement("td")
@@ -133,4 +133,6 @@ function refreshReports(){
 }
 
 refreshReports()
+
+
 
