@@ -370,7 +370,7 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", report['prob_errore']["ProbErroreAdj"] * 100);
             document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: "+( report['prob_errore']["ProbErroreAdj"] * 100)+"%");
             document.getElementById("ProbErroreAdj_bar").style.color = '#000000';
-            document.getElementById("ProbErroreAdj_bar").innerText = report['prob_errore']["ProbErroreAdj"] * 100 +"%";
+            document.getElementById("ProbErroreAdj_bar").innerText = Math.round(report['prob_errore']["ProbErroreAdj"] * 100 * 100) / 100  +"%";
         }else{
             document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
             document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
@@ -393,7 +393,7 @@ function updateRisultati_results(report){
                 
                 change = false
             }
-            val += report['barriere_dirette'][key]
+            val += parseFloat(report['barriere_dirette'][key])
         })
         if(change){
             average_barriere_dirette = Math.round(val/6*100)/100
@@ -420,7 +420,7 @@ function updateRisultati_results(report){
                 document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: 0%");
                 change = false
             }
-            val += report['barriere_salvaguardia'][key]
+            val += parseFloat(report['barriere_salvaguardia'][key])
         })
         
         if(change){
