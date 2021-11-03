@@ -11,6 +11,7 @@ const red = '#FF3333';
 
 const { Chart } = require("chart.js");
 const { contentTracing } = require("electron");
+const { truncate } = require("original-fs");
 
 //Icon loading
 feather.replace()
@@ -687,17 +688,17 @@ function generateChart_PSF(values){
     
     //To rescale the values that makes no sense elseway on the graph
     const values_map = {
-        0.1   : 1,
-        0.5   : 2,
-        1     : 3,
-        '1.0' : 3,
-        2     : 4,
-        5     : 5,
-        10    : 6,
-        15    : 7,
-        20    : 8,
-        50    : 9,
-        100   : 10
+        0.1   : 0.5,
+        0.5   : 1,
+        1     : 2,
+        '1.0' : 2,
+        2     : 3,
+        5     : 3.5,
+        10    : 4,
+        15    : 4.5,
+        20    : 4.7,
+        50    : 4.9,
+        100   : 5
     } 
     var chart_data = values_list.map(x => values_map[x]);
     var max_value = Math.max(...chart_data);
@@ -708,31 +709,31 @@ function generateChart_PSF(values){
         datasets: [
             {
                 lable: 'red',
-                data: [10,10,10,10,10,10,10,10],
+                data: [5,5,5,5,5,5,5,5],
                 backgroundColor : red_transp,
-                borderColor : red,
+                borderColor : '#00000000',
                 pointRadius : 0,
                 order: 5,
-                fill : {value: 4},
+                fill : {value: 3},
                 hoverRadius : 0,
                 hitRadius: 0,
             },
             {   
                 label: 'yellow',
-                data: [4,4,4,4,4,4,4,4],
+                data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
-                borderColor :yellow_transp,
+                borderColor :'#00000000',
                 pointRadius : 0,
                 order: 3,
-                fill:{value: 3},
+                fill:{value: 2},
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'green',
-                data: [3,3,3,3,3,3,3,3],
+                data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
-                borderColor :green,
+                borderColor :'#00000000',
                 pointRadius : 0,
                 order: 2,
                 fill:'origin',
@@ -747,7 +748,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 3 ? green : value <= 4  ? yellow : red;
+                    return value <= 2 ? green : value <= 3  ? yellow : red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -811,20 +812,21 @@ function generateChart_PSF(values){
                 legend: {
                     display: false
                 },
+                
                 tooltip:{
                     callbacks:{
                         label: function(context){
                             var inverse_values_map = {
-                                1 : 0.1  ,
-                                2 : 0.5  ,
-                                3 : 1    ,
-                                4 : 2    ,
-                                5 : 5    ,
-                                6 : 10   ,
-                                7 : 15   ,
-                                8 : 20   ,
-                                9 : 50   ,
-                                10 : 100  
+                                0.5 : 0.1  ,
+                                1   : 0.5  ,
+                                2   : 1    ,
+                                3   : 2    ,
+                                3.5 : 5    ,
+                                4   : 10   ,
+                                4.5 : 15   ,
+                                4.7 : 20   ,
+                                4.9 : 50   ,
+                                5.3   : 100  
                             } 
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
@@ -871,7 +873,7 @@ function generateChart_Barriere_dirette(values){
                 lable: 'red',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
-                borderColor :red,
+                borderColor : '#00000000',
                 fill:'origin',
                 order:2,
                 pointRadius : 0,
@@ -885,7 +887,7 @@ function generateChart_Barriere_dirette(values){
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
                 order:4,
-                borderColor :yellow,
+                borderColor : '#00000000',
                 pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
@@ -893,7 +895,7 @@ function generateChart_Barriere_dirette(values){
             {   
                 data: [1,1,1,1,1,1],
                 backgroundColor : green_transp,
-                borderColor : green,
+                borderColor :  '#00000000',
                 pointRadius : 0,
                 fill:{value:0.7},
                 order:5,
@@ -1005,7 +1007,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 lable: 'red',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
-                borderColor :red,
+                borderColor : '#00000000',
                 fill:'origin',
                 order:2,
                 pointRadius : 0,
@@ -1019,7 +1021,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
                 order:4,
-                borderColor :yellow,
+                borderColor : '#00000000',
                 pointRadius : 0,
                 hoverRadius : 0,
                 hitRadius: 0
@@ -1027,7 +1029,7 @@ function generateChart_Barriere_Salvaguardia(values){
             {   
                 data: [1,1,1,1,1,1,1],
                 backgroundColor : green_transp,
-                borderColor : green,
+                borderColor :  '#00000000',
                 pointRadius : 0,
                 fill:{value:0.7},
                 order:5,
@@ -1133,9 +1135,11 @@ function generateChart_Valori_Culturali(values){
             {
                 label: 'Valore',
                 data: values_list,
-                borderColor: '#000',
-                backgroundColor: '#a6a6a620', 
-                pointRadius: 4,
+                borderColor: '#00000000',
+                pointBackgroundColor : '#a6a6a6a0',
+                pointBorderColor: '#000',
+                backgroundColor: '#a6a6a600', 
+                pointRadius: 10,
                 order:1,
             },
             
@@ -1164,12 +1168,8 @@ function generateChart_Valori_Culturali(values){
             maintainAspectRatio: true,    
             scale:{
                 stepSize: 0.33,
-                min : 0,
+                min : -0.2,
                 max: 1,
-                ticks:{
-                    beginAtZero: true,
-                    
-                },
             },
             scales:{
                 r:{
@@ -1177,12 +1177,12 @@ function generateChart_Valori_Culturali(values){
                         display:true,
                         callback: function(value, index, values) {
                             if(value == 1) return 'VH';
-                            if(value == 0.66) return 'H';
-                            if(value == 0.33) return 'L'
-                            if(value == 0) return 'VL';
+                            if(value <= 0) return 'VL';
                             return '';
                         },
+                        beginAtZero : true,
                         font : {
+                            showZero: true,
                             size: 20,
                         }
                     },
@@ -1195,7 +1195,7 @@ function generateChart_Valori_Culturali(values){
                 },
                 legend: {
                     display: false
-                },            
+                },         
             }   
         },
         plugins: [plugin_4]
