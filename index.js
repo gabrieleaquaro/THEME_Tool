@@ -5,8 +5,8 @@ const {
 } = require("electron");
 const { fstat } = require("fs");
 const path = require("path");
-const base_dir = './'
-// const base_dir = './resources/app/'
+//const base_dir = './'
+ const base_dir = './resources/app/'
 
 function newApp() {
   win = new BrowserWindow({icon:base_dir + 'icon.ico',
