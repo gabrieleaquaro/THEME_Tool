@@ -258,6 +258,7 @@ function updateRisultati_results(report){
             }
         })
         generateChart_PSF(report["prob_errore"]);
+        generateBarChart_PSF(report["prob_errore"]);
 
         other_elements = ["Cluster1", "Cluster2", "Cluster3"]
         
@@ -271,6 +272,7 @@ function updateRisultati_results(report){
         
     }else{
         generateChart_PSF({});
+        generateBarChart_PSF({});
         elements_PSF = ["TempoDisponibie","StressDaMinaccia","ComplessitàTask","Esperienza" ,"Procedure" ,"InterazioneUmanoMacchina","ContestoAmbientale","Affaticamento", "Cluster1", "Cluster2", "Cluster3"]
         elements_PSF.forEach(function(key){
 
@@ -293,10 +295,12 @@ function updateRisultati_results(report){
             }
         })
         generateChart_Barriere_dirette(report["barriere_dirette"]);
+        generateBarChart_BD(report["barriere_dirette"]);
 
         
     }else{
         generateChart_Barriere_dirette({});
+        generateBarChart_BD({});
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
             document.getElementById(key).innerText = '-';
@@ -318,8 +322,11 @@ function updateRisultati_results(report){
             }
         })
         generateChart_Barriere_Salvaguardia(report["barriere_salvaguardia"]);
+        generateBarChart_BS(report["barriere_salvaguardia"]);
+
     }else{
         generateChart_Barriere_Salvaguardia({});
+        generateBarChart_BS({});
         elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
             document.getElementById(key).innerText = '-';
@@ -843,6 +850,138 @@ function generateChart_PSF(values){
     new Chart(canvas_expanded.getContext("2d"), config);
 }
 
+//GENERATES THE BAR-CHART FOR THE PSF 
+function generateBarChart_PSF(values){
+    const DATA_COUNT = 8;
+    const chart_labels = ["Tempo",
+                         "Stress da Minaccia",
+                         "Complessità",
+                         "Esperienza",
+                         "Procedure",
+                         "Interazione U-M",
+                         "Contesto Amb.",
+                         "Affaticamento"
+                        ];
+    var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
+                        values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
+                        values["ContestoAmbientale"],values["Affaticamento"]]; 
+
+    
+    //To rescale the values that makes no sense elseway on the graph
+    const values_map = {
+        0.1   : 1    , 
+        0.5   : 0.5  ,
+        1     : 0    ,
+        '1.0' : 0    ,
+        2     : -0.3 ,
+        5     : -0.5 ,
+        10    : -0.75,
+        15    : -0.85,
+        20    : -0.9 ,
+        50    : -0.95,
+        100   : -1   
+    } 
+
+    var chart_data = values_list.map(x => values_map[x]);
+    var max_value = Math.max(...chart_data);
+
+    //Datasets for the chart
+    const data = {
+        labels: chart_labels,
+        datasets: [
+            {
+                label: 'Valore',
+                data: chart_data,
+                borderColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value < -0.3 ? red : value < 0  ? yellow : green;
+                },
+                backgroundColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value < -0.3 ? red_transp : value < 0  ? yellow_transp : green_transp;
+                },
+                order:1,
+            },
+            
+        ]
+    };
+
+
+    //chart Configuration       
+    const plugin_a = {
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            indexAxis: 'y',
+            scales:{
+                x:{ 
+                    grid: {
+                        display : false,
+                    },                    
+                    min : '-1',
+                    max : 1,
+                    ticks:{
+                        display:false,
+                    },
+                },
+            },
+            // Elements options apply to all of the options unless overridden in a dataset
+            // In this case, we are setting the border of each horizontal bar to be 2px wide
+            elements: {
+                bar: {
+                    borderWidth: 2,
+                }
+            },
+            responsive: true,
+            plugins: {
+                title: {
+                    display: false,
+                    text: 'PSF'
+                },
+                legend: {
+                    display: false,
+                },
+                tooltip:{
+                    callbacks:{
+                        label: function(context){
+                            var inverse_values_map = {
+                            1   : 0.1  ,
+                            0.5 : 0.5  ,
+                            0   : 1    ,
+                            '-0.3': 2    ,
+                            '-0.5': 5    ,
+                            '-0.75': 10   ,
+                            '-0.85': 15   ,
+                            '-0.9': 20   ,
+                            '-0.95': 50   ,
+                            '-1'   : 100  
+                            } 
+                            return 'Valore: ' + inverse_values_map[context.raw];
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [plugin_a]
+    };
+
+    var canvas = document.getElementById("chart_PSF_Bar");
+    new Chart(canvas.getContext("2d"), config);  
+}
+
 //GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
@@ -972,6 +1111,114 @@ function generateChart_Barriere_dirette(values){
     var canvas_expanded = document.getElementById("expanded_chart_barriere_dirette");
     new Chart(canvas.getContext("2d"), config);  
     new Chart(canvas_expanded.getContext("2d"), config); 
+}
+
+//GENERATES THE BAR-CHART FOR THE "BARRIRE DIRETTE" 
+function generateBarChart_BD(values){
+    const DATA_COUNT = 8;
+    const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
+                         ["Adesione alle norme o","procedure di sicurezza "],
+                         ["Prestazione sicura", "orientata al contesto"],
+                         ["Partecipazione attiva", "alla sicurezza"],
+                         "Lavoro di squadra",
+                         ["Comunicazione inerente", "la sicurezza"]
+                        ];
+
+    var values_list =  [values["PrestSicuraCompiti"],
+                        values["Adesione"],
+                        values["PrestSicuraContesto"],
+                        values["Partecipazione"],
+                        values["LavoroSquad"],
+                        values["Comunicazione"]]; 
+
+    //To rescale the values that makes no sense elseway on the graph
+    
+    var chart_data = values_list.map(x => 2*x - 1);
+    var max_value = Math.max(...chart_data);
+
+    //Datasets for the chart
+    const data = {
+        labels: chart_labels,
+        datasets: [
+            {
+                label: 'Valore',
+                data: chart_data,
+                borderColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0 ? red : value <= 0.4  ? yellow : green;
+                },
+                backgroundColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0 ? red_transp : value <= 0.4  ? yellow_transp : green_transp;
+                },
+                order:1,
+            },
+            
+        ]
+    };
+
+
+    //chart Configuration       
+    const plugin_b = {
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            indexAxis: 'y',
+            scales:{
+                x:{ 
+                    grid: {
+                        display : false,
+                    },                    
+                    min : '-1',
+                    max: 1,
+                    ticks:{
+                        display:false,
+                    },
+                },
+            },
+            // Elements options apply to all of the options unless overridden in a dataset
+            // In this case, we are setting the border of each horizontal bar to be 2px wide
+            elements: {
+                bar: {
+                    borderWidth: 2,
+                }
+            },
+            responsive: true,
+            plugins: {
+                title: {
+                    display: false,
+                    text: 'PSF'
+                },
+                legend: {
+                    display: false,
+                },
+                tooltip:{
+                    callbacks:{
+                        label: function(context){
+                            return 'Valore: ' + ((context.raw + 1) / 2);
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [plugin_b]
+    };
+
+    var canvas = document.getElementById("chart_BD_Bar");
+    new Chart(canvas.getContext("2d"), config);  
 }
 
 //GENERATE THE CHART OF BARREIRE_SALVAGUARDIA IN RESUTS PAGE
@@ -1105,6 +1352,117 @@ function generateChart_Barriere_Salvaguardia(values){
     var canvas_expanded = document.getElementById("expanded_chart_barriere_salvaguardia");
     new Chart(canvas.getContext("2d"), config);  
     new Chart(canvas_expanded.getContext("2d"), config);   
+}
+
+//GENERATES THE BAR-CHART FOR THE "BARRIRE DIRETTE" 
+function generateBarChart_BS(values){
+    const DATA_COUNT = 8;
+
+    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
+                         ["Competenze tecniche","di sicurezza"],
+                         ["Motivazione alla ", "sicurezza"],
+                         ["Cittadinanza organizzativa ", "di sicurezza"],
+                         ["Valutazione e sviluppo","delle competenze per la sicurezza"],
+                         "Leadership per l'HSE",
+                         "Clima e cultura di HSE"
+                        ];
+
+    var values_list =  [values["CompNonTechSicurezza"],
+                        values["CompTechSicurezza"],
+                        values["MotivazioneSicurezza"],
+                        values["CittadinanzaSicurezza"],
+                        values["ValutazioneSicurezza"],
+                        values["LeaderHSE"],
+                        values["ClimaHSE"]]; 
+
+
+    //To rescale the values that makes no sense elseway on the graph
+    var chart_data = values_list.map(x => 2*x - 1);
+    var max_value = Math.max(...chart_data);
+
+    //Datasets for the chart
+    const data = {
+        labels: chart_labels,
+        datasets: [
+            {
+                label: 'Valore',
+                data: chart_data,
+                borderColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0 ? red : value <= 0.4  ? yellow : green;
+                },
+                backgroundColor: function(context){
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value <= 0 ? red_transp : value <= 0.4  ? yellow_transp : green_transp;
+                },
+                order:1,
+            },
+            
+        ]
+    };
+
+
+    //chart Configuration       
+    const plugin_c = {
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart) => {
+            const ctx = chart.canvas.getContext('2d');
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+    };
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            indexAxis: 'y',
+            scales:{
+                x:{ 
+                    grid: {
+                        display : false,
+                    },                    
+                    min : '-1',
+                    max: 1,
+                    ticks:{
+                        display:false,
+                    },
+                },
+            },
+            // Elements options apply to all of the options unless overridden in a dataset
+            // In this case, we are setting the border of each horizontal bar to be 2px wide
+            elements: {
+                bar: {
+                    borderWidth: 2,
+                }
+            },
+            responsive: true,
+            plugins: {
+                title: {
+                    display: false,
+                    text: 'PSF'
+                },
+                legend: {
+                    display: false,
+                },
+                tooltip:{
+                    callbacks:{
+                        label: function(context){
+                            return 'Valore: ' + (context.raw + 1) / 2;
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [plugin_c]
+    };
+
+    var canvas = document.getElementById("chart_BS_Bar");
+    new Chart(canvas.getContext("2d"), config);  
 }
 
 //GENERATE CHART OF VALORI_CULTURALI IN RESULTS PAGE

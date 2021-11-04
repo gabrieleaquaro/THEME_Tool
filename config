@@ -1,6 +1,6 @@
 {
-    "lastModifiedReport": "test_reload",
-    "openedWindows": 8,
+    "lastModifiedReport": "TEST",
+    "openedWindows": 9,
     "currentReports": {
         "0": "TEST1",
         "1": "TEST1",
@@ -17,6 +17,7 @@
         "12": "TEST",
         "13": "TEST",
         "14": "TEST",
-        "15": "test_reload"
+        "15": "test_reload",
+        "16": "TEST"
     }
 }
