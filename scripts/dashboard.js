@@ -719,17 +719,17 @@ function generateChart_PSF(values){
     
     //To rescale the values that makes no sense elseway on the graph
     const values_map = {
-        0.1   : -1  ,
-        0.5   : -0.3,
-        1     : 0,
-        '1.0' : 0,
-        2     : 0.3,
-        5     : 0.7,
-        10    : 1,
-        15    : 1.18,
-        20    : 1.3,
-        50    : 1.7,
-        100   : 2
+        0.1   : 0.5  ,
+        0.5   : 1,
+        1     : 2,
+        '1.0' : 2,
+        2     : 3,
+        5     : 3.3,
+        10    : 3.4,
+        15    : 3.5,
+        20    : 3.6,
+        50    : 3.8,
+        100   : 4
     } 
     var chart_data = values_list.map(x => values_map[x]);
     var max_value = Math.max(...chart_data);
@@ -740,34 +740,34 @@ function generateChart_PSF(values){
         datasets: [
             {
                 lable: 'red',
-                data: [2,2,2,2,2,2,2,2],
+                data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
                 pointRadius : 0,
                 order: 5,
-                fill : {value: 0.3},
+                fill : {value: 3},
                 hoverRadius : 0,
                 hitRadius: 0,
             },
             {   
                 label: 'yellow',
-                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
+                data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
                 pointRadius : 0,
                 order: 3,
-                fill:{value: 0},
+                fill:{value: 2},
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'green',
-                data: [0,0,0,0,0,0,0,0],
+                data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
                 pointRadius : 0,
                 order: 2,
-                fill: {value : -1.5},
+                fill: 'origin',
                 hoverRadius : 0,
                 hitRadius: 0
             },
@@ -789,7 +789,7 @@ function generateChart_PSF(values){
     };
 
     //Removes useless levels
-    if(max_value <= 0.3){
+    if(max_value <= 3){
       data.datasets.splice(0, 1)
     }
 
@@ -815,11 +815,10 @@ function generateChart_PSF(values){
             maintainAspectRatio: true,    
             scale:{
                 stepSize:1,
-                min : -1.5,
+                min : 0,
                 ticks:{
                     beginAtZero: true,
                     max: max_value,
-                    min: 0,
                     stepSize: 1,
                     display: false,
                 },
@@ -845,16 +844,16 @@ function generateChart_PSF(values){
                     callbacks:{
                         label: function(context){
                             var inverse_values_map = {
-                                0     : 0.1  ,
-                                '-0.3': 0.5  ,
-                                0   : 1    ,
-                                0.3   : 2    ,
-                                0.7 : 5    ,
-                                1   : 10   ,
-                                1.8 : 15   ,
-                                1.3 : 20   ,
-                                1.7 : 50   ,
-                                2   : 100  
+                                0.5   : 0.1  ,
+                                1     : 0.5  ,
+                                2     : 1    ,
+                                3     : 2    ,
+                                3.3   : 5    ,
+                                3.4   : 10   ,
+                                3.5   : 15   ,
+                                3.6   : 20   ,
+                                3.8   : 50   ,
+                                4     : 100  
                             } 
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
