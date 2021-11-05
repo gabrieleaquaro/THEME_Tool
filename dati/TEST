@@ -1,6 +1,6 @@
 {
     "name": "TEST",
-    "date": 1636108353895,
+    "date": 1636121065415,
     "dateToPrint": "5/11/2021",
     "valori_culturali": {
         "Individualismo": 0,
@@ -25,12 +25,12 @@
         "Orientamento": 0.3333
     },
     "barriere_salvaguardia": {
-        "CompNonTechSicurezza": 0.0825,
+        "CompNonTechSicurezza": 0.08,
         "CompTechSicurezza": 0,
-        "MotivazioneSicurezza": 0.0825,
-        "CittadinanzaSicurezza": 0.0471,
-        "ValutazioneSicurezza": 0.0471,
-        "LeaderHSE": 0.0825,
+        "MotivazioneSicurezza": 0.08,
+        "CittadinanzaSicurezza": 0.05,
+        "ValutazioneSicurezza": 0.05,
+        "LeaderHSE": 0.08,
         "ClimaHSE": 0,
         "barriere_salvaguardia_1_1": "0",
         "barriere_salvaguardia_1_2": "0",
