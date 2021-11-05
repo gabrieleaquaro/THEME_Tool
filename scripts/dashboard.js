@@ -511,7 +511,7 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", ProbErroreAdj_barriere_valori * 100);
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: "+( ProbErroreAdj_barriere_valori * 100)+"%");
             document.getElementById("ProbErroreAdj_barriere_valori").style.color = '#000000';
-            document.getElementById("ProbErroreAdj_barriere_valori").innerText = ProbErroreAdj_barriere_valori * 100+"%";    
+            document.getElementById("ProbErroreAdj_barriere_valori").innerText = Math.round(ProbErroreAdj_barriere_valori * 100*100)/100+"%";    
             if(ProbErroreAdj_barriere_valori <= 0.01){
                 document.getElementById("ProbErroreAdj_barriere_valori").parentNode.innerText = Math.round(ProbErroreAdj_barriere_valori * 100*100) / 100+"%";    
             }
