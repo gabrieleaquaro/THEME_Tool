@@ -23,7 +23,7 @@
         "barriere_dirette_2_5": "0.66"
     },
     "barriere_salvaguardia": {
-        "CompNonTechSicurezza": 0.495,
+        "CompNonTechSicurezza": 0.5,
         "CompTechSicurezza": "-",
         "MotivazioneSicurezza": "-",
         "CittadinanzaSicurezza": "-",
