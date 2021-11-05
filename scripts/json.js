@@ -282,14 +282,16 @@ function onReaderLoad(event){
     new_data["date"] = escapeHTML(data["date"]);
     new_data["dateToPrint"] = escapeHTML(data["dateToPrint"]);
     
-    const pages_ids = ["prob_errore", "barriere_dirette", "barriere_salvaguardia", "valori_culturali"]; 
+    const pages_ids = ["prob_errore", "barriere_dirette", "barriere_salvaguardia", "valori_culturali", "interventi"]; 
     pages_ids.forEach(function(page_id){
         new_data[page_id] = {};
-        Object.keys(data[page_id]).forEach(function(key){
-            if(isElement(key)){
-                new_data[page_id][key] = escapeHTML(data[page_id][key]); 
-            }
-        });
+        if(data[page_id]){
+            Object.keys(data[page_id]).forEach(function(key){
+                if(isElement(key)){
+                    new_data[page_id][key] = escapeHTML(data[page_id][key]); 
+                }
+            });
+        }
     }); 
       
     var i = 1;

@@ -1,0 +1,16 @@
+{
+    "name": "test_reload",
+    "date": 1636108590160,
+    "dateToPrint": "5/11/2021",
+    "prob_errore": {},
+    "barriere_dirette": {},
+    "barriere_salvaguardia": {},
+    "valori_culturali": {
+        "Individualismo": "-",
+        "DistPotere": "-",
+        "RigeIncertezza": "-",
+        "Mascolinità": "-",
+        "Orientamento": "-"
+    },
+    "interventi": {}
+}

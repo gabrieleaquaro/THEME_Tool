@@ -1,7 +1,7 @@
 {
     "name": "TEST",
-    "date": 1636029729793,
-    "dateToPrint": "4/11/2021",
+    "date": 1636108353895,
+    "dateToPrint": "5/11/2021",
     "valori_culturali": {
         "Individualismo": 0,
         "DistPotere": 0,
@@ -195,5 +195,8 @@
         "barriere_dirette_6_5": "0",
         "barriere_dirette_6_6": "0",
         "average_barriere_dirette": 0
+    },
+    "interventi": {
+        "B_SalvaguardiaNonTecn_note": "pippo"
     }
 }
