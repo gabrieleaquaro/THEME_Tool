@@ -4,8 +4,8 @@
     "dateToPrint": "5/11/2021",
     "prob_errore": {},
     "barriere_dirette": {
-        "PrestSicuraCompiti": 0.73,
-        "Adesione": 0.46,
+        "PrestSicuraCompiti": 0.728,
+        "Adesione": 0.462,
         "PrestSicuraContesto": "-",
         "Partecipazione": "-",
         "LavoroSquad": "-",
@@ -23,7 +23,7 @@
         "barriere_dirette_2_5": "0.66"
     },
     "barriere_salvaguardia": {
-        "CompNonTechSicurezza": 0.5,
+        "CompNonTechSicurezza": 0.495,
         "CompTechSicurezza": "-",
         "MotivazioneSicurezza": "-",
         "CittadinanzaSicurezza": "-",

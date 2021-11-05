@@ -159,7 +159,7 @@ function updateBarriereDirette_results(data){
             }
         }
         if(val != "-"){
-            val = Math.round(val / count * 1000) / 1000;
+            val = Math.round(val / count * 100) / 100;
             total_val = total_val + val
         }   
         document.getElementById(elements[i - 1]).innerText = val;
@@ -196,7 +196,7 @@ function updateBarriereSalvaguardia_results(data){
             }
         }
         if(val != "-"){
-            val = Math.round(val / count * 1000) / 1000;
+            val = Math.round(val / count * 100) / 100;
         }   
         document.getElementById(elements[i - 1]).innerText = val;
         document.getElementById(elements[i - 1] + "_1").innerText =  val;
@@ -228,7 +228,7 @@ function updateValoriCulturali_results(data){
             
         }
         if(val != "-"){
-            val = Math.round(val / count * 1000) / 1000;
+            val = Math.round(val / count * 100) / 100;
         }   
         
         document.getElementById(elements[i - 1]).innerText = val;
