@@ -1222,7 +1222,7 @@ function generateBarChart_BD(values){
                 tooltip:{
                     callbacks:{
                         label: function(context){
-                            return 'Valore: ' + ((context.raw + 1) / 2);
+                            return 'Valore: ' + Math.round(((context.raw + 1) / 2)*100)/100;
                         }
                     }
                 }
@@ -1462,7 +1462,7 @@ function generateBarChart_BS(values){
                 tooltip:{
                     callbacks:{
                         label: function(context){
-                            return 'Valore: ' + (context.raw + 1) / 2;
+                            return 'Valore: ' + Math.round((context.raw + 1) / 2 * 100) /100;
                         }
                     }
                 }
