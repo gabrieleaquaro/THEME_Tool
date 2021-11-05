@@ -353,12 +353,16 @@ function updateRisultati_results(report){
                 document.getElementById(key+"_bar").setAttribute("style","width: "+( value * 100)+"%");
                 document.getElementById(key+"_bar").style.color = '#000000';
                 document.getElementById(key+"_bar").innerText = ( value * 100)+"%";
+                if(value < 0.01){
+                    document.getElementById(key + "_bar").parentNode.innerText = ( value * 100)+"%";
+                }
                 total_valori = total_valori + value
             }
             else{
                 document.getElementById(key).innerText = '-';
                 document.getElementById(key+"_bar").setAttribute("aria-valuenow", 0);
                 document.getElementById(key+"_bar").setAttribute("style","width: 0%");
+                document.getElementById(key+"_bar").parentNode.innerText = "0%";
             }
         })
         generateChart_Valori_Culturali(report["valori_culturali"]);
@@ -378,14 +382,20 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: "+( report['prob_errore']["ProbErroreAdj"] * 100)+"%");
             document.getElementById("ProbErroreAdj_bar").style.color = '#000000';
             document.getElementById("ProbErroreAdj_bar").innerText = Math.round(report['prob_errore']["ProbErroreAdj"] * 100 * 100) / 100  +"%";
+            if(report['prob_errore']["ProbErroreAdj"] <= 0.01){
+                document.getElementById("ProbErroreAdj_bar").parentNode.innerText = Math.round(report['prob_errore']["ProbErroreAdj"] * 100 * 100) / 100  +"%";
+            }
+            
         }else{
             document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
             document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
+            document.getElementById("ProbErroreAdj_bar").parentNode.innerText ="0%";
 
         }
     }else{
         document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
         document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
+        document.getElementById("ProbErroreAdj_bar").parentNode.innerText ="0%"
     }
 
     var val = 0
@@ -397,7 +407,6 @@ function updateRisultati_results(report){
             if(report['barriere_dirette'][key] == undefined || report['barriere_dirette'][key] == '-' ){
                 document.getElementById("average_barriere_dirette").setAttribute("aria-valuenow", 0);
                 document.getElementById("average_barriere_dirette").setAttribute("style","width: 0%");
-                
                 change = false
             }
             val += parseFloat(report['barriere_dirette'][key])
@@ -408,11 +417,15 @@ function updateRisultati_results(report){
             document.getElementById("average_barriere_dirette").setAttribute("style","width: "+( average_barriere_dirette * 100)+"%");
             document.getElementById("average_barriere_dirette").style.color = '#000000';
             document.getElementById("average_barriere_dirette").innerText = (average_barriere_dirette * 100)+"%";
+            if(average_barriere_dirette <= 0.01){
+                document.getElementById("average_barriere_dirette").parentNode.innerText = (average_barriere_dirette * 100)+"%";
+            }
         }
     }else{
         average_barriere_dirette = 0
         document.getElementById("average_barriere_dirette").setAttribute("aria-valuenow", 0);
         document.getElementById("average_barriere_dirette").setAttribute("style","width: 0%");
+        document.getElementById("average_barriere_dirette").parentNode.innerText = "0%";
     }
 
     val = 0
@@ -436,11 +449,15 @@ function updateRisultati_results(report){
             document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: "+( average_barriere_salvaguardia * 100)+"%");
             document.getElementById("average_barriere_salvaguardia").style.color = '#000000';
             document.getElementById("average_barriere_salvaguardia").innerText = (average_barriere_salvaguardia * 100)+"%";
+            if(average_barriere_salvaguardia <= 0.01){
+                document.getElementById("average_barriere_salvaguardia").parentNode.innerText = (average_barriere_salvaguardia * 100)+"%";
+            }
         }
     }else{
         average_barriere_salvaguardia = 0
         document.getElementById("average_barriere_salvaguardia").setAttribute("aria-valuenow", 0);
         document.getElementById("average_barriere_salvaguardia").setAttribute("style","width: 0%");
+        document.getElementById("average_barriere_salvaguardia").parentNode.innerText ="0%";
     }
 
     if(average_barriere_salvaguardia + average_barriere_dirette > 0){
@@ -448,9 +465,13 @@ function updateRisultati_results(report){
         document.getElementById("average_barriere").setAttribute("style","width: "+( (average_barriere_salvaguardia + average_barriere_dirette)/2 * 100)+"%");
         document.getElementById("average_barriere").style.color = '#000000';
         document.getElementById("average_barriere").innerText = Math.round(((average_barriere_salvaguardia + average_barriere_dirette)/2) * 100 * 100) / 100 +"%";
+        if((average_barriere_salvaguardia + average_barriere_dirette)/2 <= 0.01){
+            document.getElementById("average_barriere").parentNode.innerText = Math.round(((average_barriere_salvaguardia + average_barriere_dirette)/2) * 100 * 100) / 100 +"%";
+        }
     }else{
         document.getElementById("average_barriere").setAttribute("aria-valuenow", 0);
         document.getElementById("average_barriere").setAttribute("style","width: 0%");
+        document.getElementById("average_barriere").parentNode.innerText = "0%";
     }
 
 
@@ -491,6 +512,9 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: "+( ProbErroreAdj_barriere_valori * 100)+"%");
             document.getElementById("ProbErroreAdj_barriere_valori").style.color = '#000000';
             document.getElementById("ProbErroreAdj_barriere_valori").innerText = ProbErroreAdj_barriere_valori * 100+"%";    
+            if(ProbErroreAdj_barriere_valori <= 0.01){
+                document.getElementById("ProbErroreAdj_barriere_valori").parentNode.innerText = Math.round(ProbErroreAdj_barriere_valori * 100*100) / 100+"%";    
+            }
             
         }else{
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
