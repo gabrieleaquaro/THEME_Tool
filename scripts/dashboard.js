@@ -779,7 +779,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0 ? green : value <= 0.3  ? yellow : red;
+                    return value <= 2 ? green : value <= 3  ? yellow : red;
                 }, 
                 pointRadius: 4,
                 order:1,
