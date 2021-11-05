@@ -13,7 +13,7 @@ function newApp() {
                            webPreferences: {
                             nodeIntegration : true,
                             contextIsolation : false,
-                            devTools: false
+                            devTools: true
                           }, 
                           autoHideMenuBar  : true
                         });

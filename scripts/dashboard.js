@@ -695,17 +695,17 @@ function generateChart_PSF(values){
     
     //To rescale the values that makes no sense elseway on the graph
     const values_map = {
-        0.1   : 0.5,
-        0.5   : 1,
-        1     : 2,
-        '1.0' : 2,
-        2     : 3,
-        5     : 3.5,
-        10    : 4,
-        15    : 4.5,
-        20    : 4.7,
-        50    : 4.9,
-        100   : 5
+        0.1   : -1  ,
+        0.5   : -0.3,
+        1     : 0,
+        '1.0' : 0,
+        2     : 0.3,
+        5     : 0.7,
+        10    : 1,
+        15    : 1.18,
+        20    : 1.3,
+        50    : 1.7,
+        100   : 2
     } 
     var chart_data = values_list.map(x => values_map[x]);
     var max_value = Math.max(...chart_data);
@@ -716,34 +716,34 @@ function generateChart_PSF(values){
         datasets: [
             {
                 lable: 'red',
-                data: [5,5,5,5,5,5,5,5],
+                data: [2,2,2,2,2,2,2,2],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
                 pointRadius : 0,
                 order: 5,
-                fill : {value: 3},
+                fill : {value: 0.3},
                 hoverRadius : 0,
                 hitRadius: 0,
             },
             {   
                 label: 'yellow',
-                data: [3,3,3,3,3,3,3,3],
+                data: [0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
                 pointRadius : 0,
                 order: 3,
-                fill:{value: 2},
+                fill:{value: 0},
                 hoverRadius : 0,
                 hitRadius: 0
             },
             {   
                 label: 'green',
-                data: [2,2,2,2,2,2,2,2],
+                data: [0,0,0,0,0,0,0,0],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
                 pointRadius : 0,
                 order: 2,
-                fill:'origin',
+                fill: {value : -1.5},
                 hoverRadius : 0,
                 hitRadius: 0
             },
@@ -755,7 +755,7 @@ function generateChart_PSF(values){
                 pointBackgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 2 ? green : value <= 3  ? yellow : red;
+                    return value <= 0 ? green : value <= 0.3  ? yellow : red;
                 }, 
                 pointRadius: 4,
                 order:1,
@@ -764,12 +764,9 @@ function generateChart_PSF(values){
         ]
     };
 
-    //Remvoes useless levels
-    if(max_value <= 4){
+    //Removes useless levels
+    if(max_value <= 0.3){
       data.datasets.splice(0, 1)
-      if(max_value  <= 3){
-        data.datasets.splice(0, 1)
-      }
     }
 
     //chart Configuration   
@@ -794,7 +791,7 @@ function generateChart_PSF(values){
             maintainAspectRatio: true,    
             scale:{
                 stepSize:1,
-                min : 0,
+                min : -1.5,
                 ticks:{
                     beginAtZero: true,
                     max: max_value,
@@ -824,16 +821,16 @@ function generateChart_PSF(values){
                     callbacks:{
                         label: function(context){
                             var inverse_values_map = {
-                                0.5 : 0.1  ,
-                                1   : 0.5  ,
-                                2   : 1    ,
-                                3   : 2    ,
-                                3.5 : 5    ,
-                                4   : 10   ,
-                                4.5 : 15   ,
-                                4.7 : 20   ,
-                                4.9 : 50   ,
-                                5.3   : 100  
+                                0     : 0.1  ,
+                                '-0.3': 0.5  ,
+                                0   : 1    ,
+                                0.3   : 2    ,
+                                0.7 : 5    ,
+                                1   : 10   ,
+                                1.8 : 15   ,
+                                1.3 : 20   ,
+                                1.7 : 50   ,
+                                2   : 100  
                             } 
                             return 'Valore: ' + inverse_values_map[context.raw];
                         }
@@ -862,6 +859,7 @@ function generateBarChart_PSF(values){
                          "Contesto Amb.",
                          "Affaticamento"
                         ];
+
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
                         values["ContestoAmbientale"],values["Affaticamento"]]; 
@@ -892,11 +890,7 @@ function generateBarChart_PSF(values){
             {
                 label: 'Valore',
                 data: chart_data,
-                borderColor: function(context){
-                    var index = context.dataIndex;
-                    var value = context.dataset.data[index];
-                    return value < -0.3 ? red : value < 0  ? yellow : green;
-                },
+                borderColor: '#00000000',
                 backgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -929,7 +923,12 @@ function generateBarChart_PSF(values){
             scales:{
                 x:{ 
                     grid: {
-                        display : false,
+                        color: function(context) {
+                            if (context.tick.value == 0) {
+                              return '#e7e7e7';
+                            } 
+                            return '#00000000';
+                          },
                     },                    
                     min : '-1',
                     max : 1,
@@ -938,18 +937,13 @@ function generateBarChart_PSF(values){
                     },
                 },
             },
-            // Elements options apply to all of the options unless overridden in a dataset
-            // In this case, we are setting the border of each horizontal bar to be 2px wide
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                }
-            },
+            barPercentage : .9,
+            barThickness : 15,
+            minBarLength: 5,
             responsive: true,
             plugins: {
                 title: {
                     display: false,
-                    text: 'PSF'
                 },
                 legend: {
                     display: false,
@@ -1143,11 +1137,7 @@ function generateBarChart_BD(values){
             {
                 label: 'Valore',
                 data: chart_data,
-                borderColor: function(context){
-                    var index = context.dataIndex;
-                    var value = context.dataset.data[index];
-                    return value <= 0 ? red : value <= 0.4  ? yellow : green;
-                },
+                borderColor:'#00000000',
                 backgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -1180,7 +1170,12 @@ function generateBarChart_BD(values){
             scales:{
                 x:{ 
                     grid: {
-                        display : false,
+                        color: function(context) {
+                            if (context.tick.value == 0) {
+                              return '#e7e7e7';
+                            } 
+                            return '#00000000';
+                          },
                     },                    
                     min : '-1',
                     max: 1,
@@ -1189,18 +1184,13 @@ function generateBarChart_BD(values){
                     },
                 },
             },
-            // Elements options apply to all of the options unless overridden in a dataset
-            // In this case, we are setting the border of each horizontal bar to be 2px wide
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                }
-            },
+            barPercentage : .9,
+            barThickness : 15,
+            minBarLength: 5,
             responsive: true,
             plugins: {
                 title: {
                     display: false,
-                    text: 'PSF'
                 },
                 legend: {
                     display: false,
@@ -1387,11 +1377,7 @@ function generateBarChart_BS(values){
             {
                 label: 'Valore',
                 data: chart_data,
-                borderColor: function(context){
-                    var index = context.dataIndex;
-                    var value = context.dataset.data[index];
-                    return value <= 0 ? red : value <= 0.4  ? yellow : green;
-                },
+                borderColor:'#00000000',
                 backgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
@@ -1424,7 +1410,12 @@ function generateBarChart_BS(values){
             scales:{
                 x:{ 
                     grid: {
-                        display : false,
+                        color: function(context) {
+                            if (context.tick.value == 0) {
+                              return '#e7e7e7';
+                            } 
+                            return '#00000000';
+                          },
                     },                    
                     min : '-1',
                     max: 1,
@@ -1433,18 +1424,13 @@ function generateBarChart_BS(values){
                     },
                 },
             },
-            // Elements options apply to all of the options unless overridden in a dataset
-            // In this case, we are setting the border of each horizontal bar to be 2px wide
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                }
-            },
+            barPercentage : .9,
+            barThickness : 15,
+            minBarLength: 5,
             responsive: true,
             plugins: {
                 title: {
                     display: false,
-                    text: 'PSF'
                 },
                 legend: {
                     display: false,
