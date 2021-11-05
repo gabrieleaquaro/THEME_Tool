@@ -1,5 +1,11 @@
 const { nodeName } = require("jquery");
 
+function filterTable(event){
+    var data = event.target.value;
+    refreshReports(data)
+}
+
+
 function addRow(report){
     if(report["name"] != 'default'){
         var tr = document.createElement("tr");
@@ -113,7 +119,7 @@ function setUndeleteble(report_name){
     }
 }
 
-function refreshReports(){
+function refreshReports(query=""){
     document.getElementById("tBody").innerHTML = "";
     var files = fs.readdirSync(base_dir + 'dati/');
     reports = []
@@ -128,6 +134,14 @@ function refreshReports(){
     reports.sort(function(a,b) {
             return b.date - a.date
         });
+
+    if(query != ""){
+        reports= reports.filter(function(value) {
+            return query == value.name.substring(0,query.length) }
+        );
+        console.log(reports)
+    }
+
     // insert file in table
     reports.forEach(report =>addRow(report));
 }
