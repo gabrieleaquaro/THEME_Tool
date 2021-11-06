@@ -5,20 +5,23 @@ const {
 } = require("electron");
 const { fstat } = require("fs");
 const path = require("path");
-
+const fs = require("fs");
 const base_dir = './'
 
+var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
+
 function newApp() {
-  win = new BrowserWindow({icon:base_dir + 'icon.ico',
-                           webPreferences: {
-                            nodeIntegration : true,
-                            contextIsolation : false,
-                            devTools: true
-                          }, 
-                          autoHideMenuBar  : true
-                        });
+  win = new BrowserWindow(
+    {icon:base_dir + 'icon.ico',
+      webPreferences: {
+      nodeIntegration : true,
+      contextIsolation : false,
+      devTools: false
+    }, 
+    autoHideMenuBar  : true
+  });
   win.loadFile('./index.html');
-  return win.name
+  return 
 }
 
 app.whenReady().then(() => {
@@ -26,8 +29,6 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', function () {
-  const fs = require("fs");
-  var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
   config["openedWindows"] -= 1;
   config["openedWindows"] = config["openedWindows"] < 0 ? 0 : config["openedWindows"];
   if(config["openedWindows"] == 0){

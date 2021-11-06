@@ -1,36 +1,7 @@
 {
     "lastModifiedReport": "TEST",
-    "openedWindows": 10,
+    "openedWindows": 0,
     "currentReports": {
-        "0": "TEST1",
-        "1": "TEST1",
-        "2": "TEST1",
-        "3": "TEST1",
-        "4": "report",
-        "5": "TEST",
-        "6": "report_1_11_1",
-        "7": "report_1_11_3",
-        "8": "pippo",
-        "9": "TEST",
-        "10": "pippo",
-        "11": "TEST",
-        "12": "TEST",
-        "13": "TEST",
-        "14": "TEST",
-        "15": "test_reload",
-        "16": "TEST",
-        "17": "TEST",
-        "18": "TEST",
-        "19": "TEST",
-        "20": "TEST",
-        "21": "TEST",
-        "22": "test_reload",
-        "23": "test_reload",
-        "24": "TEST",
-        "25": "TEST",
-        "26": "Totti1",
-        "27": "TotalErgonomia",
-        "28": "TEST",
-        "29": "TEST"
+        "0": "TEST"
     }
 }
