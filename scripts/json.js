@@ -2,7 +2,7 @@
 const fs = require("fs");
 const base_dir = './';
 // FOR BUILD
-//const base_dir = './resources/app/'
+//base_dir += resources/app/'
 
 // Check that config file exists or create it
 if (!fs.existsSync(base_dir + 'config')){
@@ -140,7 +140,6 @@ function create_report_from_modal(val){
 // create new report
 function newReport(report_name){
     var i = 1;
-    console.log(report_name)
     if(! report_name){
         do{
             var report_name = "report_" + new Date().getDate() + "_" + (new Date().getMonth() + 1) + "_"+i+"";
@@ -157,7 +156,7 @@ function newReport(report_name){
     var data_string = JSON.stringify(data, null, 4);
     fs.writeFileSync(base_dir + 'dati/' + report_name, data_string);
     if(currentPage == ""){
-        refreshReports(data);
+        refreshReports();
     }
     snackbarShow();
     updateCurrent(report_name, false);

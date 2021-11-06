@@ -122,10 +122,10 @@ function setUndeleteble(report_name){
 function refreshReports(query=""){
     document.getElementById("tBody").innerHTML = "";
     var files = fs.readdirSync(base_dir + 'dati/');
-    reports = []
+    var reports = []
     // read file
-    Object.keys(files).forEach(function(key) {
-        let rawdata = fs.readFileSync(base_dir + 'dati/' + files[key]);
+    files.forEach(function(file) {
+        let rawdata = fs.readFileSync(base_dir + 'dati/' + file);
         let report = JSON.parse(rawdata);
         reports.push(report)
     })
@@ -139,7 +139,6 @@ function refreshReports(query=""){
         reports= reports.filter(function(value) {
             return query == value.name.substring(0,query.length) }
         );
-        console.log(reports)
     }
 
     // insert file in table

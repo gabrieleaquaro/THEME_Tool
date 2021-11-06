@@ -1,5 +1,5 @@
 {
-    "lastModifiedReport": "TEST",
+    "lastModifiedReport": "TotalErgonomia",
     "openedWindows": 10,
     "currentReports": {
         "0": "TEST1",
@@ -27,6 +27,8 @@
         "22": "test_reload",
         "23": "test_reload",
         "24": "TEST",
-        "25": "TEST"
+        "25": "TEST",
+        "26": "Totti1",
+        "27": "TotalErgonomia"
     }
 }

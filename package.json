@@ -1,9 +1,9 @@
 {
   "name": "THEME_Tool",
   "version": "1.1.0",
-  "description": "Hello World!",
+  "description": "THEME tool",
   "main": "index.js",
-  "author": "Jane Doe",
+  "author": "Gabriele Aquaro, Francesco Carratta",
   "license": "MIT",
   "scripts": {
     "start": "electron-forge start",
