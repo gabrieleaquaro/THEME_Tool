@@ -8,7 +8,7 @@ const path = require("path");
 const fs = require("fs");
 const base_dir = './'
 
-var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
+
 
 function newApp() {
   win = new BrowserWindow(
@@ -29,6 +29,7 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', function () {
+  var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
   config["openedWindows"] -= 1;
   config["openedWindows"] = config["openedWindows"] < 0 ? 0 : config["openedWindows"];
   if(config["openedWindows"] == 0){
