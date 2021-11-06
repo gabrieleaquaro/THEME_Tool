@@ -7,10 +7,12 @@ Le linee guida generali per l'utilizzo del tool sono contenute all'interno della
 ## Installazione 
 Di seguito le istruzioni per l'installazione del software. 
 
-1. Scaricare il pacchetto precompilato per la corretta versione di windows da QUI. 
-2. Estrarre il contenuto del file ZIP. 
-3. Copiare la cartella "build" in una posizione a scelta. 
-4. Utilizzare il collegamento già presente come icona del desktop/taskbar. 
+### Windows:
+1. Scaricare l'installer dalle release al seguente link: QUI. 
+2. Eseguire il file di installazione (NOME). 
+3. Fornire i permessi di modifica. 
+4. Il software dovrebbe essere stato installato. 
 
 ## Schermate
 
+TODO
