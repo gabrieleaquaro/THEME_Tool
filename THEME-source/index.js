@@ -88,20 +88,21 @@ function newApp() {
 if (handleSquirrelEvent(app)) {
   // squirrel event handled and app will exit in 1000ms, so don't do anything else
   return;
+}else{
+
+  app.whenReady().then(() => {
+    newApp()
+  })
+
+  app.on('window-all-closed', function () {
+    const fs = require("fs");
+    var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
+    config["openedWindows"] -= 1;
+    config["openedWindows"] = config["openedWindows"] < 0 ? 0 : config["openedWindows"];
+    if(config["openedWindows"] == 0){
+      config["currentReports"] = {0 : config['lastModifiedReport']}; 
+    }
+    fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
+    if (process.platform !== 'darwin') app.quit()
+  })
 }
-
-app.whenReady().then(() => {
-  newApp()
-})
-
-app.on('window-all-closed', function () {
-  const fs = require("fs");
-  var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
-  config["openedWindows"] -= 1;
-  config["openedWindows"] = config["openedWindows"] < 0 ? 0 : config["openedWindows"];
-  if(config["openedWindows"] == 0){
-    config["currentReports"] = {0 : config['lastModifiedReport']}; 
-  }
-  fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
-  if (process.platform !== 'darwin') app.quit()
-})
