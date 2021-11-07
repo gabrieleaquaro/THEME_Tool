@@ -17,9 +17,7 @@ Di seguito le istruzioni per l'installazione del software.
 
 ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot%202021-11-07%20160820.png)
 
-![image]()
+![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Archivio.png)
 
-![image]()
-![image]()
-![image]()
-![image]()
+![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Creation.png )
+![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Risultati.png)
