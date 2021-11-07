@@ -15,4 +15,11 @@ Di seguito le istruzioni per l'installazione del software.
 
 ## Schermate
 
-TODO
+![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot%202021-11-07%20160820.png)
+
+![image]()
+
+![image]()
+![image]()
+![image]()
+![image]()
