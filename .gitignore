@@ -2,8 +2,6 @@ out/
 .vscode/
 node_modules/
 config.json
-Excell_riferimento.xlsx
 ~$Excell_riferimento.xlsx
-excel_con_Note.xlsx
 ~$excel_con_Note.xlsx
 dist/
