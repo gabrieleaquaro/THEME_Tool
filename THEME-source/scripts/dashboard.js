@@ -338,7 +338,7 @@ function updateRisultati_results(report){
         //First table of Barriere Dirette
         elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
         elements.forEach(function(key){
-            if(report['valori_culturali'][key] != null && !report['valori_culturali'][key]== '-' ){
+            if(report['valori_culturali'][key] != null && report['valori_culturali'][key] != '-' ){
                 let value = report['valori_culturali'][key];
                 if(Math.round(value*100)/100 > 0.66){
                     document.getElementById(key).innerText = "VH"
