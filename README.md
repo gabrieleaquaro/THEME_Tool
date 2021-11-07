@@ -1,4 +1,4 @@
-# THEME_Tool
+# THEME_Tool ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/THEME-source/images/icon.png)
 
 ## Introduzione 
 THEME è uno protocollo per la valutazione del impatto umano nella probabilità di errore. THEME Tool fornisce una interfaccia grafica per la valutazione, la compilazione e il salvataggio dei Report.
