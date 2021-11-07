@@ -284,7 +284,7 @@ function updateRisultati_results(report){
         //First table of Barriere Dirette
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
-            if(report['barriere_dirette'][key] != null){
+            if(report['barriere_dirette'][key] != null && !report['barriere_dirette'][key].isNaN()){
                 let value = report['barriere_dirette'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
                 let color = value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp : green_transp;
@@ -338,7 +338,7 @@ function updateRisultati_results(report){
         //First table of Barriere Dirette
         elements = ["Individualismo","DistPotere","RigeIncertezza","Mascolinità","Orientamento"]
         elements.forEach(function(key){
-            if(report['valori_culturali'][key] != null){
+            if(report['valori_culturali'][key] != null && !report['valori_culturali'][key]== '-' ){
                 let value = report['valori_culturali'][key];
                 if(Math.round(value*100)/100 > 0.66){
                     document.getElementById(key).innerText = "VH"

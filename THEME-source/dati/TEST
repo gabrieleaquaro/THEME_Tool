@@ -1,5 +1,14 @@
 {
     "name": "TEST",
     "date": 1636199400655,
-    "dateToPrint": "6/11/2021"
+    "dateToPrint": "6/11/2021",
+    "valori_culturali": {
+        "Individualismo": "-",
+        "DistPotere": "-",
+        "RigeIncertezza": "-",
+        "Mascolinità": "-",
+        "Orientamento": "-",
+        "valori_culturali_1_1": "1.0",
+        "valori_culturali_1_2": "1.0"
+    }
 }
