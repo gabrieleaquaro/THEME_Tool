@@ -17,16 +17,21 @@ Di seguito le istruzioni per l'installazione del software.
 
 ## Schermate
 L'installazione avviene esegunedo l'installer disponibile nelle realese della Repository. 
+
 ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot%202021-11-07%20160820.png)
+
 Una volta completata linstallazione il software viene aperto. 
 
 <hr />
 
 Lo storico degli archivi è disponibile nella schermata "Archivio". 
+
 ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Archivio.png)
+
 Per rinominare un report basta cliccare sul nome dello stesso. Non possono esistere due report con lo stesso nome. 
 
 <hr />
+
 Per la creazione di un nuovo Report, cliccare su "Nuovo Report" nella barra laterale, oppure nella homepage sul bottone "Crea Report".
 
 ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/e8f3e1d52360533049eb61f7a9341e0dab5a936e/ScreenShots/Screenshot_Creation.png)
@@ -36,6 +41,8 @@ A questo punto è sufficiente inserire il nome del file e cliccare su "Crea".
 <hr />
 
 Nella schermata risultati è possibile visualizzare il resoconto del report corrente. 
+
 ![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Risultati.png)
+
 Cliccando sul'icona della stampante, è possibile scaricare un file PDF della schermata corrente. 
 
