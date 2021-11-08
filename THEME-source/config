@@ -1,8 +1,10 @@
 {
-    "lastModifiedReport": "test",
-    "openedWindows": 1,
+    "lastModifiedReport": "Pippo",
+    "openedWindows": 2,
     "currentReports": {
-        "0": "test",
-        "1": "test"
-    }
+        "0": "Pippo",
+        "1": "Pippo",
+        "2": "Pippo"
+    },
+    "ping": 1636373480010
 }

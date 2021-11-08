@@ -1,5 +1,14 @@
 {
     "name": "test",
-    "date": 1636366176350,
-    "dateToPrint": "8/11/2021"
+    "date": 1636373301311,
+    "dateToPrint": "8/11/2021",
+    "barriere_dirette": {
+        "PrestSicuraCompiti": "-",
+        "Adesione": "-",
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": "-",
+        "average_barriere_dirette": 0
+    }
 }

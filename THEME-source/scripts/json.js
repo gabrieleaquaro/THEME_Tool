@@ -13,7 +13,7 @@ var configData = fs.readFileSync(base_dir + 'config');
 var config = JSON.parse(configData);
 var currentReport = config["currentReports"][window.name]
 
-if (window.name == ''){
+if (window.name == '' ||  window.name == null){
     config["openedWindows"] += 1
     window.name =  Math.max(...Object.keys(config["currentReports"]).map(function(v) {return parseInt(v, 10);})) + 1
     config["currentReports"][window.name] = config['lastModifiedReport']
