@@ -37,15 +37,18 @@ app.whenReady().then(() => {
   if (!fs.existsSync(base_dir + 'config')){
     fs.writeFileSync(base_dir + 'config', JSON.stringify({ "lastModifiedReport": "default", "openedWindows" : 0, "currentReports" : {0 : 'default'}}, null, 4));
   }
+
   var config = JSON.parse(fs.readFileSync(base_dir + 'config'));
   if(Date.now() - config["ping"] > 30000) {
     config["openedWindows"] = 0;
     config["currentReports"] = {0 : config['lastModifiedReport']}; 
+    fs.writeFileSync(base_dir + 'config', JSON.stringify(config, null, 4));
   }
   
   const ping = schedule.scheduleJob('*/5 * * * * *', function(){
     pinger();
   });
+  
   newApp();
 })
 
