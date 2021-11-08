@@ -479,3 +479,16 @@ body {
   margin-left: 20px;
 }
 
+.documentation_img{ 
+  font-size: 16px;
+  text-align: center;
+}
+
+.documentation_img_small img{ 
+  width: 200px;
+}
+
+.documentation_img_long img{ 
+  width: 800px;
+}
+

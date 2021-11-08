@@ -1,6 +1,6 @@
 {
     "name": "test",
-    "date": 1636373301311,
+    "date": 1636366176350,
     "dateToPrint": "8/11/2021",
     "barriere_dirette": {
         "PrestSicuraCompiti": "-",
@@ -10,5 +10,31 @@
         "LavoroSquad": "-",
         "Comunicazione": "-",
         "average_barriere_dirette": 0
+    },
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    },
+    "valori_culturali": {
+        "Individualismo": "-",
+        "DistPotere": "-",
+        "RigeIncertezza": "-",
+        "Mascolinità": "-",
+        "Orientamento": "-"
+    },
+    "prob_errore": {
+        "TempoDisponibie": "100",
+        "StressDaMinaccia": "2",
+        "ComplessitàTask": "0.1",
+        "Esperienza": "100",
+        "Procedure": "20",
+        "InterazioneUmanoMacchina": "50",
+        "ContestoAmbientale": "10",
+        "Affaticamento": "100"
     }
 }
