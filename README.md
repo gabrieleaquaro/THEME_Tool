@@ -10,7 +10,7 @@ Le linee guida generali per l'utilizzo del tool sono contenute all'interno della
 Di seguito le istruzioni per l'installazione del software. 
 
 ### Windows:
-1. Scaricare l'installer dalle release al seguente link: https://github.com/gabrieleaquaro/THEME_Tool/releases/download/v1.0.0-alpha/Theme.Setup.1.0.0.exe. 
+1. Scaricare l'installer dalle release al seguente link: [QUI](https://github.com/gabrieleaquaro/THEME_Tool/releases). 
 2. Eseguire il file di installazione (Theme.Setup.version.exe). 
 3. Fornire i permessi di modifica. 
 4. Il software dovrebbe essere stato installato. 
