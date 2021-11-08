@@ -28,7 +28,7 @@ Per rinominare un report basta cliccare sul nome dello stesso. Non possono esist
 
 <hr />
 Per la creazione di un nuovo Report, cliccare su "Nuovo Report" nella barra laterale, oppure nella homepage sul bottone "Crea Report"
-![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Creation.png )
+![image](https://github.com/gabrieleaquaro/THEME_Tool/blob/main/ScreenShots/Screenshot_Creation.png)
 A questo punto è sufficiente inserire il nome del file e cliccare su "Crea". 
 
 <hr />
