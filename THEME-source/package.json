@@ -20,6 +20,8 @@
       "oneClick": true,
       "installerIcon": "icon.ico",
       "uninstallerIcon": "icon.ico",
+      "license" : "license.md",
+      "deleteAppDataOnUninstall" : true,
       "allowToChangeInstallationDirectory": false
     }
   },
