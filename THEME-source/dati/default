@@ -1,5 +1,30 @@
 {
     "name": "default",
     "date": 1636282014318,
-    "dateToPrint": "7/11/2021"
+    "dateToPrint": "7/11/2021",
+    "barriere_dirette": {
+        "PrestSicuraCompiti": "-",
+        "Adesione": "-",
+        "PrestSicuraContesto": "-",
+        "Partecipazione": "-",
+        "LavoroSquad": "-",
+        "Comunicazione": "-",
+        "average_barriere_dirette": 0
+    },
+    "valori_culturali": {
+        "Individualismo": "-",
+        "DistPotere": "-",
+        "RigeIncertezza": "-",
+        "Mascolinità": "-",
+        "Orientamento": "-"
+    },
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    }
 }

@@ -1,8 +1,8 @@
 {
-    "lastModifiedReport": "default",
-    "openedWindows": 0,
+    "lastModifiedReport": "test",
+    "openedWindows": 1,
     "currentReports": {
-        "0": "TEST"
-        
+        "0": "TEST",
+        "1": "test"
     }
 }
