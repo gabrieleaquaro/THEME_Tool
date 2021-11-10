@@ -284,7 +284,7 @@ function updateRisultati_results(report){
         //First table of Barriere Dirette
         elements_barriereDirette = ["PrestSicuraCompiti","Adesione","PrestSicuraContesto","Partecipazione" ,"LavoroSquad" ,"Comunicazione"]
         elements_barriereDirette.forEach(function(key){
-            if(report['barriere_dirette'][key] != null && isNaN(report['barriere_dirette'][key])){
+            if(report['barriere_dirette'][key] != null && !isNaN(report['barriere_dirette'][key])){
                 let value = report['barriere_dirette'][key];
                 document.getElementById(key).innerText = Math.round(value*100)/100;
                 let color = value <= 0.5 ? red_transp : value <= 0.7 ? yellow_transp : green_transp;
