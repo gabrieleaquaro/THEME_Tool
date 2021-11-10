@@ -1,6 +1,6 @@
 {
     "name": "report_10_10.txt",
-    "date": 1636536185905,
+    "date": 1636537008893,
     "dateToPrint": "10/11/2021",
     "prob_errore": {
         "DescrizioneTask": "Caratterizzazione di suolo, sottosuolo, acque interstiziali tramite campionamento acque di falda da parte della ditta Carsico (subappalto di Eurogeo)",

@@ -10,6 +10,9 @@
   },
   "build": {
     "appId": "Theme",
+    "extraFiles": [
+      "annex_interventi.json"
+    ],
     "win": {
       "target": [
         "nsis"
