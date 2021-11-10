@@ -113,11 +113,11 @@ function updateProbError_results(data){
         document.getElementById("PSFComposto").innerText = Math.round(PSFComposto * 100) / 100;
         updateJSON("PSFComposto", Math.round(PSFComposto * 100) / 100);
 
-        document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 100) / 100;
-        updateJSON("ProbErrore",Math.round(ProbErrore * 100) / 100);
+        document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 100000) / 100000;
+        updateJSON("ProbErrore",Math.round(ProbErrore * 100000) / 100000);
 
-        document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 10000) / 100+ "%";
-        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100) / 100 );
+        document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 100 ) / 100 * 100+ "%";
+        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 10000) / 10000);
     
         if (document.getElementById("Cluster1")){
             document.getElementById("Cluster1").innerText = Math.round(Cluster1 * 100) / 100 ;
