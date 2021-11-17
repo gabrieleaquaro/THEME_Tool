@@ -5,3 +5,4 @@ config.json
 ~$Excell_riferimento.xlsx
 ~$excel_con_Note.xlsx
 dist/
+.env
