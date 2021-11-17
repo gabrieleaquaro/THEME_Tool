@@ -1,8 +1,9 @@
 {
     "lastModifiedReport": "default",
-    "openedWindows": 0,
+    "openedWindows": 1,
     "currentReports": {
-        "0": "default"
+        "0": "default",
+        "1": "default"
     },
-    "ping": 1636556330007
+    "ping": 1637169915010
 }
