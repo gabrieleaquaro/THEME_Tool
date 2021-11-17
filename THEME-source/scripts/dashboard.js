@@ -788,13 +788,7 @@ function generateChart_PSF(values){
         ]
     };
 
-    //Removes useless levels
-    if(max_value <= 3){
-      data.datasets.splice(0, 1)
-    }
-
     //chart Configuration   
-    
     const plugin_1 = {
         id: 'custom_canvas_background_color',
         beforeDraw: (chart) => {
