@@ -1,5 +1,5 @@
-1. Remove Reset button
-2. Increase font size -> label dei chart 
+1. 
+2. 
 3.  Creare tabella in risultati : alla fine di tutto nel seguente modo:
     |                 |                                      |              |
     | Prob_Error_adj  |  Prob_Error_adj_in funzione val cult | Risultato    |

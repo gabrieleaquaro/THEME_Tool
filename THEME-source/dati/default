@@ -26,5 +26,22 @@
         "ValutazioneSicurezza": "-",
         "LeaderHSE": "-",
         "ClimaHSE": "-"
+    },
+    "prob_errore": {
+        "TempoDisponibie": "50",
+        "StressDaMinaccia": "2",
+        "ComplessitàTask": "0.1",
+        "Esperienza": "100",
+        "Procedure": "20",
+        "InterazioneUmanoMacchina": "10",
+        "ContestoAmbientale": "10",
+        "Affaticamento": "10",
+        "TipoTask": "0.16",
+        "PSFComposto": 20000000,
+        "ProbErrore": 3200000,
+        "ProbErroreAdj": 1,
+        "Cluster1": 1000,
+        "Cluster2": 200,
+        "Cluster3": 100
     }
 }

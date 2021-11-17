@@ -13,6 +13,8 @@ const { Chart } = require("chart.js");
 const { contentTracing } = require("electron");
 const { truncate } = require("original-fs");
 
+const size_labels = 18
+
 //Icon loading
 feather.replace()
 
@@ -739,7 +741,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                lable: 'red',
+                label: 'red',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -823,6 +825,11 @@ function generateChart_PSF(values){
                         display:false,
                         max: max_value,
                     },
+                    pointLabels: {
+                        font: {
+                          size: size_labels
+                        }
+                      }
                 },
             },
             plugins: {
@@ -831,7 +838,7 @@ function generateChart_PSF(values){
                 text: 'PSF'
                 },
                 legend: {
-                    display: false
+                    display: false,
                 },
                 
                 tooltip:{
@@ -942,17 +949,19 @@ function generateBarChart_PSF(values){
                     grid: {
                         color: function(context) {
                             if (context.tick.value == 0) {
-                              return '#e7e7e7';
+                                return '#e7e7e7';
                             } 
-                            return '#00000000';
+                                return '#00000000';
                           },
                     },                    
                     min : '-1',
                     max : 1,
                     ticks:{
-                        display:false,
+                        display:false
                     },
+
                 },
+
             },
             barPercentage : .9,
             barThickness : 15,
@@ -964,6 +973,7 @@ function generateBarChart_PSF(values){
                 },
                 legend: {
                     display: false,
+
                 },
                 tooltip:{
                     callbacks:{
@@ -1103,6 +1113,11 @@ function generateChart_Barriere_dirette(values){
                     ticks:{
                         display:false,
                     },
+                    pointLabels: {
+                        font: {
+                          size: size_labels
+                        }
+                      }
                 },
             },
             plugins: {
@@ -1340,6 +1355,11 @@ function generateChart_Barriere_Salvaguardia(values){
                     ticks:{
                         display:false,
                     },
+                    pointLabels: {
+                        font: {
+                          size: size_labels
+                        }
+                      }
                 },
             },
             plugins: {
@@ -1547,6 +1567,11 @@ function generateChart_Valori_Culturali(values){
                             size: 20,
                         }
                     },
+                    pointLabels: {
+                        font: {
+                          size: size_labels
+                        }
+                      }
                 },
             },
             plugins: {
