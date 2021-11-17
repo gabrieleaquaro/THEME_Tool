@@ -113,13 +113,13 @@ function updateProbError_results(data){
         ProbErroreAdj = ProbErrore/(tipotask*(PSFComposto-1)+1);
 
         document.getElementById("PSFComposto").innerText = Math.round(PSFComposto * 100) / 100;
-        updateJSON("PSFComposto", Math.round(PSFComposto * 100) / 100);
+        updateJSON("PSFComposto", Math.round(PSFComposto * 100000) / 100000);
 
         document.getElementById("ProbErrore").innerText = Math.round(ProbErrore * 100000) / 100000;
         updateJSON("ProbErrore",Math.round(ProbErrore * 100000) / 100000);
 
         document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 10000 ) * 100 / 10000 + "%";
-        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 10000) / 10000);
+        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100000)* 100 / 100000);
     
         if (document.getElementById("Cluster1")){
             document.getElementById("Cluster1").innerText = Math.round(Cluster1 * 100) / 100 ;
@@ -265,12 +265,14 @@ function updateRisultati_results(report){
         other_elements = ["Cluster1", "Cluster2", "Cluster3"]
         
         other_elements.forEach(function(key){
-            if(report['prob_errore'][key]){
+            if(report['prob_errore'][key] != undefined){
                 document.getElementById(key).innerText = report['prob_errore'][key]
             }else{
                 document.getElementById(key).innerText = "-"
             }
         })
+
+
         
     }else{
         generateChart_PSF({});
@@ -394,10 +396,22 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_bar").parentNode.innerText ="0%";
 
         }
+        if(report['prob_errore']['ProbErroreAdj'] != undefined){
+            document.getElementById("ProbErroreAdj_2").innerText = report['prob_errore']['ProbErrore']
+            value = report['prob_errore']['ProbErrore']
+            let color = value <= 0.0001 ? green_transp : value >= 0.01  ? red_transp  : yellow_transp;
+            document.getElementById("ProbErroreAdj_2").style.backgroundColor = color; 
+        }
+        if(report['prob_errore']['DescrizioneTask']){
+            document.getElementById("task_description").innerText = report['prob_errore']['DescrizioneTask']
+        }
+
+
     }else{
         document.getElementById("ProbErroreAdj_bar").setAttribute("aria-valuenow", 0);
         document.getElementById("ProbErroreAdj_bar").setAttribute("style","width: 0%");
         document.getElementById("ProbErroreAdj_bar").parentNode.innerText ="0%"
+        document.getElementById("ProbErroreAdj_2").innerText = "-"
     }
 
     var val = 0
@@ -516,8 +530,17 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_barriere_valori").innerText = Math.round(ProbErroreAdj_barriere_valori * 100*100)/100+"%";    
             if(ProbErroreAdj_barriere_valori <= 0.01){
                 document.getElementById("ProbErroreAdj_barriere_valori").parentNode.innerText = Math.round(ProbErroreAdj_barriere_valori * 100*100) / 100+"%";    
+
             }
+
+            document.getElementById("ProbErroreAdj_barriere_valori_2").innerText = Math.round(ProbErroreAdj_barriere_valori * 1000000) / 1000000;
+            value= ProbErroreAdj_barriere_valori
+            colori = [green_transp,yellow_transp,red_transp]
+            let i = value <= 0.0001 ? 0 : value >= 0.01  ? 2  : 1;
+            document.getElementById("ProbErroreAdj_barriere_valori_2").style.backgroundColor = colori[i]; 
             
+            commenti = ["Risultato positivo – da mantenere: almeno un ordine di grandezza inferiore al target","Risultato da attenzionare”: dello stesso ordine di grandezza del target","Risultato da migliorare: almeno un ordine di grandezza superiore al target"]
+            document.getElementById("Comment").innerText = commenti[i]
         }else{
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("style","width: 0%"); 
