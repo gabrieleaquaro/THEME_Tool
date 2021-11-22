@@ -119,7 +119,7 @@ function updateProbError_results(data){
         updateJSON("ProbErrore",Math.round(ProbErrore * 100000) / 100000);
 
         document.getElementById("ProbErroreAdj").innerText = Math.round(ProbErroreAdj * 10000 ) * 100 / 10000 + "%";
-        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100000)* 100 / 100000);
+        updateJSON("ProbErroreAdj",Math.round(ProbErroreAdj * 100000) / 100000);
     
         if (document.getElementById("Cluster1")){
             document.getElementById("Cluster1").innerText = Math.round(Cluster1 * 100) / 100 ;
