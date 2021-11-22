@@ -1181,10 +1181,8 @@ function generateBarChart_BD(values){
                         values["LavoroSquad"],
                         values["Comunicazione"]]; 
 
-    //To rescale the values that makes no sense elseway on the graph
-    
-    var chart_data = values_list.map(x => 2*x - 1);
-    var max_value = Math.max(...chart_data);
+
+    var max_value = Math.max(...values_list);
 
     //Datasets for the chart
     const data = {
@@ -1192,12 +1190,12 @@ function generateBarChart_BD(values){
         datasets: [
             {
                 label: 'Valore',
-                data: chart_data,
+                data: values_list,
                 borderColor:'#00000000',
                 backgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0 ? red_transp : value <= 0.4  ? yellow_transp : green_transp;
+                    return value <= 0.5 ? red_transp : value <= 0.7  ? yellow_transp : green_transp;
                 },
                 order:1,
             },
@@ -1227,19 +1225,22 @@ function generateBarChart_BD(values){
                 x:{ 
                     grid: {
                         color: function(context) {
-                            if (context.tick.value == 0) {
+                            if (context.tick.value == 0.7) {
                               return '#e7e7e7';
                             } 
                             return '#00000000';
                           },
+                        
                     },                    
                     min : '-1',
-                    max: 1,
+                    max: 2,
                     ticks:{
+                        stepSize : 0.7,
                         display:false,
                     },
                 },
             },
+            base : 0.7,
             barPercentage : .9,
             barThickness : 15,
             minBarLength: 5,
@@ -1251,13 +1252,6 @@ function generateBarChart_BD(values){
                 legend: {
                     display: false,
                 },
-                tooltip:{
-                    callbacks:{
-                        label: function(context){
-                            return 'Valore: ' + Math.round(((context.raw + 1) / 2)*100)/100;
-                        }
-                    }
-                }
             }
         },
         plugins: [plugin_b]
@@ -1429,8 +1423,8 @@ function generateBarChart_BS(values){
 
 
     //To rescale the values that makes no sense elseway on the graph
-    var chart_data = values_list.map(x => 2*x - 1);
-    var max_value = Math.max(...chart_data);
+  
+    var max_value = Math.max(...values_list);
 
     //Datasets for the chart
     const data = {
@@ -1438,12 +1432,12 @@ function generateBarChart_BS(values){
         datasets: [
             {
                 label: 'Valore',
-                data: chart_data,
+                data: values_list,
                 borderColor:'#00000000',
                 backgroundColor: function(context){
                     var index = context.dataIndex;
                     var value = context.dataset.data[index];
-                    return value <= 0 ? red_transp : value <= 0.4  ? yellow_transp : green_transp;
+                    return value <= 0.5 ? red_transp : value <= 0.7  ? yellow_transp : green_transp;
                 },
                 order:1,
             },
@@ -1473,19 +1467,21 @@ function generateBarChart_BS(values){
                 x:{ 
                     grid: {
                         color: function(context) {
-                            if (context.tick.value == 0) {
+                            if (context.tick.value == 0.7) {
                               return '#e7e7e7';
                             } 
                             return '#00000000';
                           },
                     },                    
                     min : '-1',
-                    max: 1,
+                    max: 2,
                     ticks:{
+                        stepSize: 0.7,
                         display:false,
                     },
                 },
             },
+            base: 0.7,
             barPercentage : .9,
             barThickness : 15,
             minBarLength: 5,
@@ -1497,13 +1493,6 @@ function generateBarChart_BS(values){
                 legend: {
                     display: false,
                 },
-                tooltip:{
-                    callbacks:{
-                        label: function(context){
-                            return 'Valore: ' + Math.round((context.raw + 1) / 2 * 100) /100;
-                        }
-                    }
-                }
             }
         },
         plugins: [plugin_c]
