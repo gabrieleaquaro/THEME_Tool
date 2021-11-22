@@ -79,7 +79,7 @@ function addRow(report){
        
         // bottone di modifica
         var td_button_modify = document.createElement("td")
-        td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Modifica</button>'
+        td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Apri</button>'
         tr.append(td_button_modify)
 
         // bottone di elimina

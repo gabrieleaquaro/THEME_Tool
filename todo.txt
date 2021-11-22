@@ -8,8 +8,8 @@
     Colori background : valore ordine di grandezza di 0.001 -> giallo, ordine più piccolo --> verde , ordine più grande --> rosso 
     Risultato : positivo / negativo (background verde se secondo verde)
 
--	Titolo “Probabilità d’errore” da sostituire con “Performance Shaping Factors – PSF”
--	Nell’archivio sostituire MODIFCA con APRI 
+V	Titolo “Probabilità d’errore” da sostituire con “Performance Shaping Factors – PSF”
+V	Nell’archivio sostituire MODIFCA con APRI 
 -	Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
 o	PSF:
         ROSSO: PSF con effetto negativo sulla probabilità d’errore
