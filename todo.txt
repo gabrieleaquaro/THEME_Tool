@@ -7,12 +7,17 @@
 
     Colori background : valore ordine di grandezza di 0.001 -> giallo, ordine più piccolo --> verde , ordine più grande --> rosso 
     Risultato : positivo / negativo (background verde se secondo verde)
-4. 
-6.	
-7.
-8.  
-9.  
-10.
-11. 
-12.
-13. 
+
+-	Titolo “Probabilità d’errore” da sostituire con “Performance Shaping Factors – PSF”
+-	Nell’archivio sostituire MODIFCA con APRI 
+-	Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
+o	PSF:
+        ROSSO: PSF con effetto negativo sulla probabilità d’errore
+        GIALLO: PSF con basso effetto negativo sulla probabilità d’errore
+        VERDE: PSF con effetto positivo o neutro sulla probabilità d’errore
+o	BARRIERE:
+        ROSSO: Barriera non efficace
+        GIALLO: Barriera moderatamente efficace
+        VERDE: Barriera efficace  
+
+
