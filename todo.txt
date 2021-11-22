@@ -10,12 +10,12 @@
 
 V	Titolo “Probabilità d’errore” da sostituire con “Performance Shaping Factors – PSF”
 V	Nell’archivio sostituire MODIFCA con APRI 
--	Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
-o	PSF:
+V	Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
+V	PSF:
         ROSSO: PSF con effetto negativo sulla probabilità d’errore
         GIALLO: PSF con basso effetto negativo sulla probabilità d’errore
         VERDE: PSF con effetto positivo o neutro sulla probabilità d’errore
-o	BARRIERE:
+V	BARRIERE:
         ROSSO: Barriera non efficace
         GIALLO: Barriera moderatamente efficace
         VERDE: Barriera efficace  

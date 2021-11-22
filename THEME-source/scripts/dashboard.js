@@ -764,7 +764,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                label: 'red',
+                label: 'PSF con effetto negativo sulla probabilità d’errore',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -775,7 +775,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'yellow',
+                label: 'PSF con basso effetto negativo sulla probabilità d’errore',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -786,7 +786,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                label: 'green',
+                label: 'PSF con effetto positivo o neutro sulla probabilità d’errore',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
@@ -861,7 +861,7 @@ function generateChart_PSF(values){
                 text: 'PSF'
                 },
                 legend: {
-                    display: false,
+                    display: true
                 },
                 
                 tooltip:{
@@ -1053,7 +1053,7 @@ function generateChart_Barriere_dirette(values){
         labels: chart_labels,
         datasets: [
             {   
-                lable: 'red',
+                label: 'Barriera non efficace',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -1065,7 +1065,7 @@ function generateChart_Barriere_dirette(values){
                 
             },
             {   
-                label: 'yellow',
+                label: 'Barriera moderatamente efficace',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
@@ -1076,6 +1076,7 @@ function generateChart_Barriere_dirette(values){
                 hitRadius: 0
             },
             {   
+                label: "Barriera efficace",
                 data: [1,1,1,1,1,1],
                 backgroundColor : green_transp,
                 borderColor :  '#00000000',
@@ -1149,7 +1150,7 @@ function generateChart_Barriere_dirette(values){
                 text: 'Barriere Dirette'
                 },
                 legend: {
-                    display: false
+                    display: true
                 },            
             }   
         },
@@ -1296,7 +1297,7 @@ function generateChart_Barriere_Salvaguardia(values){
         labels: chart_labels,
         datasets: [
             {   
-                lable: 'red',
+                label: 'Barriera non efficace',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -1308,7 +1309,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 
             },
             {   
-                label: 'yellow',
+                label: 'Barriera moderatamente efficace',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
@@ -1319,6 +1320,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 hitRadius: 0
             },
             {   
+                label: 'Barriera efficace',
                 data: [1,1,1,1,1,1,1],
                 backgroundColor : green_transp,
                 borderColor :  '#00000000',
@@ -1391,7 +1393,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 text: 'Barriere Salvaguardia'
                 },
                 legend: {
-                    display: false
+                    display: true
                 },            
             }   
         },
