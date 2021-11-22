@@ -1232,8 +1232,8 @@ function generateBarChart_BD(values){
                           },
                         
                     },                    
-                    min : '-1',
-                    max: 2,
+                    min : 0,
+                    max: 1,
                     ticks:{
                         stepSize : 0.7,
                         display:false,
@@ -1473,8 +1473,8 @@ function generateBarChart_BS(values){
                             return '#00000000';
                           },
                     },                    
-                    min : '-1',
-                    max: 2,
+                    min : 0,
+                    max: 1,
                     ticks:{
                         stepSize: 0.7,
                         display:false,
