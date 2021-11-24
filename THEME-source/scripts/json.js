@@ -42,6 +42,29 @@ var currentPage = document.getElementById("title").innerText
 showUpdate()
 updatePage(report)
 
+
+function decodeEntities (str){
+    // this prevents any overhead from creating the object each time
+    var element = document.createElement('div');
+  
+    function decodeHTMLEntities (str) {
+      if(str && typeof str === 'string') {
+        // strip script/html tags
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+        element.innerHTML = str;
+        str = element.textContent;
+        element.textContent = '';
+      }
+  
+      return str;
+    }
+  
+    return decodeHTMLEntities(str);
+  }
+  
+
+
 function updatePage(report){
     // con dati modifica tutti i campi nella pagina
     if(currentPage != ""){
@@ -52,6 +75,9 @@ function updatePage(report){
         Object.keys(report[currentPage]).forEach(function(key) {
             //console.log('Key : ' + key + ', Value : ' + report[currentPage][key])
             if(document.getElementById(key)){
+                if (typeof report[currentPage][key] === 'string' || report[currentPage][key] instanceof String)
+                    report[currentPage][key] = decodeEntities(report[currentPage][key])
+               
                 document.getElementById(key).value = report[currentPage][key]
             }
             
@@ -65,6 +91,7 @@ function updatePage(report){
 function updateJSONevent(e){
     var field = e.target.id;
     var data = e.target.value;
+
     updateJSON(field,data)
     //In update results le tabelle alla fine di ogni pagina vengono riempite
     updateResults(currentPage, report) 

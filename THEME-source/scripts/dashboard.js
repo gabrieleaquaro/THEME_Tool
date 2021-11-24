@@ -403,7 +403,7 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_2").style.backgroundColor = color; 
         }
         if(report['prob_errore']['DescrizioneTask']){
-            document.getElementById("task_description").innerText = report['prob_errore']['DescrizioneTask']
+            document.getElementById("task_description").innerHTML = report['prob_errore']['DescrizioneTask']
         }
 
 
