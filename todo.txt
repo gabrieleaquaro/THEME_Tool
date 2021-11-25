@@ -1,20 +1,13 @@
 1. 
-2. 
-3.  Creare tabella in risultati : alla fine di tutto nel seguente modo:
-    |                 |                                      |              |
-    | Prob_Error_adj  |  Prob_Error_adj_in funzione val cult | Risultato    |
-    |                 |                                      |              |
+2. Controllare Legende PSF (non ci deve eseere "sulla probabilità di errore" scritto, era in una delle mail ma non so se c'è
+3. togliere colori da Interverni -> valori culturali (no rosso verde ma solo grigino/nero)
 
-    Colori background : valore ordine di grandezza di 0.001 -> giallo, ordine più piccolo --> verde , ordine più grande --> rosso 
-    Risultato : positivo / negativo (background verde se secondo verde)
 
-V	Titolo “Probabilità d’errore” da sostituire con “Performance Shaping Factors – PSF”
-V	Nell’archivio sostituire MODIFCA con APRI 
-V	Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
+Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
 V	PSF:
-        ROSSO: PSF con effetto negativo sulla probabilità d’errore
-        GIALLO: PSF con basso effetto negativo sulla probabilità d’errore
-        VERDE: PSF con effetto positivo o neutro sulla probabilità d’errore
+        ROSSO: PSF con effetto negativo 
+        GIALLO: PSF con basso effetto negativo 
+        VERDE: PSF con effetto positivo o neutro
 V	BARRIERE:
         ROSSO: Barriera non efficace
         GIALLO: Barriera moderatamente efficace
