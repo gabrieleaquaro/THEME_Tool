@@ -1,7 +1,5 @@
 1. 
 2. Controllare Legende PSF (non ci deve eseere "sulla probabilità di errore" scritto, era in una delle mail ma non so se c'è
-3. togliere colori da Interverni -> valori culturali (no rosso verde ma solo grigino/nero)
-
 
 Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
 V	PSF:
