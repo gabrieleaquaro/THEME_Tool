@@ -590,10 +590,10 @@ function updateInterventi_results(report){
         document.getElementById(group+"_icon").style.display = "Block"
         var el = document.getElementById(group + '_title');           
           
+        el.parentElement.style.backgroundColor = 'rgba(255,153,0,0.4)';
+        el.style.color = '#000';
         //Modify the Title
         if(value == 'H'){
-            el.parentElement.style.backgroundColor = redTrasparent;
-            el.style.color = red;
             el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
         }
     
