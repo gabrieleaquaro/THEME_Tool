@@ -764,7 +764,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                label: 'PSF con effetto negativo sulla probabilità d’errore',
+                label: 'PSF con effetto negativo',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -775,7 +775,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'PSF con basso effetto negativo sulla probabilità d’errore',
+                label: 'PSF con basso effetto negativo',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -786,7 +786,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                label: 'PSF con effetto positivo o neutro sulla probabilità d’errore',
+                label: 'PSF con effetto positivo o neutro',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
