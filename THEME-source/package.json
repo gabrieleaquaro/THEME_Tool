@@ -17,13 +17,7 @@
       "target": [
         "nsis"
       ],
-      "icon": "icon.ico",
-      "certificateSubjectName": "Gabriele Aquaro",
-      "signingHashAlgorithms": [
-        "sha256"
-      ],
-      "publisherName": "Gabriele Aquaro",
-      "signAndEditExecutable": true
+      "icon": "icon.ico"
     },
     "nsis": {
       "oneClick": true,
