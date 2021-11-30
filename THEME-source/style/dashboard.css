@@ -319,6 +319,12 @@ body {
   border-radius: 25px;
 }
 
+.category_title_VC{
+  background-color: rgba(255,153,0,0.4);
+  border-radius: 25px;
+  color: #000;
+}
+
 .popover-body{
   max-height: 250px;
   overflow-y: auto;

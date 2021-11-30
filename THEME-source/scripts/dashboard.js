@@ -590,10 +590,9 @@ function updateInterventi_results(report){
         document.getElementById(group+"_icon").style.display = "Block"
         var el = document.getElementById(group + '_title');           
           
+        el.style.color = '#000';
         //Modify the Title
         if(value == 'H'){
-            el.parentElement.style.backgroundColor = redTrasparent;
-            el.style.color = red;
             el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
         }
     
@@ -764,7 +763,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                label: 'PSF con effetto negativo sulla probabilità d’errore',
+                label: 'PSF con effetto negativo',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -775,7 +774,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'PSF con basso effetto negativo sulla probabilità d’errore',
+                label: 'PSF con basso effetto negativo',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -786,7 +785,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                label: 'PSF con effetto positivo o neutro sulla probabilità d’errore',
+                label: 'PSF con effetto positivo o neutro',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',

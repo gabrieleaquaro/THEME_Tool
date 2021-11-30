@@ -17,13 +17,7 @@
       "target": [
         "nsis"
       ],
-      "icon": "icon.ico",
-      "certificateSubjectName": "Gabriele Aquaro",
-      "signingHashAlgorithms": [
-        "sha256"
-      ],
-      "publisherName": "Gabriele Aquaro",
-      "signAndEditExecutable": true
+      "icon": "icon.ico"
     },
     "nsis": {
       "oneClick": true,
@@ -40,7 +34,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "electron": "^16.0.1",
+    "electron": "^16.0.2",
     "electron-builder": "^22.13.1"
   },
   "dependencies": {

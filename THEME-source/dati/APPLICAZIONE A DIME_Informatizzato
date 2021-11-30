@@ -192,11 +192,11 @@
         "barriere_salvaguardia_7_10": "1.0"
     },
     "valori_culturali": {
-        "Individualismo": "0.33",
-        "DistPotere": "0.33",
-        "RigeIncertezza": "1",
-        "Mascolinità": "0.33",
-        "Orientamento": "0.67",
+        "Individualismo": 0.33,
+        "DistPotere": 0.33,
+        "RigeIncertezza": 1,
+        "Mascolinità": 0.33,
+        "Orientamento": 0.67,
         "valori_culturali_1_1": "0",
         "valori_culturali_1_2": "1.0",
         "valori_culturali_1_3": "0",
