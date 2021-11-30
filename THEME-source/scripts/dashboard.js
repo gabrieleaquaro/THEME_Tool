@@ -399,7 +399,7 @@ function updateRisultati_results(report){
         if(report['prob_errore']['ProbErroreAdj'] != undefined){
             document.getElementById("ProbErroreAdj_2").innerText = report['prob_errore']['ProbErrore']
             value = report['prob_errore']['ProbErrore']
-            let color = value <= 0.0001 ? green_transp : value >= 0.01  ? red_transp  : yellow_transp;
+            let color = value < 0.001 ? green_transp : value > 0.01  ? red_transp  : yellow_transp;
             document.getElementById("ProbErroreAdj_2").style.backgroundColor = color; 
         }
         if(report['prob_errore']['DescrizioneTask']){
@@ -536,7 +536,7 @@ function updateRisultati_results(report){
             document.getElementById("ProbErroreAdj_barriere_valori_2").innerText = Math.round(ProbErroreAdj_barriere_valori * 1000000) / 1000000;
             value= ProbErroreAdj_barriere_valori
             colori = [green_transp,yellow_transp,red_transp]
-            let i = value <= 0.0001 ? 0 : value >= 0.01  ? 2  : 1;
+            let i = value < 0.001 ? 0 : value > 0.01  ? 2  : 1;
             document.getElementById("ProbErroreAdj_barriere_valori_2").style.backgroundColor = colori[i]; 
             
             commenti = ["Risultato positivo – da mantenere: almeno un ordine di grandezza inferiore al target","Risultato da attenzionare”: dello stesso ordine di grandezza del target","Risultato da migliorare: almeno un ordine di grandezza superiore al target"]
