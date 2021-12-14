@@ -1,5 +1,36 @@
 {
     "name": "prova",
     "date": 1638101582478,
-    "dateToPrint": "28/11/2021"
+    "dateToPrint": "28/11/2021",
+    "valori_culturali": {
+        "Individualismo": 1,
+        "DistPotere": 0.67,
+        "RigeIncertezza": 0.33,
+        "Mascolinità": 0.67,
+        "Orientamento": 0,
+        "valori_culturali_1_1": "1.0",
+        "valori_culturali_1_2": "1.0",
+        "valori_culturali_1_3": "1.0",
+        "valori_culturali_2_1": "0",
+        "valori_culturali_2_2": "1.0",
+        "valori_culturali_2_3": "1.0",
+        "valori_culturali_3_1": "0",
+        "valori_culturali_3_2": "0",
+        "valori_culturali_3_3": "1.0",
+        "valori_culturali_4_1": "0",
+        "valori_culturali_4_2": "1.0",
+        "valori_culturali_4_3": "1.0",
+        "valori_culturali_5_1": "0",
+        "valori_culturali_5_2": "0",
+        "valori_culturali_5_3": "0"
+    },
+    "barriere_salvaguardia": {
+        "CompNonTechSicurezza": "-",
+        "CompTechSicurezza": "-",
+        "MotivazioneSicurezza": "-",
+        "CittadinanzaSicurezza": "-",
+        "ValutazioneSicurezza": "-",
+        "LeaderHSE": "-",
+        "ClimaHSE": "-"
+    }
 }

@@ -344,9 +344,9 @@ function updateRisultati_results(report){
         elements.forEach(function(key){
             if(report['valori_culturali'][key] != null && report['valori_culturali'][key] != '-' ){
                 let value = report['valori_culturali'][key];
-                if(Math.round(value*100)/100 > 0.66){
+                if(Math.round(value*100)/100 > 0.68){
                     document.getElementById(key).innerText = "VH"
-                }else if(Math.round(value*100)/100 > 0.33){
+                }else if(Math.round(value*100)/100 > 0.34){
                     document.getElementById(key).innerText = "H"
                 }else if(Math.round(value*100)/100 > 0){
                     document.getElementById(key).innerText = "L"
