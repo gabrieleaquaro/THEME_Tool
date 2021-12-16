@@ -763,7 +763,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                label: 'PSF con effetto negativo',
+                label: 'Effetto negativo',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -774,7 +774,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'PSF con basso effetto negativo',
+                label: 'Basso effetto negativo',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -785,7 +785,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                label: 'PSF con effetto positivo o neutro',
+                label: 'Effetto positivo o neutro',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
@@ -796,7 +796,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {
-                label: '',
+                label: 'Valore',
                 data: chart_data,
                 borderColor: '#000',
                 backgroundColor: '#a6a6a600',
@@ -860,7 +860,13 @@ function generateChart_PSF(values){
                 text: 'PSF'
                 },
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        filter: function(item, chart) {
+                            // Logic to remove a particular legend item goes here
+                            return !item.text.includes('Valore');
+                        }
+                    }
                 },
                 
                 tooltip:{
@@ -1149,7 +1155,13 @@ function generateChart_Barriere_dirette(values){
                 text: 'Barriere Dirette'
                 },
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        filter: function(item, chart) {
+                            // Logic to remove a particular legend item goes here
+                            return !item.text.includes('Valore');
+                        }
+                    }
                 },            
             }   
         },
@@ -1386,7 +1398,13 @@ function generateChart_Barriere_Salvaguardia(values){
                 text: 'Barriere Salvaguardia'
                 },
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        filter: function(item, chart) {
+                            // Logic to remove a particular legend item goes here
+                            return !item.text.includes('Valore');
+                        }
+                    }
                 },            
             }   
         },
@@ -1593,7 +1611,7 @@ function generateChart_Valori_Culturali(values){
                 text: 'Valori Culturali'
                 },
                 legend: {
-                    display: false
+                    display: false,
                 },         
             }   
         },
