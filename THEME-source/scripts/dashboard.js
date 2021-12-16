@@ -796,7 +796,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {
-                label: 'Valore',
+                label: '',
                 data: chart_data,
                 borderColor: '#000',
                 backgroundColor: '#a6a6a600',
