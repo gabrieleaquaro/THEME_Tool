@@ -1,7 +1,7 @@
 {
   "name": "Theme",
   "productName": "Theme",
-  "version": "1.2.0",
+  "version": "2.0",
   "description": "THEME tool",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "electron-builder"
   },
   "build": {
-    "appId": "Theme",
+    "appId": "Theme_ENG",
     "extraFiles": [
       "annex_interventi.json"
     ],

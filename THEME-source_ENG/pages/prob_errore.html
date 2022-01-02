@@ -38,12 +38,12 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="../index.html">
                   <span data-feather="home"></span>
-                  Introduzione 
+                  Home 
                 </a>
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Report Corrente</span>
+              <span>Current Report</span>
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item" id="current_report_title_li">
@@ -52,77 +52,77 @@
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Modifica Report</span>
+              <span>Modify Report</span>
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="#">
                   <span data-feather="alert-triangle"></span>
-                  Performance Shaping Factors – PSF
+                  Performance Shaping Factors
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./barriere_dirette.html">
                   <span data-feather="code"></span>
-                  Barriere Dirette
+                  Direct Barriers
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./barriere_salvaguardia.html">
                   <span data-feather="life-buoy"></span>
-                  Barriere Salvaguardia
+                  Safeguard Barriers
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./valori_culturali.html">
                   <span data-feather="bar-chart-2"></span>
-                  Valori Culturali 
+                  Cultural Values
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./risultati.html">
                   <span data-feather="activity"></span>
-                  Risultati
+                  Results
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./interventi.html">
                   <span data-feather="layers"></span>
-                  Interventi
+                  Interventions
                 </a>
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Storico Reports</span>
+              <span>Reports History</span>
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="./reports.html">
                   <span data-feather="file-text"></span>
-                  Archivio
+                  Archive
                 </a>
               </li>
             </ul>       
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Salvataggio Reports</span>
+              <span>Reports Save</span>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
                   <span data-feather="file-plus"></span>
-                  Nuovo Report
+                  New Report
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" onclick="save()">
                   <span data-feather="download"></span>
-                  Scarica Report
+                  Download Report
                 </a>
               </li>
               <li class="nav-item">
                 <label for="file-loader" class="nav-link">
                   <span data-feather="upload"></span>
-                  Carica Report
+                  Load Report
                 </label>
                 <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
               </li>
@@ -131,13 +131,13 @@
         </nav>
 
         <!-- SNACKBARS BLOCK -->
-        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        <div id="snackbar">New report ready to be modified!</div>
         
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="padding-bottom: 50px;">
 
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="colorized">VALUTAZIONE DELLA PROBABILITÀ DI ERRORE </h1>
+            <h2 class="colorized">EVALUATION OF PROBABILITY OF HUMAN ERROR </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
@@ -150,7 +150,7 @@
             <div class="row">
               <div class="col ms-sm-auto"> 
                   <div class="form-group">
-                    <label for="DescrizioneTask" class = "lead">Descriva il compito rilevante per la sicurezza nel sito di osservazione:</label>
+                    <label for="DescrizioneTask" class = "lead">Describe the safety-relevant task observed at the site:</label>
                     <textarea class="form-control" id="DescrizioneTask" rows="3" onchange="updateJSONevent(event)" ></textarea>
                   </div>
               </div>
@@ -160,30 +160,30 @@
             <!-- Tipo Task Selector  -->
             <div class="row"> 
                 <div class="form-group">
-                  <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
-                  <small>Selezioni il tipo di compito dal menù a tendina.</small>
+                  <label for="TipoTask" class = "lead">What is the task? </label>
+                  <small>Select the type of task from the dropdown</small>
                   <div style="display:inline;">
-                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='In caso un compito non sia classificabile nelle tipologie <i>A-F</i>: Selezionare <i>H1</i> o <i>H2</i>'>
+                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content=' If a task cannot be classified according to the types <i>A-F</i>: Select <i>H1</i> o <i>H2</i>'>
                       <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                     </a>
                   </div>
                   <div >
                     <select id="TipoTask" onchange="updateJSONevent(event)" style="width:100%;">
-                      <option value="-" selected>Tipo di Compito</option>
-                      <option value="0.55">A: Completamente sconosciuto, eseguito a ritmo sostenuto. (0.55) </option>
-                      <option value="0.26">B: Ripristino dello stato di un sistema, in un singolo tentativo, senza supervisione. (0.26)</option>
-                      <option value="0.16">C: Elaborato e richiedente un alto livello di comprensione e di abilità. (0.16) </option>
-                      <option value="0.02">D: Compito di routine richiedente un livello di abilità relativamente basso. (0.02) </option>
-                      <option value="0.003">E: Ripristino dello stato di un sistema seguendo un procedimento ed eseguendo controlli. (0.003) </option>
-                      <option value="0.00002">F: Risposta ad un comando in presenza di un sistema di assistenza o di supervisione automatica. (0.0002) </option>
-                      <option value="0.01">H1: Diagnostico (0.01) (richiede di comprendere le condizioni esistenti, pianificare e dare priorità alle attività e determinare le linee d'azione appropriate). </option>
-                      <option value="0.001">H2: Compito operativo (0.001) (ad es. l'utilizzo di apparecchiature, l'esecuzione di allestimenti, l'avvio di pompe, l'esecuzione di calibrazioni o test, etc.).</option>
+                      <option value="-" selected>Type of task</option>
+                      <option value="0.55">A: Completely unknown task, performed at a fast pace. (0.55) </option>
+                      <option value="0.26">B: Restore/Change the state of a system , in one attempt, without supervision. (0.26)</option>
+                      <option value="0.16">C: Complicated task requiring a high level of understanding and skill. (0.16) </option>
+                      <option value="0.02">D: Routine task requiring a relatively low level of skill. (0.02) </option>
+                      <option value="0.003">E: Restore/Change the state of a system following a procedure and performing checks. (0.003) </option>
+                      <option value="0.00002">F: Response to a command with an automatic assistance system or supervision system. (0.0002) </option>
+                      <option value="0.01">H1: Diagnostic task (0.01) (Mainly requires the understanding of the existing conditions, planning, prioritising activities and determining the appropriate lines of action). </option>
+                      <option value="0.001">H2: Operational task (0.001) (Ex. the use of equipment, the performance of set-ups, the start-up of pumps, the performance of calibrations or tests).</option>
                     </select>
                   </div>
       
                 </div>
                 <div class="form-group">
-                  <label>Note:</label>
+                  <label>Notes:</label>
                   <textarea id="TipoTask_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
                 </div>  
             </div>
@@ -194,36 +194,35 @@
           <br><br>
         
           <div class = "section bg-light-section">
-            <div class="row" style="margin-bottom: 20px;"> 
-              <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4> 
+            <div class="row" style="margin-bottom: 20px;"> Rate each Performance Shaping Factor (PSF) from the dropdown</h4> 
             </div>
             <div class="row">
               <div class="col-4">
-                <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+                <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Available time: </label>
                 <a href="#." id="TempoDisponibile_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
-                  <div><small><b>Tempo Insufficiente</b>: l&#39;operatore/gli operatori non hanno abbastanza tempo per eseguire il compito. Si riscontra una pressione temporale che impedisce di svolgere l’attività nella maniera corretta e più sicura. Le attività programmate hanno un ritmo frenetico e non ci sono margini di tempo per gestire eventuali ritardi o anomalie. Il tempo è scarso ed alcune scorciatoie sono prese in modo routinario.  </small> <div>
-                  <div><small><b>Tempo Minimo Necessario</b>: il tempo a disposizione è uguale al tempo minimo necessario per eseguire il compito. Gli operatori hanno una forte pressione temporale e hanno appena il tempo necessario per svolgere l’attività. Non ci sono margini di tempo per gestire eventuali ritardi o anomalie. </small></div>  
-                  <div><small><b>Tempo Limitato</b>: l&#39;operatore/gli operatori hanno a disposizione un tempo limitato per eseguire il compito. Il tempo disponibile è comunque superiore (di circa tre volte) al tempo minimo richiesto per eseguire il compito. Vi è un minimo margine di tempo per gestire eventuali ritardi o anomalie di lieve entità.</small></div>
-                  <div><small><b>Tempo come previsto</b>: il tempo a disposizione è più che sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è sufficientemente superiore (di circa sei volte) al tempo minimo richiesto per eseguire il compito. Vi è un adeguato margine a gestire in totale sicurezza eventuali ritardi o anomalie di diversi tipi.  </small></div>  
-                  <div> <small><b>Tempo Extra</b>:il tempo a disposizione è abbondantemente sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è considerevolmente superiore (di circa 10 volte) al tempo minimo richiesto per eseguire il compito. Vi è un abbondante margine di tempo per gestire eventuali anomalie o ritardi di qualsiasi tipo. </small></div>
+                  <div><small><b>Insufficient time</b>: The operators don&#39;t have enough time to execute the task. It&#39;s impossible to execute the task safely due to the time shortage. The tasks are planned without leaving space to handle problems or anomalies. Shortcuts are taken as a routine .  </small> <div>
+                  <div><small><b>Minimum time required</b>: The available time is exactly the minimum needed to execute the task. There is a strong time pressure and there is barely enough time to execute the task. No time is left to handle anomalies. </small></div>  
+                  <div><small><b>Limited time</b>: The time to do the task is limited. The available time is still higher than the neeeded one (About x3 times). There is a short time to handle anomalies or problems.</small></div>
+                  <div><small><b>Time as expected</b>: Available time is more than enough to end the task. Available time is about 6 times higher than the needed one. There is enough time to handle anomlies and problems.</small></div>  
+                  <div> <small><b>Extra time</b>:Available time is about 10 times higher than the neeeded one. There is enough time to handle problems and anomalies of any kind.</small></div>
                   '>
                   <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                 </a>
               </div>
               <div class="col-8">
                 <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="-" selected>Livello di Valutazione</option>
-                  <option value="100">Tempo insufficente </option>
-                  <option value="50">Tempo minimo necessario </option>
-                  <option value="10">Tempo Limitato </option>
-                  <option value="1.0">Tempo preventivato </option>
-                  <option value="0.1">Tempo Extra </option>  
-                  <option value="1">Info non disponibili</option>
+                  <option value="-" selected>Evaluation</option>
+                  <option value="100">Insufficient time</option>
+                  <option value="50">Minimum time required</option>
+                  <option value="10"> Limited time </option>
+                  <option value="1.0">Time as expected </option>
+                  <option value="0.1">Extra time </option>  
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="TempoDisponibile_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -231,12 +230,12 @@
             <br>
             <div class="row">
               <div class="col-4">
-                <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
+                <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Threat Stress (Perceived Risk): </label>
                 <div style="display:inline;">
                   <a href="#." id="StressDaMinaccia_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
-                  <div><small><b>Compito molto pericoloso:</b> l’attività in oggetto è particolarmente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione le probabilità che si verifichi un evento avverso sono alte e le conseguenze in caso si verifichi tale evento sono gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
-                  <div><small><b>Compito moderatamente pericoloso: </b> l’attività in oggetto è moderatamente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono moderate e le conseguenze in caso si verifichi tale evento sono moderatamente gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
-                  <div><small><b>Compito non pericoloso:</b> l’attività in oggetto non presenta particolari elementi pericolosi per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono estremamente basse e le conseguenze in caso si verifichi tale evento sono trascurabili. Gli operatori coinvolti, a livello generale, hanno un’adeguata percezione dei rischi connessi all’attività.</small></div>
+                  <div><small><b>Very dangerous :</b> The task is very dangerous for the health of the operator or for the people around him. In this situation the probability of an accident is high and the consequences are very serious. Generally the operators underestimate the task danger.</small></div>
+                  <div><small><b>Moderately dangerous: </b> The task is moderately dangerous for the health of the operator or for the people around him. In this situation the probability of an accident is normal and the consequences are moderately serious. Generally the operators correctly evaluate the task danger.</small></div>
+                  <div><small><b>Non-Dangerous:</b> The task is not dangerous for the health of the operator or for the people around him. In this situation the probability of an accident are extremely low and the consequences are neglectable. Generally the operators correctly evaluate the task danger.</small></div>
                   '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
@@ -244,16 +243,16 @@
               </div>
               <div class="col-8">
                 <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="-" selected>Livello di Valutazione</option>
-                  <option value="5">Molto Pericoloso </option>
-                  <option value="2">Moderatamente Pericoloso </option>
-                  <option value="1.0">Non Pericoloso</option>
-                  <option value="1">Info non disponibili</option>
+                  <option value="-" selected>Evaluation</option>
+                  <option value="5">Very dangerous </option>
+                  <option value="2">Moderately dangerous </option>
+                  <option value="1.0">Non-Dangerous</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea  id="StressDaMinaccia_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -261,30 +260,30 @@
             <br>
             <div class="row">
               <div class="col-4">
-                <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
+                <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complexity of the Task: </label>
                 <div style="display:inline;">
                   <a href="#." id="ComplessitàTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
-                  <div><small><b>Compito molto complesso: </b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono in maniera significativa ad aumentare la complessità del compito ed influenzano le prestazioni in modo molto negativo.</small></div>                  
-                  <div><small><b>Compito moderatamente complesso:</b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono ad aumentare la complessità del compito ed influenzano negativamente le prestazioni.</small></div>
-                  <div><small><b>Compito non complesso: </b>Il compito non è significativamente complesso o comunque la sua complessità non influisce sulle prestazioni dell’operatore.</small></div>
-                  <div><small><b>Compito semplificato: </b>il compito è notevolmente semplificato e se si dovesse presentare un’anomalia sarebbe talmente evidente da rendere molto difficile che un operatore esegua una diagnosi errata.</small></div>'>
+                  <div><small><b>Very complex: </b> one or more elements (objective, size, steps, connections, structure, dynamicity) significantly contribute to increase the complexity of the task and decrease the performance.</small></div>                  
+                  <div><small><b>Moderately complex task:</b> One of more elements increase the complexity of the task, decreasing the performance.</small></div>
+                  <div><small><b>Non-complex task: </b> the task is not particularly complex and anyways it&#39;s complexity doesn&#39;t effect the execution.</small></div>
+                  <div><small><b>Simplified task: </b>The task is very simplified and in case of anomalies, the probability of a wrong evaluation is very low.</small></div>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
                   </a>
                 </div>
               </div>
               <div class="col-8">
                 <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
-                  <option value="-" selected>Livello di Valutazione</option>
-                  <option value="50">Molto Complesso </option>
-                  <option value="10">Moderatamente Complesso </option>
-                  <option value="1.0">Non Complesso</option>
-                  <option value="0.1">Semplificato</option>
-                  <option value="1">Info non disponibili</option>
+                  <option value="-" selected>Evaluation</option>
+                  <option value="50">Very complex </option>
+                  <option value="10">Moderately complex </option>
+                  <option value="1.0">Non-complex</option>
+                  <option value="0.1">Simplified</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="ComplessitàTask_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
               </div>
             </div>
@@ -292,13 +291,13 @@
             <br>
             <div class="row justify-content-center align-self-center">
               <div class="col-4">
-                <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
+                <label for="Esperienza" class = "lead" style="margin-top: -10px;"> Experience/Training: </label>
                 <div style="display:inline;">
                   <a href="#." id="Esperienza_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='                
-                  <div><small><b>Conoscenze o abilità in contrasto con il comportamento corretto:</b> Gli operatori possiedono conoscenze o abilità apprese durante la formazione l’esperienza che non favoriscono comportamenti sicuri e corretti in questo compito nello specifico scenario. Un esempio potrebbe essere che gli operatori, durante l&#39;esperienza o la formazione, hanno sviluppato un’idea non appropriata riguardo lo sviluppo di uno scenario e hanno appreso comportamenti che non si adattano allo scenario in questione. Oppure operatori che non comprendono il motivo delle numerose regole da seguire (es. il toolbox talk).</small></div>
-                  <div><small><b>Nessuna esperienza o formazione specifica:</b> Gli operatori non hanno alcuna esperienza o formazione e non hanno le conoscenze e le competenze necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione generica in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
-                  <div><small><b>Poca esperienza o formazione specifica:</b>Gli operatori hanno poca esperienza/formazione e hanno poche conoscenze ed esperienza necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione sufficiente in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
-                  <div><small><b>Esperienza e formazione come previsto:</b> Gli operatori hanno un’adeguata esperienza e formazione riguardo il compito e sono in grado di svolgerlo in maniera sicura e corretta. Il compito è stato svolto l’ultima volta non più di 12 mesi prima. </small></div>
+                  <div><small><b>Knowledge or skills contrary to correct behaviour:</b> The operators have knowledge or skills makng the task execution unsafe. for example the operators during the training, could have made a wrong idea about one specific scenario and now they behave in an unsafe way. Or the operators don’t understand some rules.  (ex. toolbox talk).</small></div>
+                  <div><small><b>No specific experience or training:</b> The operators have no expertience or training and so they don’t have the knowledge and the needed skills to be prepared and to execute the task safely. The operator have a generic knowledge about the task, but they never did it in the last 12 months.</small></div>
+                  <div><small><b>Little specific experience or training:</b>The operators have little experience and knowledge to execute the task safely. They have been correctly trained for the task, but they haven‘t done it in the last 12 months.</small></div>
+                  <div><small><b>Extensive experience and training:</b>The operators have been correctly trained and have the knowledge to safely execute the task. They completed the task the last time less than 12 months ago. </small></div>
                   <div><small><b>Ampia esperienza e formazione: </b>Gli operatori hanno una vasta esperienza e/o formazione su questo compito e possiedono una vasta conoscenza per essere preparati a svolgere il compito in maniera corretta e sicura. Il compito è svolto in maniera frequente o almeno con cadenza trimestrale. </small></div>
                   '>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -308,17 +307,17 @@
               <div class="col-8">
                 <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
                   <option value="-" selected>Livello di Valutazione</option>
-                  <option value="100">Conoscenze o abilità in contrasto con il comportamento corretto</option>
-                  <option value="50">Nessuna esperienza o formazione specifica</option>
-                  <option value="15">Poca esperienza o formazione specifica</option>
-                  <option value="1.0">Esperienza e formazione come previsto</option>
+                  <option value="100">Knowledge or skills contrary to correct behaviour</option>
+                  <option value="50">No specific experience or training</option>
+                  <option value="15">Little specific experience or training</option>
+                  <option value="1.0">EExtensive experience and training</option>
                   <option value="0.1">Ampia esperienza e formazione </option>  
-                  <option value="1">Info non disponibili</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="Esperienza_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
               </div>
             </div>
@@ -347,12 +346,12 @@
                   <option value="5">Procedure insufficienti</option>
                   <option value="1.0">Procedure adeguate seguite</option>
                   <option value="0.5">Procedure chiare e dettagliate che vengono seguite</option>  
-                  <option value="1">Info non disponibili</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="Procedure_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
               </div>
             </div>
@@ -381,12 +380,12 @@
                   <option value="10">Appena Adeguata</option>
                   <option value="1.0">Adeguata</option>
                   <option value="0.5">Specificamente progettata per favorire la prestazione</option>  
-                  <option value="1">Info non disponibili</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="InterazioneUmanoMacchina_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
               </div>
             </div>
@@ -411,12 +410,12 @@
                   <option value="100">Condizioni impossibilitanti</option>
                   <option value="10">Condizioni avverse</option>
                   <option value="1.0">Contesto ambientale normale</option>
-                  <option value="1">Info non disponibili</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="ContestoAmbientale_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
               </div>
             </div>
@@ -441,12 +440,12 @@
                   <option value="100">Affaticamento elevato</option>
                   <option value="10">Affaticamento moderato</option>
                   <option value="1.0">Affaticamento normale</option>
-                  <option value="1">Info non disponibili</option>
+                  <option value="1">Information not available</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="Affaticamento_note" onchange="updateJSONevent(event)"  class="form-control" rows="1" ></textarea>
               </div>
             </div>
