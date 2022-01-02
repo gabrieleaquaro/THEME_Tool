@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>THEME Tool</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- Custom styles for this template -->
+    <link href="../style/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div style="display: none;" id="title">valori_culturali</div>
+    
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="../images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="../images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+ 
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./prob_errore.html">
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors – PSF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./risultati.html">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./interventi.html">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./reports.html">
+                  <span data-feather="file-text"></span>
+                  Archivio
+                </a>
+              </li>
+            </ul>      
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <label for="file-loader" class="nav-link">
+                  <span data-feather="upload"></span>
+                  Carica Report
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+        <!-- SNACKBARS BLOCK-->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="colorized">VALUTAZIONE DEI VALORI CULTURALI </h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
+              </div>
+            </div>
+          </div>
+          <p class="lead" style="margin-bottom: 30px;">
+            In base alle osservazioni dell’ambiente di lavoro condotte nel sito, inserisca il valore <b>Si</b> se l'affermazione rispecchia l'ambiente di lavoro e inserisca il valore <b>No</b> se non lo rispecchia.
+          </p>
+
+          <!-- Individualismo -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Individualismo".</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_1" style="margin-top: -4px;font-size: 16px;">Gli individui preferiscono lavorare individualmente piuttosto che in gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_2" style="margin-top: -4px;font-size: 16px;">Gli individui attribuiscono molta importanza alla salute e sicurezza dell'individuo piuttosto che quella del gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_1_3" style="margin-top: -4px;font-size: 16px;">Gli individui tendono a dare maggior valore a riconoscimenti individuali piuttosto che di gruppo.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_1_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Individualismo_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Dist dal potere -->
+          <div class ="section  bg-light-section">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Distanza dal potere". </h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_1" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più alte prendono la maggior parte delle decisioni senza chiedere l’opinione delle persone in posizioni più basse. </div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_2" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più basse accettano le decisioni prese delle persone in posizioni superiori.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select></div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div for="valori_culturali_2_3" style="margin-top: -4px;font-size: 16px;">Le persone in posizioni più alte danno per scontato atteggiamenti di remissione e obbedienza nei loro confronti.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_2_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select> </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="DistPotere_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Rigetto Incertezza -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Rigetto all'incertezza".           </h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">I lavoratori chiedono che le istruzioni siano spiegate in dettaglio.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">I lavoratori attribuiscono particolare importanza a pianificare il lavoro e ridurre gli imprevisti.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select></div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Le procedure di lavoro maggiormente standardizzate sono quelle più apprezzate dai lavoratori.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_3_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="RigeIncertezza_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Mascolinità -->
+          <div class ="section  bg-light-section">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Mascolinità". Inserisca <b>Sì</b> se l'affermazione è corretta.</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">Le posizioni di potere sono ricoperte prevalentemente da uomini.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+     
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">Il potere e la competizione sono più importanti della collaborazione e cooperazione.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">I problemi sono risolti con la negoziazione e il compromesso.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_4_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Mascolinità_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Orientamento a breve termine -->
+          <div class ="section ">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <div class="col">
+                <h4 class="colorized">Check list per valutare il valore culturale "Orientamento a breve termine". Inserisca <b>Sì</b> se l'affermazione è corretta.</h4>
+              </div>
+            </div>
+            
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Per i lavoratori è importante che i risultati siano immediati.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_1" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div  style="margin-top: -4px;font-size: 16px;">È data più importanza a progetti che consentono un guadagno immediato.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_2" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row" style ="margin-bottom: 20px;">
+              <div class="col-8">
+                <div style="margin-top: -4px;font-size: 16px;">Le decisioni prese sono legate alla tradizione e ciò che è stato fatto in passato.</div>
+              </div>
+              <div class="col-4">
+                <select id="valori_culturali_5_3" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="1" selected>Livello di Valutazione</option>
+                  <option value="1.0">Sì</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+  
+            <div class="row">
+              <div class="col-12" alight ="right">
+                <div align="right">
+                  <h5> Totale: <span id="Orientamento_1">-</span></h5>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+          <!-- RISULTATI -->
+          <div class ="section bg-light-section ">
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <h4 class="colorized"  > Punteggi Totali</h6>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Individualismo</th>
+                    <th scope="col">Distanza del potere</th>
+                    <th scope="col">Rigetto all'incertezza</th>
+                    <th scope="col">Mascolinità</th>
+                    <th scope="col">Orientamento a breve termine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="Individualismo"> - </td>
+                    <td id="DistPotere"> -  </td>
+                    <td id="RigeIncertezza"> - </td>
+                    <td id="Mascolinità"> - </td>
+                    <td id="Orientamento"> -  </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+  
+          </div>
+
+        </main>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                  
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>
+  </body>
+</html>

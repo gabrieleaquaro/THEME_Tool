@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>THEME Tool</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- Custom styles for this template -->
+    <link href="../style/dashboard.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div style="display: none;" id="title">risultati</div>
+
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="../images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="../images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./prob_errore.html">
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors – PSF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./valori_culturali.html">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./interventi.html">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./reports.html">
+                  <span data-feather="file-text"></span>
+                  Archivio
+                </a>
+              </li>
+            </ul>      
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report 
+                </a>
+              </li>
+              <li class="nav-item">
+                <label for="file-loader" class="nav-link">
+                  <span data-feather="upload"></span>
+                  Carica Report
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- SNACKBARS BLOCK -->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 50px;">
+          <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="colorized">RISULTATI 
+                <a href="#." onclick="print()" on data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-placement="bottom" data-bs-content='Save the results to PDF'>
+                  <span style="width: 30px;height: 30px;color: #747474; margin: 4px;" data-feather="printer"></span>
+                </a>
+            </h2>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="toPrint">
+            <!-- PSF-->
+            <div class="row my-auto">
+              <div class="col-5 my-auto" >
+                <div class="table-responsive">
+                  <table id="tablePSF" class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized">PSF</th>
+                        <th scope="col" class="colorized text-end">Valore</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Tempo disponibile</td>
+                        <td id="TempoDisponibie" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Stress da minaccia</td>
+                        <td id="StressDaMinaccia"  class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Complessità del Compito</td>
+                        <td id="ComplessitàTask" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Esperienza/ Formazione</td>
+                        <td id = "Esperienza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Procedure</td>
+                        <td id="Procedure" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Interazione Umano-Macchina</td>
+                        <td id="InterazioneUmanoMacchina" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Contesto Ambientale</td>
+                        <td id="ContestoAmbientale" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Affaticamento</td>
+                        <td id="Affaticamento" class="text-end"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-7 my-auto">
+                <a href="#." onclick='saveChart("chart_PSF")'>
+                  <span  class ="save-btn d-print-none" data-feather="save"></span>
+                </a>
+                <a role="button" data-bs-toggle="modal" data-bs-target="#PSFExpansion">
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
+                </a>
+                <canvas id="chart_PSF" style ="max-height:50vh !important;"></canvas>
+              </div>           
+            </div> 
+            <div class = "row my-auto">
+              <canvas id="chart_PSF_Bar" style ="max-height:50vh !important;"></canvas>
+            </div> 
+
+            <hr>
+            <!-- Barriere dirette-->
+            <div class="row my-auto">
+              <div class="col-5 my-auto" >
+                <div class="table-responsive">
+                  <table class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized">Barriere Dirette</th>
+                        <th scope="col" class="colorized  text-end" >Valore</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Prestazione sicura rispetto ai compiti</td>
+                        <td id="PrestSicuraCompiti" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Adesione alle norme/procedure di sicurezza</td>
+                        <td id="Adesione" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Prestazione sicura orientata al contesto</td>
+                        <td id="PrestSicuraContesto" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Partecipazione attiva alla sicurezza</td>
+                        <td id = "Partecipazione" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Lavoro di squadra</td>
+                        <td id="LavoroSquad" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Comunicazione inerente la sicurezza</td>
+                        <td id="Comunicazione" class="text-end"></td>
+                      </tr>
+    
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-7 my-auto">
+                <a href="#." onclick='saveChart("chart_barriere_dirette")'>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
+                </a>
+                <a role="button" data-bs-toggle="modal" data-bs-target="#CBD_Expansion">
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
+                </a>
+                <canvas id="chart_barriere_dirette" style = "max-height:50vh !important;"></canvas>
+              </div>
+            </div> 
+            <div class = "row my-auto">
+              <canvas id="chart_BD_Bar" style ="max-height:50vh !important;"></canvas>
+            </div> 
+            <hr>
+            <!-- Barriere salvaguardia-->
+            <div class="row my-auto">
+              <div class="col-5 my-auto" >
+                <div class="table-responsive">
+                  <table class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized">Barriere Salvaguardia</th>
+                        <th scope="col" class="colorized text-end">Valore</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Competenze non-tecniche di sicurezza</td>
+                        <td id="CompNonTechSicurezza" class="text-end" ></td>
+                      </tr>
+                      <tr>
+                        <td>Competenze tecniche di sicurezza</td>
+                        <td id="CompTechSicurezza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Motivazione alla sicurezza</td>
+                        <td id="MotivazioneSicurezza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Cittadinanza organizzativa di sicurezza</td>
+                        <td id = "CittadinanzaSicurezza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Valutazione e sviluppo delle competene per la sicurezza</td>
+                        <td id="ValutazioneSicurezza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Leadership per l'HSE</td>
+                        <td id="LeaderHSE" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Clima e cultura di HSE</td>
+                        <td id="ClimaHSE" class="text-end"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-7 my-auto">
+                <a href="#." onclick='saveChart("chart_barriere_salvaguardia")'>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
+                </a>
+                <a role="button" data-bs-toggle="modal" data-bs-target="#CBS_Expansion">
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
+                </a>
+                <canvas id="chart_barriere_salvaguardia" style = "max-height:50vh !important;"></canvas>
+              </div>
+            </div> 
+            <div class = "row my-auto">
+              <canvas id="chart_BS_Bar" style ="max-height:50vh !important;"></canvas>
+            </div> 
+
+            
+            <hr>
+            <!-- Valori Culturali-->
+            <div class="row my-auto">
+              <div class="col-5 my-auto" >
+                <div class="table-responsive">
+                  <table class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized">Valori Culturali</th>
+                        <th scope="col" class="colorized text-end">Valore</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Individualismo</td>
+                        <td id="Individualismo" class="text-end" ></td>
+                      </tr>
+                      <tr>
+                        <td>Distanza del potere</td>
+                        <td id="DistPotere" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Rigetto all'incertezza</td>
+                        <td id="RigeIncertezza" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Mascolinità</td>
+                        <td id = "Mascolinità" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>Orientamento a breve termine</td>
+                        <td id="Orientamento" class="text-end"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+              <div class="col-7 my-auto">
+                <a href="#." onclick='saveChart("chart_valori_culturali")'>
+                  <span class ="save-btn d-print-none" data-feather="save"></span>
+                </a>
+                <a role="button" data-bs-toggle="modal" data-bs-target="#CVC_Expansion">
+                  <span class="maximize-btn d-print-none" data-feather="maximize"></span>
+                </a>
+                <canvas id="chart_valori_culturali" style = "max-height:50vh !important;"></canvas>
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- PSF Raggrupapti-->
+            <div class="row my-auto">
+              <div class="col my-auto" >
+                <div class="progress_label">
+                  <p> Probabilità di errore del compito aggiustata in funzione dei PSF:  </p><span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" id = "ProbErroreAdj_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore delle barriere dirette è …</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" id = "average_barriere_dirette"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore delle barriere salvaguardia è …</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" id = "average_barriere_salvaguardia"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>L'indice generale di adeguatezza delle barriere è …</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" id = "average_barriere"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore del Individualismo è…</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id = "Individualismo_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore della Distanza percepita dal potere è…</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id = "DistPotere_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore della Rigetto dell'incertezza è…</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id = "RigeIncertezza_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore della Mascolinità è…</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id = "Mascolinità_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>Il valore della Orientamento a breve termine è…</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id = "Orientamento_bar"></div>
+                  </div>
+                </div>
+                <div class="progress_label">
+                  <p>La probabilità di errore aggiustata in funzione di barriere e valori culturali è….</p> <span class="pull-right"></span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" id = "ProbErroreAdj_barriere_valori"></div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+
+            <hr>
+            <!-- PSF Raggrupapti-->
+            <div class="row my-auto" id="psf_rag">
+              <div class="col my-auto" >
+                <div class="table-responsive">
+                  <table class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized"> PSF raggruppati</th>
+                        <th scope="col" class="colorized text-end">PSF Composto Cluster</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>PSF legati alle caratteristiche del compito (Tempo, Pericolosità, Complessità, Contesto ambientale)</td>
+                        <td id="Cluster1" class="text-end" ></td>
+                      </tr>
+                      <tr>
+                        <td>PSF legati al sistema socio-tecnico (Procedure, HMI) </td>
+                        <td id="Cluster2" class="text-end"></td>
+                      </tr>
+                      <tr>
+                        <td>PSF riferiti a performance del lavoratore (Esperienza e Affaticamento)</td>
+                        <td id="Cluster3" class="text-end"></td>
+                      </tr>                 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> 
+            <hr>
+            <!-- Another Tabel-->
+            <div class="row my-auto" id="psf_rag">
+              <div class="col my-auto" >
+                <div class="table-responsive" align="left">
+                  <table class="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="colorized"> N° Task </th>
+                        <th scope="col" class="colorized"> Probabilità Iniziale Corretta con i "PSF" HEP</th>
+                        <th scope="col" class="colorized"> Probabilità Finale mitigata dalle barriere HEP</th>
+                        <th scope="col" class="colorized"> Commento</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id="task_description"></td>
+                        <td id="ProbErroreAdj_2"  ></td>
+                        <td id="ProbErroreAdj_barriere_valori_2" ></td>
+                        <td id="Comment" ></td>
+                      </tr>                
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <!-- Maximize Modal PSF -->
+          <div class="modal fade" id="PSFExpansion" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                <div class="modal-body">
+                  <canvas id="expanded_chart_PSF"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Maximize BD -->
+          <div class="modal fade" id="CBD_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                <div class="modal-body">
+                  <canvas id="expanded_chart_barriere_dirette"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Maximize Modal BS-->
+          <div class="modal fade" id="CBS_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                <div class="modal-body">
+                  <canvas id="expanded_chart_barriere_salvaguardia"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Maximize Modal -->
+          <div class="modal fade" id="CVC_Expansion" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="max-width:90vw; width:90vh;" >
+                <div class="modal-body">
+                  <canvas id="expanded_chart_valori_culturali"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div> 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+                <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+                  <span data-feather="x" ></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                     
+                    </div>
+                    <label for="exampleInputEmail1">Nome Report</label>
+                    <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+                  </div>
+                  <br>
+                  <div align="right">
+                    <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                    <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/dist/js/jquery.min.js"></script>
+    <script src="../assets/dist/js/jspdf.min.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>
+  </body>
+</html>

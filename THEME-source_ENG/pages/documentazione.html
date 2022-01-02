@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>THEME Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../style/dashboard.css" rel="stylesheet">
+  </head> 
+
+  <body>
+    <div style="display: none;" id="title">documentazione</div>
+
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="../images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="../images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    
+    <div class="container-fluid">
+      <div class="row"> 
+
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                <a class="nav-link" href="./prob_errore.html">
+                    <span data-feather="alert-triangle"></span>
+                    Performance Shaping Factors – PSF
+                </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./valori_culturali.html">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./risultati.html">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./interventi.html">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./reports.html">
+                  <span data-feather="file-text"></span>
+                  Archivio
+                </a>
+              </li>
+            </ul>       
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <label for="file-loader" class="nav-link">
+                  <span data-feather="upload"></span>
+                  Carica Report
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- SNACKBARS BLOCK -->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2 class="colorized">Documentazione </h1>
+            </div>
+            <p class="lead" style="margin-bottom: 30px;">
+              Ciao, benvenuto nella pagina di documentazione. 
+              Qui troverai tutte le risposte alle domande sul funzionamento del software.              
+            </p>
+
+
+            <div class = "section  documentation_p">
+                <div class="documentation_margin_bottom">
+                    <div class="row" class="documentation_margin_bottom"> 
+                      <h4 class="colorized">Sezioni</h4> 
+                    </div>
+                    <p>Il menù laterale ti permette di accedere ad ogni sezione del programma. Esso è suddiviso in 5 macro-aree con a loro volta delle sotto-aree :</p>
+              </div>
+            </div>
+
+            <div class = "section bg-light-section documentation_p">
+              <div class="documentation_margin_bottom">
+                <div class="row" class="documentation_margin_bottom"> 
+                  <h5 class="colorized">1. Introduzione</h5> 
+                </div>
+                <p>è la sezione di benvenuto. Potrai accedere alle principali funzionalità del programma: </p>
+                <ul>
+                  <li>
+                    Gestione dei Report 
+                  </li>
+                  <li>
+                    Visualizzazione dei Risultati 
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class = "section documentation_p">
+              <div class="documentation_margin_bottom">
+                <div class="row" class="documentation_margin_bottom"> 
+                  <h5 class="colorized">2. Report Corrente</h5> 
+                </div>
+                <p>in questa area viene visualizzato il nome del report corrente. Cliccando su di esso <i>(fig.1)</i> comparirà un area di testo dal quale è possibile rinominarlo <i>(fig.2)</i>.</p>
+                <div class="row">
+                  <div class="col" align="center">
+                    <figure class="documentation_img documentation_img_small">
+                      <img src='../images/documentation/rename_1.PNG' />
+                      <figcaption><i>Fig.1</i></figcaption>
+                    </figure>
+                  </div>
+                  <div class="col" >
+                    <figure class="documentation_img documentation_img_small">
+                      <img src='../images/documentation/rename_2.PNG' />
+                      <figcaption><i>Fig.2</i></figcaption>
+                    </figure>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class = "section bg-light-section  documentation_p">
+              <div class="documentation_margin_bottom">
+                <div class="row" class="documentation_margin_bottom"> 
+                  <h5 class="colorized">3.	Modifica Report</h5> 
+                </div>
+                <p>In questa area sono presenti tutte le pagine di inserimento e visualizzazione dei dati riguardo al report. Le pagine e le loro funzionalità sono di seguito descritte: </p>
+                <br>
+                <!-- Performance Shaping Factors – PSF-->
+                <div class="documentation_margin_left">
+                  <h5>Performance Shaping Factors – PSF</h5>
+                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti la probabilità di errore:</p>
+                  <ul>
+                    <li>Descrizione compito </li>
+                    <li>Performance shaping factors</li>
+                  </ul>
+                  <p>È possibile inserire due tipologie di valore <i>(fig.3)</i>: </p>
+                  <ul>
+                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
+                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                  </ul>
+                  <div class="row">
+                    <div class="col" >
+                      <figure class="documentation_img documentation_img_long">
+                        <img src='../images/documentation/prob_errore_1.PNG' />
+                        <figcaption><i>Fig.3</i></figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                  <p>Al termine della pagina è presente una tabella riassuntiva dei valori associati ad ogni PSF<i>(fig.4)</i>.<br>
+                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
+                    Ad ogni voce è associato un pulsante info che la descrive . 
+                    </p>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/prob_errore_2.PNG' />
+                            <figcaption><i>Fig.4</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Barriere Dirette-->
+                <div class="documentation_margin_left">
+                  <h5>Barriere dirette</h5>
+                  <p>Questa pagina si dedica alla gestione e inserimento dei valori riguardanti le barriere dirette:</p>
+                  <ul>
+                    <li>Prestazione sicura rispetto ai compiti </li>
+                    <li>Adesione alle norme/procedure di sicurezza</li>
+                    <li>Prestazione sicura orientata al contesto</li>
+                    <li>Partecipazione attiva alla sicurezza</li>
+                    <li>Lavoro di squadra</li>
+                    <li>Comunicazione inerente la sicurezza</li>
+                  </ul>
+                  <p>È possibile inserire due tipologie di valore: </p>
+                  <ul>
+                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
+                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                  </ul>
+                  <p>
+                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date <li>(fig.5)</li>.<br>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/barriere_dirette_1.PNG' />
+                            <figcaption><i>Fig.5</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
+                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
+                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                  </p>
+                </div>
+                <br>
+                <!-- Barriere Salvaguardia-->
+                <div class="documentation_margin_left">
+                  <h5>Barriere salvaguardia</h5>
+                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti le barriere salvaguardia:</p>
+                  <ul>
+                    <li>Competenze non-tecniche di sicurezza </li>
+                    <li>Competenze tecniche di sicurezza</li>
+                    <li>Motivazione alla sicurezza</li>
+                    <li>Cittadinanza organizzativa di sicurezza</li>
+                    <li>Valutazione e sviluppo delle competenze per la sicurezza</li>
+                    <li>Leadership per l'HSE</li>
+                    <li>Clima e cultura di HSE</li>
+                    <li>Performance shaping factors </li>
+                  </ul>
+                  <p>È possibile inserire due tipologie di valore: </p>
+                  <ul>
+                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
+                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                  </ul>
+                  <p>
+                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date.<br>
+                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
+                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
+                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                  </p>
+                </div>
+                <br>
+                <!-- Valori Culturali-->
+                <div class="documentation_margin_left">
+                  <h5>Valori Culturali</h5>
+                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti i valori culturali:</p>
+                  <ul>
+                    <li>Individualismo</li>
+                    <li>Distanza dal potere</li>
+                    <li>Prestazione sicura orientata al contesto</li>
+                    <li>Rigetto all'incertezza</li>
+                    <li>Mascolinità</li>
+                    <li>Orientamento a breve termine</li>
+                  </ul>
+                  <p>È possibile inserire il:</p>
+                  <ul>
+                    <li><i>Livello di valutazione</i> (menù dove è possibile inserire: SI, se l’affermazione rispecchia l’ambiente di lavoro; NO, se non lo rispecchia).</li>
+                  </ul>
+                  <p>
+                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date.<br>
+                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
+                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
+                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                  </p>
+                </div>
+                <br>
+                <!-- Interventi-->
+                <div class="documentation_margin_left">
+                  <h5>Interventi</h5>
+                  <p>Questa pagina descrive le modalità operative mediante le quali i punteggi del THEME Tool sono associati a specifici interventi.<br>
+                  Lo stato di ogni area può essere:</p>
+                  <ul>
+                    <li><i style="color: red;">Critico</i>: la criticità dell'elemento è alta. Cliccando sulla sezione comparirà una tabella degli elementi da eseguire suddivisi in: area intervento, strategia intervento, descrizione intervento e raccomandazioni. Al termine della sezione è presente un area di testo dove è possibile inserire delle note (l’area di testo può essere modificata trascinando l’angolo in basso a destra) <li>(fig.6)</li>.</li>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/interventi_1.PNG' />
+                            <figcaption><i>Fig.6</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                    <li><i style="color: greenyellow;"></i>Non Critico</li>: la criticità dell'elemento è bassa. Al termine della sezione è presente un area di testo dove è possibile inserire delle note (l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                  </ul>
+                  <p>Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. </p>
+                </div>
+                <br>
+                <!-- Risultati-->
+                <div class="documentation_margin_left">
+                  <h5>Risultati</h5>
+                  <p>
+                    In questa pagina vengono generati i grafici relativi ai valori descritti nelle seguenti pagine: probabilità di errore, barriere dirette, barriere salvaguardia e valori culturali. <br>
+                    Ad ogni pagina è associato una tabella e due grafici di tipo <i>radar (fig.8)</i> e a <i>barre (fig.7)</i>.<br>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/risultati_2.PNG' />
+                            <figcaption><i>Fig.7</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                    In fondo alla pagina è presente un grafico a barre ed una tabella riassuntiva di tutti i valori.
+                    <br><br>
+                    Per visualizzare meglio i singoli grafici bisogna cliccare sull'icona <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="maximize"></span> in alto a destra in ogni sezione.
+                    Per scaricare il singolo grafico è necessario cliccare sull'icona <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="save"></span>  in alto a destra in ogni sezione.
+                    Per scaricare un file pdf in cui è presnete l'intera pagina <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="printer"></span> è necessario cliccare sull'icona presente alla sinistra della sezione <i>Risultati (fig.8)</i>
+                    <div class="row" style="margin-top: 20px;">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/risultati_1.PNG' />
+                            <figcaption><i>Fig.8</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                  </p>
+                </div>
+                
+              
+              
+
+              </div>
+            </div>
+
+            <div class = "section documentation_p ">
+              <div class="documentation_margin_bottom">
+                <div class="row" class="documentation_margin_bottom"> 
+                  <h5 class="colorized">4. Storico Report</h5> 
+                </div>
+                <p>in questa area è presente la voce archivio dalla quale è possibile accedere allo storico dei report. Le pagine e le loro funzionalità sono di seguito descritte:</p>
+                <div class="documentation_margin_left">
+                  <h5>Archivio</h5>
+                  <p>
+                    In questa pagina è presente lo storico di tutti i report in ordine di data.<br>
+                    Per selezionare un report come report corrente è necessario cliccare sul pulsante <i>Modifica</i><i>(fig.9)</i>.<br>
+                    Per eliminare un report è necessario cliccare sul pulsante <i>Elimina</i><i>(fig.9)</i>. <br>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/archivio_1.PNG' />
+                            <figcaption><i>Fig.9</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                    Per ricercare un report specifico inserire il nome della barra di ricerca in alto. <i>(fig.10)</i>
+                    <div class="row">
+                      <div class="col" >
+                          <figure class="documentation_img documentation_img_long">
+                            <img src='../images/documentation/archivio_2.PNG' />
+                            <figcaption><i>Fig.10</i></figcaption>
+                          </figure>
+                      </div>
+                    </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class = "section bg-light-section  documentation_p">
+              <div class="documentation_margin_bottom">
+                <div class="row" class="documentation_margin_bottom"> 
+                  <h5 class="colorized">4. Salavataggio Report</h5> 
+                </div>
+                <p>in questa area sono presenti 3 funzionalità:</p>
+                <ul>
+                  <li><i>Nuovo Report: </i>selezionando questa voce <i>(fig.11)</i> comparirà un popup dove potrai inserire il nome del nuovo report e procedere alla creazione;<i>(fig.12)</i></li>
+                  <div class="row">
+                    <div class="col" align="center">
+                      <figure class="documentation_img documentation_img_small">
+                        <img src='../images/documentation/new_report_1.PNG' />
+                        <figcaption><i>Fig.11</i></figcaption>
+                      </figure>
+                    </div>
+                    <div class="col" >
+                      <figure class="documentation_img documentation_img_small">
+                        <img src='../images/documentation/new_report_2.PNG' />
+                        <figcaption><i>Fig.12</i></figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                  <li><i>Scarica Report:</i>selezionando questa voce il report corrente verrà salvato nella cartella desiderata;</li>
+                  <li><i>Carica Report: </i>selezionando questa voce è possibile caricare un report da una cartella e impostarlo come report corrente.</li>
+                </ul>
+              </div>
+            </div>
+                    
+                    
+               
+
+
+        </main>
+      </div>  
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                  
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>   
+    
+  </body>
+</html>

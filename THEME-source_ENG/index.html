@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>THEME Tool</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- Custom styles for this template -->
+    <link href="./style/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <div style="display: none;" id="title">index</div>
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="./images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row"> 
+        
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/prob_errore.html">
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors – PSF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/valori_culturali.html">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/risultati.html">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/interventi.html">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/reports.html">
+                  <span data-feather="file-text"></span>
+                  Archivio
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report
+                </a>
+              </li>
+              <li class="nav-item">
+                  <label for="file-loader" class="nav-link">
+                    <span data-feather="upload"></span>
+                    Carica Report
+                  </label>
+                  <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- NAVBAR BLOCK -->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-0">
+          
+          <!-- HEADLINE -->
+          <div class = "container-fluid mx-0 mt-0 px-0 py-3 demo-wrap" style="margin-top: -15px !important;">
+            
+            <div class="position-relative  text-center ">
+              <div align="right" style="margin: 20px;">
+                <button type="button" class="btn btn-lg btn-block btn-primary" style="font-size: 15px" onclick="location.href='./pages/documentazione.html'" >Help!</button>
+              </div>
+              
+              <div class="col-md-5 p-lg-9 mx-auto my-5 py-3 demo-content">
+                <img src="images/icon.png" width="150" style="margin-bottom: 30px;">
+                <p class="lead" style="font-weight: 400;">Strumento di valutazione del fattore umano legato alla sicurezza.</p>
+                <a class="btn btn-lg btn-primary" href = '#.' data-bs-toggle="modal" data-bs-target="#createNewReport">Crea un Report</a>
+              </div>
+              <div class="product-device box-shadow d-none d-md-block"></div>
+              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+            </div>
+            <!-- BLOCKS -->
+            <div class="container demo-content">
+              <div class="card-group mb-3 text-center">
+                <div class="card mb-4 box-shadow">
+                  <div class="card-header bg-colorized-primary">
+                    <h4 class="my-0 font-weight-normal">REPORTS</h4>
+                  </div>
+                  <div class="card-body bg-light">
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li class="lead">Elenco Report</li>
+                      <li class="lead">Modificare </li>
+                      <li class="lead">Eliminare</li>
+                      <li class="lead">Rinominare </li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='./pages/reports.html';"> Visualizza </button>
+                  </div>
+                </div>
+                <div class="card mb-4 box-shadow">
+                  <div class="card-header bg-colorized-primary">
+                    <h4 class="my-0 font-weight-normal ">RISULTATI</h4>
+                  </div>
+                  <div class="card-body bg-light">
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li class="lead">Visualizza grafici</li>
+                      <li class="lead">Scarica grafici</li>
+                      <li class="lead">Scarica resoconti</li>
+                      <li class="lead">Visualizza tabelle riassuntive</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='./pages/risultati.html';" >Vedi Ora</button>
+                  </div>
+                </div>
+                <div class="card mb-4 box-shadow">
+                  <div class="card-header bg-colorized-primary">
+                    <h4 class="my-0 font-weight-normal">UPLOAD</h4>
+                  </div>
+                  <div class="card-body bg-light">
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li class="lead">Importa un report </li>
+                      <li class="lead">già esistente,</li>
+                      <li class="lead">lo troverai nell'elenco </li>
+                      <li class="lead">dei reports</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary"><label for="file-loader">Carica</label></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- OTHER stuffs -->
+          <div class="d-md-flex flex-md-equal w-100 mt-3">
+            <div class="bg-colorized-primary mr-md-3 pt-3 pb-3 px-3 py-0 pt-md-5 px-md-5 text-center overflow-hidden">
+              <div class="py-4">
+                <h2 class="display-5">Finalità</h2>
+                <p class="lead">Valutare la probabilità di errore, l'affidabilità della performance e l'adeguatezza delle barriere. </p>
+              </div>
+            </div>
+            <div class="bg-colorized-secondary mr-md-3 pt-3 pb-3 px-3 py-0 pt-md-5 px-md-5 text-center overflow-hidden">
+              <div class="py-4">
+                <h2 class="display-5">Interventi</h2>
+                <p class="lead">Strategie di cambiamento dei comportamenti e dei contesti lavorativi per l'aumento della sicurezza.</p>
+              </div>
+            </div>
+          </div>
+          <footer class = "text-center bg-light py-0 my-0" > <small class="">© 2021 Copyright: <b>ENI S.P.A</b> | <div style ="font-size: 0.5rem;display: inline">Made by : <b>Aquaro Gabriele, Carratta Francesco </b> with ❤</div> </small></footer>
+        </main> 
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                 
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="./assets/dist/js/jquery.min.js"></script>
+    <script src="./scripts/dashboard.js"></script>
+    <script src="./scripts/json.js"></script>
+
+  </body>
+</html>

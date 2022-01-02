@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Gabriele Aquaro, Francesco Carratta">
+    <title>THEME Tool</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- Custom styles for this template -->
+    <link href="../style/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div style="display: none;" id="title">interventi</div>
+    
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="../images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> 
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="../images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./prob_errore.html">
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors – PSF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./valori_culturali.html">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./risultati.html">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Storico Reports</span>
+              </h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.html">
+                    <span data-feather="file-text"></span>
+                    Archivio
+                  </a>
+                </li>
+              </ul>              
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report
+                </a>
+              </li> 
+              <li class="nav-item">
+                <label for="file-loader" class="nav-link">
+                  <span data-feather="upload"></span>
+                  Carica Report
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+        <!-- SNACKBARS BLOCK-->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="colorized text-center"> INTERVENTI </h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
+              </div>
+            </div>
+          </div>
+          <p class="lead" style="margin-bottom: 30px;">
+            Descrizione delle modalità operative mediante le quali i punteggi del THEME Tool sono associati a specifici interventi.
+          </p>
+ 
+          <!-- Interventi HERE -->
+          <div>
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Aree di intervento in relazione alle criticità dei PSF</h4> 
+            </div>
+            
+            <div class="row row_interventi">
+              <button class="text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('PSF_Task_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#PSF_Task_main" aria-controls="PSF_Task_main" aria-expanded="false">
+                <h4 for="PSF_Task_title" style="display:inline;"> PSF - Task: </h4>
+                <h4 id ="PSF_Task_title" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Task_icon"></span>
+              </button>
+              <div id="PSF_Task_main" class="table-responsive ms-sm-auto collapse">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "PSF_Task_table"></tbody>
+                </table>
+
+                <div >
+                  <label>Note:</label>
+                    <textarea id="PSF_Task_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+              
+            </div>
+          
+          
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('PSF_Tecnico_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#PSF_Tecnico_main" aria-controls="PSF_Tecnico_main" aria-expanded="false">
+                <h4 for="PSF_Tecnico_title" class =""style="display:inline;"> PSF - Sistema Socio Tecnico: </h4>
+                <h4 id ="PSF_Tecnico_title" class="" style="display:inline;color:var(--green)">Non Critico </h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Tecnico_icon"></span>
+              </button>
+              <div id="PSF_Tecnico_main" class="table-responsive ms-sm-auto collapse">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "PSF_Tecnico_table"></tbody>
+                  
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="PSF_Tecnico_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('PSF_Lavoratori_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#PSF_Lavoratori_main" aria-controls="PSF_Lavoratori_main" aria-expanded="false">
+                <h4 for="PSF_Lavoratori_title" class =""style="display:inline;"> PSF - Lavoratori: </h4>
+                <h4 id ="PSF_Lavoratori_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="PSF_Lavoratori_icon"></span>
+              </button>
+              <div id="PSF_Lavoratori_main" class="table-responsive ms-sm-auto collapse">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "PSF_Lavoratori_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="PSF_Lavoratori_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Aree di intervento in relazione alle criticità delle Barriere Dirette</h4> 
+            </div>
+
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('BarriereDiretteIndv_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#BarriereDiretteIndv_main" aria-controls="BarriereDiretteIndv_main" aria-expanded="false">
+                <h4 for="BarriereDiretteIndv_title" class =""style="display:inline;">Prestazione Individuale:</h4>
+                <h4 id ="BarriereDiretteIndv_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="BarriereDiretteIndv_icon"></span>
+              </button>
+              <div id="BarriereDiretteIndv_main" class="table-responsive ms-sm-auto collapse">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "BarriereDiretteIndv_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="BarriereDiretteIndv_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <!-- BarriereDiretteTeam Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('BarriereDiretteTeam_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#BarriereDiretteTeam_main" aria-controls="BarriereDiretteTeam_main" aria-expanded="false">
+                <h4 for="BarriereDiretteTeam_title" class =""style="display:inline;"> Prestazione del Team:</h4>
+                <h4 id ="BarriereDiretteTeam_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="BarriereDiretteTeam_icon"></span>
+              </button>
+              <div id="BarriereDiretteTeam_main" class="table-responsive ms-sm-auto collapse">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "BarriereDiretteTeam_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="BarriereDiretteTeam_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Aree di intervento in relazione alle criticità delle Barriere Salvaguardia</h4> 
+            </div>
+
+            <!-- B_SalvaguardiaNonTecn Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('B_SalvaguardiaNonTecn_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#B_SalvaguardiaNonTecn_main" aria-controls="B_SalvaguardiaNonTecn_main" aria-expanded="false">
+                <h4 for="B_SalvaguardiaNonTecn_title" class =""style="display:inline;">Competenze non tecniche di sicurezza:</h4>
+                <h4 id ="B_SalvaguardiaNonTecn_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="B_SalvaguardiaNonTecn_icon"></span>
+                </button>
+              <div class="table-responsive ms-sm-auto collapse" id="B_SalvaguardiaNonTecn_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "B_SalvaguardiaNonTecn_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="B_SalvaguardiaNonTecn_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- B_SalvaguardiaTecn Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('B_SalvaguardiaTecn_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#B_SalvaguardiaTecn_main" aria-controls="B_SalvaguardiaTecn_main" aria-expanded="false">
+                <h4 for="B_SalvaguardiaTecn_title" class =""style="display:inline;">Competenze tecniche di sicurezza:</h4>
+                <h4 id ="B_SalvaguardiaTecn_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="B_SalvaguardiaTecn_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="B_SalvaguardiaTecn_main">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "B_SalvaguardiaTecn_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="B_SalvaguardiaTecn_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- MotivazioneSicurezza Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('MotivazioneSicurezza_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#MotivazioneSicurezza_main" aria-controls="MotivazioneSicurezza_main" aria-expanded="false">
+                <h4 for="MotivazioneSicurezza_title" class =""style="display:inline;">Motivazione alla sicurezza:</h4>
+                <h4 id ="MotivazioneSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="MotivazioneSicurezza_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="MotivazioneSicurezza_main">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "MotivazioneSicurezza_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="MotivazioneSicurezza_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- CittadinanzaSicurezza Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('CittadinanzaSicurezza_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#CittadinanzaSicurezza_main" aria-controls="CittadinanzaSicurezza_main" aria-expanded="false">
+                <h4 for="CittadinanzaSicurezza_title" class =""style="display:inline;">Cittadinanza Organizzativa di sicurezza:</h4>
+                <h4 id ="CittadinanzaSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="CittadinanzaSicurezza_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="CittadinanzaSicurezza_main">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "CittadinanzaSicurezza_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="CittadinanzaSicurezza_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- LeaderHSE Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('LeaderHSE_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#LeaderHSE_main" aria-controls="LeaderHSE_main" aria-expanded="false">
+                <h4 for="LeaderHSE_title" class =""style="display:inline;">Leadership per la sicurezza:</h4>
+                <h4 id ="LeaderHSE_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="LeaderHSE_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="LeaderHSE_main">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "LeaderHSE_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="LeaderHSE_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- ClimaHSE Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('ClimaHSE_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#ClimaHSE_main" aria-controls="ClimaHSE_main" aria-expanded="false">
+                <h4 for="ClimaHSE_title" class =""style="display:inline;">Clima e Cultura di sicurezza:</h4>
+                <h4 id ="ClimaHSE_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="ClimaHSE_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="ClimaHSE_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "ClimaHSE_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="ClimaHSE_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <!-- ValutazioneSicurezza Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title" onclick="toggleIconRotation('ValutazioneSicurezza_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#ValutazioneSicurezza_main" aria-controls="ValutazioneSicurezza_main" aria-expanded="false">
+                <h4 for="ValutazioneSicurezza_title" class =""style="display:inline;">Valutazione e sviluppo delle competenze:</h4>
+                <h4 id ="ValutazioneSicurezza_title" class="" style="display:inline;color:var(--green)">Non Critico</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="ValutazioneSicurezza_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="ValutazioneSicurezza_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">Area Intervento</th>
+                      <th scope="col" style="width: 15%;">Strategia di Intervento</th>
+                      <th scope="col" style="width: 35%;">Descrizione Intervento</th>
+                      <th scope="col" style="width: 35%;">Raccomandazioni</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "ValutazioneSicurezza_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="ValutazioneSicurezza_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Raccomandazioni in funzione dei Valori Culturali</h4> 
+            </div>
+
+             <!-- Individualismo Group -->
+             <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title_VC" onclick="toggleIconRotation('Individualismo_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#Individualismo_main" aria-controls="Individualismo_main" aria-expanded="false">
+                <h4 for="Individualismo_title" class =""style="display:inline;">Individualismo:</h4>
+                <h4 id ="Individualismo_title" class="" style="display:inline;color:var(--green)">Basso</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="Individualismo_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="Individualismo_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 30%;">Area Intervento</th>
+                      <th scope="col" style="width: 70%;">Raccomandazione</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "Individualismo_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="Individualismo_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- DistPotere Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title_VC" onclick="toggleIconRotation('DistPotere_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#DistPotere_main" aria-controls="DistPotere_main" aria-expanded="false">
+                <h4 for="DistPotere_title" class =""style="display:inline;">Distanza dal Potere:</h4>
+                <h4 id ="DistPotere_title" class="" style="display:inline;color:var(--green)">Basso</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="DistPotere_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="DistPotere_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 30%;">Area Intervento</th>
+                      <th scope="col" style="width: 70%;">Raccomandazione</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "DistPotere_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="DistPotere_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- RigeIncertezza Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title_VC" onclick="toggleIconRotation('RigeIncertezza_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#RigeIncertezza_main" aria-controls="RigeIncertezza_main" aria-expanded="false">
+                <h4 for="RigeIncertezza_title" class =""style="display:inline;">Rigetto dell'incertezza:</h4>
+                <h4 id ="RigeIncertezza_title" class="" style="display:inline;color:var(--green)">Basso</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="RigeIncertezza_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="RigeIncertezza_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 30%;">Area Intervento</th>
+                      <th scope="col" style="width: 70%;">Raccomandazione</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "RigeIncertezza_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="RigeIncertezza_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mascolinità Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title_VC" onclick="toggleIconRotation('Mascolinità_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#Mascolinità_main" aria-controls="Mascolinità_main" aria-expanded="false">
+                <h4 for="Mascolinità_title" class =""style="display:inline;">Mascolinità:</h4>
+                <h4 id ="Mascolinità_title" class="" style="display:inline;color:var(--green)">Basso</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="Mascolinità_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="Mascolinità_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 30%;">Area Intervento</th>
+                      <th scope="col" style="width: 70%;">Raccomandazione</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "Mascolinità_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="Mascolinità_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orientamento Group -->
+            <div class="row row_interventi">
+              <button class="navbar-toggler text-center py-1 font-weight-bold category_title_VC" onclick="toggleIconRotation('Orientamento_icon')" type="button" data-bs-toggle="collapse" data-bs-target="#Orientamento_main" aria-controls="Orientamento_main" aria-expanded="false">
+                <h4 for="Orientamento_title" class =""style="display:inline;">Orientamento a breve termine:</h4>
+                <h4 id ="Orientamento_title" class="" style="display:inline;color:var(--green)">Basso</h4>
+                <span data-feather="chevron-down"  class="icon_interventi" id="Orientamento_icon"></span>
+              </button>
+              <div class="table-responsive ms-sm-auto collapse" id="Orientamento_main">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 30%;">Area Intervento</th>
+                      <th scope="col" style="width: 70%;">Raccomandazione</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "Orientamento_table"></tbody>
+                </table>
+                <div >
+                  <label>Note:</label>
+                    <textarea id="Orientamento_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                  
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>
+  </body>
+
+
+  
+
+</html>

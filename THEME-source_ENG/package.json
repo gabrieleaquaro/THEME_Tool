@@ -1,0 +1,49 @@
+{
+  "name": "Theme",
+  "productName": "Theme",
+  "version": "1.2.0",
+  "description": "THEME tool",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "Theme",
+    "extraFiles": [
+      "annex_interventi.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "license": "license.md",
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": false
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "Gabriele Aquaro, Francesco Carratta"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^16.0.2",
+    "electron-builder": "^22.13.1"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.1",
+    "dialog": "^0.3.1",
+    "jquery": "^3.6.0",
+    "jspdf": "^2.4.0",
+    "node-schedule": "^2.0.0",
+    "print-js": "^1.6.0",
+    "remote": "^0.2.6"
+  }
+}

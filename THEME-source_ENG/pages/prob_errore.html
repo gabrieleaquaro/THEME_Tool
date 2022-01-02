@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>THEME Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../style/dashboard.css" rel="stylesheet">
+  </head> 
+
+  <body>
+    <div style="display: none;" id="title">prob_errore</div>
+
+    <header class="navbar navbar-dark sticky-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> <img src="../images/icon.png" width="25" style="margin-right: 10px;" >THEME Tool </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "d-none d-md-block d-xl-block">
+        <img src="../images/Eni_SpA.png" class="img-fluid mx-4" width="30" >
+      </div>
+    </header>
+
+    
+    <div class="container-fluid">
+      <div class="row"> 
+
+        <!-- NAVBAR BLOCK -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <span data-feather="home"></span>
+                  Introduzione 
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Report Corrente</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="current_report_title_li">
+                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Modifica Report</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors – PSF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_dirette.html">
+                  <span data-feather="code"></span>
+                  Barriere Dirette
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./barriere_salvaguardia.html">
+                  <span data-feather="life-buoy"></span>
+                  Barriere Salvaguardia
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./valori_culturali.html">
+                  <span data-feather="bar-chart-2"></span>
+                  Valori Culturali 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./risultati.html">
+                  <span data-feather="activity"></span>
+                  Risultati
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./interventi.html">
+                  <span data-feather="layers"></span>
+                  Interventi
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Storico Reports</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./reports.html">
+                  <span data-feather="file-text"></span>
+                  Archivio
+                </a>
+              </li>
+            </ul>       
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Salvataggio Reports</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                  <span data-feather="file-plus"></span>
+                  Nuovo Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="save()">
+                  <span data-feather="download"></span>
+                  Scarica Report
+                </a>
+              </li>
+              <li class="nav-item">
+                <label for="file-loader" class="nav-link">
+                  <span data-feather="upload"></span>
+                  Carica Report
+                </label>
+                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- SNACKBARS BLOCK -->
+        <div id="snackbar">Nuovo report creato e pronto per la modifica!</div>
+        
+        <!-- MAIN CONTENT BLOCK -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="padding-bottom: 50px;">
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="colorized">VALUTAZIONE DELLA PROBABILITÀ DI ERRORE </h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
+              </div>
+            </div>
+          </div>
+          
+          <form>
+            <!-- Descrizione -->
+            <div class="row">
+              <div class="col ms-sm-auto"> 
+                  <div class="form-group">
+                    <label for="DescrizioneTask" class = "lead">Descriva il compito rilevante per la sicurezza nel sito di osservazione:</label>
+                    <textarea class="form-control" id="DescrizioneTask" rows="3" onchange="updateJSONevent(event)" ></textarea>
+                  </div>
+              </div>
+            </div>
+
+            <br>
+            <!-- Tipo Task Selector  -->
+            <div class="row"> 
+                <div class="form-group">
+                  <label for="TipoTask" class = "lead">Di che compito si tratta?</label>
+                  <small>Selezioni il tipo di compito dal menù a tendina.</small>
+                  <div style="display:inline;">
+                    <a href="#" id="TipoTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='In caso un compito non sia classificabile nelle tipologie <i>A-F</i>: Selezionare <i>H1</i> o <i>H2</i>'>
+                      <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                    </a>
+                  </div>
+                  <div >
+                    <select id="TipoTask" onchange="updateJSONevent(event)" style="width:100%;">
+                      <option value="-" selected>Tipo di Compito</option>
+                      <option value="0.55">A: Completamente sconosciuto, eseguito a ritmo sostenuto. (0.55) </option>
+                      <option value="0.26">B: Ripristino dello stato di un sistema, in un singolo tentativo, senza supervisione. (0.26)</option>
+                      <option value="0.16">C: Elaborato e richiedente un alto livello di comprensione e di abilità. (0.16) </option>
+                      <option value="0.02">D: Compito di routine richiedente un livello di abilità relativamente basso. (0.02) </option>
+                      <option value="0.003">E: Ripristino dello stato di un sistema seguendo un procedimento ed eseguendo controlli. (0.003) </option>
+                      <option value="0.00002">F: Risposta ad un comando in presenza di un sistema di assistenza o di supervisione automatica. (0.0002) </option>
+                      <option value="0.01">H1: Diagnostico (0.01) (richiede di comprendere le condizioni esistenti, pianificare e dare priorità alle attività e determinare le linee d'azione appropriate). </option>
+                      <option value="0.001">H2: Compito operativo (0.001) (ad es. l'utilizzo di apparecchiature, l'esecuzione di allestimenti, l'avvio di pompe, l'esecuzione di calibrazioni o test, etc.).</option>
+                    </select>
+                  </div>
+      
+                </div>
+                <div class="form-group">
+                  <label>Note:</label>
+                  <textarea id="TipoTask_note" class="form-control" rows="1" onchange="updateJSONevent(event)"></textarea>
+                </div>  
+            </div>
+          </form>
+          <!-- ###################################################################-->
+          
+
+          <br><br>
+        
+          <div class = "section bg-light-section">
+            <div class="row" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Valuti ciascun Performance Shaping Factor (PSF)</h4> 
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label for="TempoDisponibile" class = "lead" style="margin-top: -10px;">Tempo disponibile: </label>
+                <a href="#." id="TempoDisponibile_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Tempo Insufficiente</b>: l&#39;operatore/gli operatori non hanno abbastanza tempo per eseguire il compito. Si riscontra una pressione temporale che impedisce di svolgere l’attività nella maniera corretta e più sicura. Le attività programmate hanno un ritmo frenetico e non ci sono margini di tempo per gestire eventuali ritardi o anomalie. Il tempo è scarso ed alcune scorciatoie sono prese in modo routinario.  </small> <div>
+                  <div><small><b>Tempo Minimo Necessario</b>: il tempo a disposizione è uguale al tempo minimo necessario per eseguire il compito. Gli operatori hanno una forte pressione temporale e hanno appena il tempo necessario per svolgere l’attività. Non ci sono margini di tempo per gestire eventuali ritardi o anomalie. </small></div>  
+                  <div><small><b>Tempo Limitato</b>: l&#39;operatore/gli operatori hanno a disposizione un tempo limitato per eseguire il compito. Il tempo disponibile è comunque superiore (di circa tre volte) al tempo minimo richiesto per eseguire il compito. Vi è un minimo margine di tempo per gestire eventuali ritardi o anomalie di lieve entità.</small></div>
+                  <div><small><b>Tempo come previsto</b>: il tempo a disposizione è più che sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è sufficientemente superiore (di circa sei volte) al tempo minimo richiesto per eseguire il compito. Vi è un adeguato margine a gestire in totale sicurezza eventuali ritardi o anomalie di diversi tipi.  </small></div>  
+                  <div> <small><b>Tempo Extra</b>:il tempo a disposizione è abbondantemente sufficiente per svolgere l’attività in oggetto. Il tempo disponibile è considerevolmente superiore (di circa 10 volte) al tempo minimo richiesto per eseguire il compito. Vi è un abbondante margine di tempo per gestire eventuali anomalie o ritardi di qualsiasi tipo. </small></div>
+                  '>
+                  <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                </a>
+              </div>
+              <div class="col-8">
+                <select id="TempoDisponibie" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="100">Tempo insufficente </option>
+                  <option value="50">Tempo minimo necessario </option>
+                  <option value="10">Tempo Limitato </option>
+                  <option value="1.0">Tempo preventivato </option>
+                  <option value="0.1">Tempo Extra </option>  
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="TempoDisponibile_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
+              </div>
+            </div>
+            
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="StressDaMinaccia" class = "lead" style="margin-top: -10px;">Stress da minaccia: </label>
+                <div style="display:inline;">
+                  <a href="#." id="StressDaMinaccia_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Compito molto pericoloso:</b> l’attività in oggetto è particolarmente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione le probabilità che si verifichi un evento avverso sono alte e le conseguenze in caso si verifichi tale evento sono gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
+                  <div><small><b>Compito moderatamente pericoloso: </b> l’attività in oggetto è moderatamente pericolosa per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono moderate e le conseguenze in caso si verifichi tale evento sono moderatamente gravi. Gli operatori coinvolti, a livello generale, sottostimano i rischi dell’attività.</small></div>
+                  <div><small><b>Compito non pericoloso:</b> l’attività in oggetto non presenta particolari elementi pericolosi per la salute fisica e/o mentale dell’operatore e/o per le persone che gli stanno intorno. In questa situazione, le probabilità che si verifichi un evento avverso sono estremamente basse e le conseguenze in caso si verifichi tale evento sono trascurabili. Gli operatori coinvolti, a livello generale, hanno un’adeguata percezione dei rischi connessi all’attività.</small></div>
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="StressDaMinaccia" style="width: 100%;" onchange="updateJSONevent(event)">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="5">Molto Pericoloso </option>
+                  <option value="2">Moderatamente Pericoloso </option>
+                  <option value="1.0">Non Pericoloso</option>
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea  id="StressDaMinaccia_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="ComplessitàTask" class = "lead" style="margin-top: -10px;">Complessità del Compito: </label>
+                <div style="display:inline;">
+                  <a href="#." id="ComplessitàTask_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Compito molto complesso: </b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono in maniera significativa ad aumentare la complessità del compito ed influenzano le prestazioni in modo molto negativo.</small></div>                  
+                  <div><small><b>Compito moderatamente complesso:</b> uno o più elementi (obiettivo, dimensioni, passaggi, connessioni, struttura, dinamicità) contribuiscono ad aumentare la complessità del compito ed influenzano negativamente le prestazioni.</small></div>
+                  <div><small><b>Compito non complesso: </b>Il compito non è significativamente complesso o comunque la sua complessità non influisce sulle prestazioni dell’operatore.</small></div>
+                  <div><small><b>Compito semplificato: </b>il compito è notevolmente semplificato e se si dovesse presentare un’anomalia sarebbe talmente evidente da rendere molto difficile che un operatore esegua una diagnosi errata.</small></div>'>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="ComplessitàTask" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="50">Molto Complesso </option>
+                  <option value="10">Moderatamente Complesso </option>
+                  <option value="1.0">Non Complesso</option>
+                  <option value="0.1">Semplificato</option>
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="ComplessitàTask_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row justify-content-center align-self-center">
+              <div class="col-4">
+                <label for="Esperienza" class = "lead" style="margin-top: -10px;">Esperienza/ Formazione: </label>
+                <div style="display:inline;">
+                  <a href="#." id="Esperienza_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='                
+                  <div><small><b>Conoscenze o abilità in contrasto con il comportamento corretto:</b> Gli operatori possiedono conoscenze o abilità apprese durante la formazione l’esperienza che non favoriscono comportamenti sicuri e corretti in questo compito nello specifico scenario. Un esempio potrebbe essere che gli operatori, durante l&#39;esperienza o la formazione, hanno sviluppato un’idea non appropriata riguardo lo sviluppo di uno scenario e hanno appreso comportamenti che non si adattano allo scenario in questione. Oppure operatori che non comprendono il motivo delle numerose regole da seguire (es. il toolbox talk).</small></div>
+                  <div><small><b>Nessuna esperienza o formazione specifica:</b> Gli operatori non hanno alcuna esperienza o formazione e non hanno le conoscenze e le competenze necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione generica in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
+                  <div><small><b>Poca esperienza o formazione specifica:</b>Gli operatori hanno poca esperienza/formazione e hanno poche conoscenze ed esperienza necessarie per essere preparati e per svolgere il compito in maniera sicura e corretta. Gli operatori hanno una formazione sufficiente in merito all’attività da svolgere ma non l’hanno svolta negli ultimi 12 mesi.</small></div>
+                  <div><small><b>Esperienza e formazione come previsto:</b> Gli operatori hanno un’adeguata esperienza e formazione riguardo il compito e sono in grado di svolgerlo in maniera sicura e corretta. Il compito è stato svolto l’ultima volta non più di 12 mesi prima. </small></div>
+                  <div><small><b>Ampia esperienza e formazione: </b>Gli operatori hanno una vasta esperienza e/o formazione su questo compito e possiedono una vasta conoscenza per essere preparati a svolgere il compito in maniera corretta e sicura. Il compito è svolto in maniera frequente o almeno con cadenza trimestrale. </small></div>
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="Esperienza" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="100">Conoscenze o abilità in contrasto con il comportamento corretto</option>
+                  <option value="50">Nessuna esperienza o formazione specifica</option>
+                  <option value="15">Poca esperienza o formazione specifica</option>
+                  <option value="1.0">Esperienza e formazione come previsto</option>
+                  <option value="0.1">Ampia esperienza e formazione </option>  
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Esperienza_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row justify-content-center align-self-center">
+              <div class="col-4">
+                <label for="Procedure" class = "lead" style="margin-top: -10px;">Procedure: </label>
+                <div style="display:inline;">
+                  <a href="#." id="Procedure_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Procedure non disponibili o non utilizzate:</b> Non ci sono procedure disponibili o le procedure non vengono utilizzate. Questo livello dovrebbe essere utilizzato anche se le procedure sono fortemente fuorvianti o non comprensibili, in modo tale da non essere utili per gli operatori. L’operatore esperto potrebbe non utilizzare le procedure perché ritiene riguardino solo le persone non esperte.</small></div>
+                  <div><small><b>Procedure altamente insufficienti:</b> Procedure di qualità altamente insufficiente. Le procedure mancano di passaggi e di informazioni importanti necessarie per svolgere il compito, oppure vengono utilizzate in maniera concisa. Questo livello dovrebbe essere utilizzato anche se le procedure stesse sono molto complesse o se è molto difficile per gli operatori navigare tra le diverse procedure.</small></div>
+                  <div><small><b>Procedure insufficienti:</b> Procedure di qualità insufficiente oppure non applicate pedissequamente. Le procedure sono complete ma ci sono alcuni problemi di relativi ai fattori umani (formulazione, lingua, struttura) riguardo le procedure o le procedure non sono seguite in modo ottimale. Questo livello dovrebbe essere utilizzato anche se le procedure sono complesse o se ci sono alcuni problemi per l’operatore nel navigare tra le diverse procedure.</small></div>
+                  <div><small><b>Procedure adeguate e seguite:</b> La qualità delle procedure è adeguata e vengono seguite in maniera precisa e puntuale. </small></div>
+                  <div><small><b>Procedure chiare e dettagliate che vengono seguite:</b> Le procedure sono eccezionalmente chiare e dettagliate, vengono seguite e aumentano le prestazioni corrette e i comportamenti sicuri</small></div>
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="Procedure" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="50">Procedure non disponibili o non utilizzate</option>
+                  <option value="20">Procedure altamente insufficienti</option>
+                  <option value="5">Procedure insufficienti</option>
+                  <option value="1.0">Procedure adeguate seguite</option>
+                  <option value="0.5">Procedure chiare e dettagliate che vengono seguite</option>  
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Procedure_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="InterazioneUmanoMacchina" class = "lead" style="margin-top: -10px;">Interazione Umano-Macchina: </label>
+                <div style="display:inline;">
+                  <a href="#." d="InterazioneUmanoMacchina_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Totalmente inadeguata:</b> Gli strumenti e le tecnologie in uso sono fortemente inadeguate, l’interfaccia è inadeguata per caratteristiche e layout, le attrezzature per fare il lavoro richiesto non sono per niente idonee.</small></div>               
+                  <div><small><b>Inadeguata:</b> L’Interazione Umano-Macchina causa difficoltà nell&#39;ottenere informazioni rilevanti o nell&#39eseguire il compito. L&#39;interfaccia non è progettata per il compito specifico e porta ad un aumento della difficoltà del lavoro, alcune delle informazioni rilevanti richieste per una decisione affidabile non sono rese disponibili o la navigazione tra le pagine crea difficoltà nell&#39;ottenere le informazioni rilevanti o nello svolgere il compito.</small></div>               
+                  <div><small><b>Appena adeguata:</b> L’Interazione Umano-Macchina causa alcuni problemi nell&#39;ottenere informazioni rilevanti o nello svolgere il compito. Ad esempio, l&#39;interfaccia non è conforme ai codici a cui sono abituati gli operatori (ad esempio, icone, colori e posizionamenti intuitivi, come l’uso del colore rosso per fornire indicazioni di routine anziché segnalare potenziali pericoli), o diversi cambi di pagina nella navigazione tra le pagine aumentano la difficoltà di ottenere le informazioni richieste o di eseguire il compito.</small></div>               
+                  <div><small><b>Adeguata:</b> Sebbene la tecnologia non sia specificamente progettata per rendere le prestazioni umane il più possibile affidabili e sicure per questo compito, questa rispetta i codici ai quali gli operatori sono abituati. Tutte le informazioni critiche per la sicurezza sono facilmente disponibili, e nessun problema relativo all&#39;interfaccia umano-macchina interferisce con l&#39;esecuzione del compito. </small></div>               
+                  <div><small><b>Specificamente progettata per favorire la prestazione:</b> La tecnologia è specificamente progettata per rendere le prestazioni umane il più affidabili e sicure possibile in questo tipo di compiti, rendendo difficile o impossibile l’esecuzione di comportamenti errati o non sicuri.</small></div>               
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="InterazioneUmanoMacchina" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="100">Totalmente inadeguata</option>
+                  <option value="50">Inadeguata</option>
+                  <option value="10">Appena Adeguata</option>
+                  <option value="1.0">Adeguata</option>
+                  <option value="0.5">Specificamente progettata per favorire la prestazione</option>  
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="InterazioneUmanoMacchina_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="ContestoAmbientale" class = "lead" style="margin-top: -10px;">Contesto Ambientale: </label>
+                <div style="display:inline;">
+                  <a href="#." id="ContestoAmbientale_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Condizioni ambientali che non permettono lo svolgimento del compito:</b> Il compito non può essere portato a termine in maniera sicura a causa delle condizioni del contesto ambientale o dell&#39;inaccessibilità o indisponibilità dell&#39;area in questione. L’operatore entra, violando una regola, in un luogo non idoneo per lo svolgimento del compito.</small></div>
+                  <div><small><b>Condizioni avverse:</b> Ci sono difficoltà dal punto di vista ambientale nel portare a termine il compito. L&#39;area in cui si svolge il lavoro è difficile da raggiungere, l’ambiente di lavoro richiede sforzo fisico, oppure ci sono condizioni meteorologiche estreme che influiscono negativamente sulle prestazioni.</small></div>
+                  <div><small><b>Contesto ambientale normale:</b> Il contesto ambientale non diminuisce o migliora significativamente le prestazioni. </small></div>
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="ContestoAmbientale" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="100">Condizioni impossibilitanti</option>
+                  <option value="10">Condizioni avverse</option>
+                  <option value="1.0">Contesto ambientale normale</option>
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="ContestoAmbientale_note" onchange="updateJSONevent(event)" class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="Affaticamento" class = "lead" style="margin-top: -10px;">Affaticamento: </label>
+                <div style="display:inline;">
+                  <a href="#." id="Affaticamento_Info" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='
+                  <div><small><b>Affaticamento elevato:</b> L’attività in oggetto di analisi è estremamente ardua dal punto di vista fisico e/o mentale. L’operatore svolge il compito in condizioni di elevato affaticamento fisico, mentale o muscolare (ad es.: l’operatore si trova in servizio da diverse ore oltre l’orario previsto oppure si trova in uno stato di deprivazione di sonno).</small></div>
+                  <div><small><b>Affaticamento moderato: </b>L’attività in oggetto di analisi è moderatamente ardua dal punto di vista fisico e/o mentale. L’operatore è in grado di svolgere i compiti ma si trova in uno stato di affaticamento fisico, mentale o muscolare.</small></div>
+                  <div><small><b>Affaticamento normale:</b> L’affaticamento dato dall’attività rientra nei limiti previsti o comunque sono implementate misure per mitigare i livelli di affaticamento degli operatori. Gli operatori sono in grado di svolgere i compiti e non è possibile riscontrare elementi che potrebbero contribuire ad uno stato di affaticamento fisico, mentale o muscolare fuori dal normale.</small></div>
+                  '>
+                    <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-8">
+                <select id="Affaticamento" onchange="updateJSONevent(event)" style="width: 100%;">
+                  <option value="-" selected>Livello di Valutazione</option>
+                  <option value="100">Affaticamento elevato</option>
+                  <option value="10">Affaticamento moderato</option>
+                  <option value="1.0">Affaticamento normale</option>
+                  <option value="1">Info non disponibili</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Note:</label>
+                <textarea id="Affaticamento_note" onchange="updateJSONevent(event)"  class="form-control" rows="1" ></textarea>
+              </div>
+            </div>
+
+          </div>
+          <!-- ###################################################################-->
+          
+          <div class ="section">
+            <div class="row border-bottom" style="margin-bottom: 20px;"> 
+              <h4 class="colorized">Report Probabilità Errore</h4>
+            </div>
+  
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <h6 class="lead" > Probabilità di Errore Umano nel compito specificato</h6>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Indice PSF Composto</th>
+                    <th scope="col">Performance Shaping Factors</th>
+                    <th scope="col">PSF Adjusted (da 0 a 100%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="PSFComposto"> - </td>
+                    <td id="ProbErrore"> -  </td>
+                    <td id="ProbErroreAdj"> - </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>  
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="createNewReport" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
+              <span data-feather="x" ></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
+                  
+                </div>
+                <label for="exampleInputEmail1">Nome Report</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+              </div>
+              <br>
+              <div align="right">
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/json.js"></script>   
+    
+  </body>
+</html>
