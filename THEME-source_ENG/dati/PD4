@@ -1,7 +1,7 @@
 {
-    "name": "APPLICAZIONE A DIME_Informatizzato",
-    "date": 1637609840667,
-    "dateToPrint": "22/11/2021",
+    "name": "PD4",
+    "date": 1641132211505,
+    "dateToPrint": "2/1/2022",
     "prob_errore": {
         "DescrizioneTask": "Le operazioni rigless sono di due tipi: Coiled Tubing e Wireline. In entrambi i casi si inserisce sulla testa pozzo (provvista di valvole che vengono poste in manuale per eventuale intervento di blocco) un \"lubricator\" (sorta di tubo con uno stuffing box di tenuta in testa e un d piccolo \"preventer\" con ganasce sagomate e trancianti all'altra estremità) all'interno del quale scorre un tubino flessibile (nelle operazioni Coiled Tubing) per il passaggio di azoto o altri fluidi di spiazzamento; ovvero un cavo in acciaio armonico che è collegato ad una serie di tools cilindrici che vengono calati in pozzo per inserire vari elementi, prima fra tutti la valvola di sicurezza di fondo pozzo. Sono attività svolte in genere da Contrattisti inviati dall'Unità Area Pozzo nel sito di Produzione. C'è quindi a monte una consegna d'area tra funzioni. Il Supervisore Eni è chiamato \"Assistente Contrario\" o \"Company Man\". C'è poi, in base alla legge mineraria, un Sorvegliante Eni a cui è affidato il coordinamento dei lavori e la firma dei Permessi di Lavoro.",
         "TipoTask": "0.16",

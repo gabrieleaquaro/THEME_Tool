@@ -79,12 +79,12 @@ function addRow(report){
        
         // bottone di modifica
         var td_button_modify = document.createElement("td")
-        td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Apri</button>'
+        td_button_modify.innerHTML = '<button type="button" class="btn btn-outline-success" onclick="updateCurrent('+"'"+report["name"]+"'"+')" >Open</button>'
         tr.append(td_button_modify)
 
         // bottone di elimina
         var td_button_delete = document.createElement("td")
-        td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete_report('+"'"+report["name"]+"'"+')">Elimina</button>'
+        td_button_delete.innerHTML = '<button type="button" class="btn btn-outline-danger" onclick="delete_report('+"'"+report["name"]+"'"+')">Delete</button>'
         tr.append(td_button_delete)
 
         const element = document.getElementById("tBody");

@@ -565,7 +565,7 @@ function updateInterventi_results(report){
         var el = document.getElementById(group + '_title');             
         el.parentElement.style.backgroundColor = redTrasparent;
         el.style.color = red;
-        el.innerHTML = 'Critico  <span data-feather="chevron-down" style="width:10px"></span>';
+        el.innerHTML = 'Critical  <span data-feather="chevron-down" style="width:10px"></span>';
         //Generate the table elements
         var table = document.getElementById(group + '_table');
         annex[group].forEach(function(dict){
@@ -593,7 +593,7 @@ function updateInterventi_results(report){
         el.style.color = '#000';
         //Modify the Title
         if(value == 'H'){
-            el.innerHTML = 'ALTO  <span data-feather="chevron-down" style="width:10px"></span>';
+            el.innerHTML = 'High  <span data-feather="chevron-down" style="width:10px"></span>';
         }
     
         //Generate the table elements

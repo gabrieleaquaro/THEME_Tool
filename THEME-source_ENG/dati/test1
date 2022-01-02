@@ -1,10 +1,10 @@
 {
-    "name": "prova",
-    "date": 1638101582478,
-    "dateToPrint": "28/11/2021",
+    "name": "test1",
+    "date": 1641132212570,
+    "dateToPrint": "2/1/2022",
     "valori_culturali": {
         "Individualismo": 1,
-        "DistPotere": 0.67,
+        "DistPotere": 0.33,
         "RigeIncertezza": 0.33,
         "Mascolinità": 0.67,
         "Orientamento": 0,
@@ -12,7 +12,7 @@
         "valori_culturali_1_2": "1.0",
         "valori_culturali_1_3": "1.0",
         "valori_culturali_2_1": "0",
-        "valori_culturali_2_2": "1.0",
+        "valori_culturali_2_2": "0",
         "valori_culturali_2_3": "1.0",
         "valori_culturali_3_1": "0",
         "valori_culturali_3_2": "0",
@@ -41,5 +41,15 @@
         "LavoroSquad": "-",
         "Comunicazione": "-",
         "average_barriere_dirette": 0
+    },
+    "prob_errore": {
+        "TempoDisponibie": "100",
+        "StressDaMinaccia": "5",
+        "ComplessitàTask": "50",
+        "InterazioneUmanoMacchina": "100",
+        "Procedure": "50",
+        "Esperienza": "100",
+        "ContestoAmbientale": "100",
+        "Affaticamento": "100"
     }
 }

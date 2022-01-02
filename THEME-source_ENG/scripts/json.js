@@ -206,7 +206,7 @@ function updateCurrent(report_name, printSnackbar = true, changeName = false){
         snackbarShow("rgb(66,166,42)", "Report Corrente Aggiornato");
     }else{
         if(printSnackbar && changeName){
-            snackbarShow("rgb(66,166,42)", "Report rinominato correttamente");
+            snackbarShow("rgb(66,166,42)", "Report renamed");
         }
     }
     updateDate(currentReport);
