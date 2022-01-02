@@ -32,112 +32,111 @@
     <div class="container-fluid">
       <div class="row">
 
-        <!-- NAVBAR BLOCK -->
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
-          <div class="position-sticky pt-3">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.html">
-                  <span data-feather="home"></span>
-                  Introduzione 
-                </a>
-              </li>
-            </ul>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Report Corrente</span>
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item" id="current_report_title_li">
-                <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
-                </a>
-              </li>
-            </ul>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Modifica Report</span>
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="./prob_errore.html">
-                  <span data-feather="alert-triangle"></span>
-                  Performance Shaping Factors – PSF
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./barriere_dirette.html">
-                  <span data-feather="code"></span>
-                  Barriere Dirette
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="life-buoy"></span>
-                  Barriere Salvaguardia
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./valori_culturali.html">
-                  <span data-feather="bar-chart-2"></span>
-                  Valori Culturali 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./risultati.html">
-                  <span data-feather="activity"></span>
-                  Risultati
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./interventi.html">
-                  <span data-feather="layers"></span>
-                  Interventi
-                </a>
-              </li>
-            </ul>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Storico Reports</span>
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="./reports.html">
-                  <span data-feather="file-text"></span>
-                  Archivio
-                </a>
-              </li>
-            </ul>   
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Salvataggio Reports</span>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
-                  <span data-feather="file-plus"></span>
-                  Nuovo Report
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#." onclick="save()">
-                  <span data-feather="download"></span>
-                  Scarica Report
-                </a>
-              </li>
-              <li class="nav-item">
-                <label for="file-loader" class="nav-link">
-                  <span data-feather="upload"></span>
-                  Carica Report
-                </label>
-                <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
-              </li>
-            </ul>
-          </div>
-        </nav> 
-        
-        <!-- SNACKBARS -->
-        <div id="snackbar">New report ready to be modified!</div>
-        
+      <!-- NAVBAR BLOCK -->
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " style = "top:0rem;" >
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html">
+                <span data-feather="home"></span>
+                Home 
+              </a>
+            </li>
+          </ul>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Current Report</span>
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item" id="current_report_title_li">
+              <a class="nav-link" href="#." id = "current_report_title" onclick="createRenameHandler(document.getElementById('current_report_title'));" style="cursor: pointer;">
+              </a>
+            </li>
+          </ul>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Modify Report</span>
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link " href="#">
+                <span data-feather="alert-triangle"></span>
+                Performance Shaping Factors
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./barriere_dirette.html">
+                <span data-feather="code"></span>
+                Direct Barriers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./barriere_salvaguardia.html">
+                <span data-feather="life-buoy"></span>
+                Safeguard Barriers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="./valori_culturali.html">
+                <span data-feather="bar-chart-2"></span>
+                Cultural Values
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./risultati.html">
+                <span data-feather="activity"></span>
+                Results
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./interventi.html">
+                <span data-feather="layers"></span>
+                Interventions
+              </a>
+            </li>
+          </ul>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Reports History</span>
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="./reports.html">
+                <span data-feather="file-text"></span>
+                Archive
+              </a>
+            </li>
+          </ul>       
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Reports Save</span>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
+                <span data-feather="file-plus"></span>
+                New Report
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="save()">
+                <span data-feather="download"></span>
+                Download Report
+              </a>
+            </li>
+            <li class="nav-item">
+              <label for="file-loader" class="nav-link">
+                <span data-feather="upload"></span>
+                Load Report
+              </label>
+              <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- SNACKBARS BLOCK -->
+      <div id="snackbar">New report ready to be modified!</div>
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="colorized">VALUTAZIONE DELLE BARRIERE DI SALVAGUARDIA </h1>
+            <h2 class="colorized">EVALUATION OF SAFEGUARD BARRIERS</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='documentazione.html'" >Help!</button>
@@ -145,14 +144,14 @@
             </div>
           </div>
           <p class="lead" style="margin-bottom: 30px;">
-            In base alle osservazioni dell'ambiente di lavoro condotte nel sito, selezioni la risposta che maggiormente rispecchia i comportamenti osservati
+            Based on the observations of the work environment conducted at the site, select the answer that best reflects the observed behaviors:
           </p>
 
           <!-- COMPETENZE NON-TECNICHE DI SICUREZZA -->
           <div class ="section ">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Competenze non-tecniche di sicurezza </h4>
+                <h4 class="colorized">NON-TECHNICAL SKILLS  </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -170,12 +169,12 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> Il lavoratore, rispetto alle tematiche di sicurezza, è capace di: </div>
+              <div class="lead" style="font-size: 15px;"> Is the worker, with respect to safety issues, capable of: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_1" style="display:inline;margin-top: -4px;font-size: 16px;">Facilitare la presa di decisioni nel gruppo?</div>
+                <div for="barriere_salvaguardia_1_1" style="display:inline;margin-top: -4px;font-size: 16px;">facilitate decision-making in the group?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -184,24 +183,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_2" style="display:inline;margin-top: -4px;font-size: 16px;">Stabilire priorità quando bisogna prendere decisioni?</div>
+                <div for="barriere_salvaguardia_1_2" style="display:inline;margin-top: -4px;font-size: 16px;">prioritise when decisions need to be made?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -210,24 +209,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_3" style="display:inline;margin-top: -4px;font-size: 16px;">Usare le risorse a disposizione (ad esempio aiuto dei colleghi, superiori…) per proteggersi da situazioni di potenziale stress?</div>
+                <div for="barriere_salvaguardia_1_3" style="display:inline;margin-top: -4px;font-size: 16px;">use the resources available (for example, help from colleagues, superiors...) to protect themselves from situations of potential stress?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Stress da Minaccia e Affaticamento</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -236,24 +235,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_4" style="display:inline;margin-top: -4px;font-size: 16px;">Riconoscere gli stati e le cause della fatica fisica?</div>
+                <div for="barriere_salvaguardia_1_4" style="display:inline;margin-top: -4px;font-size: 16px;">recognise the states and causes of physical fatigue?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Affaticamento</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -262,24 +261,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_5" style="display:inline;margin-top: -4px;font-size: 16px;">Mettere in atto le strategie per far fronte alla fatica mentale?</div>
+                <div for="barriere_salvaguardia_1_5" style="display:inline;margin-top: -4px;font-size: 16px;">adopt strategies to deal with mental fatigue?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Affaticamento</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -288,24 +287,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_6" style="display:inline;margin-top: -4px;font-size: 16px;">Avere un’adeguata visione dei vari rischi presenti nel loro ambiente lavorativo?</div>
+                <div for="barriere_salvaguardia_1_6" style="display:inline;margin-top: -4px;font-size: 16px;">have an adequate view of the various risks present in the work environment?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Stress da Minaccia e Contesto Ambientale</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -314,59 +313,59 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_6" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_6_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_7" style="margin-top: -4px;font-size: 16px;">Trasmettere informazioni in maniera efficace a colleghi e superiori?</div>
+                <div for="barriere_salvaguardia_1_7" style="margin-top: -4px;font-size: 16px;">effectively transmit information to colleagues and superiors?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_7" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_7_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_1_8" style="margin-top: -4px;font-size: 16px;">Comprendere le informazioni ricevute da colleghi e superiori?</div>
+                <div for="barriere_salvaguardia_1_8" style="margin-top: -4px;font-size: 16px;">understand information received from colleagues and superiors?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_1_8" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_1_8_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -386,7 +385,7 @@
           <div class ="section bg-light-section">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Competenze tecniche di sicurezza </h4>
+                <h4 class="colorized">TECHNICAL SKILLS </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -400,12 +399,12 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> Il lavoratore: </div>
+              <div class="lead" style="font-size: 15px;"> Does the worker: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_1" style="display:inline;margin-top: -4px;font-size: 16px;">É in possesso delle conoscenze tecniche necessarie a lavorare in modo sicuro?</div>
+                <div for="barriere_salvaguardia_2_1" style="display:inline;margin-top: -4px;font-size: 16px;">possess the technical knowledge necessary to work in a safe manner?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -414,24 +413,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_2_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_2" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro?</div>
+                <div for="barriere_salvaguardia_2_2" style="display:inline;margin-top: -4px;font-size: 16px;">have the ability to perform tasks in a safe manner?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -440,24 +439,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_2_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_3" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di attuare le procedure di emergenza?</div>
+                <div for="barriere_salvaguardia_2_3" style="display:inline;margin-top: -4px;font-size: 16px;">have the ability to implement the emergency procedures?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza e IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -466,24 +465,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_2_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_4" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche di fronte agli imprevisti?</div>
+                <div for="barriere_salvaguardia_2_4" style="display:inline;margin-top: -4px;font-size: 16px;">have the ability to perform the tasks in a safe manner even in the face of unforeseen events?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -492,24 +491,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_2_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_2_5" style="display:inline;margin-top: -4px;font-size: 16px;">É capace di svolgere i compiti in modo sicuro anche in situazioni di pressione temporale?</div>
+                <div for="barriere_salvaguardia_2_5" style="display:inline;margin-top: -4px;font-size: 16px;">have the ability to perform tasks in a safe manner even in time-pressure situations?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -518,17 +517,17 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_2_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_2_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -547,7 +546,7 @@
           <div class ="section ">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Motivazione alla sicurezza </h4>
+                <h4 class="colorized">SAFETY MOTIVATION </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -559,12 +558,12 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> Il lavoratore rispetta norme e procedure di sicurezza: </div>
+              <div class="lead" style="font-size: 15px;"> does the worker comply with safety rules and procedures: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_1" style="display:inline;margin-top: -4px;font-size: 16px;">Per ottenere approvazione dagli altri?</div>
+                <div for="barriere_salvaguardia_3_1" style="display:inline;margin-top: -4px;font-size: 16px;">to obtain approval from others?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -573,24 +572,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_3_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_2" style="display:inline;margin-top: -4px;font-size: 16px;">Per evitare di essere criticati?</div>
+                <div for="barriere_salvaguardia_3_2" style="display:inline;margin-top: -4px;font-size: 16px;">to avoid being criticised?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -599,24 +598,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_3_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_3" style="display:inline; margin-top: -4px;font-size: 16px;">Per paura di perdere il lavoro?</div>
+                <div for="barriere_salvaguardia_3_3" style="display:inline; margin-top: -4px;font-size: 16px;">out of fear of losing his/her job?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -625,24 +624,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_3_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_4" style="display:inline; margin-top: -4px;font-size: 16px;">Per il piacere di lavorare in sicurezza?</div>
+                <div for="barriere_salvaguardia_3_4" style="display:inline; margin-top: -4px;font-size: 16px;">for the pleasure of working safely?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -651,24 +650,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_3_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_3_5" style="display:inline; margin-top: -4px;font-size: 16px;">Perché rappresentano valori per lui importanti?</div>
+                <div for="barriere_salvaguardia_3_5" style="display:inline; margin-top: -4px;font-size: 16px;">because they represent important values for him/her?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -677,17 +676,17 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_3_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_3_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -706,7 +705,7 @@
           <div class ="section bg-light-section">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Cittadinanza organizzativa di sicurezza </h4>
+                <h4 class="colorized">ORGANIZATIONAL SAFETY CITIZENSHIP</h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -718,96 +717,96 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> All'interno dei gruppi di lavoro, i lavoratori: </div>
+              <div class="lead" style="font-size: 15px;"> Within the working groups, do workers: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_1" style="margin-top: -4px;font-size: 16px;">Si offrono volontari per compiti associati ai processi di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_1" style="margin-top: -4px;font-size: 16px;">volunteer for tasks associated with safety processes?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_2" style="margin-top: -4px;font-size: 16px;">Aiutano i colleghi insegnando loro le procedure di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_2" style="margin-top: -4px;font-size: 16px;">help colleagues by teaching them the safety procedures?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_3" style="margin-top: -4px;font-size: 16px;">Si aiutano condividendo le responsabilità associate alla sicurezza?</div>
+                <div for="barriere_salvaguardia_4_3" style="margin-top: -4px;font-size: 16px;">help each other by sharing the responsibilities associated with safety?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_4" style="margin-top: -4px;font-size: 16px;">Si incoraggiano vicendevolmente per coinvolgersi maggiormente rispetto alle tematiche di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_4" style="margin-top: -4px;font-size: 16px;">encourage each other to become more involved in safety issues?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_5" style="display:inline; margin-top: -4px;font-size: 16px;">Intervengono attivamente allo scopo di impedire potenziali violazioni delle norme e delle procedure di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_5" style="display:inline; margin-top: -4px;font-size: 16px;">intervene actively in order to prevent potential breaches of safety rules and procedures?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -816,24 +815,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_6" style="display:inline; margin-top: -4px;font-size: 16px;">Comunicano ai colleghi di seguire norme e procedure di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_6" style="display:inline; margin-top: -4px;font-size: 16px;">communicate to colleagues that they follow safety rules and procedures?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -842,24 +841,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_6" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_6_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_7" style="display:inline; margin-top: -4px;font-size: 16px;">Comunicano ai nuovi arrivati che le violazioni alla sicurezza non sono tollerate?</div>
+                <div for="barriere_salvaguardia_4_7" style="display:inline; margin-top: -4px;font-size: 16px;">communicate to newcomers that safety breaches are not tolerated?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -868,38 +867,38 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_7" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_7_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_4_8" style="display:inline; margin-top: -4px;font-size: 16px;">Si aggiornano rispetto ai cambiamenti nelle norme e procedure di sicurezza?</div>
+                <div for="barriere_salvaguardia_4_8" style="display:inline; margin-top: -4px;font-size: 16px;">keep abreast of changes in safety rules and procedures?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_4_8" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_4_8_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -918,7 +917,7 @@
           <div class ="section ">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Valutazione e sviluppo delle competenze per la sicurezza </h4>
+                <h4 class="colorized">ASSESSMENT AND DEVELOPMENT OF SAFETY SKILLS </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -934,12 +933,12 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> In generale, all'interno dell'organizzazione: </div>
+              <div class="lead" style="font-size: 15px;"> In general, within the organization: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_1" style="display:inline; margin-top: -4px;font-size: 16px;">C’è un programma di formazione/addestramento ulteriore rispetto agli obblighi di legge?</div>
+                <div for="barriere_salvaguardia_5_1" style="display:inline; margin-top: -4px;font-size: 16px;">Is there a further education / training program with respect to legal obligations?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -948,24 +947,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_2" style="display:inline;margin-top: -4px;font-size: 16px;">È previsto un processo formativo di aggiornamento o di addestramento in caso di cambi di mansione o di ruolo, o in caso di introduzione di nuove macchine, attrezzature o DPI?</div>
+                <div for="barriere_salvaguardia_5_2" style="display:inline;margin-top: -4px;font-size: 16px;">Is there a training or refresher training process in the event of a change of duties or roles, or in the event of the introduction of new machines, equipment or PPE?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Complessità e Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -974,24 +973,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_3" style="display:inline; margin-top: -4px;font-size: 16px;">La pianificazione delle attività formative prevede anche la verifica delle competenze da parte di tutti i lavoratori destinatari?</div>
+                <div for="barriere_salvaguardia_5_3" style="display:inline; margin-top: -4px;font-size: 16px;">Does the planning of training activities also provide for the verification of skills by all target workers?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1000,24 +999,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_4" style="display:inline; margin-top: -4px;font-size: 16px;">Le iniziative di formazione e/o addestramento prevedono azioni di verifica dell’apprendimento?</div>
+                <div for="barriere_salvaguardia_5_4" style="display:inline; margin-top: -4px;font-size: 16px;">Do the training and / or training initiatives include learning verification actions?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1026,24 +1025,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_5" style="display:inline; margin-top: -4px;font-size: 16px;">Si verifica che le persone abbiano maturato un’esperienza necessaria per lo svolgimento delle mansioni lavorative a cui sono destinate?</div>
+                <div for="barriere_salvaguardia_5_5" style="display:inline; margin-top: -4px;font-size: 16px;">Is it verified that people have acquired the necessary experience for the performance of the job duties for which they are intended?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Complessità, Esperienza e IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1052,24 +1051,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_6" style="display:inline;margin-top: -4px;font-size: 16px;">Negli ultimi 12 mesi, è stato coinvolto almeno il 70% dei lavoratori in attività di formazione o aggiornamento in materia di SSL?</div>
+                <div for="barriere_salvaguardia_5_6" style="display:inline;margin-top: -4px;font-size: 16px;">In the last 12 months, have at least 70% of workers been involved in training or refresher courses on OSH?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1078,24 +1077,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_6" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_6_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_7" style="display:inline; margin-top: -4px;font-size: 16px;">Sono stati implementati sistemi interni di verifica delle competenze legate alla sicurezza, a prescindere dalle azioni formative?</div>
+                <div for="barriere_salvaguardia_5_7" style="display:inline; margin-top: -4px;font-size: 16px;">Have internal systems for verifying safety-related skills been implemented, regardless of the training actions?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1104,24 +1103,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_7" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_7_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_5_8" style="display:inline; margin-top: -4px;font-size: 16px;">Si effettuano sistematicamente verifiche della correttezza dei comportamenti appresi a seguito delle attività di addestramento inerenti la sicurezza?</div>
+                <div for="barriere_salvaguardia_5_8" style="display:inline; margin-top: -4px;font-size: 16px;">Are the correctness of the behaviors learned following the safety training activities systematically carried out?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1130,17 +1129,17 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_5_8" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_5_8_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -1159,7 +1158,7 @@
           <div class ="section bg-light-section">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Leadership per l'HSE </h4>
+                <h4 class="colorized">SAFETY LEADERSHIP </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -1170,33 +1169,33 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> I supervisori: </div>
+              <div class="lead" style="font-size: 15px;">Do the supervisors: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_1" style="margin-top: -4px;font-size: 16px;">Stabiliscono chiare responsabilità per l’HSE?</div>        
+                <div for="barriere_salvaguardia_6_1" style="margin-top: -4px;font-size: 16px;">establish clear responsibilities for HSE?</div>        
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_2" style="display:inline; margin-top: -4px;font-size: 16px;">Stabiliscono chiari obiettivi in termini di HSE?</div>
+                <div for="barriere_salvaguardia_6_2" style="display:inline; margin-top: -4px;font-size: 16px;">set clear HSE objectives?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Complessità</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1205,24 +1204,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_3" style="display:inline; margin-top: -4px;font-size: 16px;">Incoraggiano i lavoratori a suggerire miglioramenti per l'HSE?</div>
+                <div for="barriere_salvaguardia_6_3" style="display:inline; margin-top: -4px;font-size: 16px;">encourage workers to suggest HSE improvements?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza e Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1231,24 +1230,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_4" style="display:inline; margin-top: -4px;font-size: 16px;">Sottolineano l'importanza di indossare i DPI?</div>
+                <div for="barriere_salvaguardia_6_4" style="display:inline; margin-top: -4px;font-size: 16px;">underline the importance of wearing PPE?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1257,24 +1256,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_5" style="display:inline; margin-top: -4px;font-size: 16px;">Si accertano che siano rispettate tutte le norme HSE, non solo quelle più importanti?</div>
+                <div for="barriere_salvaguardia_6_5" style="display:inline; margin-top: -4px;font-size: 16px;">ensure that all HSE standards are complied with, not only the most important ones?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1283,24 +1282,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_6" style="display:inline; margin-top: -4px;font-size: 16px;">Intervengono immediatamente a fronte di violazione delle norme/procedure HSE? </div>
+                <div for="barriere_salvaguardia_6_6" style="display:inline; margin-top: -4px;font-size: 16px;">intervene immediately in the event of a breach of HSE rules/procedures?  </div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1309,24 +1308,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_6" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_6_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_7" style="display:inline; margin-top: -4px;font-size: 16px;">Sono di esempio circa il rispetto delle norme HSE? </div>
+                <div for="barriere_salvaguardia_6_7" style="display:inline; margin-top: -4px;font-size: 16px;">act as examples of compliance with HSE standards? </div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Esperienza</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1335,24 +1334,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_7" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_7_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_6_8" style="display:inline; margin-top: -4px;font-size: 16px;">Richiedono di prestare attenzione alla salute e sicurezza in tutti i momenti (anche alla fine del turno di lavoro)?</div>
+                <div for="barriere_salvaguardia_6_8" style="display:inline; margin-top: -4px;font-size: 16px;">require attention to health and safety at all times (including at the end of the work shift)?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1361,17 +1360,17 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_6_8" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_6_8_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -1390,7 +1389,7 @@
           <div class ="section ">
             <div class="row" style="margin-bottom: 20px;"> 
               <div class="col">
-                <h4 class="colorized">Clima e cultura di HSE </h4>
+                <h4 class="colorized">SAFETY CLIMATE AND CULTURE </h4>
               </div>
               <div class="col" align="right">
                 <div >
@@ -1405,33 +1404,33 @@
                 </div>
   
               </div>
-              <div class="lead" style="font-size: 15px;"> In generale, nell'organizzazione si percepisce che: </div>
+              <div class="lead" style="font-size: 15px;"> In general, in the organization is it perceives that: </div>
             </div>
             
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_1" style="margin-top: -4px;font-size: 16px;">Il management dia una forte enfasi alle tematiche HSE lavorativa?</div>
+                <div for="barriere_salvaguardia_7_1" style="margin-top: -4px;font-size: 16px;">the management puts strong emphasis on work-related HSE topics?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_1" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_1_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_2" style="display:inline; margin-top: -4px;font-size: 16px;">Il management intervenga prima che accadano gli incidenti?</div>
+                <div for="barriere_salvaguardia_7_2" style="display:inline; margin-top: -4px;font-size: 16px;"> the management intervenes before incidents occur?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1440,24 +1439,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_2" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_2_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_3" style="display:inline; margin-top: -4px;font-size: 16px;">Il management consideri l'HSE importante quanto la produzione?</div>
+                <div for="barriere_salvaguardia_7_3" style="display:inline; margin-top: -4px;font-size: 16px;">the management considers HSE as important as production?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Complessità</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1466,24 +1465,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_3" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_3_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_4" style="display:inline; margin-top: -4px;font-size: 16px;">Si intervenga quando i lavoratori non rispettano le regole HSE?</div>
+                <div for="barriere_salvaguardia_7_4" style="display:inline; margin-top: -4px;font-size: 16px;">the management intervenes when workers do not comply with the HSE rules?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Tempo Disponibile</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1492,45 +1491,45 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_4" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_4_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
   
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_5" style="display:inline; margin-top: -4px;font-size: 16px;">I lavoratori e la dirigenza lavorino insieme per assicurare le migliori condizioni HSE possibili?</div>
+                <div for="barriere_salvaguardia_7_5" style="display:inline; margin-top: -4px;font-size: 16px;">workers and management work together to ensure the best possible HSE conditions?</div>
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_5" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_5_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_6" style="display: inline; margin-top: -4px;font-size: 16px;">Le norme e le procedure HSE siano utili?</div>
+                <div for="barriere_salvaguardia_7_6" style="display: inline; margin-top: -4px;font-size: 16px;">HSE standards and procedures are useful?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1539,24 +1538,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_6" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_6_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_7" style="display:inline; margin-top: -4px;font-size: 16px;">Le norme e le procedure HSE siano di facile applicazione?</div>
+                <div for="barriere_salvaguardia_7_7" style="display:inline; margin-top: -4px;font-size: 16px;">HSE standards and procedures are easy to apply?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1565,24 +1564,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_7" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_7_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_8" style="display:inline; margin-top: -4px;font-size: 16px;">Il contesto di lavoro sia adeguato alle norme HSE?</div>
+                <div for="barriere_salvaguardia_7_8" style="display:inline; margin-top: -4px;font-size: 16px;">the work environment is appropriate to the HSE standards?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>IUM e Contesto Ambientale</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1591,24 +1590,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_8" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_8_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_9" style="display:inline; margin-top: -4px;font-size: 16px;">Gli strumenti di lavoro siano adeguati alle norme HSE?</div>
+                <div for="barriere_salvaguardia_7_9" style="display:inline; margin-top: -4px;font-size: 16px;">the work tools are adequate for the HSE standards?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Complessità e IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1617,24 +1616,24 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_9" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_9_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
 
             <div class="row" style ="margin-bottom: 20px;">
               <div class="col-8">
-                <div for="barriere_salvaguardia_7_10" style="display:inline; margin-top: -4px;font-size: 16px;">i DPI siano adeguati alle norme di sicurezza?</div>
+                <div for="barriere_salvaguardia_7_10" style="display:inline; margin-top: -4px;font-size: 16px;">PPE are appropriate to the safety standards?</div>
                 <div style="display:inline;">
                   <a href="#." data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus hover" data-bs-html="true" data-bs-placement="right" data-bs-content='Vedi coerenza con  PSF: <i>Procedure e IUM</i>'>
                     <span style="width: 20px;height: 20px;color: rgb(33, 37, 41); margin-left: 8px;" data-feather="info"></span>
@@ -1643,17 +1642,17 @@
               </div>
               <div class="col-4">
                 <select id="barriere_salvaguardia_7_10" style="width: 100%;" onchange="updateJSONevent(event)">
-                  <option value="1" selected>Livello di Valutazione</option>
-                  <option value="1.0">Sì</option>
-                  <option value="0.66">Più sì che no</option>
-                  <option value="0.33">Più no che sì</option>
+                  <option value="1" selected>Evaluation</option>
+                  <option value="1.0">Yes</option>
+                  <option value="0.66">More yes than no</option>
+                  <option value="0.33">More no than yes</option>
                   <option value="0">No</option>
-                  <option value="-">Dato non rilevabile</option>
+                  <option value="-">Not measurable</option>
                 </select>
               </div>
               <br>
               <div class="form-group">
-                <label>Note:</label>
+                <label>Notes:</label>
                 <textarea id="barriere_salvaguardia_7_10_note" class="form-control" rows="1" onchange="updateJSONevent(event)" ></textarea>
               </div>
             </div>
@@ -1675,17 +1674,17 @@
             <div class="table-responsive">
               <table class="table table-striped table-sm">
                 <thead>
-                  <h4 class="colorized"  > Punteggi Totali</h6>
+                  <h4 class="colorized"  >Total Score</h6>
                 </thead>
                 <thead>
                   <tr>
-                    <th scope="col">Competenze non-tecniche di sicurezza</th>
-                    <th scope="col">Competenze tecniche di sicurezza</th>
-                    <th scope="col">Motivazione alla sicurezza</th>
-                    <th scope="col">Cittadinanza organizzativa di sicurezza</th>
-                    <th scope="col">Valutazione e sviluppo delle competenze per la sicurezza</th>
-                    <th scope="col">Leadership per l'HSE</th>
-                    <th scope="col">Clima e cultura di HSE</th>
+                    <th scope="col">NON-TECHNICAL SKILLS </th>
+                    <th scope="col">TECHNICAL SKILLS </th>
+                    <th scope="col">SAFETY MOTIVATION</th>
+                    <th scope="col">ORGANIZATIONAL SAFETY CITIZENSHIP</th>
+                    <th scope="col">ASSESSMENT AND DEVELOPMENT OF SAFETY SKILLS</th>
+                    <th scope="col">SAFETY LEADERSHIP</th>
+                    <th scope="col">SAFETY CLIMATE AND CULTURE</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1714,7 +1713,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <h5 class="modal-title " id="exampleModalLabel">New report creation</h5>
             <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
               <span data-feather="x" ></span>
             </button>
@@ -1725,13 +1724,13 @@
                 <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
                   
                 </div>
-                <label for="exampleInputEmail1">Nome Report</label>
-                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+                <label for="exampleInputEmail1">Report name</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Insert the report name...">
               </div>
               <br>
               <div align="right">
-                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
-                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Cancel</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Create</button>
               </div>
               
             </form>
