@@ -38,12 +38,12 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="../index.html">
                   <span data-feather="home"></span>
-                  Introduzione 
+                  Home 
                 </a>
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Report Corrente</span>
+              <span>Current Report</span>
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item" id="current_report_title_li">
@@ -52,83 +52,84 @@
               </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Modifica Report</span>
+              <span>Modify Report</span>
             </h6>
             <ul class="nav flex-column">
-                <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="./prob_errore.html">
-                    <span data-feather="alert-triangle"></span>
-                    Performance Shaping Factors – PSF
+                  <span data-feather="alert-triangle"></span>
+                  Performance Shaping Factors
                 </a>
-                </li>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="./barriere_dirette.html">
                   <span data-feather="code"></span>
-                  Barriere Dirette
+                  Direct Barriers
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./barriere_salvaguardia.html">
                   <span data-feather="life-buoy"></span>
-                  Barriere Salvaguardia
+                  Safeguard Barriers
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./valori_culturali.html">
                   <span data-feather="bar-chart-2"></span>
-                  Valori Culturali 
+                  Cultural Values 
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./risultati.html">
                   <span data-feather="activity"></span>
-                  Risultati
+                  Results
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./interventi.html">
                   <span data-feather="layers"></span>
-                  Interventi
+                  Interventions
                 </a>
               </li>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Reports History</span>
+              </h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.html">
+                    <span data-feather="file-text"></span>
+                    Archive
+                  </a>
+                </li>
+              </ul>              
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Storico Reports</span>
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="./reports.html">
-                  <span data-feather="file-text"></span>
-                  Archivio
-                </a>
-              </li>
-            </ul>       
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Salvataggio Reports</span>
+              <span>Reports Save</span>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createNewReport">
                   <span data-feather="file-plus"></span>
-                  Nuovo Report
+                  New Report
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" onclick="save()">
                   <span data-feather="download"></span>
-                  Scarica Report
+                  Downalod Report
                 </a>
-              </li>
+              </li> 
               <li class="nav-item">
                 <label for="file-loader" class="nav-link">
                   <span data-feather="upload"></span>
-                  Carica Report
+                  Load Report
                 </label>
                 <input id="file-loader" style="display: none;" type="file" value='Carica un file' onchange="load_data(event)" >
               </li>
             </ul>
           </div>
         </nav>
+        
 
         <!-- SNACKBARS BLOCK -->
         <div id="snackbar">New report ready to be modified!</div>
@@ -136,35 +137,35 @@
         <!-- MAIN CONTENT BLOCK -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h2 class="colorized">Documentazione </h1>
+                <h2 class="colorized">Documentation </h1>
             </div>
             <p class="lead" style="margin-bottom: 30px;">
-              Ciao, benvenuto nella pagina di documentazione. 
-              Qui troverai tutte le risposte alle domande sul funzionamento del software.              
+              Hi, welcome to the documentation page. 
+              Here you will find all the answers to questions about how the software works.              
             </p>
 
 
             <div class = "section  documentation_p">
                 <div class="documentation_margin_bottom">
                     <div class="row" class="documentation_margin_bottom"> 
-                      <h4 class="colorized">Sezioni</h4> 
+                      <h4 class="colorized">Sections</h4> 
                     </div>
-                    <p>Il menù laterale ti permette di accedere ad ogni sezione del programma. Esso è suddiviso in 5 macro-aree con a loro volta delle sotto-aree :</p>
+                    <p>The side menu allows you to access each section of the program. It is divided into 5 macro-areas with sub-areas:</p>
               </div>
             </div>
 
             <div class = "section bg-light-section documentation_p">
               <div class="documentation_margin_bottom">
                 <div class="row" class="documentation_margin_bottom"> 
-                  <h5 class="colorized">1. Introduzione</h5> 
+                  <h5 class="colorized">1. Home</h5> 
                 </div>
-                <p>è la sezione di benvenuto. Potrai accedere alle principali funzionalità del programma: </p>
+                <p>It's the welcome section. You will be able to access the main features of the program: </p>
                 <ul>
                   <li>
-                    Gestione dei Report 
+                    Report Management 
                   </li>
                   <li>
-                    Visualizzazione dei Risultati 
+                    Viewing Results 
                   </li>
                 </ul>
               </div>
@@ -173,9 +174,9 @@
             <div class = "section documentation_p">
               <div class="documentation_margin_bottom">
                 <div class="row" class="documentation_margin_bottom"> 
-                  <h5 class="colorized">2. Report Corrente</h5> 
+                  <h5 class="colorized">2. Current Report</h5> 
                 </div>
-                <p>in questa area viene visualizzato il nome del report corrente. Cliccando su di esso <i>(fig.1)</i> comparirà un area di testo dal quale è possibile rinominarlo <i>(fig.2)</i>.</p>
+                <p>This area displays the name of the current report. By clicking on it <i>(fig.1)</i>, a text area will appear from which it is possible to rename it <i>(fig.2)</i>.</p>
                 <div class="row">
                   <div class="col" align="center">
                     <figure class="documentation_img documentation_img_small">
@@ -197,22 +198,22 @@
             <div class = "section bg-light-section  documentation_p">
               <div class="documentation_margin_bottom">
                 <div class="row" class="documentation_margin_bottom"> 
-                  <h5 class="colorized">3.	Modifica Report</h5> 
+                  <h5 class="colorized">3.	Modify Report</h5> 
                 </div>
-                <p>In questa area sono presenti tutte le pagine di inserimento e visualizzazione dei dati riguardo al report. Le pagine e le loro funzionalità sono di seguito descritte: </p>
+                <p>In this area there are all the pages for the insertion and visualization of data regarding the report. The pages and their functions are described below: </p>
                 <br>
                 <!-- Performance Shaping Factors – PSF-->
                 <div class="documentation_margin_left">
                   <h5>Performance Shaping Factors – PSF</h5>
-                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti la probabilità di errore:</p>
+                  <p>This page is dedicated to managing and entering values regarding the probability of error:</p>
                   <ul>
-                    <li>Descrizione compito </li>
+                    <li>Task Description </li>
                     <li>Performance shaping factors</li>
                   </ul>
-                  <p>È possibile inserire due tipologie di valore <i>(fig.3)</i>: </p>
+                  <p>You can enter two types of values <i>(fig.3)</i>: </p>
                   <ul>
-                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
-                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                    <li><i>Evaluation</i> (menu where two or more values are present)</li>
+                    <li><i>Notes</i> (text box for entering notes associated with the previously requested value; the text area can be changed by dragging the bottom right corner).</li>
                   </ul>
                   <div class="row">
                     <div class="col" >
@@ -222,9 +223,9 @@
                       </figure>
                     </div>
                   </div>
-                  <p>Al termine della pagina è presente una tabella riassuntiva dei valori associati ad ogni PSF<i>(fig.4)</i>.<br>
-                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
-                    Ad ogni voce è associato un pulsante info che la descrive . 
+                  <p>At the end of the page there is a summary table of the values associated with each PSF<i>(fig.4)</i>.<br>
+                    The page is saved automatically every time a change is made. <br>
+                    Each item is associated with an info button that describes it.
                     </p>
                     <div class="row">
                       <div class="col" >
@@ -238,23 +239,23 @@
                 <br>
                 <!-- Barriere Dirette-->
                 <div class="documentation_margin_left">
-                  <h5>Barriere dirette</h5>
-                  <p>Questa pagina si dedica alla gestione e inserimento dei valori riguardanti le barriere dirette:</p>
+                  <h5>Direct Barriers</h5>
+                  <p>This page is dedicated to the management and insertion of values concerning direct barriers:</p>
                   <ul>
-                    <li>Prestazione sicura rispetto ai compiti </li>
-                    <li>Adesione alle norme/procedure di sicurezza</li>
-                    <li>Prestazione sicura orientata al contesto</li>
-                    <li>Partecipazione attiva alla sicurezza</li>
-                    <li>Lavoro di squadra</li>
-                    <li>Comunicazione inerente la sicurezza</li>
+                    <li>Safe performance of tasks	</li>
+                    <li>Compliance with safety rules/procedures	</li>
+                    <li>Safe performance in the context	</li>
+                    <li>Active participation in safety	</li>
+                    <li>Teamwork	</li>
+                    <li>Safety communication</li>
                   </ul>
-                  <p>È possibile inserire due tipologie di valore: </p>
+                  <p>You can enter two types of values: </p>
                   <ul>
-                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
-                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                    <li><i>Evaluation </i> (menu where two or more values are present)</li>
+                    <li><i>Notes</i> (text box for entering notes associated with the previously requested value; the text area can be changed by dragging the bottom right corner).</li>
                   </ul>
                   <p>
-                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date <li>(fig.5)</li>.<br>
+                    Upon completion of a section, the average value of the answers given will appear in the bottom right-hand corner <li>(fig.5)</li>.<br>
                     <div class="row">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -263,70 +264,68 @@
                           </figure>
                       </div>
                     </div>
-                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
-                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
-                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                    At the end of the page there will be a summary table of the scores associated with each section.<br>
+                    Saving the page is done automatically every time you make a change. <br>
+                    Each item is associated with an info button that describes it. <br>
                   </p>
                 </div>
                 <br>
                 <!-- Barriere Salvaguardia-->
                 <div class="documentation_margin_left">
-                  <h5>Barriere salvaguardia</h5>
-                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti le barriere salvaguardia:</p>
+                  <h5>Safeguard Barriers</h5>
+                  <p>This page is dedicated to the management and insertion of values regarding the safeguard barriers:</p>
                   <ul>
-                    <li>Competenze non-tecniche di sicurezza </li>
-                    <li>Competenze tecniche di sicurezza</li>
-                    <li>Motivazione alla sicurezza</li>
-                    <li>Cittadinanza organizzativa di sicurezza</li>
-                    <li>Valutazione e sviluppo delle competenze per la sicurezza</li>
-                    <li>Leadership per l'HSE</li>
-                    <li>Clima e cultura di HSE</li>
-                    <li>Performance shaping factors </li>
+                    <li>Non-technical Skills	</li>
+                    <li>Technical Skills	</li>
+                    <li>Safety Motivation	</li>
+                    <li>Organizational Safety Citizenship</li>
+                    <li>Skills Assessment and Development</li>
+                    <li>Safety Leadership	</li>
+                    <li>Safety Climate and Culture</li>
                   </ul>
-                  <p>È possibile inserire due tipologie di valore: </p>
+                  <p>You can enter two types of values: </p>
                   <ul>
-                    <li><i>Livello di valutazione</i> (menù dove sono presenti due o più valori)</li>
-                    <li><i>Note</i> (casella di testo per l’inserimento di note associate al valore precedentemente richiesto; l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                    <li><i>Evaluation </i> (menu where two or more values are present)</li>
+                    <li><i>Notes</i> (text box for entering notes associated with the previously requested value; the text area can be changed by dragging the bottom right corner).</li>
                   </ul>
                   <p>
-                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date.<br>
-                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
-                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
-                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                    Upon completion of a section, the average value of the answers given will appear at the bottom right.<br>
+                    At the end of the page there will be a summary table of the scores associated with each section.<br>
+                    Saving the page is done automatically every time you make a change. <br>
+                    Each item is associated with an info button that describes it. <br>
                   </p>
                 </div>
                 <br>
                 <!-- Valori Culturali-->
                 <div class="documentation_margin_left">
-                  <h5>Valori Culturali</h5>
-                  <p>Questa pagina si dedica alla gestione e all’inserimento dei valori riguardanti i valori culturali:</p>
+                  <h5>Cultural Values</h5>
+                  <p>This page is dedicated to managing and entering values regarding cultural values:</p>
                   <ul>
-                    <li>Individualismo</li>
-                    <li>Distanza dal potere</li>
-                    <li>Prestazione sicura orientata al contesto</li>
-                    <li>Rigetto all'incertezza</li>
-                    <li>Mascolinità</li>
-                    <li>Orientamento a breve termine</li>
+                    <li>Individualism</li>
+                    <li>Distance from power</li>
+                    <li>Uncertainty Avoidance</li>
+                    <li>Masculinity</li>
+                    <li>Short-term orientation</li>
                   </ul>
-                  <p>È possibile inserire il:</p>
+                  <p>You can enter:</p>
                   <ul>
-                    <li><i>Livello di valutazione</i> (menù dove è possibile inserire: SI, se l’affermazione rispecchia l’ambiente di lavoro; NO, se non lo rispecchia).</li>
+                    <li><i>Evaluation</i> (menu where you can enter: YES, if the statement reflects the work environment; NO, if it does not).</li>
                   </ul>
                   <p>
-                    Al completamento di una sezione, in basso a destra comparirà il valore medio delle risposte date.<br>
-                    Al termine della pagina sarà presente una tabella riassuntiva dei punteggi associati ad ogni sezione.<br>
-                    Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. <br>
-                    Ad ogni voce è associato un pulsante info che la descrive. <br>
+                    Upon completion of a section, the average value of the answers given will appear at the bottom right.<br>
+                    At the end of the page there will be a summary table of the scores associated with each section.<br>
+                    Saving the page is done automatically every time you make a change. <br>
+                    Each item is associated with an info button that describes it. <br>
                   </p>
                 </div>
                 <br>
                 <!-- Interventi-->
                 <div class="documentation_margin_left">
-                  <h5>Interventi</h5>
-                  <p>Questa pagina descrive le modalità operative mediante le quali i punteggi del THEME Tool sono associati a specifici interventi.<br>
-                  Lo stato di ogni area può essere:</p>
+                  <h5>Interventions</h5>
+                  <p>This page describes the operational methods by which THEME Tool scores are associated with specific interventions.<br>
+                    The status of each area can be:</p>
                   <ul>
-                    <li><i style="color: red;">Critico</i>: la criticità dell'elemento è alta. Cliccando sulla sezione comparirà una tabella degli elementi da eseguire suddivisi in: area intervento, strategia intervento, descrizione intervento e raccomandazioni. Al termine della sezione è presente un area di testo dove è possibile inserire delle note (l’area di testo può essere modificata trascinando l’angolo in basso a destra) <li>(fig.6)</li>.</li>
+                    <li><i style="color: red;">Critical</i>: the criticality of the element is high. By clicking on the section, a table of the elements to be performed will appear divided into: intervention area, intervention strategy, intervention description and recommendations. At the end of the section there is a text area where it is possible to insert notes (the text area can be modified by dragging the bottom right corner) <li>(fig.6)</li>.</li>
                     <div class="row">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -335,17 +334,17 @@
                           </figure>
                       </div>
                     </div>
-                    <li><i style="color: greenyellow;"></i>Non Critico</li>: la criticità dell'elemento è bassa. Al termine della sezione è presente un area di testo dove è possibile inserire delle note (l’area di testo può essere modificata trascinando l’angolo in basso a destra).</li>
+                    <li><i style="color: greenyellow;"></i>Non-critical</li>: lthe criticality of the element is low. At the end of the section there is a text area where it is possible to insert notes (the text area can be modified by dragging the bottom right corner).</li>
                   </ul>
-                  <p>Il salvataggio della pagina è eseguito in maniera automatica ogni volta che si effettua un cambiamento. </p>
+                  <p>Saving the page is done automatically every time you make a change. </p>
                 </div>
                 <br>
                 <!-- Risultati-->
                 <div class="documentation_margin_left">
-                  <h5>Risultati</h5>
+                  <h5>Results</h5>
                   <p>
-                    In questa pagina vengono generati i grafici relativi ai valori descritti nelle seguenti pagine: probabilità di errore, barriere dirette, barriere salvaguardia e valori culturali. <br>
-                    Ad ogni pagina è associato una tabella e due grafici di tipo <i>radar (fig.8)</i> e a <i>barre (fig.7)</i>.<br>
+                    This page generates graphs for the values described on the following pages: error probability, direct barriers, safeguard barriers, and cultural values. <br>
+                    Each page is associated with a table and two charts of type <i> "Radar" (fig.8)</i> and  <i> "Bars" (fig.7)</i>.<br>
                     <div class="row">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -354,11 +353,11 @@
                           </figure>
                       </div>
                     </div>
-                    In fondo alla pagina è presente un grafico a barre ed una tabella riassuntiva di tutti i valori.
+                    At the bottom of the page is a bar graph and a summary table of all values.
                     <br><br>
-                    Per visualizzare meglio i singoli grafici bisogna cliccare sull'icona <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="maximize"></span> in alto a destra in ogni sezione.
-                    Per scaricare il singolo grafico è necessario cliccare sull'icona <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="save"></span>  in alto a destra in ogni sezione.
-                    Per scaricare un file pdf in cui è presnete l'intera pagina <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="printer"></span> è necessario cliccare sull'icona presente alla sinistra della sezione <i>Risultati (fig.8)</i>
+                    To better visualize the single graphs, click on the icon <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="maximize"></span> at the top right of each section.
+                    To download the single chart it is necessary to click on the icon <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="save"></span>  at the top right of each section.
+                    To download a pdf file in which is present the entire page <span style="width: 15px;height: 15px;color: #747474; margin: 4px;" data-feather="printer"></span> it is necessary to click on the icon on the left of the section <i>Results (fig.8)</i>
                     <div class="row" style="margin-top: 20px;">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -379,15 +378,15 @@
             <div class = "section documentation_p ">
               <div class="documentation_margin_bottom">
                 <div class="row" class="documentation_margin_bottom"> 
-                  <h5 class="colorized">4. Storico Report</h5> 
+                  <h5 class="colorized">4. Report History </h5> 
                 </div>
-                <p>in questa area è presente la voce archivio dalla quale è possibile accedere allo storico dei report. Le pagine e le loro funzionalità sono di seguito descritte:</p>
+                <p>In this area there is the archive entry from which it is possible to access the report history. The pages and their functions are described below:</p>
                 <div class="documentation_margin_left">
-                  <h5>Archivio</h5>
+                  <h5>Archive</h5>
                   <p>
-                    In questa pagina è presente lo storico di tutti i report in ordine di data.<br>
-                    Per selezionare un report come report corrente è necessario cliccare sul pulsante <i>Modifica</i><i>(fig.9)</i>.<br>
-                    Per eliminare un report è necessario cliccare sul pulsante <i>Elimina</i><i>(fig.9)</i>. <br>
+                    In this page there is the history of all reports in date order.<br>
+                    To select a report as the current report you need to click on the button <i>Open</i><i>(fig.9)</i>.<br>
+                    To delete a report it is necessary to click on the button <i>Delete</i><i>(fig.9)</i>. <br>
                     <div class="row">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -396,7 +395,7 @@
                           </figure>
                       </div>
                     </div>
-                    Per ricercare un report specifico inserire il nome della barra di ricerca in alto. <i>(fig.10)</i>
+                    To search for a specific report enter the name in the search bar at the top. <i>(fig.10)</i>
                     <div class="row">
                       <div class="col" >
                           <figure class="documentation_img documentation_img_long">
@@ -414,11 +413,11 @@
             <div class = "section bg-light-section  documentation_p">
               <div class="documentation_margin_bottom">
                 <div class="row" class="documentation_margin_bottom"> 
-                  <h5 class="colorized">4. Salavataggio Report</h5> 
+                  <h5 class="colorized">4.Reports Save</h5> 
                 </div>
-                <p>in questa area sono presenti 3 funzionalità:</p>
+                <p>In this area there are 3 functionalities:</p>
                 <ul>
-                  <li><i>Nuovo Report: </i>selezionando questa voce <i>(fig.11)</i> comparirà un popup dove potrai inserire il nome del nuovo report e procedere alla creazione;<i>(fig.12)</i></li>
+                  <li><i>New Report: </i> By selecting this item <i>(fig.11)</i> a popup will appear where you can enter the name of the new report and proceed to its creation;<i>(fig.12)</i></li>
                   <div class="row">
                     <div class="col" align="center">
                       <figure class="documentation_img documentation_img_small">
@@ -433,8 +432,8 @@
                       </figure>
                     </div>
                   </div>
-                  <li><i>Scarica Report:</i>selezionando questa voce il report corrente verrà salvato nella cartella desiderata;</li>
-                  <li><i>Carica Report: </i>selezionando questa voce è possibile caricare un report da una cartella e impostarlo come report corrente.</li>
+                  <li><i>Download Report:</i>by selecting this item the current report will be saved in the desired folder;</li>
+                  <li><i>Load Report: </i>by selecting this item you can load a report from a folder and set it as the current report.</li>
                 </ul>
               </div>
             </div>
@@ -452,7 +451,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title " id="exampleModalLabel">Creazione Nuovo Report</h5>
+            <h5 class="modal-title " id="exampleModalLabel">New report creation</h5>
             <button type="button" class="close button_modal_new_report" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal()">
               <span data-feather="x" ></span>
             </button>
@@ -463,13 +462,13 @@
                 <div class="alert alert-warning" role="alert" id="alert_modal" style="display: none;">
                   
                 </div>
-                <label for="exampleInputEmail1">Nome Report</label>
-                <input type="text" required class="form-control" id="report_name"  placeholder="Inserisci nome report">
+                <label for="exampleInputEmail1">Report name</label>
+                <input type="text" required class="form-control" id="report_name"  placeholder="Insert the report name...">
               </div>
               <br>
               <div align="right">
-                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Annulla</button>
-                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Crea</button>
+                <button type="button"  data-bs-dismiss="modal" class="btn btn-light" onclick="close_modal()">Cancel</button>
+                <button type="button" class="btn btn-primary"  onclick="create_report_from_modal(document.getElementById('report_name'))">Create</button>
               </div>
               
             </form>
