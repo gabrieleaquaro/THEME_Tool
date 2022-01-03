@@ -727,14 +727,14 @@ function toggleIconRotation(id){
 //GENERATE THE CHART OF PSF IN RESUTS PAGE
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
-    const chart_labels = ["Tempo",
-                         "Stress da Minaccia",
-                         "Complessità",
-                         "Esperienza",
-                         "Procedure",
-                         "Interazione U-M",
-                         "Contesto Amb.",
-                         "Affaticamento"
+    const chart_labels = ["Time",
+                         "Threat Stress",
+                         "Complexity",
+                         "Experience",
+                         "Procedures",
+                         "HMI",
+                         "Environment",
+                         "Fatigue"
                         ];
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
@@ -763,7 +763,7 @@ function generateChart_PSF(values){
         labels: chart_labels,
         datasets: [
             {
-                label: 'Effetto negativo',
+                label: 'Negative Effect',
                 data: [4,4,4,4,4,4,4,4],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -774,7 +774,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'Basso effetto negativo',
+                label: 'Small negative effect',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -785,7 +785,7 @@ function generateChart_PSF(values){
                 hitRadius: 0
             },
             {   
-                label: 'Effetto positivo o neutro',
+                label: 'Positive/Neutral effect',
                 data: [2,2,2,2,2,2,2,2],
                 backgroundColor : green_transp,
                 borderColor :'#00000000',
@@ -902,15 +902,15 @@ function generateChart_PSF(values){
 //GENERATES THE BAR-CHART FOR THE PSF 
 function generateBarChart_PSF(values){
     const DATA_COUNT = 8;
-    const chart_labels = ["Tempo",
-                         "Stress da Minaccia",
-                         "Complessità",
-                         "Esperienza",
-                         "Procedure",
-                         "Interazione U-M",
-                         "Contesto Amb.",
-                         "Affaticamento"
-                        ];
+    const chart_labels = ["Time",
+                        "Threat Stress",
+                        "Complexity",
+                        "Experience",
+                        "Procedures",
+                        "HMI",
+                        "Environment",
+                        "Fatigue"
+                       ];
 
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
@@ -1034,12 +1034,12 @@ function generateBarChart_PSF(values){
 //GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
-    const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
-                         ["Adesione alle norme o","procedure di sicurezza "],
-                         ["Prestazione sicura", "orientata al contesto"],
-                         ["Partecipazione attiva", "alla sicurezza"],
-                         "Lavoro di squadra",
-                         ["Comunicazione inerente", "la sicurezza"]
+    const chart_labels = [["Safe performance", "of tasks"],
+                         ["Compliance with safety","rules/procedures"],
+                         ["Safe performance", "in the context"],
+                         ["Active participation", "in safety"],
+                         "Teamwork",
+                         ["Safety", "communication"]
                         ];
 
     var values_list =  [values["PrestSicuraCompiti"],
@@ -1058,7 +1058,7 @@ function generateChart_Barriere_dirette(values){
         labels: chart_labels,
         datasets: [
             {   
-                label: 'Barriera non efficace',
+                label: 'Non-effective',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -1070,7 +1070,7 @@ function generateChart_Barriere_dirette(values){
                 
             },
             {   
-                label: 'Barriera moderatamente efficace',
+                label: 'Moderately effective',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
@@ -1081,7 +1081,7 @@ function generateChart_Barriere_dirette(values){
                 hitRadius: 0
             },
             {   
-                label: "Barriera efficace",
+                label: "Effective",
                 data: [1,1,1,1,1,1],
                 backgroundColor : green_transp,
                 borderColor :  '#00000000',
@@ -1177,12 +1177,12 @@ function generateChart_Barriere_dirette(values){
 //GENERATES THE BAR-CHART FOR THE "BARRIRE DIRETTE" 
 function generateBarChart_BD(values){
     const DATA_COUNT = 8;
-    const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
-                         ["Adesione alle norme o","procedure di sicurezza "],
-                         ["Prestazione sicura", "orientata al contesto"],
-                         ["Partecipazione attiva", "alla sicurezza"],
-                         "Lavoro di squadra",
-                         ["Comunicazione inerente", "la sicurezza"]
+    const chart_labels = [["Safe performance", "of tasks"],
+                        ["Compliance with safety","rules/procedures"],
+                        ["Safe performance", "in the context"],
+                        ["Active participation", "in safety"],
+                        "Teamwork",
+                        ["Safety", "communication"]
                         ];
 
     var values_list =  [values["PrestSicuraCompiti"],
@@ -1276,13 +1276,13 @@ function generateBarChart_BD(values){
 function generateChart_Barriere_Salvaguardia(values){
     const DATA_COUNT = 8;
 
-    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
-                         ["Competenze tecniche","di sicurezza"],
-                         ["Motivazione alla ", "sicurezza"],
-                         ["Cittadinanza organizzativa ", "di sicurezza"],
-                         ["Valutazione e sviluppo","delle competenze per la sicurezza"],
-                         "Leadership per l'HSE",
-                         "Clima e cultura di HSE"
+    const chart_labels = ["Non-technical Skills",
+                         "Technical Skills",
+                         "Safety Motivation",
+                         ["Organizational Safety", "Citizenship"],
+                         ["Skills Assessment","and Development"],
+                         "Safety Leadership",
+                         "Safety Climate and Culture"
                         ];
 
     var values_list =  [values["CompNonTechSicurezza"],
@@ -1302,7 +1302,7 @@ function generateChart_Barriere_Salvaguardia(values){
         labels: chart_labels,
         datasets: [
             {   
-                label: 'Barriera non efficace',
+                label: 'Non-Effective',
                 data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
@@ -1314,7 +1314,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 
             },
             {   
-                label: 'Barriera moderatamente efficace',
+                label: 'Moderately effective',
                 data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
@@ -1325,7 +1325,7 @@ function generateChart_Barriere_Salvaguardia(values){
                 hitRadius: 0
             },
             {   
-                label: 'Barriera efficace',
+                label: 'Effective',
                 data: [1,1,1,1,1,1,1],
                 backgroundColor : green_transp,
                 borderColor :  '#00000000',
@@ -1421,13 +1421,13 @@ function generateChart_Barriere_Salvaguardia(values){
 function generateBarChart_BS(values){
     const DATA_COUNT = 8;
 
-    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
-                         ["Competenze tecniche","di sicurezza"],
-                         ["Motivazione alla ", "sicurezza"],
-                         ["Cittadinanza organizzativa ", "di sicurezza"],
-                         ["Valutazione e sviluppo","delle competenze per la sicurezza"],
-                         "Leadership per l'HSE",
-                         "Clima e cultura di HSE"
+    const chart_labels = ["Non-technical Skills",
+                        "Technical Skills",
+                        "Safety Motivation",
+                        ["Organizational Safety", "Citizenship"],
+                        ["Skills Assessment","and Development"],
+                        "Safety Leadership",
+                        "Safety Climate and Culture"
                         ];
 
     var values_list =  [values["CompNonTechSicurezza"],
@@ -1523,11 +1523,11 @@ function generateBarChart_BS(values){
 function generateChart_Valori_Culturali(values){
     const DATA_COUNT = 8;
 
-    const chart_labels = ["Individualismo",
-                         "Distanza del potere",
-                         "Rigetto all'incertezza",
-                         "Mascolinità",
-                         ["Orientamento", "a breve termine"]
+    const chart_labels = ["Individualism",
+                         "Distance from power",
+                         "Uncertainty Avoidance",
+                         "Masculinity",
+                         ["Short-term", "orientation"]
                         ];
 
     var values_list =  [values["Individualismo"],
