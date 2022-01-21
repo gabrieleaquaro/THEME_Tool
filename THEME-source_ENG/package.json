@@ -1,8 +1,8 @@
 {
-  "name": "theme",
+  "name": "theme_en",
   "productName": "Theme (EN)",
   "version": "1.2.0",
-  "description": "THEME tool",
+  "description": "THEME tool - English Version",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
