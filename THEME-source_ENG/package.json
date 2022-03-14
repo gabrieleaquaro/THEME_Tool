@@ -1,7 +1,7 @@
 {
   "name": "theme_en",
   "productName": "Theme (EN)",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "THEME tool - English Version",
   "main": "index.js",
   "scripts": {
