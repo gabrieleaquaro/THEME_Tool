@@ -1,14 +1,1 @@
-1. 
-2. Controllare Legende PSF (non ci deve eseere "sulla probabilità di errore" scritto, era in una delle mail ma non so se c'è
-
-Inserire la legenda per i colori come informazione, proporrei (attendiamo ok prima che Gabriele/Francesco procedano): 
-V	PSF:
-        ROSSO: PSF con effetto negativo 
-        GIALLO: PSF con basso effetto negativo 
-        VERDE: PSF con effetto positivo o neutro
-V	BARRIERE:
-        ROSSO: Barriera non efficace
-        GIALLO: Barriera moderatamente efficace
-        VERDE: Barriera efficace  
-
 
