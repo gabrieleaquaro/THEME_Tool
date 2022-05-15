@@ -1,8 +1,9 @@
 {
     "lastModifiedReport": "prova",
-    "openedWindows": 0,
+    "openedWindows": 1,
     "currentReports": {
-        "0": "prova"
+        "0": "prova",
+        "1": "prova"
     },
-    "ping": 1641143870029
+    "ping": 1652651085007
 }
