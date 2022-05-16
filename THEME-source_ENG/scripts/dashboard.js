@@ -177,15 +177,23 @@ function updateBarriereDirette_results(data){
 //Update della tabella a file barriere dirette
 function updateBarriereSalvaguardia_results(data){
 
-    elements = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
-
+    const elements = {
+        "CompNonTechSicurezza" : 1,"CompTechSicurezza":2,"MotivazioneSicurezza":3,"CittadinanzaSicurezza":4,"LeaderHSE":6,"ClimaHSE":7}
+    const lengths = {
+        1 : 9,
+        2 : 6,
+        3: 6,
+        4 : 9,
+        5 :0,
+        6 :9, 
+        7 : 11,
+    }
     var val;
 
-    for(var i = 1; i< elements.length + 1; i++){
+    Object.entries(elements).forEach(([el, i]) => {
         val=0
-        max = (i==2 || i == 3) ? 6 : i == 7 ? 11 : 9 
+        max = lengths[i];
         var count = 0
-        
         for(var j = 1; j< max; j++){
             //console.log("barriere_salvaguardia_"+i+"_" + j +': ', data["barriere_salvaguardia_"+i+"_" + j])
             if(data["barriere_salvaguardia_"+i+"_" + j] == undefined){
@@ -200,10 +208,10 @@ function updateBarriereSalvaguardia_results(data){
         if(val != "-"){
             val = Math.round(val / count * 100) / 100;
         }   
-        document.getElementById(elements[i - 1]).innerText = val;
-        document.getElementById(elements[i - 1] + "_1").innerText =  val;
-        updateJSON(elements[i - 1],  val);
-    }
+        document.getElementById(el).innerText = val;
+        document.getElementById(el + "_1").innerText =  val;
+        updateJSON(el,  val);
+    });
 }
 
 //Update della tabella a file barriere dirette
@@ -313,7 +321,7 @@ function updateRisultati_results(report){
 
     if(report['barriere_salvaguardia']){
         //First table of Barriere Dirette
-        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
             if(report['barriere_salvaguardia'][key] != null && report['barriere_salvaguardia'][key] != '-' ){
                 let value = report['barriere_salvaguardia'][key];
@@ -331,7 +339,7 @@ function updateRisultati_results(report){
     }else{
         generateChart_Barriere_Salvaguardia({});
         generateBarChart_BS({});
-        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
             document.getElementById(key).innerText = '-';
         });
@@ -448,7 +456,7 @@ function updateRisultati_results(report){
     change = true
 
     if(report['barriere_salvaguardia']){
-        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","ValutazioneSicurezza","LeaderHSE","ClimaHSE"]
+        elements_barriereSalvaguardia = ["CompNonTechSicurezza","CompTechSicurezza","MotivazioneSicurezza","CittadinanzaSicurezza","LeaderHSE","ClimaHSE"]
         elements_barriereSalvaguardia.forEach(function(key){
            
             if(report['barriere_salvaguardia'][key] == undefined || report['barriere_salvaguardia'][key] == '-' ){
@@ -675,9 +683,6 @@ function updateInterventi_results(report){
             interventsCreation("ClimaHSE");
         }
         
-        if(report["barriere_salvaguardia"]["ValutazioneSicurezza"] < 0.5){
-            interventsCreation("ValutazioneSicurezza");
-        }
     }
 
     if(report["valori_culturali"]){
@@ -1280,7 +1285,6 @@ function generateChart_Barriere_Salvaguardia(values){
                          "Technical Skills",
                          "Safety Motivation",
                          ["Organizational Safety", "Citizenship"],
-                         ["Skills Assessment","and Development"],
                          "Safety Leadership",
                          "Safety Climate and Culture"
                         ];
@@ -1289,7 +1293,6 @@ function generateChart_Barriere_Salvaguardia(values){
                         values["CompTechSicurezza"],
                         values["MotivazioneSicurezza"],
                         values["CittadinanzaSicurezza"],
-                        values["ValutazioneSicurezza"],
                         values["LeaderHSE"],
                         values["ClimaHSE"]]; 
 
@@ -1303,7 +1306,7 @@ function generateChart_Barriere_Salvaguardia(values){
         datasets: [
             {   
                 label: 'Non-Effective',
-                data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5],
+                data: [0.5,0.5,0.5,0.5,0.5,0.5],
                 backgroundColor : red_transp,
                 borderColor : '#00000000',
                 fill:'origin',
@@ -1315,7 +1318,7 @@ function generateChart_Barriere_Salvaguardia(values){
             },
             {   
                 label: 'Moderately effective',
-                data: [0.7,0.7,0.7,0.7,0.7,0.7,0.7],
+                data: [0.7,0.7,0.7,0.7,0.7,0.7],
                 backgroundColor : yellow_transp,
                 fill:{value:0.5},
                 order:4,
@@ -1326,7 +1329,7 @@ function generateChart_Barriere_Salvaguardia(values){
             },
             {   
                 label: 'Effective',
-                data: [1,1,1,1,1,1,1],
+                data: [1,1,1,1,1,1],
                 backgroundColor : green_transp,
                 borderColor :  '#00000000',
                 pointRadius : 0,
@@ -1425,7 +1428,6 @@ function generateBarChart_BS(values){
                         "Technical Skills",
                         "Safety Motivation",
                         ["Organizational Safety", "Citizenship"],
-                        ["Skills Assessment","and Development"],
                         "Safety Leadership",
                         "Safety Climate and Culture"
                         ];
@@ -1434,7 +1436,6 @@ function generateBarChart_BS(values){
                         values["CompTechSicurezza"],
                         values["MotivazioneSicurezza"],
                         values["CittadinanzaSicurezza"],
-                        values["ValutazioneSicurezza"],
                         values["LeaderHSE"],
                         values["ClimaHSE"]]; 
 
