@@ -27,11 +27,16 @@
     "barriere_salvaguardia": {
         "CompNonTechSicurezza": "-",
         "CompTechSicurezza": "-",
-        "MotivazioneSicurezza": "-",
+        "MotivazioneSicurezza": 0.86,
         "CittadinanzaSicurezza": "-",
         "ValutazioneSicurezza": "-",
         "LeaderHSE": "-",
-        "ClimaHSE": "-"
+        "ClimaHSE": "-",
+        "barriere_salvaguardia_3_1": "1.0",
+        "barriere_salvaguardia_3_2": "1.0",
+        "barriere_salvaguardia_3_3": "0.66",
+        "barriere_salvaguardia_3_4": "1.0",
+        "barriere_salvaguardia_3_5": "0.66"
     },
     "barriere_dirette": {
         "PrestSicuraCompiti": "-",
