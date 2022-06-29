@@ -148,7 +148,7 @@ function updateBarriereDirette_results(data){
     var total_val = 0;
     for(var i = 1; i< elements.length + 1; i++){
         val = 0
-        max = i != 6 ? 6 : 7
+        max = i == 1 || i == 3 || i == 5? 5 : i != 6 ? 6 : 7
         var count = 0
         for(var j = 1; j < max; j++){
             if(data["barriere_dirette_"+i+"_" + j] == undefined){
@@ -181,7 +181,7 @@ function updateBarriereSalvaguardia_results(data){
         "CompNonTechSicurezza" : 1,"CompTechSicurezza":2,"MotivazioneSicurezza":3,"CittadinanzaSicurezza":4,"LeaderHSE":6,"ClimaHSE":7}
     const lengths = {
         1 : 9,
-        2 : 6,
+        2 : 5,
         3: 6,
         4 : 9,
         5 :0,

@@ -27,7 +27,7 @@
     "barriere_salvaguardia": {
         "CompNonTechSicurezza": 0.79,
         "CompTechSicurezza": 0.6,
-        "MotivazioneSicurezza": 1,
+        "MotivazioneSicurezza": 0.8,
         "CittadinanzaSicurezza": 0.62,
         "ValutazioneSicurezza": "-",
         "LeaderHSE": 0.81,
@@ -61,7 +61,7 @@
         "barriere_salvaguardia_1_6": "1.0",
         "barriere_salvaguardia_1_7": "0.66",
         "barriere_salvaguardia_3_2": "1",
-        "barriere_salvaguardia_3_3": "1",
+        "barriere_salvaguardia_3_3": "0",
         "barriere_salvaguardia_3_4": "1.0",
         "barriere_salvaguardia_3_5": "1.0",
         "barriere_salvaguardia_4_1": "0.66",
@@ -93,14 +93,14 @@
         "Esperienza": "1.0",
         "Procedure": "5",
         "InterazioneUmanoMacchina": "10",
-        "ContestoAmbientale": "10",
+        "ContestoAmbientale": "100",
         "Affaticamento": "10",
-        "TipoTask": "0.26",
-        "PSFComposto": 5000000,
-        "ProbErrore": 1300000,
-        "ProbErroreAdj": 1,
+        "TipoTask": "0.001",
+        "PSFComposto": 50000000,
+        "ProbErrore": 50000,
+        "ProbErroreAdj": 0.99998,
         "Cluster1": 1000,
         "Cluster2": 50,
-        "Cluster3": 100
+        "Cluster3": 1000
     }
 }
