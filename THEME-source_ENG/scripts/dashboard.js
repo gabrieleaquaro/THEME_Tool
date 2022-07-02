@@ -547,7 +547,7 @@ function updateRisultati_results(report){
             let i = value < 0.001 ? 0 : value > 0.01  ? 2  : 1;
             document.getElementById("ProbErroreAdj_barriere_valori_2").style.backgroundColor = colori[i]; 
             
-            commenti = ["Risultato positivo – da mantenere: almeno un ordine di grandezza inferiore al target","Risultato da attenzionare”: dello stesso ordine di grandezza del target","Risultato da migliorare: almeno un ordine di grandezza superiore al target"]
+            commenti = ["Positive result - to be maintained: at least an order of magnitude below target","Outcome to watch out for: same order of magnitude as target","Outcome to improve: at least an order of magnitude above target"]
             document.getElementById("Comment").innerText = commenti[i]
         }else{
             document.getElementById("ProbErroreAdj_barriere_valori").setAttribute("aria-valuenow", 0);
@@ -733,12 +733,12 @@ function toggleIconRotation(id){
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Time",
-                         "Threat Stress",
+                         "Stress",
                          "Complexity",
                          "Experience",
-                         "Procedures",
-                         "HMI",
-                         "Environment",
+                         "Rules",
+                         "Human Machine Interface",
+                         "Environmental Context",
                          "Fatigue"
                         ];
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
@@ -779,7 +779,7 @@ function generateChart_PSF(values){
                 hitRadius: 0,
             },
             {   
-                label: 'Small negative effect',
+                label: 'Moderatly effect',
                 data: [3,3,3,3,3,3,3,3],
                 backgroundColor : yellow_transp,
                 borderColor :'#00000000',
@@ -908,14 +908,14 @@ function generateChart_PSF(values){
 function generateBarChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Time",
-                        "Threat Stress",
-                        "Complexity",
-                        "Experience",
-                        "Procedures",
-                        "HMI",
-                        "Environment",
-                        "Fatigue"
-                       ];
+    "Stress",
+    "Complexity",
+    "Experience",
+    "Rules",
+    "Human Machine Interface",
+    "Environmental Context",
+    "Fatigue"
+   ];
 
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
@@ -1039,12 +1039,12 @@ function generateBarChart_PSF(values){
 //GENERATE THE CHART OF BARRIERE_DIRETTE IN RESUTS PAGE
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
-    const chart_labels = [["Safe performance", "of tasks"],
-                         ["Compliance with safety","rules/procedures"],
-                         ["Safe performance", "in the context"],
-                         ["Active participation", "in safety"],
-                         "Teamwork",
-                         ["Safety", "communication"]
+    const chart_labels = [["Task Specific", "Safe performance"],
+                         ["Compliance"],
+                         ["Task Not Specific", "Safe performance"],
+                         ["Participation"],
+                         "Teamworking",
+                         ["Communication"]
                         ];
 
     var values_list =  [values["PrestSicuraCompiti"],
@@ -1182,13 +1182,13 @@ function generateChart_Barriere_dirette(values){
 //GENERATES THE BAR-CHART FOR THE "BARRIRE DIRETTE" 
 function generateBarChart_BD(values){
     const DATA_COUNT = 8;
-    const chart_labels = [["Safe performance", "of tasks"],
-                        ["Compliance with safety","rules/procedures"],
-                        ["Safe performance", "in the context"],
-                        ["Active participation", "in safety"],
-                        "Teamwork",
-                        ["Safety", "communication"]
-                        ];
+    const chart_labels = [["Task Specific Safe performance"],
+    ["Compliance"],
+    ["Task Not Specific", "Safe performance"],
+    ["Participation"],
+    "Teamworking",
+    "Communication"
+   ];
 
     var values_list =  [values["PrestSicuraCompiti"],
                         values["Adesione"],
@@ -1284,9 +1284,9 @@ function generateChart_Barriere_Salvaguardia(values){
     const chart_labels = ["Non-technical Skills",
                          "Technical Skills",
                          "Safety Motivation",
-                         ["Organizational Safety", "Citizenship"],
-                         "Safety Leadership",
-                         "Safety Climate and Culture"
+                         "Belonging",
+                         "Leadership HSE",
+                         "Safety Culture"
                         ];
 
     var values_list =  [values["CompNonTechSicurezza"],
@@ -1425,12 +1425,12 @@ function generateBarChart_BS(values){
     const DATA_COUNT = 8;
 
     const chart_labels = ["Non-technical Skills",
-                        "Technical Skills",
-                        "Safety Motivation",
-                        ["Organizational Safety", "Citizenship"],
-                        "Safety Leadership",
-                        "Safety Climate and Culture"
-                        ];
+    "Technical Skills",
+    "Safety Motivation",
+    "Belonging",
+    "Leadership HSE",
+    "Safety Culture"
+   ];
 
     var values_list =  [values["CompNonTechSicurezza"],
                         values["CompTechSicurezza"],

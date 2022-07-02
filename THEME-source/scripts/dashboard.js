@@ -734,12 +734,12 @@ function toggleIconRotation(id){
 function generateChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Tempo",
-                         "Stress da Minaccia",
+                         "Stress",
                          "Complessità",
                          "Esperienza",
                          "Procedure",
-                         "Interazione U-M",
-                         "Contesto Amb.",
+                         "IUM",
+                         "Contesto Ambientale",
                          "Affaticamento"
                         ];
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
@@ -909,14 +909,14 @@ function generateChart_PSF(values){
 function generateBarChart_PSF(values){
     const DATA_COUNT = 8;
     const chart_labels = ["Tempo",
-                         "Stress da Minaccia",
-                         "Complessità",
-                         "Esperienza",
-                         "Procedure",
-                         "Interazione U-M",
-                         "Contesto Amb.",
-                         "Affaticamento"
-                        ];
+    "Stress",
+    "Complessità",
+    "Esperienza",
+    "Procedure",
+    "IUM",
+    "Contesto Ambientale",
+    "Affaticamento"
+   ];
 
     var values_list =  [values["TempoDisponibie"],values["StressDaMinaccia"],values["ComplessitàTask"],
                         values["Esperienza"],values["Procedure"],values["InterazioneUmanoMacchina"],
@@ -1041,11 +1041,11 @@ function generateBarChart_PSF(values){
 function generateChart_Barriere_dirette(values){
     const DATA_COUNT = 8;
     const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
-                         ["Adesione alle norme o","procedure di sicurezza "],
-                         ["Prestazione sicura", "orientata al contesto"],
-                         ["Partecipazione attiva", "alla sicurezza"],
+                         ["Adesione alle norme"],
+                         ["Prestazione sicura", "rispetto al contesto"],
+                         ["Partecipazione attiva"],
                          "Lavoro di squadra",
-                         ["Comunicazione inerente", "la sicurezza"]
+                         ["Comunicazione"]
                         ];
 
     var values_list =  [values["PrestSicuraCompiti"],
@@ -1184,12 +1184,12 @@ function generateChart_Barriere_dirette(values){
 function generateBarChart_BD(values){
     const DATA_COUNT = 8;
     const chart_labels = [["Prestazione sicura", "rispetto ai compiti"],
-                         ["Adesione alle norme o","procedure di sicurezza "],
-                         ["Prestazione sicura", "orientata al contesto"],
-                         ["Partecipazione attiva", "alla sicurezza"],
-                         "Lavoro di squadra",
-                         ["Comunicazione inerente", "la sicurezza"]
-                        ];
+    ["Adesione alle norme"],
+    ["Prestazione sicura", "rispetto al contesto"],
+    ["Partecipazione attiva"],
+    "Lavoro di squadra",
+    ["Comunicazione"]
+   ];
 
     var values_list =  [values["PrestSicuraCompiti"],
                         values["Adesione"],
@@ -1282,12 +1282,12 @@ function generateBarChart_BD(values){
 function generateChart_Barriere_Salvaguardia(values){
     const DATA_COUNT = 8;
 
-    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
-                         ["Competenze tecniche","di sicurezza"],
+    const chart_labels = [["Competenze non-tecniche"],
+                         ["Competenze tecniche"],
                          ["Motivazione alla ", "sicurezza"],
-                         ["Cittadinanza organizzativa ", "di sicurezza"],
-                         "Leadership per l'HSE",
-                         "Clima e cultura di HSE"
+                         ["Appartenenza"],
+                         "Leadership di sicurezza",
+                         "Clima e cultura di sicurezza"
                         ];
 
     var values_list =  [values["CompNonTechSicurezza"],
@@ -1425,13 +1425,13 @@ function generateChart_Barriere_Salvaguardia(values){
 function generateBarChart_BS(values){
     const DATA_COUNT = 8;
 
-    const chart_labels = [["Competenze non-tecniche", "di sicurezza"],
-                         ["Competenze tecniche","di sicurezza"],
-                         ["Motivazione alla ", "sicurezza"],
-                         ["Cittadinanza organizzativa ", "di sicurezza"],
-                         "Leadership per l'HSE",
-                         "Clima e cultura di HSE"
-                        ];
+    const chart_labels =  [["Competenze non-tecniche"],
+    ["Competenze tecniche"],
+    ["Motivazione alla ", "sicurezza"],
+    ["Appartenenza"],
+    "Leadership di sicurezza",
+    "Clima e cultura di sicurezza"
+   ];
 
     var values_list =  [values["CompNonTechSicurezza"],
                         values["CompTechSicurezza"],
